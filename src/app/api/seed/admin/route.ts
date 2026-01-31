@@ -7,7 +7,7 @@ export async function GET() {
     try {
         await dbConnect();
 
-        const email = 'admin@alaqsa.com';
+        const email = 'cabahsas@gmail.com';
         const rawPassword = 'admin123'; // Initial password
         const hashedPassword = await hashPassword(rawPassword);
 

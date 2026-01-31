@@ -92,7 +92,7 @@ export default function LoginPage() {
                                 <Lock className="text-amber-500 group-hover:scale-110 transition-transform duration-300" size={32} />
                             </div>
                             <h1 className="text-3xl font-bold text-white mb-2 tracking-tight font-playfair">Welcome Back</h1>
-                            <p className="text-slate-400 text-sm">Sign in to manage Al Aqsa Transport</p>
+                            <p className="text-slate-400 text-sm">Sign in to manage Ahsas Cab</p>
                         </div>
 
                         {error && (
@@ -114,7 +114,7 @@ export default function LoginPage() {
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         className="w-full pl-12 pr-4 py-4 rounded-xl border border-slate-800 bg-slate-950/50 text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/50 transition-all shadow-inner"
-                                        placeholder="admin@alaqsa.com"
+                                        placeholder="admin@ahsascab.com"
                                         required
                                     />
                                 </div>
@@ -163,7 +163,7 @@ export default function LoginPage() {
                 </div>
 
                 <div className="text-center mt-8 text-slate-500 text-xs">
-                    &copy; {new Date().getFullYear()} Al Aqsa Umrah Transport. All rights reserved.
+                    &copy; {new Date().getFullYear()} Ahsas Cab. All rights reserved.
                 </div>
             </div>
         </div>
