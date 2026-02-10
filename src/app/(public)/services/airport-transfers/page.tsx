@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         canonical: 'https://alaqsaumrahtransport.com/services/airport-transfers',
     },
     openGraph: {
-        title: "Jeddah & Madinah Airport Transfers | Al Aqsa Transport",
+        title: "Jeddah & Madinah Airport Transfers | Ahsas Alrihlat",
         description: "Reliable airport pickups for Jeddah & Madinah. توصيل آمن ومريح من المطارات.",
         images: ["/images/fleet/gmc.png"],
         type: "website",
@@ -49,7 +49,7 @@ export default async function AirportTransfersPage() {
         "alternateName": "توصيل من مطار جدة الى مكة",
         "provider": {
             "@type": "TransportationService",
-            "name": "Al Aqsa Umrah Transport"
+            "name": "Ahsas Alrihlat"
         },
         "description": "Premium airport transfer service from King Abdulaziz International Airport (KAIA) to Makkah. خدمة نقل فاخرة من مطار الملك عبدالعزيز الى مكة.",
         "areaServed": {

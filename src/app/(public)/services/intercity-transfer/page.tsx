@@ -10,7 +10,7 @@ import { ShieldCheck, Star, UserCheck, Timer } from 'lucide-react';
 import { RouteWithPrices } from '@/services/routeService';
 
 export const metadata = {
-    title: "Makkah to Madinah Taxi & Intercity Transport | Al Aqsa",
+    title: "Makkah to Madinah Taxi & Intercity Transport | Ahsas Alrihlat",
     description: "Comfortable Makkah to Madinah transport. Reliable intercity taxi transfers between Jeddah, Makkah & Madinah. Enjoy a seamless, spiritual travel experience.",
     keywords: ["Makkah to Madinah taxi", "Madinah to Makkah transport", "Haramain transport", "VIP intercity taxi", "Jeddah to Madinah taxi", "KSA intercity transfer"],
     alternates: {
@@ -29,7 +29,7 @@ const jsonLd = {
     "name": "Intercity Transport Service",
     "provider": {
         "@type": "LocalBusiness",
-        "name": "Al Aqsa Transport"
+        "name": "Ahsas Alrihlat Transport"
     },
     "serviceType": "Ground Transport",
     "areaServed": {

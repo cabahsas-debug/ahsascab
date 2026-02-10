@@ -21,7 +21,7 @@ export default async function TermsPage() {
                     <section className={styles.section}>
                         <h2 className={styles.sectionTitle}>1. Introduction</h2>
                         <p className={styles.text}>
-                            Welcome to Al Aqsa Umrah Transport. By accessing our website and using our services, you agree to be bound by these Terms and Conditions. Please read them carefully before making a booking.
+                            Welcome to Ahsas Cab. By accessing our website and using our services, you agree to be bound by these Terms and Conditions. Please read them carefully before making a booking.
                         </p>
                     </section>
 
@@ -65,7 +65,7 @@ export default async function TermsPage() {
                     <section className={styles.section}>
                         <h2 className={styles.sectionTitle}>5. Limitation of Liability</h2>
                         <p className={styles.text}>
-                            Al Aqsa Umrah Transport shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your use of our services.
+                            Ahsas Alrihlat shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your use of our services.
                         </p>
                     </section>
 

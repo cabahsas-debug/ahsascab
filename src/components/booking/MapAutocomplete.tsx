@@ -72,15 +72,15 @@ const MapAutocomplete: React.FC<MapAutocompleteProps> = ({
     };
 
     return (
-        <div className={`flex flex-col gap-1.5 ${className}`}>
+        <div className={`flex flex-col gap-2 ${className}`}>
             {label && (
                 <label className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">
                     {label}
                 </label>
             )}
             <div className="relative group">
-                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-amber-500 transition-colors pointer-events-none">
-                    <MapPin size={20} />
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-secondary z-10 transition-colors pointer-events-none">
+                    <MapPin size={22} />
                 </div>
                 <input
                     ref={inputRef}
@@ -89,31 +89,31 @@ const MapAutocomplete: React.FC<MapAutocompleteProps> = ({
                     onChange={(e) => onChange(e.target.value)}
                     placeholder={placeholder}
                     className={`
-                        w-full pl-12 pr-10 py-4 bg-white dark:bg-slate-900 
-                        border-2 border-slate-100 dark:border-slate-800 
-                        rounded-2xl outline-none transition-all
-                        focus:border-amber-500/50 focus:ring-4 focus:ring-amber-500/10
-                        text-slate-900 dark:text-white placeholder:text-slate-400
-                        ${error ? 'border-red-500 focus:border-red-500 focus:ring-red-500/10' : ''}
+                        w-full pl-14 pr-10 py-4 bg-slate-50 dark:bg-slate-800/50 
+                        border border-slate-200 dark:border-slate-700 
+                        rounded-xl outline-none transition-all duration-300
+                        focus:border-secondary focus:ring-4 focus:ring-secondary/10 focus:bg-white
+                        text-primary dark:text-white font-medium placeholder:text-slate-400
+                        ${error ? 'border-red-500 bg-red-50' : ''}
                     `}
                 />
 
                 {value && (
                     <button
                         onClick={handleClear}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary dark:hover:text-white transition-colors p-1 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700"
                     >
-                        <X size={18} />
+                        <X size={16} />
                     </button>
                 )}
 
                 {isLoading && (
                     <div className="absolute right-12 top-1/2 -translate-y-1/2">
-                        <Loader2 size={18} className="animate-spin text-amber-500" />
+                        <Loader2 size={18} className="animate-spin text-secondary" />
                     </div>
                 )}
             </div>
-            {error && <span className="text-xs text-red-500 font-medium ml-1">{error}</span>}
+            {error && <span className="text-xs text-red-500 font-medium ml-1 flex items-center gap-1">Required</span>}
         </div>
     );
 };

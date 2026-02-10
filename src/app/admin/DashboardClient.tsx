@@ -124,25 +124,25 @@ export default function DashboardClient({
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-200 font-sans selection:bg-[#D4AF37]/30 transition-colors duration-300">
+        <div className="min-h-screen bg-slate-50 dark:bg-navy-950 text-navy-900 dark:text-gray-200 font-sans selection:bg-gold/30 transition-colors duration-300">
             {toast && <Toast message={toast.message} type={toast.type} isVisible={true} onClose={() => setToast(null)} />}
 
             <div className="max-w-[1600px] mx-auto p-6 space-y-8">
 
                 {/* Header Section */}
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-slate-200 dark:border-slate-800 pb-6">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-gray-200 dark:border-navy-800 pb-6">
                     <div>
-                        <h1 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
+                        <h1 className="text-3xl md:text-4xl font-bold text-navy-900 dark:text-white mb-2 tracking-tight font-playfair">
                             Command Center
                         </h1>
-                        <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base flex items-center gap-2">
+                        <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                             System Operational • {new Date().toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
                         </p>
                     </div>
                     <div className="flex gap-3">
                         <Link href="/admin/bookings">
-                            <button className="flex items-center gap-2 px-6 py-3 bg-[#D4AF37] hover:bg-[#B38E2D] text-white font-bold rounded-xl shadow-lg shadow-[#D4AF37]/20 transition-all active:scale-95">
+                            <button className="flex items-center gap-2 px-6 py-3 bg-gold hover:bg-gold/90 text-navy-900 font-bold rounded-xl shadow-lg shadow-gold/20 transition-all active:scale-95">
                                 <Plus size={20} />
                                 <span>New Booking</span>
                             </button>

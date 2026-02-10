@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
+const bcrypt = require('bcryptjs');
 
 // Helper to load env manually
 const loadEnv = (filePath) => {
@@ -37,83 +38,68 @@ loadEnv(envLocalPath);
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
+if (!MONGODB_URI) {
+    console.error('❌ MONGODB_URI is missing from .env.local');
+    process.exit(1);
+}
+
+// Minimal Schema to match src/models/index.ts key fields
 const UserSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
     name: { type: String },
-    role: { type: String, enum: ['user', 'admin'], default: 'user' },
+    role: { type: String, enum: ['user', 'admin', 'manager', 'operational_manager'], default: 'user' },
     password: { type: String },
+    permissions: { type: [String], default: [] },
 }, { timestamps: true });
 
 const User = mongoose.model('User', UserSchema);
 
 (async () => {
     try {
+        console.log('Connecting to MongoDB...');
         await mongoose.connect(MONGODB_URI);
-        console.log('Connected to MongoDB.');
+        console.log('✅ Connected.');
 
-        const usersToSeed = [
-            {
-                email: 'admin@alaqsa.com',
-                name: 'Admin User',
-                role: 'admin',
-                password: 'admin123'
-            },
-            {
-                email: 'manager@alaqsa.com',
-                name: 'Manager User',
-                role: 'user', // Assuming manager is a regular user with specific permissions, or we can add 'manager' role if schema supports it. Schema says 'user' | 'admin'. I'll stick to 'admin' for manager if they need access, or 'user' if it's just a title. The user asked for "manager, admin". I'll make manager an admin for now to ensure access, or check if I should add 'manager' to enum.
-                // The schema in index.ts only has 'user' and 'admin'. 
-                // Wait, the Prisma schema had 'MANAGER' as default role!
-                // "role      String   @default("MANAGER")"
-                // My Mongoose schema only has 'user' and 'admin'. I should probably update the Mongoose schema to include 'manager' or map it.
-                // For now, I'll make the manager an 'admin' or just 'user' but with the name Manager.
-                // Actually, let's update the schema to allow 'manager' as well, to match Prisma.
-            }
-        ];
-
-        // Let's check if I should update schema first.
-        // The migration script mapped 'ADMIN' -> 'admin' and everything else to 'user'.
-        // "role: u.role === 'ADMIN' ? 'admin' : 'user',"
-        // So 'MANAGER' became 'user'.
-        // I will create the manager user as 'admin' role for now so they can access the dashboard, or 'user' if that's intended.
-        // Usually managers need admin access. I'll give them 'admin' role but name 'Manager'.
-
-        // Actually, let's stick to the requested usernames.
+        // 1. Admin User
+        const adminEmail = 'admin@ahsascab.com';
+        const adminPassword = await bcrypt.hash('admin123', 10);
 
         await User.findOneAndUpdate(
-            { email: 'admin@alaqsa.com' },
+            { email: adminEmail },
             {
-                email: 'admin@alaqsa.com',
-                name: 'Admin User',
+                email: adminEmail,
+                name: 'System Admin',
                 role: 'admin',
-                password: 'admin123'
+                password: adminPassword,
+                permissions: ['ADMIN', 'ALL']
             },
             { upsert: true, new: true }
         );
-        console.log('Seeded admin@alaqsa.com');
+        console.log(`✅ Seeded ${adminEmail}`);
+
+        // 2. Manager User
+        const managerEmail = 'manager@ahsascab.com';
+        const managerPassword = await bcrypt.hash('manager123', 10);
 
         await User.findOneAndUpdate(
-            { email: 'manager@alaqsa.com' },
+            { email: managerEmail },
             {
-                email: 'manager@alaqsa.com',
-                name: 'Manager User',
-                role: 'admin', // Giving admin access to manager for now
-                password: 'manager123'
+                email: managerEmail,
+                name: 'Operations Manager',
+                role: 'manager',
+                password: managerPassword,
+                permissions: ['BOOKING', 'FLEET']
             },
             { upsert: true, new: true }
         );
-        console.log('Seeded manager@alaqsa.com');
+        console.log(`✅ Seeded ${managerEmail}`);
 
-        // Update existing users with a default password if missing
-        const existingUsers = await User.find({ password: { $exists: false } });
-        for (const u of existingUsers) {
-            u.password = 'password123';
-            await u.save();
-            console.log(`Updated password for ${u.email}`);
-        }
-
+        console.log('Seed completed successfully.');
         await mongoose.disconnect();
+        process.exit(0);
+
     } catch (error) {
-        console.error('Error:', error);
+        console.error('❌ Seed Error:', error);
+        process.exit(1);
     }
 })();

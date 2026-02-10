@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Image as ImageIcon, Plus, Trash2, Upload, X, MapPin } from 'lucide-react';
 import Image from 'next/image';
-import styles from '../admin.module.css';
+
 import { Toast } from '@/components/ui/Toast';
 import AdminConfirmDialog from '@/components/admin/AdminConfirmDialog';
 
@@ -192,12 +192,12 @@ export default function GalleryPage() {
 
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className={styles.title}>Visitor Gallery</h1>
-                    <p className="text-muted-foreground mt-1">Manage photos of your happy pilgrims</p>
+                    <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-gold to-yellow-500 bg-clip-text text-transparent font-playfair">Visitor Gallery</h1>
+                    <p className="text-gray-500 dark:text-gray-400 mt-1">Manage photos of your happy pilgrims</p>
                 </div>
                 <button
                     onClick={() => setShowModal(true)}
-                    className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform"
+                    className="flex items-center gap-2 bg-gold text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-gold/20 hover:scale-105 transition-transform"
                 >
                     <Plus size={20} />
                     Add Photo
@@ -207,14 +207,14 @@ export default function GalleryPage() {
             {loading ? (
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     {[1, 2, 3, 4].map(i => (
-                        <div key={i} className="h-64 bg-card/50 animate-pulse rounded-2xl border border-border" />
+                        <div key={i} className="h-64 bg-gray-100 dark:bg-navy-800 animate-pulse rounded-2xl border border-gray-200 dark:border-navy-700" />
                     ))}
                 </div>
             ) : items.length === 0 ? (
-                <div className="text-center py-20 bg-card/30 rounded-2xl border border-dashed border-border">
-                    <ImageIcon className="mx-auto text-muted-foreground mb-4 opacity-50" size={48} />
-                    <h3 className="text-xl font-semibold text-foreground">No photos yet</h3>
-                    <p className="text-muted-foreground">Upload your first photo to get started</p>
+                <div className="text-center py-20 bg-white dark:bg-navy-900 rounded-2xl border border-dashed border-gray-200 dark:border-navy-800">
+                    <ImageIcon className="mx-auto text-gray-400 mb-4 opacity-50" size={48} />
+                    <h3 className="text-xl font-semibold text-navy-900 dark:text-white">No photos yet</h3>
+                    <p className="text-gray-500 dark:text-gray-400">Upload your first photo to get started</p>
                 </div>
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -226,13 +226,14 @@ export default function GalleryPage() {
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
-                                className="group relative aspect-[3/4] rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-border shadow-sm hover:shadow-xl transition-all"
+                                className="group relative aspect-[3/4] rounded-2xl overflow-hidden bg-white dark:bg-navy-900 border border-gray-200 dark:border-navy-800 shadow-sm hover:shadow-xl transition-all"
                             >
                                 <Image
                                     src={item.image}
                                     alt={item.caption}
                                     fill
                                     className="object-cover transition-transform duration-500 group-hover:scale-110"
+                                    unoptimized
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                                     <p className="text-white font-bold truncate">{item.caption}</p>
@@ -259,11 +260,11 @@ export default function GalleryPage() {
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                        className="bg-card text-card-foreground border border-border rounded-2xl p-6 w-full max-w-lg shadow-2xl relative"
+                        className="bg-white dark:bg-navy-900 text-navy-900 dark:text-white border border-gray-200 dark:border-navy-800 rounded-2xl p-6 w-full max-w-lg shadow-2xl relative"
                     >
                         <button
                             onClick={() => setShowModal(false)}
-                            className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+                            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
                         >
                             <X size={20} />
                         </button>
@@ -273,7 +274,7 @@ export default function GalleryPage() {
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div className="space-y-2">
                                 <label className="text-sm font-medium">Photo</label>
-                                <div className="border-2 border-dashed border-border rounded-xl p-4 text-center hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors relative">
+                                <div className="border-2 border-dashed border-gray-200 dark:border-navy-700 rounded-xl p-4 text-center hover:bg-gray-50 dark:hover:bg-navy-800/50 transition-colors relative">
                                     <input
                                         type="file"
                                         accept="image/*"
@@ -282,13 +283,13 @@ export default function GalleryPage() {
                                         disabled={uploading}
                                     />
                                     {uploading ? (
-                                        <div className="text-amber-500">Uploading...</div>
+                                        <div className="text-gold">Uploading...</div>
                                     ) : formData.image ? (
                                         <div className="relative h-40 w-full rounded-lg overflow-hidden">
                                             <Image src={formData.image} alt="Preview" fill className="object-cover" />
                                         </div>
                                     ) : (
-                                        <div className="flex flex-col items-center gap-2 text-muted-foreground">
+                                        <div className="flex flex-col items-center gap-2 text-gray-400">
                                             <Upload size={24} />
                                             <span>Click to upload image</span>
                                         </div>
@@ -300,7 +301,7 @@ export default function GalleryPage() {
                                 <label className="text-sm font-medium">Caption</label>
                                 <input
                                     required
-                                    className="w-full p-2.5 rounded-lg border border-border bg-background"
+                                    className="w-full p-2.5 rounded-lg border border-gray-200 dark:border-navy-700 bg-white dark:bg-navy-950/50"
                                     value={formData.caption}
                                     onChange={e => setFormData({ ...formData, caption: e.target.value })}
                                     placeholder="e.g. Happy family in Makkah"
@@ -311,7 +312,7 @@ export default function GalleryPage() {
                                 <label className="text-sm font-medium">Location</label>
                                 <input
                                     required
-                                    className="w-full p-2.5 rounded-lg border border-border bg-background"
+                                    className="w-full p-2.5 rounded-lg border border-gray-200 dark:border-navy-700 bg-white dark:bg-navy-950/50"
                                     value={formData.location}
                                     onChange={e => setFormData({ ...formData, location: e.target.value })}
                                     placeholder="e.g. Makkah"
@@ -322,14 +323,14 @@ export default function GalleryPage() {
                                 <button
                                     type="button"
                                     onClick={() => setShowModal(false)}
-                                    className="px-4 py-2 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg"
+                                    className="px-4 py-2 text-sm font-medium hover:bg-gray-100 dark:hover:bg-navy-800 rounded-lg text-gray-600 dark:text-gray-300"
                                 >
                                     Cancel
                                 </button>
                                 <button
                                     type="submit"
                                     disabled={!formData.image || uploading}
-                                    className="px-6 py-2 bg-primary text-primary-foreground rounded-lg font-bold hover:opacity-90 disabled:opacity-50"
+                                    className="px-6 py-2 bg-gold text-white rounded-lg font-bold hover:bg-yellow-600 disabled:opacity-50"
                                 >
                                     Save Photo
                                 </button>

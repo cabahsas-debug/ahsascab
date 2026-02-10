@@ -14,7 +14,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle }) => {
             }}
         >
             <div className="container">
-                <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight bg-gradient-to-r from-amber-400 to-amber-500 bg-clip-text text-transparent">
+                <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight bg-gradient-to-r from-gold to-[#9F7928] bg-clip-text text-transparent">
                     {title}
                 </h1>
                 {subtitle && (

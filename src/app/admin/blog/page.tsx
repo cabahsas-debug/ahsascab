@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Plus, Edit, Trash2, Search, FileText } from 'lucide-react';
 
-import styles from '../admin.module.css';
 import { Toast } from '@/components/ui/Toast';
 import AdminConfirmDialog from '@/components/admin/AdminConfirmDialog';
 
@@ -27,10 +26,6 @@ export default function BlogAdminPage() {
         message: string;
         onConfirm: () => void;
     }>({ isOpen: false, title: '', message: '', onConfirm: () => { } });
-
-
-
-
 
     const showToast = React.useCallback((message: string, type: 'success' | 'error') => {
         setToast({ message, type });
@@ -92,12 +87,12 @@ export default function BlogAdminPage() {
 
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className={styles.title}>Blog Management</h1>
-                    <p className="text-muted-foreground mt-1">Manage your blog posts and articles</p>
+                    <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-gold to-yellow-500 bg-clip-text text-transparent font-playfair">Blog Management</h1>
+                    <p className="text-gray-500 dark:text-gray-400 mt-1">Manage your blog posts and articles</p>
                 </div>
                 <Link
                     href="/admin/blog/new"
-                    className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform"
+                    className="flex items-center gap-2 bg-gold text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-gold/20 hover:scale-105 transition-transform"
                 >
                     <Plus size={20} />
                     <span>New Post</span>
@@ -105,40 +100,42 @@ export default function BlogAdminPage() {
             </div>
 
             {/* Search and Filter */}
-            <div className="bg-card border border-border p-4 rounded-xl shadow-sm">
+            <div className="bg-white dark:bg-navy-900 border border-gray-200 dark:border-navy-800 p-4 rounded-xl shadow-sm">
                 <div className="relative">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
                     <input
                         type="text"
                         placeholder="Search posts..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                        className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 dark:border-navy-700 bg-gray-50 dark:bg-navy-950/50 text-navy-900 dark:text-white focus:ring-2 focus:ring-gold/20 focus:border-gold outline-none transition-all"
                     />
                 </div>
             </div>
 
             {/* Posts Table */}
-            <div className={styles.glassCard}>
+            <div className="bg-white/80 dark:bg-navy-900/80 backdrop-blur-md border border-gray-200 dark:border-navy-800 rounded-2xl shadow-sm overflow-hidden">
                 <div className="overflow-x-auto">
-                    <table className={styles.table}>
+                    <table className="w-full text-left border-collapse">
                         <thead>
-                            <tr>
-                                <th>Title</th>
-                                <th>Category</th>
-                                <th>Author</th>
-                                <th>Date</th>
-                                <th className="text-right">Actions</th>
+                            <tr className="border-b border-gray-200 dark:border-navy-800 bg-gray-50/50 dark:bg-navy-950/50">
+                                <th className="p-4 font-bold text-navy-900 dark:text-white uppercase tracking-wider text-xs">Title</th>
+                                <th className="p-4 font-bold text-navy-900 dark:text-white uppercase tracking-wider text-xs">Category</th>
+                                <th className="p-4 font-bold text-navy-900 dark:text-white uppercase tracking-wider text-xs">Author</th>
+                                <th className="p-4 font-bold text-navy-900 dark:text-white uppercase tracking-wider text-xs">Date</th>
+                                <th className="p-4 font-bold text-navy-900 dark:text-white uppercase tracking-wider text-xs text-right">Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className="divide-y divide-gray-100 dark:divide-navy-800">
                             {loading ? (
                                 <tr>
-                                    <td colSpan={5} className="p-8 text-center text-muted-foreground">Loading posts...</td>
+                                    <td colSpan={5} className="p-8 text-center text-gray-500">
+                                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gold mx-auto" />
+                                    </td>
                                 </tr>
                             ) : filteredPosts.length === 0 ? (
                                 <tr>
-                                    <td colSpan={5} className="p-8 text-center text-muted-foreground">
+                                    <td colSpan={5} className="p-8 text-center text-gray-500">
                                         <div className="flex flex-col items-center gap-2">
                                             <FileText size={32} className="opacity-20" />
                                             <p>No posts found</p>
@@ -147,32 +144,32 @@ export default function BlogAdminPage() {
                                 </tr>
                             ) : (
                                 filteredPosts.map((post) => (
-                                    <tr key={post.id} className="group hover:bg-slate-50/5 transition-colors">
-                                        <td className="font-medium">
-                                            <div className="text-foreground">{post.title}</div>
-                                            <div className="text-xs text-muted-foreground font-mono mt-1">{post.id}</div>
+                                    <tr key={post.id} className="group hover:bg-gray-50 dark:hover:bg-navy-800/50 transition-colors">
+                                        <td className="p-4 font-medium">
+                                            <div className="text-navy-900 dark:text-white">{post.title}</div>
+                                            <div className="text-xs text-gray-500 font-mono mt-1">{post.id}</div>
                                         </td>
-                                        <td>
-                                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-500/10 text-blue-500">
+                                        <td className="p-4">
+                                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold text-gold bg-gold/10 border border-gold/20">
                                                 {post.category}
                                             </span>
                                         </td>
-                                        <td className="text-muted-foreground">{post.author}</td>
-                                        <td className="text-muted-foreground">
+                                        <td className="p-4 text-gray-600 dark:text-gray-300">{post.author}</td>
+                                        <td className="p-4 text-gray-500">
                                             {new Date(post.date).toLocaleDateString()}
                                         </td>
-                                        <td className="text-right">
+                                        <td className="p-4 text-right">
                                             <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                                 <Link
                                                     href={`/admin/blog/${post.id}`}
-                                                    className="p-2 text-blue-500 hover:bg-blue-500/10 rounded-lg transition-colors"
+                                                    className="p-2 text-gold hover:bg-gold/10 rounded-lg transition-colors border border-transparent hover:border-gold/20"
                                                     title="Edit"
                                                 >
                                                     <Edit size={18} />
                                                 </Link>
                                                 <button
                                                     onClick={() => handleDelete(post.id)}
-                                                    className="p-2 text-red-500 hover:bg-red-500/10 rounded-lg transition-colors"
+                                                    className="p-2 text-red-500 hover:bg-red-500/10 rounded-lg transition-colors border border-transparent hover:border-red-500/20"
                                                     title="Delete"
                                                 >
                                                     <Trash2 size={18} />

@@ -38,7 +38,7 @@ export default function LoadingScreen() {
                     <div className={styles.logoImage}>
                         <Image
                             src="/logo.png"
-                            alt="Al Aqsa Transport"
+                            alt="Ahsas Cab"
                             fill
                             className="object-contain"
                             priority
@@ -48,7 +48,7 @@ export default function LoadingScreen() {
                 </div>
 
                 <div className={styles.textWrapper}>
-                    <h1 className={styles.title}>Al Aqsa Transport</h1>
+                    <h1 className={styles.title}>Ahsas Cab</h1>
                     <div className={styles.divider}></div>
                     <p className={styles.subtitle}>Premium Journey</p>
                 </div>

@@ -34,6 +34,7 @@ async function dbConnect() {
             bufferCommands: false,
             serverSelectionTimeoutMS: 5000,
             socketTimeoutMS: 45000,
+            family: 4, // Force IPv4 to resolve potential SSL/Connection issues
         };
 
         cached!.promise = mongoose.connect(MONGODB_URI!, opts).then((mongoose) => {

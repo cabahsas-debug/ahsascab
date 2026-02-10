@@ -12,7 +12,7 @@ export default function TeamTeaser() {
     return (
         <section className="py-20 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
             <div className="container mx-auto px-4 text-center">
-                <span className="text-amber-500 font-bold uppercase tracking-wider text-sm mb-2 block">Our Ambassadors</span>
+                <span className="text-secondary font-bold uppercase tracking-wider text-sm mb-2 block">Our Ambassadors</span>
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6 font-playfair">
                     Dedicated Professionals at Your Service
                 </h2>
@@ -21,25 +21,31 @@ export default function TeamTeaser() {
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
-                    <div className="flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-sm">
-                        <Shield className="text-amber-500" size={32} />
-                        <span className="font-bold">Verified & Vetted</span>
+                    <div className="flex flex-col items-center gap-4 p-8 bg-white dark:bg-slate-800 rounded-[24px] shadow-lg border border-slate-100 dark:border-slate-700 hover:-translate-y-1 transition-transform duration-300">
+                        <div className="bg-secondary/10 p-4 rounded-full text-secondary">
+                            <Shield className="" size={32} strokeWidth={1.5} />
+                        </div>
+                        <span className="font-bold text-lg text-primary dark:text-white">Verified & Vetted</span>
                     </div>
-                    <div className="flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-sm">
-                        <CheckCircle className="text-green-500" size={32} />
-                        <span className="font-bold">Multilingual Experts</span>
+                    <div className="flex flex-col items-center gap-4 p-8 bg-white dark:bg-slate-800 rounded-[24px] shadow-lg border border-slate-100 dark:border-slate-700 hover:-translate-y-1 transition-transform duration-300">
+                        <div className="bg-secondary/10 p-4 rounded-full text-secondary">
+                            <CheckCircle className="" size={32} strokeWidth={1.5} />
+                        </div>
+                        <span className="font-bold text-lg text-primary dark:text-white">Multilingual Experts</span>
                     </div>
-                    <div className="flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-sm">
-                        <CheckCircle className="text-green-500" size={32} />
-                        <span className="font-bold">Route Specialists</span>
+                    <div className="flex flex-col items-center gap-4 p-8 bg-white dark:bg-slate-800 rounded-[24px] shadow-lg border border-slate-100 dark:border-slate-700 hover:-translate-y-1 transition-transform duration-300">
+                        <div className="bg-secondary/10 p-4 rounded-full text-secondary">
+                            <CheckCircle className="" size={32} strokeWidth={1.5} />
+                        </div>
+                        <span className="font-bold text-lg text-primary dark:text-white">Route Specialists</span>
                     </div>
                 </div>
 
                 <Link
-                    href="/about"
-                    className="inline-flex items-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-8 py-4 rounded-xl font-bold hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors shadow-lg"
+                    href="/contact"
+                    className="inline-flex items-center gap-2 bg-primary dark:bg-white text-white dark:text-primary px-8 py-4 rounded-xl font-bold hover:bg-primary/90 dark:hover:bg-slate-100 transition-colors shadow-lg shadow-primary/20"
                 >
-                    Learn More About Us <ArrowRight size={20} />
+                    Contact Our Team <ArrowRight size={20} />
                 </Link>
             </div>
         </section>

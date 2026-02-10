@@ -37,7 +37,7 @@ const jsonLd = {
     "alternateName": "خدمات نقل المعتمرين في رمضان",
     "provider": {
         "@type": "LocalBusiness",
-        "name": "Al Aqsa Transport",
+        "name": "Ahsas Alrihlat",
         "image": "https://alaqsaumrahtransport.com/logo.png"
     },
     "serviceType": "Religious Tourism Transport",
@@ -125,7 +125,7 @@ export default async function RamadanTransportPage() {
                     </h2>
                     <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
                         Ramadan in Makkah and Madinah is a spiritually uplifting experience, but the logistics can be challenging.
-                        With millions of pilgrims, finding reliable transport can be difficult. Al Aqsa Transport ensures you arrive
+                        With millions of pilgrims, finding reliable transport can be difficult. Ahsas Alrihlat ensures you arrive
                         fresh and on time for your prayers, Ziyarat, and airport transfers.
                     </p>
                 </div>

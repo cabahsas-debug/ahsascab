@@ -43,7 +43,7 @@ const jsonLd = {
     "alternateName": "توصيل من مطار جدة الى مكة",
     "provider": {
         "@type": "LocalBusiness",
-        "name": "Al Aqsa Transport",
+        "name": "Ahsas Alrihlat",
         "image": "https://alaqsaumrahtransport.com/logo.png"
     },
     "serviceType": "Airport Transfer",
@@ -86,7 +86,7 @@ const jsonLd = {
 const jeddahAirportFAQs = [
     {
         question: "Where will the driver meet me?",
-        answer: "Our driver will be waiting for you at the arrival hall after you clear customs and baggage claim. They will be holding a sign with your name or 'Al Aqsa Transport'. We track your flight to ensure we are there when you land."
+        answer: "Our driver will be waiting for you at the arrival hall after you clear customs and baggage claim. They will be holding a sign with your name or 'Ahsas Alrihlat'. We track your flight to ensure we are there when you land."
     },
     {
         question: "What if my flight is delayed?",

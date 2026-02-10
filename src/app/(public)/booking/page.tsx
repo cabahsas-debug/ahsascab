@@ -733,7 +733,7 @@ export default function BookingPage() {
                                             <div className="absolute bottom-0 left-0 right-0 p-5">
                                                 <h3 className="text-2xl font-bold text-white mb-1 leading-tight flex items-center gap-2">
                                                     {v.name}
-                                                    {v.name.includes('GMC') && <span className="text-[10px] bg-amber-500 text-white px-2 py-0.5 rounded-full">VIP</span>}
+                                                    {v.name.includes('GMC') && <span className="text-[10px] bg-secondary text-white px-2 py-0.5 rounded-full">VIP</span>}
                                                 </h3>
                                                 <div className="flex items-center gap-3 text-white/80 text-sm font-medium">
                                                     <span>{v.capacity} Seater</span>
@@ -801,7 +801,7 @@ export default function BookingPage() {
                                                     <div className="flex justify-between items-start mb-1">
                                                         <span className={`block font-bold text-sm ${isSelected ? 'text-secondary dark:text-secondary' : 'text-slate-900 dark:text-white'}`}>
                                                             {vehicle.name}
-                                                            {vehicle.name.includes('GMC') && <span className="ml-2 text-[10px] bg-amber-100 text-amber-700 border border-amber-200 px-1.5 py-0.5 rounded-full">VIP</span>}
+                                                            {vehicle.name.includes('GMC') && <span className="ml-2 text-[10px] bg-secondary/10 text-secondary border border-secondary/20 px-1.5 py-0.5 rounded-full">VIP</span>}
                                                         </span>
                                                         <div className="text-right shrink-0 ml-2">
 
@@ -1285,7 +1285,7 @@ export default function BookingPage() {
                 {/* Digital Ticket Container */}
                 <div className="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-100 dark:border-slate-800 relative">
                     {/* Top Gold Bar */}
-                    <div className="h-2 w-full bg-gradient-to-r from-secondary/80 to-[#B38E2D]" />
+                    <div className="h-2 w-full bg-gradient-to-r from-secondary/80 to-secondary" />
 
                     <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-100 dark:divide-slate-800">
 
@@ -1324,7 +1324,7 @@ export default function BookingPage() {
                                         )}
                                     </div>
                                 </div>
-                                <button onClick={() => setStep(1)} className="text-xs font-bold text-secondary hover:text-[#B38E2D] hover:underline underline-offset-4">
+                                <button onClick={() => setStep(1)} className="text-xs font-bold text-secondary hover:text-secondary/80 hover:underline underline-offset-4">
                                     EDIT
                                 </button>
                             </div>
@@ -1335,7 +1335,7 @@ export default function BookingPage() {
                                         <Briefcase size={18} className="text-secondary" />
                                         Selected Vehicles
                                     </h4>
-                                    <button onClick={() => setStep(2)} className="text-xs font-bold text-secondary hover:text-[#B38E2D] hover:underline underline-offset-4">
+                                    <button onClick={() => setStep(2)} className="text-xs font-bold text-secondary hover:text-secondary/80 hover:underline underline-offset-4">
                                         EDIT
                                     </button>
                                 </div>
@@ -1366,7 +1366,7 @@ export default function BookingPage() {
                             <div className="mb-8">
                                 <div className="flex justify-between items-start mb-4">
                                     <h4 className="font-bold text-slate-900 dark:text-white text-sm uppercase tracking-wider">Passenger</h4>
-                                    <button onClick={() => setStep(3)} className="text-[10px] font-bold text-secondary hover:text-[#B38E2D] hover:underline underline-offset-4">
+                                    <button onClick={() => setStep(3)} className="text-[10px] font-bold text-secondary hover:text-secondary/80 hover:underline underline-offset-4">
                                         EDIT
                                     </button>
                                 </div>
@@ -1498,7 +1498,7 @@ export default function BookingPage() {
                     <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm ring-4 ring-white dark:ring-slate-800">
                         <CheckCircle size={36} className="text-green-600 dark:text-green-400" />
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-[#D4AF37] mb-2">Booking Confirmation</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-2">Booking Confirmation</h2>
                 </div>
 
                 <div className="p-6 md:p-10 space-y-8">
@@ -1506,7 +1506,7 @@ export default function BookingPage() {
                     <div className="text-center md:text-left text-slate-600 dark:text-slate-300 space-y-4 text-base md:text-lg leading-relaxed print:hidden">
                         <p>Dear <span className="font-bold text-slate-900 dark:text-white capitalize">{bookingData.name}</span>,</p>
                         <p>
-                            Thank you for choosing <span className="font-semibold text-secondary text-nowrap">Al Aqsa Umrah Transport</span>.
+                            Thank you for choosing <span className="font-semibold text-secondary text-nowrap">Ahsas Alrihlat</span>.
                         </p>
                     </div>
 
@@ -1519,15 +1519,15 @@ export default function BookingPage() {
                         <div className="hidden print:flex flex-row justify-between items-center p-8 border-b border-slate-100">
                             <div className="flex items-center gap-4">
                                 <div className="relative w-16 h-16">
-                                    <Image src="/logo.png" alt="Al Aqsa" fill className="object-contain" />
+                                    <Image src="/logo.png" alt="Ahsas Alrihlat" fill className="object-contain" />
                                 </div>
                                 <div>
-                                    <h1 className="text-xl font-bold text-slate-900">Al Aqsa Transport</h1>
-                                    <p className="text-sm text-slate-500 font-serif">النقل المعتمر الأقصى</p>
+                                    <h1 className="text-xl font-bold text-slate-900">Ahsas Alrihlat</h1>
+                                    <p className="text-sm text-slate-500 font-serif">نقل احساس الرحلات</p>
                                 </div>
                             </div>
                             <div className="text-right">
-                                <h2 className="text-lg font-bold text-[#D4AF37] uppercase tracking-wider">Booking Receipt</h2>
+                                <h2 className="text-lg font-bold text-secondary uppercase tracking-wider">Booking Receipt</h2>
                                 <p className="text-xs text-slate-400 mt-1">Confirmed</p>
                             </div>
                         </div>
@@ -1547,7 +1547,7 @@ export default function BookingPage() {
 
                         <div className="p-6 grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-y-6 gap-x-8">
                             <div className="col-span-1 md:col-span-2 print:col-span-2 pb-4 border-b border-slate-100 dark:border-slate-700/50 text-center">
-                                <p className="text-2xl text-[#D4AF37] font-serif mb-2">﷽</p>
+                                <p className="text-2xl text-secondary font-serif mb-2">﷽</p>
                                 <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Booking Reference / مرجع الحجز</span>
                                 <span className="block font-mono text-2xl md:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
                                     {(bookingResponse?._id || bookingResponse?.id || 'PENDING').toString().slice(-8).toUpperCase()}
@@ -1604,7 +1604,7 @@ export default function BookingPage() {
                                 <p className="text-lg font-serif italic text-slate-700 mb-2">"The reward of Umrah is expiation for the sins committed between it and the next Umrah."</p>
                                 <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">– Prophet Muhammad (S.A.W.W)</p>
                                 <div className="mt-4 text-[10px] text-slate-300">
-                                    Generated by Al Aqsa Transport System
+                                    Generated by Ahsas Alrihlat System
                                 </div>
                             </div>
                         </div>

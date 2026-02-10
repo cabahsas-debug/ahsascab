@@ -510,7 +510,7 @@ const QuickBookingForm = ({
 
                             {/* Route Selection Pills */}
                             <div className="col-span-full mb-3">
-                                <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-2 block">Where are you going?</label>
+                                <label className="text-xs font-bold text-navy/60 dark:text-gray-400 uppercase tracking-wide mb-2 block">Where are you going?</label>
                                 <div className="flex flex-wrap gap-2 mt-1.5">
                                     {[
                                         { label: 'Jeddah ⇄ Makkah', icon: PlaneLanding, pickup: 'Jeddah Airport', dropoff: 'Makkah Hotel' },
@@ -557,12 +557,12 @@ const QuickBookingForm = ({
                                                 className={`
                                                     flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border
                                                     ${isActive
-                                                        ? 'bg-slate-900 border-slate-900 text-white shadow-lg scale-105'
-                                                        : 'bg-white border-slate-200 text-slate-600 hover:border-amber-500 hover:text-amber-600 hover:bg-amber-50'
+                                                        ? 'bg-navy border-navy text-white shadow-lg scale-105'
+                                                        : 'bg-white border-gray-200 text-gray-600 hover:border-gold hover:text-gold hover:bg-gold/5'
                                                     }
                                                 `}
                                             >
-                                                <route.icon size={16} className={isActive ? 'text-amber-400' : 'text-slate-400'} />
+                                                <route.icon size={16} className={isActive ? 'text-gold' : 'text-gray-400'} />
                                                 {route.label}
                                             </button>
                                         );
@@ -576,9 +576,9 @@ const QuickBookingForm = ({
 
                                 {/* Date Input */}
                                 <div className="md:col-span-3 relative">
-                                    <label className="text-[10px] uppercase font-bold text-slate-400 mb-1 ml-1 block">Travel Date</label>
+                                    <label className="text-[10px] uppercase font-bold text-navy/40 mb-1 ml-1 block">Travel Date</label>
                                     <div className="relative">
-                                        <Calendar size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                                        <Calendar size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-navy/40" />
                                         <input
                                             type="date"
                                             value={formData.date ? formData.date.toISOString().split('T')[0] : ''}
@@ -587,7 +587,7 @@ const QuickBookingForm = ({
                                                 handleDateChange(new Date(e.target.value));
                                             }}
                                             min={minDate}
-                                            className="w-full pl-10 pr-3 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-medium outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all"
+                                            className="w-full pl-10 pr-3 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-medium outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all text-navy"
                                         />
                                     </div>
                                     {errors.date && <span className="absolute -bottom-4 left-0 text-[10px] text-red-500">{errors.date}</span>}
@@ -595,9 +595,9 @@ const QuickBookingForm = ({
 
                                 {/* Time Input */}
                                 <div className="md:col-span-3 relative">
-                                    <label className="text-[10px] uppercase font-bold text-slate-400 mb-1 ml-1 block">Pickup Time</label>
+                                    <label className="text-[10px] uppercase font-bold text-navy/40 mb-1 ml-1 block">Pickup Time</label>
                                     <div className="relative">
-                                        <Clock size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                                        <Clock size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-navy/40" />
                                         <input
                                             type="time"
                                             value={formData.time ? formData.time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }) : ''}
@@ -607,7 +607,7 @@ const QuickBookingForm = ({
                                                 const t = new Date(); t.setHours(h); t.setMinutes(m);
                                                 handleTimeChange(t);
                                             }}
-                                            className="w-full pl-10 pr-3 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-medium outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all"
+                                            className="w-full pl-10 pr-3 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-medium outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all text-navy"
                                         />
                                     </div>
                                     {errors.time && <span className="absolute -bottom-4 left-0 text-[10px] text-red-500">{errors.time}</span>}
@@ -615,7 +615,7 @@ const QuickBookingForm = ({
 
                                 {/* Vehicle Select (Simplified) */}
                                 <div className="md:col-span-6 relative">
-                                    <label className="text-[10px] uppercase font-bold text-slate-400 mb-1 ml-1 block">Preferred Vehicle</label>
+                                    <label className="text-[10px] uppercase font-bold text-navy/40 mb-1 ml-1 block">Preferred Vehicle</label>
                                     <SearchableSelect
                                         name="vehicleId"
                                         value={formData.vehicleId}
@@ -669,9 +669,9 @@ const QuickBookingForm = ({
                             {/* Passenger & Luggage (Compact Row) */}
                             <div className="col-span-full grid grid-cols-2 md:grid-cols-4 gap-3 mt-2">
                                 <div className="relative">
-                                    <label className="text-[10px] uppercase font-bold text-slate-400 mb-1 ml-1 block">Vehicles</label>
+                                    <label className="text-[10px] uppercase font-bold text-navy/40 mb-1 ml-1 block">Vehicles</label>
                                     <div className="relative">
-                                        <Car size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                                        <Car size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-navy/40" />
                                         <input
                                             type="number"
                                             name="vehicleCount"
@@ -679,21 +679,21 @@ const QuickBookingForm = ({
                                             max="5"
                                             value={formData.vehicleCount}
                                             onChange={handleChange}
-                                            className="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 pl-9 text-sm outline-none focus:border-amber-500 transition-colors"
+                                            className="w-full bg-white border border-gray-200 rounded-xl px-4 py-2.5 pl-9 text-sm outline-none focus:border-gold transition-colors text-navy"
                                         />
                                     </div>
                                 </div>
                                 <div className="relative">
-                                    <label className="text-[10px] uppercase font-bold text-slate-400 mb-1 ml-1 block">Passengers</label>
+                                    <label className="text-[10px] uppercase font-bold text-navy/40 mb-1 ml-1 block">Passengers</label>
                                     <div className="relative">
-                                        <User size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                                        <User size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-navy/40" />
                                         <input
                                             type="number"
                                             name="passengers"
                                             min="1"
                                             value={formData.passengers}
                                             onChange={handleChange}
-                                            className="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 pl-9 text-sm outline-none focus:border-amber-500 transition-colors"
+                                            className="w-full bg-white border border-gray-200 rounded-xl px-4 py-2.5 pl-9 text-sm outline-none focus:border-gold transition-colors text-navy"
                                         />
                                     </div>
                                 </div>
@@ -762,19 +762,19 @@ const QuickBookingForm = ({
                                     {formData.routeId && formData.vehicleId ? (
                                         (() => {
                                             const { price, originalPrice, discountApplied } = calculatePrice(formData.routeId, formData.vehicleId);
-                                            if (price === 0) return <span className="text-sm text-slate-400">Select route & vehicle to see price</span>;
+                                            if (price === 0) return <span className="text-sm text-navy/40">Select route & vehicle to see price</span>;
                                             return (
                                                 <div className="flex flex-col">
-                                                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Estimate</span>
+                                                    <span className="text-xs font-semibold text-navy/40 uppercase tracking-wider">Total Estimate</span>
                                                     <div className="flex items-baseline gap-2">
-                                                        <span className="text-2xl font-bold text-slate-900">{price * formData.vehicleCount} <span className="text-base font-medium text-slate-500">SAR</span></span>
-                                                        {discountApplied > 0 && <span className="text-sm text-slate-400 line-through">{originalPrice} SAR</span>}
+                                                        <span className="text-2xl font-bold text-navy">{price * formData.vehicleCount} <span className="text-base font-medium text-navy/60">SAR</span></span>
+                                                        {discountApplied > 0 && <span className="text-sm text-navy/40 line-through">{originalPrice} SAR</span>}
                                                     </div>
                                                 </div>
                                             );
                                         })()
                                     ) : (
-                                        <span className="text-sm text-slate-400 italic">Instant quote available</span>
+                                        <span className="text-sm text-navy/40 italic">Instant quote available</span>
                                     )}
                                 </div>
 
@@ -783,7 +783,7 @@ const QuickBookingForm = ({
                                     <button
                                         type="submit"
                                         disabled={isSubmitting}
-                                        className="w-full md:w-64 bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg shadow-amber-500/20 active:scale-95 transition-all flex items-center justify-center gap-2"
+                                        className="w-full md:w-64 bg-gold hover:bg-gold/90 text-white font-bold py-3 px-6 rounded-xl shadow-lg shadow-gold/20 active:scale-95 transition-all flex items-center justify-center gap-2"
                                     >
                                         {isSubmitting ? (
                                             <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />

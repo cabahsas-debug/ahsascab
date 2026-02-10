@@ -8,14 +8,15 @@
     width: 100%;
     position: relative;
     z-index: 10;
-    /* Ultra Premium Glass Effect */
-    background: rgba(15, 23, 42, 0.65);
+    /* Ultra Premium Navy Glass Effect */
+    background: rgba(10, 25, 47, 0.85);
+    /* Navy transparent */
     backdrop-filter: blur(24px) saturate(180%);
     -webkit-backdrop-filter: blur(24px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow:
         0 25px 50px -12px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+        0 0 0 1px rgba(212, 175, 55, 0.1) inset;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,11 +26,11 @@
 }
 
 .container:hover {
-    background: rgba(15, 23, 42, 0.75);
+    background: rgba(6, 17, 33, 0.9);
     box-shadow:
         0 35px 70px -15px rgba(0, 0, 0, 0.6),
-        0 0 0 1px rgba(251, 191, 36, 0.2) inset;
-    border-color: rgba(251, 191, 36, 0.3);
+        0 0 0 1px rgba(212, 175, 55, 0.2) inset;
+    border-color: rgba(212, 175, 55, 0.3);
 }
 
 /* Gradient Border Effect - Gold/Amber */
@@ -40,8 +41,8 @@
     border-radius: 24px;
     padding: 1.5px;
     background: linear-gradient(135deg,
-            rgba(255, 255, 255, 0.2) 0%,
-            rgba(251, 191, 36, 0.3) 50%,
+            rgba(255, 255, 255, 0.15) 0%,
+            var(--gold) 50%,
             rgba(255, 255, 255, 0.1) 100%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -72,7 +73,7 @@
     font-family: 'Playfair Display', serif;
     letter-spacing: -0.02em;
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    background: linear-gradient(to bottom, #ffffff, #fcd34d);
+    background: linear-gradient(to bottom, #eae0c8, var(--gold));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -130,7 +131,7 @@
 
 .inputWrapper:focus-within+.label,
 .inputGroup:hover .label {
-    color: #fcd34d;
+    color: var(--gold);
 }
 
 .inputWrapper {
@@ -152,8 +153,8 @@
 }
 
 .inputWrapper:focus-within .icon {
-    color: #fbbf24;
-    filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.6));
+    color: var(--gold);
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6));
     transform: translateY(-50%) scale(1.1);
 }
 
@@ -164,8 +165,8 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
     font-size: 0.9rem;
-    /* Glass Input */
-    background: rgba(255, 255, 255, 0.07);
+    /* Deep Navy Glass Input */
+    background: rgba(10, 25, 47, 0.3);
     backdrop-filter: blur(10px);
     color: white;
     outline: none;
@@ -187,16 +188,16 @@
 }
 
 .input:focus {
-    border-color: #fbbf24;
-    background: rgba(15, 23, 42, 0.6);
+    border-color: var(--gold);
+    background: rgba(10, 25, 47, 0.7);
     box-shadow:
-        0 0 0 1px rgba(251, 191, 36, 0.5),
-        0 0 15px rgba(251, 191, 36, 0.15);
+        0 0 0 1px rgba(212, 175, 55, 0.3),
+        0 0 15px rgba(212, 175, 55, 0.1);
     transform: translateY(-2px);
 }
 
 .inputWrapper:focus-within .input {
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(10, 25, 47, 0.8);
 }
 
 /* Error Styles */
@@ -235,7 +236,7 @@
 .select {
     appearance: none;
     cursor: pointer;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23fbbf24' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23D4AF37' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
     background-position: right 1rem center;
     background-repeat: no-repeat;
     background-size: 1em 1em;
@@ -243,7 +244,7 @@
 }
 
 .select option {
-    background: #0f172a;
+    background: var(--navy);
     color: white;
     padding: 12px;
 }
@@ -280,7 +281,7 @@
 
 .activeTab {
     background: rgba(255, 255, 255, 0.1);
-    color: #fbbf24;
+    color: var(--gold);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -316,7 +317,7 @@
     box-shadow:
         0 10px 25px -5px rgba(0, 0, 0, 0.3),
         0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-    background: linear-gradient(135deg, #FFD700 0%, #B8860B 100%);
+    background: var(--gold-gradient);
     backdrop-filter: blur(10px);
     color: #000;
     border: none;
@@ -411,7 +412,7 @@
 .successTitle {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #fbbf24;
+    color: var(--gold);
     margin-bottom: 0.5rem;
     font-family: 'Playfair Display', serif;
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -439,7 +440,7 @@
         margin-top: 1rem;
         border-radius: 16px;
         /* Revert to contained card style */
-        background: rgba(15, 23, 42, 0.9);
+        background: rgba(10, 25, 47, 0.9);
         backdrop-filter: blur(20px);
         width: 100%;
         max-width: 100%;
@@ -661,15 +662,15 @@
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: rgba(251, 191, 36, 0.1);
+    background: rgba(212, 175, 55, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(251, 191, 36, 0.2);
+    border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .trustIcon {
-    color: #fbbf24;
+    color: var(--gold);
 }
 
 .trustText {

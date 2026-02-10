@@ -43,25 +43,41 @@ export default function FAQSection({ items = defaultFAQs, title = "Frequently As
     };
 
     return (
-        <section className={styles.section}>
-            <div className="container">
+        <section className="py-24 bg-slate-50 dark:bg-slate-950">
+            <div className="container mx-auto px-4">
                 <FadeIn>
-                    <h2 className={styles.sectionTitle}>{title}</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold text-center text-slate-900 dark:text-white mb-16 font-playfair">{title}</h2>
                 </FadeIn>
-                <div className={styles.container}>
+                <div className="max-w-3xl mx-auto space-y-4">
                     {items.map((faq, index) => (
-                        <GlassCard key={index} delay={index * 0.1} className={`p-0 overflow-hidden ${activeAccordion === index ? styles.active : ''}`}>
-                            <button
-                                className={styles.question}
-                                onClick={() => toggleAccordion(index)}
-                            >
-                                {faq.question}
-                                <ChevronDown className={styles.icon} size={20} />
-                            </button>
-                            <div className={styles.answer}>
-                                <p style={{ paddingTop: '1rem' }}>{faq.answer}</p>
+                        <FadeIn key={index} delay={index * 0.1}>
+                            <div className={`overflow-hidden rounded-2xl transition-all duration-300 ${activeAccordion === index
+                                    ? 'bg-white dark:bg-slate-800 shadow-lg ring-1 ring-secondary/20'
+                                    : 'bg-white/50 dark:bg-slate-900/50 hover:bg-white dark:hover:bg-slate-800 border border-slate-100 dark:border-slate-800'
+                                }`}>
+                                <button
+                                    className="w-full flex items-center justify-between p-6 text-left"
+                                    onClick={() => toggleAccordion(index)}
+                                >
+                                    <span className={`text-lg font-bold font-playfair transition-colors ${activeAccordion === index ? 'text-secondary' : 'text-slate-900 dark:text-white'
+                                        }`}>
+                                        {faq.question}
+                                    </span>
+                                    <div className={`p-2 rounded-full transition-all duration-300 ${activeAccordion === index ? 'bg-secondary text-white rotate-180' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'
+                                        }`}>
+                                        <ChevronDown size={20} />
+                                    </div>
+                                </button>
+                                <div
+                                    className={`px-6 text-slate-600 dark:text-slate-300 transition-all duration-300 ease-in-out ${activeAccordion === index ? 'max-h-96 opacity-100 pb-6' : 'max-h-0 opacity-0 overflow-hidden'
+                                        }`}
+                                >
+                                    <div className="pt-2 border-t border-slate-100 dark:border-slate-700/50 leading-relaxed">
+                                        {faq.answer}
+                                    </div>
+                                </div>
                             </div>
-                        </GlassCard>
+                        </FadeIn>
                     ))}
                 </div>
             </div>

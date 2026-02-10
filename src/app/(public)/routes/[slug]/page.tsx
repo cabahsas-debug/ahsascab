@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (!route || !route.seo) {
         return {
-            title: 'Route Not Found | Al Aqsa Transport',
+            title: 'Route Not Found | Ahsas Alrihlat',
         };
     }
 

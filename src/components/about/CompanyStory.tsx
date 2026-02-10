@@ -35,12 +35,12 @@ export default function CompanyStory() {
     return (
         <section className="py-20 md:py-32 bg-white dark:bg-slate-950 relative overflow-hidden">
             {/* Center Line Background */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-amber-200 dark:via-amber-900 to-transparent -translate-x-1/2 hidden md:block" />
+            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-slate-100 dark:bg-slate-800 -translate-x-1/2 hidden md:block" />
 
             <div className="container mx-auto px-4 relative">
                 <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-                    <span className="text-amber-600 dark:text-amber-500 font-bold uppercase tracking-widest text-sm mb-3 block">Our History</span>
-                    <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 font-playfair">
+                    <span className="text-secondary font-bold uppercase tracking-widest text-sm mb-3 block">Our History</span>
+                    <h2 className="text-3xl md:text-5xl font-bold text-primary dark:text-white mb-6 font-playfair">
                         Our Sacred Journey
                     </h2>
                     <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -57,22 +57,25 @@ export default function CompanyStory() {
                             <div key={item.year} className={`relative md:flex items-center justify-between ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} group`}>
 
                                 {/* Center Dot */}
-                                <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-amber-500 rounded-full border-4 border-white dark:border-slate-950 shadow-lg -translate-x-1/2 z-10 group-hover:scale-150 transition-transform duration-300" />
+                                <div className="absolute left-8 md:left-1/2 w-8 h-8 bg-white dark:bg-slate-900 rounded-full border-4 border-secondary shadow-lg -translate-x-1/2 z-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                                    <div className="w-2.5 h-2.5 bg-secondary rounded-full" />
+                                </div>
 
                                 {/* Empty space for the other side */}
                                 <div className="hidden md:block w-5/12" />
 
                                 {/* Content Card */}
-                                <div className="ml-16 md:ml-0 md:w-5/12">
-                                    <GlassCard delay={index * 0.2} className="p-8 relative hover:-translate-y-2 transition-transform duration-500 border-l-4 border-l-amber-500">
+                                <div className="ml-20 md:ml-0 md:w-5/12">
+                                    <GlassCard delay={index * 0.2} className="p-8 relative hover:-translate-y-2 transition-transform duration-500 border-l-4 border-l-secondary bg-slate-50 dark:bg-slate-900/50">
                                         <div className="flex items-center gap-4 mb-4">
-                                            <div className="bg-amber-100 dark:bg-amber-900/30 p-3 rounded-xl text-amber-600 dark:text-amber-400">
-                                                <item.icon size={24} />
+                                            <div className="bg-primary/5 dark:bg-white/5 p-3 rounded-xl text-primary dark:text-white">
+                                                <item.icon size={24} strokeWidth={1.5} />
                                             </div>
-                                            <span className="text-3xl font-bold font-outfit text-slate-900 dark:text-white">{item.year}</span>
+                                            <span className="text-4xl font-black font-playfair text-secondary/20 absolute right-6 top-6">{item.year}</span>
+                                            <span className="text-xl font-bold font-playfair text-primary dark:text-white md:hidden">{item.year}</span>
                                         </div>
-                                        <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-3">{item.title}</h3>
-                                        <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                        <h3 className="text-xl font-bold text-primary dark:text-white mb-2">{item.title}</h3>
+                                        <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm">
                                             {item.desc}
                                         </p>
                                     </GlassCard>

@@ -51,14 +51,14 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
     }, [data.pickup, data.dropoff, routes]);
 
     return (
-        <div className="space-y-8">
-            <div className="text-center md:text-left">
-                <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Plan Your Trip</h2>
-                <p className="text-slate-500 mt-2">Where and when would you like to travel?</p>
+        <div className="space-y-10">
+            <div className="text-center md:text-left border-l-4 border-secondary pl-6">
+                <h2 className="text-3xl font-bold font-playfair text-primary dark:text-white">Plan Your Journey</h2>
+                <p className="text-slate-500 mt-2 text-lg">Where would you like to go today?</p>
             </div>
 
             {/* Service Type Selector */}
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-3 gap-4">
                 {[
                     { id: 'Intercity', icon: Building2, label: 'Intercity' },
                     { id: 'Airport', icon: PlaneLanding, label: 'Airport' },
@@ -68,14 +68,14 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                         key={type.id}
                         onClick={() => updateData({ serviceType: type.id })}
                         className={`
-                            flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all
+                            flex flex-col items-center justify-center p-6 rounded-2xl border transition-all duration-300 group
                             ${data.serviceType === type.id
-                                ? 'border-amber-500 bg-amber-50 text-amber-600 dark:bg-amber-500/10'
-                                : 'border-slate-100 dark:border-slate-800 text-slate-400 hover:border-slate-200'}
+                                ? 'border-secondary bg-secondary text-white shadow-xl shadow-secondary/20 scale-105'
+                                : 'border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 text-slate-400 hover:border-secondary/50 hover:bg-white'}
                         `}
                     >
-                        <type.icon size={24} className="mb-2" />
-                        <span className="text-xs font-bold uppercase tracking-wider">{type.label}</span>
+                        <type.icon size={28} className={`mb-3 ${data.serviceType === type.id ? 'text-white' : 'text-slate-400 group-hover:text-secondary'}`} />
+                        <span className="text-xs font-bold uppercase tracking-widest">{type.label}</span>
                     </button>
                 ))}
             </div>
@@ -84,14 +84,14 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <MapAutocomplete
                     label="Pickup Location"
-                    placeholder="Hotel, Airport, or Landmark..."
+                    placeholder="Enter Pickup Location"
                     value={data.pickup}
                     onChange={(val) => updateData({ pickup: val })}
                     error={errors.pickup}
                 />
                 <MapAutocomplete
                     label="Dropoff Destination"
-                    placeholder="Where are you heading?"
+                    placeholder="Enter Dropoff Destination"
                     value={data.dropoff}
                     onChange={(val) => updateData({ dropoff: val })}
                     error={errors.dropoff}
@@ -99,12 +99,12 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
             </div>
 
             {/* Schedule */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-slate-100 dark:border-slate-800">
-                <div className="flex flex-col gap-1.5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-dashed border-slate-200 dark:border-slate-700">
+                <div className="flex flex-col gap-2">
                     <label className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Travel Date</label>
                     <div className="relative group">
-                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-amber-500 z-10">
-                            <Calendar size={20} />
+                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-secondary z-10 transition-colors">
+                            <Calendar size={22} />
                         </div>
                         <input
                             type="date"
@@ -119,24 +119,24 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                             }}
                             min={new Date().toISOString().split('T')[0]}
                             className={`
-                                w-full pl-12 pr-4 py-4 bg-white dark:bg-slate-900 
-                                border-2 border-slate-100 dark:border-slate-800 
-                                rounded-2xl outline-none transition-all
-                                focus:border-amber-500/50 focus:ring-4 focus:ring-amber-500/10
-                                text-slate-900 dark:text-white
-                                ${errors.date ? 'border-red-500' : ''}
+                                w-full pl-14 pr-4 py-4 bg-slate-50 dark:bg-slate-800/50 
+                                border border-slate-200 dark:border-slate-700 
+                                rounded-xl outline-none transition-all duration-300
+                                focus:border-secondary focus:ring-4 focus:ring-secondary/10 focus:bg-white
+                                text-primary dark:text-white font-medium
+                                ${errors.date ? 'border-red-500 bg-red-50' : ''}
                                 [color-scheme:light] dark:[color-scheme:dark]
                             `}
                         />
                     </div>
-                    {errors.date && <span className="text-xs text-red-500 font-medium ml-1">{errors.date}</span>}
+                    {errors.date && <span className="text-xs text-red-500 font-medium ml-1 flex items-center gap-1">Required</span>}
                 </div>
 
-                <div className="flex flex-col gap-1.5">
+                <div className="flex flex-col gap-2">
                     <label className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Pickup Time</label>
                     <div className="relative group">
-                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-amber-500 z-10">
-                            <Clock size={20} />
+                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-secondary z-10 transition-colors">
+                            <Clock size={22} />
                         </div>
                         <input
                             type="time"
@@ -153,27 +153,29 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                                 updateData({ time: newTime });
                             }}
                             className={`
-                                w-full pl-12 pr-4 py-4 bg-white dark:bg-slate-900 
-                                border-2 border-slate-100 dark:border-slate-800 
-                                rounded-2xl outline-none transition-all
-                                focus:border-amber-500/50 focus:ring-4 focus:ring-amber-500/10
-                                text-slate-900 dark:text-white
-                                ${errors.time ? 'border-red-500' : ''}
+                                w-full pl-14 pr-4 py-4 bg-slate-50 dark:bg-slate-800/50 
+                                border border-slate-200 dark:border-slate-700 
+                                rounded-xl outline-none transition-all duration-300
+                                focus:border-secondary focus:ring-4 focus:ring-secondary/10 focus:bg-white
+                                text-primary dark:text-white font-medium
+                                ${errors.time ? 'border-red-500 bg-red-50' : ''}
                                 [color-scheme:light] dark:[color-scheme:dark]
                             `}
                         />
                     </div>
-                    {errors.time && <span className="text-xs text-red-500 font-medium ml-1">{errors.time}</span>}
+                    {errors.time && <span className="text-xs text-red-500 font-medium ml-1 flex items-center gap-1">Required</span>}
                 </div>
             </div>
 
-            <div className="pt-6">
+            <div className="pt-8">
                 <button
                     onClick={handleNext}
-                    className="w-full py-5 bg-slate-900 dark:bg-amber-500 text-white font-bold rounded-2xl shadow-xl hover:bg-slate-800 dark:hover:bg-amber-600 transition-all flex items-center justify-center gap-2 group"
+                    className="w-full py-5 bg-gradient-to-r from-primary to-primary/90 text-secondary font-bold text-lg rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-1 transition-all flex items-center justify-center gap-3 group relative overflow-hidden"
                 >
-                    Choose Your Vehicle
-                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                    <span className="relative z-10 flex items-center gap-2">
+                        Select Vehicle <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                    </span>
+                    <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </button>
             </div>
         </div>

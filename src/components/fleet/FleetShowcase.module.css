@@ -52,9 +52,9 @@
     width: 100%;
     padding-top: 56.25%;
     /* 16:9 Aspect Ratio */
-    background: radial-gradient(circle at center, #f1f5f9 0%, #e2e8f0 100%);
+    background: radial-gradient(circle at center, var(--navy), #0A192F 100%);
     overflow: hidden;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .vehicleImage {
@@ -81,7 +81,7 @@
     flex-direction: column;
     gap: 1.5rem;
     flex-grow: 1;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.8));
+    background: linear-gradient(to bottom, rgba(10, 25, 47, 0.4), rgba(10, 25, 47, 0.6));
 }
 
 @media (min-width: 768px) {
@@ -94,7 +94,8 @@
     font-size: 3rem;
     font-weight: 800;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+    margin-bottom: 1rem;
+    background: var(--pearl-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -111,7 +112,7 @@
     transform: translateX(-50%);
     width: 100px;
     height: 4px;
-    background: linear-gradient(90deg, #D4AF37, #fcd34d);
+    background: var(--gold-gradient);
     border-radius: 2px;
 }
 
@@ -137,18 +138,18 @@
     margin: 0;
     font-weight: 800;
     line-height: 1.2;
-    color: #0f172a;
+    color: #ffffff;
     letter-spacing: -0.02em;
     flex: 1;
     transition: color 0.3s ease;
 }
 
 .card:hover .name {
-    color: #1e3a8a;
+    color: var(--gold);
 }
 
 .priceTag {
-    background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+    background: linear-gradient(135deg, #0A192F 0%, var(--navy) 100%);
     color: #ffffff;
     padding: 0.5rem 1rem;
     border-radius: 9999px;
@@ -163,7 +164,7 @@
     display: flex;
     gap: 1.5rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px dashed #cbd5e1;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
 }
 
 .spec {
@@ -171,12 +172,12 @@
     align-items: center;
     gap: 0.6rem;
     font-size: 0.95rem;
-    color: var(--muted-foreground);
+    color: rgba(255, 255, 255, 0.7);
     font-weight: 600;
 }
 
 .spec svg {
-    color: #D4AF37;
+    color: var(--gold);
     /* Gold accent */
 }
 
@@ -191,23 +192,23 @@
     align-items: center;
     gap: 0.4rem;
     font-size: 0.85rem;
-    color: #475569;
-    background: #f8fafc;
+    color: #e2e8f0;
+    background: rgba(255, 255, 255, 0.05);
     padding: 0.35rem 0.85rem;
     border-radius: 8px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     font-weight: 500;
     transition: all 0.3s ease;
 }
 
 .featureItem svg {
-    color: #10b981;
+    color: #4ade80;
     /* Green check */
 }
 
 .card:hover .featureItem {
     border-color: rgba(212, 175, 55, 0.3);
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .bookBtn {
@@ -224,8 +225,8 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(135deg, #D4AF37 0%, #B4941F 100%);
-    color: white;
+    background: var(--gold-gradient);
+    color: var(--navy);
     border: none;
     position: relative;
     overflow: hidden;
@@ -252,59 +253,10 @@
     left: 100%;
 }
 
-/* Dark mode adjustments */
-:global(.dark) .imageWrapper {
-    background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
-    border-bottom-color: rgba(255, 255, 255, 0.05);
-}
-
-:global(.dark) .name {
-    color: #f8fafc;
-}
-
-:global(.dark) .card:hover .name {
-    color: #fbbf24;
-}
-
-:global(.dark) .card {
-    background: var(--glass-bg);
-    border-color: var(--glass-border);
-}
-
-:global(.dark) .card:hover {
-    border-color: #D4AF37;
-}
-
-:global(.dark) .content {
-    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.8));
-}
-
-:global(.dark) .sectionTitle {
-    background: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-}
-
-:global(.dark) .priceTag {
-    background: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 100%);
-    color: #0f172a;
-}
-
-:global(.dark) .featureItem {
-    background: #1e293b;
-    border-color: #334155;
-    color: #cbd5e1;
-}
-
-:global(.dark) .card:hover .featureItem {
-    border-color: #D4AF37;
-    background: #0f172a;
-}
+/* Dark mode adjustments REMOVED for Light Theme enforcement */
 
 @media (max-width: 768px) {
     .sectionTitle {
         font-size: 2.5rem;
     }
-
-
 }

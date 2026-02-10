@@ -5,8 +5,7 @@ import FleetShowcaseLoader from '@/components/fleet/FleetShowcaseLoader';
 import ComparisonTable from '@/components/fleet/ComparisonTable';
 import FeatureHighlights from '@/components/fleet/FeatureHighlights';
 import QuickBookingForm from '@/components/home/QuickBookingForm';
-import FadeIn from '@/components/common/FadeIn';
-import styles from './page.module.css';
+import ScrollReveal from '@/components/ui/ScrollReveal';
 import { getSectionContent, getSectionImage, getCustomField } from '@/lib/content-service';
 
 
@@ -21,7 +20,7 @@ export async function generateMetadata() {
             "أسطول نقل المعتمرين", "حجز جمس يوكن", "تأجير باص هيونداي"
         ],
         alternates: {
-            canonical: 'https://alaqsaumrahtransport.com/fleet',
+            canonical: 'https://ahsascab.com/fleet',
         },
     };
 }
@@ -35,7 +34,7 @@ export default async function FleetPage() {
     const badge = getCustomField(section, 'badge_text') || "Premium Collection 2025";
 
     return (
-        <main>
+        <main className="bg-background">
             <Hero
                 title={title}
                 subtitle={subtitle}
@@ -45,29 +44,30 @@ export default async function FleetPage() {
                 badge={badge}
                 breadcrumbs={<Breadcrumbs />}
             />
-            <FadeIn>
-                <Suspense fallback={<div className="h-[800px] w-full bg-muted animate-pulse rounded-xl" />}>
+            <ScrollReveal width="100%">
+                <Suspense fallback={<div className="h-[800px] w-full bg-navy-50 animate-pulse rounded-xl" />}>
                     <FleetShowcaseLoader />
                 </Suspense>
-            </FadeIn>
-            <FadeIn>
+            </ScrollReveal>
+            <ScrollReveal width="100%">
                 <ComparisonTable />
-            </FadeIn>
-            <FadeIn>
+            </ScrollReveal>
+            <ScrollReveal width="100%">
                 <FeatureHighlights />
-            </FadeIn>
+            </ScrollReveal>
 
-            <section className={styles.bookingSection}>
-                <div className="container">
-                    <FadeIn direction="up">
-                        <div className={styles.bookingWrapper}>
+            <section className="py-16 bg-navy-900/50 relative overflow-hidden">
+                <div className="absolute inset-0 bg-[url('/patterns/islamic-pattern.png')] opacity-10" />
+                <div className="container relative z-10">
+                    <ScrollReveal width="100%">
+                        <div className="max-w-4xl mx-auto">
                             <QuickBookingForm
                                 title="Book Your Luxury Ride"
                                 subtitle="Reserve your premium vehicle for a comfortable spiritual journey"
                                 variant="fleet"
                             />
                         </div>
-                    </FadeIn>
+                    </ScrollReveal>
                 </div>
             </section>
         </main>

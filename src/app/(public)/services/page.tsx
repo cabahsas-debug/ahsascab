@@ -13,7 +13,7 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
 const ReviewsSection = dynamic(() => import('@/components/reviews/ReviewsSection'), {
-    loading: () => <div className="h-[400px] w-full bg-slate-100 dark:bg-slate-900 animate-pulse" />
+    loading: () => <div className="h-[400px] w-full bg-gray-100 dark:bg-navy-900 animate-pulse" />
 });
 
 export async function generateMetadata() {
@@ -88,15 +88,15 @@ export default function ServicesPage() {
     const serviceFAQs = [
         {
             question: "How do I book a taxi from Jeddah Airport to Makkah?",
-            answer: <span>Booking is simple. You can reserve your <Link href="/services/jeddah-airport-transfer" className="text-amber-600 hover:underline">Jeddah Airport to Makkah taxi</Link> online in advance. We monitor your flight arrival and our driver meets you at the terminal with a name sign.</span>
+            answer: <span>Booking is simple. You can reserve your <Link href="/services/jeddah-airport-transfer" className="text-gold hover:underline">Jeddah Airport to Makkah taxi</Link> online in advance. We monitor your flight arrival and our driver meets you at the terminal with a name sign.</span>
         },
         {
             question: "What is the best transport for Umrah families?",
-            answer: <span>For families, we highly recommend our <Link href="/fleet/gmc-yukon-at4" className="text-amber-600 hover:underline">GMC Yukon XL</Link> or <Link href="/fleet/hyundai-staria" className="text-amber-600 hover:underline">Hyundai Staria</Link>. These spacious vehicles offer ample luggage space and AC comfort for the 1-hour journey to Makkah.</span>
+            answer: <span>For families, we highly recommend our <Link href="/fleet/gmc-yukon-at4" className="text-gold hover:underline">GMC Yukon XL</Link> or <Link href="/fleet/hyundai-staria" className="text-gold hover:underline">Hyundai Staria</Link>. These spacious vehicles offer ample luggage space and AC comfort for the 1-hour journey to Makkah.</span>
         },
         {
             question: "Do you offer direct Makkah to Madinah taxi services?",
-            answer: <span>Yes, our <Link href="/services/makkah-madinah-taxi" className="text-amber-600 hover:underline">Makkah to Madinah private taxi</Link> service is the most convenient option. Unlike the train or bus, we offer door-to-door service from your Makkah hotel lobby directly to your Madinah hotel.</span>
+            answer: <span>Yes, our <Link href="/services/makkah-madinah-taxi" className="text-gold hover:underline">Makkah to Madinah private taxi</Link> service is the most convenient option. Unlike the train or bus, we offer door-to-door service from your Makkah hotel lobby directly to your Madinah hotel.</span>
         },
         {
             question: "Can I stop at Miqat on the way to Makkah?",
@@ -104,16 +104,16 @@ export default function ServicesPage() {
         },
         {
             question: "Is the taxi fare fixed or metered?",
-            answer: <span>Our prices are fixed and transparent. You will know the exact cost of your <Link href="/booking" className="text-amber-600 hover:underline">Umrah transport booking</Link> upfront, with no hidden fees or toll charges.</span>
+            answer: <span>Our prices are fixed and transparent. You will know the exact cost of your <Link href="/booking" className="text-gold hover:underline">Umrah transport booking</Link> upfront, with no hidden fees or toll charges.</span>
         },
         {
             question: "Do you provide Ziyarat tours in Makkah and Madinah?",
-            answer: <span>Yes, we offer comprehensive <Link href="/services/ziyarat-tours" className="text-amber-600 hover:underline">Ziyarat packages</Link>. Visit historical sites like Jabal Al-Nour, Masjid Quba, and Mount Uhud in the comfort of a private vehicle with a knowledgeable driver.</span>
+            answer: <span>Yes, our comprehensive <Link href="/services/ziyarat-tours" className="text-gold hover:underline">Ziyarat packages</Link>. Visit historical sites like Jabal Al-Nour, Masjid Quba, and Mount Uhud in the comfort of a private vehicle with a knowledgeable driver.</span>
         }
     ];
 
     return (
-        <main className={styles.main}>
+        <main className="bg-background min-h-screen">
             {/* Hero Section */}
             <Hero
                 title="Trusted Umrah Transport Services in Saudi Arabia"
@@ -131,10 +131,11 @@ export default function ServicesPage() {
             <TrustAmenities />
 
             {/* Services Section */}
-            <section className={styles.servicesSection}>
-                <div className="container">
+            <section className="py-24 relative overflow-hidden">
+                <div className="absolute inset-0 bg-[url('/patterns/islamic-pattern.png')] opacity-5 z-0 pointer-events-none" />
+                <div className="container mx-auto px-4 relative z-10">
                     <FadeIn>
-                        <h2 className={styles.sectionTitle}>Our Premium Umrah Transport Services</h2>
+                        <h2 className="text-3xl md:text-5xl font-bold text-center text-navy-900 dark:text-white mb-16 font-playfair">Our Premium <span className="text-gold">Umrah Transport</span> Services</h2>
                     </FadeIn>
                     <div className="flex flex-col gap-24 px-4 max-w-7xl mx-auto">
                         {services.map((service, index) => {
@@ -161,21 +162,21 @@ export default function ServicesPage() {
                                     {/* Content Side */}
                                     <div className={`w-full lg:w-1/2 flex flex-col justify-center ${isImageRight ? 'lg:order-1' : 'lg:order-2'}`}>
                                         <div className="mb-6">
-                                            <h3 className="text-3xl lg:text-5xl font-bold font-playfair text-slate-900 dark:text-white mb-6 leading-tight">
+                                            <h3 className="text-3xl lg:text-5xl font-bold font-playfair text-navy-900 dark:text-white mb-6 leading-tight">
                                                 {service.title}
                                             </h3>
-                                            <div className="h-2 w-24 bg-amber-500 rounded-full" />
+                                            <div className="h-2 w-24 bg-gold rounded-full" />
                                         </div>
 
-                                        <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-8">
+                                        <p className="text-navy-600 dark:text-gray-300 text-lg leading-relaxed mb-8 font-light">
                                             {service.description}
                                         </p>
 
                                         {/* Benefits List */}
                                         <ul className="mb-10 space-y-4">
                                             {service.features.map((feat, i) => (
-                                                <li key={i} className="flex items-center gap-3 text-slate-700 dark:text-slate-200 font-medium text-lg">
-                                                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-red-50 text-red-500 flex items-center justify-center border border-red-100 dark:bg-red-900/20 dark:border-red-800 dark:text-red-400">
+                                                <li key={i} className="flex items-center gap-3 text-navy-700 dark:text-gray-200 font-medium text-lg">
+                                                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-gold/10 text-gold flex items-center justify-center border border-gold/20">
                                                         <Check size={14} strokeWidth={3} />
                                                     </span>
                                                     {feat}
@@ -185,7 +186,7 @@ export default function ServicesPage() {
 
                                         <Link
                                             href={service.link}
-                                            className="inline-flex items-center gap-2 text-white bg-amber-500 hover:bg-amber-600 px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm transition-all shadow-lg hover:shadow-amber-500/30 group/link self-start"
+                                            className="inline-flex items-center gap-2 text-navy-900 bg-gold hover:bg-gold/90 px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm transition-all shadow-lg hover:shadow-gold/30 group/link self-start"
                                         >
                                             Learn More
                                             <ArrowRight size={18} className="group-hover/link:translate-x-1 transition-transform" />
@@ -199,20 +200,23 @@ export default function ServicesPage() {
             </section>
 
             {/* Process Section */}
-            <section className={styles.processSection}>
-                <div className="container">
+            <section className="py-24 bg-white dark:bg-navy-900 border-y border-gray-100 dark:border-navy-800">
+                <div className="container mx-auto px-4">
                     <FadeIn>
-                        <h2 className={styles.sectionTitle}>How It Works</h2>
+                        <h2 className="text-3xl md:text-5xl font-bold text-center text-navy-900 dark:text-white mb-16 font-playfair">How It Works</h2>
                     </FadeIn>
-                    <div className={styles.processGrid}>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {processSteps.map((step, index) => (
                             <FadeIn key={index} delay={index * 0.2} direction="up">
-                                <div className={styles.processStep}>
-                                    <div className={styles.stepNumber}>
+                                <div className="flex flex-col items-center text-center p-8 rounded-3xl bg-gray-50 dark:bg-navy-800 border border-gray-100 dark:border-navy-700 hover:shadow-xl transition-all duration-300 relative group">
+                                    <div className="absolute top-4 right-4 text-6xl font-bold text-gray-200 dark:text-navy-700 opacity-20 group-hover:opacity-40 transition-opacity font-outfit">
                                         {index + 1}
                                     </div>
-                                    <h3 className={styles.stepTitle}>{step.title}</h3>
-                                    <p className={styles.stepDesc}>{step.description}</p>
+                                    <div className="bg-gold/10 p-4 rounded-full text-gold mb-6 group-hover:scale-110 transition-transform duration-300">
+                                        {step.icon}
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-navy-900 dark:text-white mb-3 font-playfair">{step.title}</h3>
+                                    <p className="text-navy-600 dark:text-gray-400 font-light leading-relaxed">{step.description}</p>
                                 </div>
                             </FadeIn>
                         ))}
@@ -221,9 +225,9 @@ export default function ServicesPage() {
             </section>
 
             {/* Fleet Showcase */}
-            <section className={styles.fleetSection}>
+            <section className="py-24 bg-gray-50 dark:bg-navy-950">
                 <FadeIn>
-                    <Suspense fallback={<div className="h-[600px] w-full bg-gray-100 animate-pulse rounded-xl" />}>
+                    <Suspense fallback={<div className="h-[600px] w-full bg-gray-200 dark:bg-navy-800 animate-pulse rounded-3xl" />}>
                         <FleetSectionLoader />
                     </Suspense>
                 </FadeIn>
@@ -236,19 +240,22 @@ export default function ServicesPage() {
             <FAQSection items={serviceFAQs} title="Frequently Asked Questions about Umrah Transport" />
 
             {/* Booking CTA */}
-            <section className={styles.ctaSection}>
-                <div className={styles.ctaBackground} />
-                <div className={styles.ctaContent}>
+            <section className="relative py-32 overflow-hidden">
+                <div className="absolute inset-0 bg-navy-900 z-0">
+                    <div className="absolute inset-0 opacity-10 bg-[url('/patterns/islamic-pattern.png')] bg-repeat" />
+                </div>
+                <div className="container mx-auto px-4 relative z-10 text-center">
                     <FadeIn>
-                        <blockquote className={styles.quote}>
+                        <blockquote className="text-3xl md:text-5xl font-playfair text-white font-bold leading-tight mb-8">
                             &ldquo;Your journey of faith deserves comfort and care.&rdquo;
                         </blockquote>
-                        <Link href="/booking" className={styles.ctaButton}>
-                            Book Your Ride Now <ArrowRight size={20} />
+                        <Link href="/booking" className="inline-flex items-center gap-3 bg-white text-navy-900 px-10 py-5 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors shadow-2xl hover:-translate-y-1 transform duration-300">
+                            Book Your Ride Now <ArrowRight size={24} />
                         </Link>
                     </FadeIn>
                 </div>
             </section>
+
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
@@ -258,7 +265,7 @@ export default function ServicesPage() {
                         "serviceType": "Umrah Transport",
                         "provider": {
                             "@type": "TransportationService",
-                            "name": "Al Aqsa Transport"
+                            "name": "Ahsas Cab"
                         },
                         "areaServed": {
                             "@type": "Place",

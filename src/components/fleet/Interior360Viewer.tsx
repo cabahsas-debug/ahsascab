@@ -30,7 +30,7 @@ function Loader() {
     return (
         <Html center>
             <div className="flex flex-col items-center justify-center p-4 bg-black/80 backdrop-blur-md rounded-2xl border border-white/10 shadow-2xl">
-                <div className="w-12 h-12 border-4 border-[#d4af37] border-t-transparent rounded-full animate-spin mb-3"></div>
+                <div className="w-12 h-12 border-4 border-gold border-t-transparent rounded-full animate-spin mb-3"></div>
                 <div className="text-white font-mono text-sm tracking-widest">{progress.toFixed(0)}% LOADED</div>
             </div>
         </Html>

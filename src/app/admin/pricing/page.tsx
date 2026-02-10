@@ -3,7 +3,7 @@
 import { useState, useEffect, memo, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import { Save, Search, RotateCcw } from 'lucide-react';
-import styles from '../admin.module.css';
+
 import { Toast } from '@/components/ui/Toast';
 import AdminConfirmDialog from '@/components/admin/AdminConfirmDialog';
 
@@ -56,18 +56,18 @@ const PriceCell = memo(({
     };
 
     return (
-        <td className="p-3 border-b border-border text-center">
+        <td className="p-3 border-b border-gray-100 dark:border-navy-800 text-center">
             <div className="relative group">
                 <input
                     type="text"
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
                     onBlur={handleBlur}
-                    className={`w-20 text-center bg-transparent border-b border-transparent hover:border-border focus:border-primary focus:outline-none transition-all ${isModified ? 'text-amber-500 font-bold' : 'text-foreground'
-                        }`}
+                    className={`w-20 text-center bg-transparent border-b border-transparent hover:border-gray-300 dark:hover:border-navy-600 focus:border-gold focus:outline-none transition-all ${isModified ? 'text-gold font-bold' : 'text-navy-900 dark:text-white'
+                        } py-1`}
                 />
                 {isModified && (
-                    <div className="absolute -top-2 -right-2 w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
+                    <div className="absolute -top-2 -right-2 w-2 h-2 bg-gold rounded-full animate-pulse" />
                 )}
             </div>
         </td>
@@ -198,7 +198,11 @@ export default function PricingPage() {
         route.destination.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    if (loading) return <div className="p-8 text-center">Loading pricing data...</div>;
+    if (loading) return (
+        <div className="flex items-center justify-center min-h-[400px]">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gold" />
+        </div>
+    );
 
     return (
         <div className="p-6 max-w-[95%] mx-auto">
@@ -206,24 +210,24 @@ export default function PricingPage() {
 
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
                 <div>
-                    <h1 className={styles.title}>Price Management</h1>
-                    <p className="text-muted-foreground">Manage dynamic pricing for routes and vehicles</p>
+                    <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-gold to-yellow-500 bg-clip-text text-transparent font-playfair">Price Management</h1>
+                    <p className="text-gray-500 dark:text-gray-400">Manage dynamic pricing for routes and vehicles</p>
                 </div>
                 <div className="relative flex-1 md:w-64">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                     <input
                         type="text"
                         placeholder="Search routes..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2 bg-background border border-border rounded-full focus:ring-2 focus:ring-amber-500/50 outline-none transition-all"
+                        className="w-full pl-10 pr-4 py-2 bg-white dark:bg-navy-900 border border-gray-200 dark:border-navy-700 rounded-full focus:ring-2 focus:ring-gold/20 focus:border-gold outline-none transition-all text-navy-900 dark:text-white"
                     />
                 </div>
 
                 {Object.keys(modified).length > 0 && (
                     <button
                         onClick={handleReset}
-                        className="flex items-center gap-2 bg-slate-100 text-slate-600 px-4 py-2.5 rounded-full font-bold hover:bg-slate-200 transition-colors"
+                        className="flex items-center gap-2 bg-gray-100 dark:bg-navy-800 text-gray-600 dark:text-gray-300 px-4 py-2.5 rounded-full font-bold hover:bg-gray-200 dark:hover:bg-navy-700 transition-colors"
                     >
                         <RotateCcw size={18} />
                         Reset
@@ -233,7 +237,7 @@ export default function PricingPage() {
                 <button
                     onClick={handleSaveAll}
                     disabled={saving || Object.keys(modified).length === 0}
-                    className="flex items-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 px-6 py-2.5 rounded-full font-bold shadow-lg shadow-amber-500/20 hover:scale-105 transition-transform disabled:opacity-50 disabled:hover:scale-100 whitespace-nowrap"
+                    className="flex items-center gap-2 bg-gold text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-gold/20 hover:scale-105 transition-transform disabled:opacity-50 disabled:hover:scale-100 whitespace-nowrap"
                 >
                     <Save size={20} />
                     {saving ? 'Saving...' : 'Save Changes'}
@@ -241,29 +245,29 @@ export default function PricingPage() {
             </div>
 
 
-            <div className={styles.glassCard}>
+            <div className="bg-white/80 dark:bg-navy-900/80 backdrop-blur-md border border-gray-200 dark:border-navy-800 rounded-2xl shadow-sm overflow-hidden">
                 <div className="overflow-x-auto max-h-[calc(100vh-250px)] relative">
-                    <table className={styles.table}>
-                        <thead className="sticky top-0 z-10 bg-white/95 backdrop-blur-sm shadow-sm">
+                    <table className="w-full text-left border-collapse">
+                        <thead className="sticky top-0 z-10 bg-white/95 dark:bg-navy-950/95 backdrop-blur-sm shadow-sm">
                             <tr>
-                                <th className="bg-slate-50/90 min-w-[200px] p-4 text-left font-bold text-muted-foreground border-b border-border">
+                                <th className="min-w-[200px] p-4 text-left font-bold text-navy-900 dark:text-white border-b border-gray-200 dark:border-navy-800 uppercase text-xs tracking-wider">
                                     Route / Vehicle
                                 </th>
                                 {vehicles.map(vehicle => (
-                                    <th key={vehicle.id} className="text-center min-w-[150px] p-4 border-b border-border bg-slate-50/90">
-                                        <div className="font-bold text-foreground">{vehicle.name}</div>
+                                    <th key={vehicle.id} className="text-center min-w-[150px] p-4 border-b border-gray-200 dark:border-navy-800 font-bold text-navy-900 dark:text-white text-sm">
+                                        {vehicle.name}
                                     </th>
                                 ))}
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className="divide-y divide-gray-100 dark:divide-navy-800">
                             {filteredRoutes.map(route => (
-                                <tr key={route.id} className="hover:bg-slate-50/30 transition-colors">
-                                    <td className="font-medium p-4 border-b border-border bg-slate-50/10 sticky left-0 backdrop-blur-[2px]">
+                                <tr key={route.id} className="hover:bg-gray-50/50 dark:hover:bg-navy-800/30 transition-colors">
+                                    <td className="font-medium p-4 border-b border-gray-100 dark:border-navy-800 bg-gray-50/30 dark:bg-navy-950/30 sticky left-0 backdrop-blur-[2px]">
                                         <div className="flex flex-col">
-                                            <span className="text-foreground font-semibold">{route.origin}</span>
-                                            <span className="text-xs text-muted-foreground flex items-center gap-1">
-                                                to <span className="font-medium text-foreground">{route.destination}</span>
+                                            <span className="text-navy-900 dark:text-white font-semibold">{route.origin}</span>
+                                            <span className="text-xs text-gray-500 flex items-center gap-1">
+                                                to <span className="font-medium text-gray-700 dark:text-gray-300">{route.destination}</span>
                                             </span>
                                         </div>
                                     </td>
@@ -285,7 +289,7 @@ export default function PricingPage() {
                         </tbody>
                     </table>
                     {filteredRoutes.length === 0 && (
-                        <div className="p-12 text-center text-muted-foreground">
+                        <div className="p-12 text-center text-gray-500">
                             No routes found matching &quot;{searchTerm}&quot;
                         </div>
                     )}

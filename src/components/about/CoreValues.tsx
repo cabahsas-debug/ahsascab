@@ -39,7 +39,7 @@ export default function CoreValues() {
         <section className="py-20 md:py-32 bg-slate-50 dark:bg-slate-900" ref={ref as unknown as React.RefObject<HTMLElement>}>
             <div className="container mx-auto px-4">
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className={`text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 font-playfair transition-all duration-700 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <h2 className={`text-3xl md:text-5xl font-bold text-primary dark:text-white mb-6 font-playfair transition-all duration-700 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         Our Core Values
                     </h2>
                     <p className={`text-lg text-slate-600 dark:text-slate-300 transition-all duration-700 delay-100 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -51,14 +51,14 @@ export default function CoreValues() {
                     {values.map((value, index) => (
                         <GlassCard
                             key={value.id}
-                            className={`p-8 h-full flex flex-col items-center text-center transition-all duration-700 hover:-translate-y-2 hover:shadow-xl border-t-4 border-t-amber-500`}
+                            className={`p-8 h-full flex flex-col items-center text-center transition-all duration-700 hover:-translate-y-2 hover:shadow-xl border-t-4 border-t-secondary bg-white dark:bg-slate-800/50`}
                             delay={index * 0.1}
                         >
-                            <div className="w-16 h-16 rounded-2xl bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <div className="w-16 h-16 rounded-2xl bg-primary/5 dark:bg-white/5 text-secondary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                                 <value.icon size={32} strokeWidth={1.5} />
                             </div>
-                            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{value.title}</h3>
-                            <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">{value.desc}</p>
+                            <h3 className="text-xl font-bold text-primary dark:text-white mb-3 font-playfair">{value.title}</h3>
+                            <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm font-medium">{value.desc}</p>
                         </GlassCard>
                     ))}
                 </div>

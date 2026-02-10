@@ -99,7 +99,7 @@ export default function InstantPriceCalculator() {
                                             className="flex flex-col items-center"
                                         >
                                             {priceDetails && priceDetails.discountApplied > 0 && (
-                                                <span className="text-slate-400 line-through text-lg mb-1">
+                                                <span className="text-navy/40 line-through text-lg mb-1">
                                                     SAR {priceDetails.originalPrice.toLocaleString()}
                                                 </span>
                                             )}
@@ -108,7 +108,7 @@ export default function InstantPriceCalculator() {
                                                 {priceDetails ? priceDetails.price.toLocaleString() : 0}
                                             </div>
                                             {priceDetails && priceDetails.discountApplied > 0 && (
-                                                <span className="text-green-500 text-sm font-bold mt-1 bg-green-500/10 px-2 py-0.5 rounded-full">
+                                                <span className="text-accent text-sm font-bold mt-1 bg-accent/10 px-2 py-0.5 rounded-full">
                                                     {priceDetails.discountType === 'percentage'
                                                         ? `${Math.round((priceDetails.discountApplied / priceDetails.originalPrice) * 100)}% OFF`
                                                         : `${priceDetails.discountApplied} SAR OFF`}
@@ -148,7 +148,7 @@ export default function InstantPriceCalculator() {
                             </div>
 
                             <a
-                                href={getWhatsAppLink(`Salam Al Aqsa, I am interested in the route: ${currentRoute?.name} with ${currentVehicle?.name}. Estimated Price: ${priceDetails?.price} SAR.`)}
+                                href={getWhatsAppLink(`Salam Ahsas Alrihlat, I am interested in the route: ${currentRoute?.name} with ${currentVehicle?.name}. Estimated Price: ${priceDetails?.price} SAR.`)}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={styles.bookBtn}

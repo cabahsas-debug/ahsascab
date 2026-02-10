@@ -71,7 +71,7 @@ export const blogPosts: BlogPost[] = [
             <h3>3. باصات النقل الجماعي VIP</h3>
             <p>خيار اقتصادي للمجموعات الكبيرة، لكنه يستغرق وقتاً أطول (حوالي 5-6 ساعات) ولا يوفر الخصوصية التي يوفرها التاكسي الخاص.</p>
 
-            <h3>لماذا يختار المعتمرون "الأقصى للنقل"؟</h3>
+            <h3>لماذا يختار المعتمرون "احساس الرحلات"؟</h3>
             <p>نحن نوفر خدمة <strong>توصيل من مكة للمدينة</strong> بأحدث السيارات موديل 2024/2025 وسائقين محترفين يعرفون الطريق جيداً. نضمن لك:</p>
             <ul>
                 <li>سعر ثابت وشامل (بدون رسوم خفية).</li>
@@ -90,7 +90,7 @@ export const blogPosts: BlogPost[] = [
         readTime: "5 دقائق للقراءة",
         image: "/images/routes/makkah-madinah-route-hero.png",
         alt: "Makkah to Madinah Transport - GMC Yukon on Highway",
-        author: "فريق الأقصى",
+        author: "فريق احساس الرحلات",
         tags: ["نقل معتمرين", "مكة المدينة", "حجز تاكسي", "نصائح العمرة"]
     },
     {
@@ -130,7 +130,7 @@ export const blogPosts: BlogPost[] = [
         readTime: "6 min read",
         image: "/images/fleet/gmc-yukon-hero-professional.png",
         alt: "Private GMC Yukon Taxi vs Haramain Train for Umrah Transport",
-        author: "Al Aqsa Team",
+        author: "Ahsas Team",
         tags: ["Haramain Train", "Private Taxi", "Makkah Transport", "Family Travel"]
     },
     {
@@ -181,8 +181,8 @@ export const blogPosts: BlogPost[] = [
             <h4>3. Reliability and Punctuality</h4>
             <p>Time is precious during Umrah. The <strong>best Umrah travel company</strong> will guarantee punctual pickups and drop-offs, ensuring you never miss a prayer or a flight.</p>
 
-            <h3>Al Aqsa Umrah Transport: Your Trusted Partner</h3>
-            <p>At Al Aqsa Umrah Transport, we are committed to serving the Guests of Allah with the highest standards of care. Our professional drivers are trained to provide not just a ride, but a hospitable experience rooted in Islamic values.</p>
+            <h3>Ahsas Cab: Your Trusted Partner</h3>
+            <p>At Ahsas Cab, we are committed to serving the Guests of Allah with the highest standards of care. Our professional drivers are trained to provide not just a ride, but a hospitable experience rooted in Islamic values.</p>
 
             <blockquote>
                 “And proclaim to the people the Hajj; they will come to you on foot and on every lean camel; they will come from every distant pass.” – Qur’an (22:27)
@@ -190,7 +190,7 @@ export const blogPosts: BlogPost[] = [
 
             <p>We understand the sanctity of your journey and strive to make it as smooth as possible.</p>
 
-            <p><strong>Ready to book?</strong> <a href="/booking">Book your Umrah transport today</a> with Al Aqsa Umrah Transport and travel with confidence.</p>
+            <p><strong>Ready to book?</strong> <a href="/booking">Book your Umrah transport today</a> with Ahsas Cab and travel with confidence.</p>
         `,
         category: "Guide",
         date: "Nov 28, 2024",
@@ -218,7 +218,7 @@ export const blogPosts: BlogPost[] = [
             <p>Traveling with children or elders? Opt for <strong>family Umrah travel services</strong> that offer spacious vehicles like the Hyundai Staria or Toyota Hiace. Ample legroom and luggage space make a huge difference.</p>
 
             <h3>4. Verify Your Driver and Vehicle</h3>
-            <p>Always confirm that your driver knows the routes to your hotel and the Haram. At Al Aqsa Umrah Transport, our drivers are experienced locals who know the best routes to avoid traffic.</p>
+            <p>Always confirm that your driver knows the routes to your hotel and the Haram. At Ahsas Cab, our drivers are experienced locals who know the best routes to avoid traffic.</p>
 
             <h3>5. Stay Connected</h3>
             <p>Ensure you have a working phone and internet connection to communicate with your driver. We provide 24/7 support to assist you at any time.</p>
@@ -282,7 +282,7 @@ export const blogPosts: BlogPost[] = [
                 "The journey was smooth and the car was incredibly comfortable. It made our trip so much easier." – Abdullah, UK
             </blockquote>
 
-            <p>Don't compromise on your comfort. <a href="/booking">Book a premium ride</a> with Al Aqsa Umrah Transport today.</p>
+            <p>Don't compromise on your comfort. <a href="/booking">Book a premium ride</a> with Ahsas Cab today.</p>
         `,
         category: "Experience",
         date: "Nov 25, 2024",
@@ -327,7 +327,7 @@ export const respectSectionData = {
         text: "Indeed, in the Messenger of Allah (S.A.W.W) you have an excellent example for whoever has hope in Allah and the Last Day and remembers Allah often.",
         reference: "Qur’an 33:21"
     },
-    intro: "At **Al Aqsa Umrah Transport**, we believe that every journey of a pilgrim is sacred. In serving the guests of Allah, we draw inspiration from the noble character of Prophet Muhammad (S.A.W.W). His life was a beacon of mercy, humility, and respect — guiding us to treat every traveler with dignity, compassion, and care.",
+    intro: "At **Ahsas Cab**, we believe that every journey of a pilgrim is sacred. In serving the guests of Allah, we draw inspiration from the noble character of Prophet Muhammad (S.A.W.W). His life was a beacon of mercy, humility, and respect — guiding us to treat every traveler with dignity, compassion, and care.",
     commitments: [
         {
             text: "Welcoming pilgrims with kindness and sincerity",

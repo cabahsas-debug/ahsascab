@@ -19,7 +19,7 @@ const TopBar = async () => {
     // }
 
     return (
-        <div className="hidden lg:block bg-[#0B1120] text-slate-300 border-b border-white/5 relative z-50">
+        <div className="hidden lg:block bg-background text-foreground/80 border-b border-primary/10 relative z-50">
             <div className="container mx-auto px-4 h-12 flex justify-between items-center text-xs font-medium tracking-wide">
 
                 {/* Left Side: Contact Info */}
@@ -29,13 +29,13 @@ const TopBar = async () => {
                             href={`mailto:${contact.email}`}
                             className="flex items-center gap-2 group transition-colors duration-300"
                         >
-                            <div className="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-amber-500 transition-colors duration-300">
-                                <Mail size={12} className="text-amber-500 group-hover:text-white transition-colors duration-300" />
+                            <div className="w-6 h-6 rounded-full bg-primary/5 flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                                <Mail size={12} className="text-primary group-hover:text-background transition-colors duration-300" />
                             </div>
-                            <span className="group-hover:text-white transition-colors duration-300">{contact.email}</span>
+                            <span className="group-hover:text-primary transition-colors duration-300">{contact.email}</span>
                         </a>
                     )}
-                    <div className="h-4 w-px bg-white/10" />
+                    <div className="h-4 w-px bg-primary/10" />
                     {contact.phone && (
                         <a
                             href={`https://wa.me/${contact.phone.replace(/\D/g, '')}`}
@@ -43,25 +43,25 @@ const TopBar = async () => {
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 group transition-colors duration-300"
                         >
-                            <div className="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#25D366] transition-colors duration-300">
-                                <Phone size={12} className="text-amber-500 group-hover:text-white transition-colors duration-300" />
+                            <div className="w-6 h-6 rounded-full bg-primary/5 flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                                <Phone size={12} className="text-primary group-hover:text-background transition-colors duration-300" />
                             </div>
-                            <span className="group-hover:text-white transition-colors duration-300">{contact.phone}</span>
+                            <span className="group-hover:text-primary transition-colors duration-300">{contact.phone}</span>
                         </a>
                     )}
                     {contact.phone2 && (
                         <>
-                            <div className="h-4 w-px bg-white/10" />
+                            <div className="h-4 w-px bg-primary/10" />
                             <a
                                 href={`https://wa.me/${contact.phone2.replace(/\D/g, '')}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-2 group transition-colors duration-300"
                             >
-                                <div className="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#25D366] transition-colors duration-300">
-                                    <Phone size={12} className="text-amber-500 group-hover:text-white transition-colors duration-300" />
+                                <div className="w-6 h-6 rounded-full bg-primary/5 flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                                    <Phone size={12} className="text-primary group-hover:text-background transition-colors duration-300" />
                                 </div>
-                                <span className="group-hover:text-white transition-colors duration-300">{contact.phone2}</span>
+                                <span className="group-hover:text-primary transition-colors duration-300">{contact.phone2}</span>
                             </a>
                         </>
                     )}
@@ -69,7 +69,7 @@ const TopBar = async () => {
 
                 {/* Right Side: Socials & Extras */}
                 <div className="flex items-center gap-4">
-                    <span className="text-slate-500">Follow us:</span>
+                    <span className="text-muted-foreground">Follow us:</span>
                     <div className="flex items-center gap-2">
                         {[
                             { icon: Facebook, href: contact.social.facebook, label: 'Facebook' },
@@ -104,7 +104,7 @@ const TopBar = async () => {
                                     target="_blank"
                                     rel="noreferrer"
                                     aria-label={social.label}
-                                    className="w-7 h-7 flex items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-amber-500 hover:text-white hover:-translate-y-0.5 transition-all duration-300"
+                                    className="w-7 h-7 flex items-center justify-center rounded-full bg-primary/5 text-muted-foreground hover:bg-primary hover:text-background hover:-translate-y-0.5 transition-all duration-300"
                                 >
                                     <social.icon size={13} />
                                 </a>

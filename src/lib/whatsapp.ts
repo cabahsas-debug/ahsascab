@@ -15,7 +15,7 @@ export const createBookingMessage = (details: {
     passengers?: number;
     name?: string;
 }) => {
-    let message = `Salam Al Aqsa Transport,\n\nI would like to book a ride.\n`;
+    let message = `Salam Ahsas Alrihlat,\n\nI would like to book a ride.\n`;
 
     if (details.service) message += `*Service:* ${details.service}\n`;
     if (details.vehicle) message += `*Vehicle:* ${details.vehicle}\n`;

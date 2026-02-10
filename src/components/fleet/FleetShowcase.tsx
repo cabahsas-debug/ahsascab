@@ -2,7 +2,6 @@
 
 import styles from './FleetShowcase.module.css';
 import { Users, Briefcase, Check } from 'lucide-react';
-import Link from 'next/link';
 import Image from 'next/image';
 import FadeIn from '@/components/common/FadeIn';
 import { useSettings } from '@/context/SettingsContext';
@@ -70,79 +69,91 @@ export default function FleetShowcase({ vehicles }: FleetShowcaseProps) {
     };
 
     return (
-        <section className={styles.showcase}>
-            <div className="container">
-                <div className="text-center mb-12">
-                    <h2 className={styles.sectionTitle}>Our Premium Fleet</h2>
-                    <p className={styles.sectionSubtitle}>Choose from our wide range of luxury vehicles</p>
+        <section className="py-20 bg-slate-50 dark:bg-navy-950 relative overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-5 bg-[url('/patterns/islamic-pattern.png')] bg-repeat z-0 pointer-events-none" />
+
+            <div className="container mx-auto px-4 relative z-10">
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-5xl font-bold text-navy-900 dark:text-white mb-4 font-playfair">Our Premium <span className="text-gold">Fleet</span></h2>
+                    <p className="text-lg text-navy-600 dark:text-gray-300 max-w-2xl mx-auto font-light">Choose from our wide range of luxury vehicles, ensuring comfort and spirituality on your journey.</p>
                 </div>
-                <div className={styles.grid}>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {vehicles.map((vehicle, index) => {
                         const discountInfo = calculateDiscountedPrice(vehicle.price);
 
                         return (
                             <FadeIn key={vehicle.id} delay={index * 0.1}>
-                                <div className={`${styles.card} glass-card`}>
-                                    <div className={styles.imageWrapper}>
+                                <div className="group relative bg-white dark:bg-navy-900 rounded-[2rem] overflow-hidden border border-gray-200 dark:border-navy-700 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 h-full flex flex-col">
+                                    {/* Image Area */}
+                                    <div className="relative h-64 w-full bg-gray-100 dark:bg-navy-800 overflow-hidden">
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10 opactiy-60" />
                                         <Image
                                             src={vehicle.image}
                                             alt={vehicle.name}
                                             fill
-                                            className={styles.vehicleImage}
+                                            className="object-cover group-hover:scale-110 transition-transform duration-700"
                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         />
                                         {discountInfo && settings?.discount && (
-                                            <div className="absolute top-4 right-4 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">
+                                            <div className="absolute top-4 right-4 bg-gold text-navy-900 text-xs font-bold px-3 py-1 rounded-full shadow-lg z-20 animate-pulse border border-yellow-400">
                                                 {settings.discount.type === 'percentage' ? `-${settings.discount.value}% OFF` : `-${settings.discount.value} SAR`}
                                             </div>
                                         )}
+                                        <div className="absolute bottom-4 left-4 z-20">
+                                            <h3 className="text-2xl font-bold text-white font-playfair">{vehicle.name}</h3>
+                                        </div>
                                     </div>
 
-                                    <div className={styles.content}>
-                                        <div className={styles.header}>
-                                            <h3 className={styles.name}>{vehicle.name}</h3>
-                                            <div className="flex flex-col items-end">
-                                                {discountInfo ? (
-                                                    <>
-                                                        <span className="text-sm text-slate-400 line-through decoration-amber-500/50">{vehicle.price}</span>
-                                                        <span className={`${styles.priceTag} text-amber-600`}>{discountInfo.formatted}</span>
-                                                    </>
-                                                ) : (
-                                                    <span className={styles.priceTag}>{vehicle.price}</span>
-                                                )}
+                                    {/* Content Area */}
+                                    <div className="p-6 flex flex-col flex-grow">
+                                        <div className="flex justify-between items-end mb-6 border-b border-gray-100 dark:border-navy-800 pb-4">
+                                            <div>
+                                                <span className="text-xs font-bold text-gold uppercase tracking-widest block mb-1">Starting From</span>
+                                                <div className="flex flex-col">
+                                                    {discountInfo ? (
+                                                        <>
+                                                            <span className="text-sm text-gray-400 line-through">{vehicle.price}</span>
+                                                            <span className="text-2xl font-bold text-navy-900 dark:text-white">{discountInfo.formatted}</span>
+                                                        </>
+                                                    ) : (
+                                                        <span className="text-2xl font-bold text-navy-900 dark:text-white">{vehicle.price}</span>
+                                                    )}
+                                                </div>
+                                            </div>
+                                            <div className="flex gap-2">
+                                                <div className="flex flex-col items-center bg-gray-50 dark:bg-navy-800 p-2 rounded-xl min-w-[60px] border border-gray-100 dark:border-navy-700">
+                                                    <Users size={18} className="text-gold mb-1" />
+                                                    <span className="text-xs font-bold text-navy-600 dark:text-gray-300">{vehicle.passengers} pax</span>
+                                                </div>
+                                                <div className="flex flex-col items-center bg-gray-50 dark:bg-navy-800 p-2 rounded-xl min-w-[60px] border border-gray-100 dark:border-navy-700">
+                                                    <Briefcase size={18} className="text-gold mb-1" />
+                                                    <span className="text-xs font-bold text-navy-600 dark:text-gray-300">{vehicle.luggage} bags</span>
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <div className={styles.specs}>
-                                            <div className={styles.spec}>
-                                                <Users size={18} className="text-primary" />
-                                                <span>{vehicle.passengers} Passengers</span>
-                                            </div>
-                                            <div className={styles.spec}>
-                                                <Briefcase size={18} className="text-primary" />
-                                                <span>{vehicle.luggage} Bags</span>
-                                            </div>
-                                        </div>
-
-                                        <div className={styles.features}>
+                                        <div className="space-y-3 mb-8 flex-grow">
                                             {vehicle.features.map((feature: string, i: number) => (
-                                                <div key={i} className={styles.featureItem}>
-                                                    <Check size={14} className="text-accent" />
+                                                <div key={i} className="flex items-start gap-3 text-sm text-navy-600 dark:text-gray-300">
+                                                    <div className="mt-0.5 bg-gold/10 p-1 rounded-full">
+                                                        <Check size={10} className="text-gold" strokeWidth={3} />
+                                                    </div>
                                                     <span>{feature}</span>
                                                 </div>
                                             ))}
                                         </div>
 
                                         <a
-                                            href={getWhatsAppLink(`Salam Al Aqsa, I would like to book the ${vehicle.name}.`)}
+                                            href={getWhatsAppLink(`Salam Ahsas Alrihlat, I would like to book the ${vehicle.name}.`)}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className={`${styles.bookBtn} btn-primary cursor-pointer flex items-center justify-center`}
+                                            className={styles.bookBtn}
                                         >
-                                            Book via WhatsApp
+                                            <span>Book via WhatsApp</span>
                                         </a>
                                     </div>
-
                                 </div>
                             </FadeIn>
                         );

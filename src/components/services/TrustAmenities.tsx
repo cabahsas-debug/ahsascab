@@ -9,24 +9,26 @@ const amenities = [
     {
         title: "Officially Licensed",
         description: "Fully licensed by the Ministry of Transport for Umrah & Hajj services.",
-        icon: <ShieldCheck className="w-8 h-8 text-amber-500" />
+        icon: <ShieldCheck className="w-8 h-8 text-secondary" />
     },
     {
         title: "24/7 Customer Support",
         description: "Round-the-clock assistance for all your travel needs and inquiries.",
-        icon: <Clock className="w-8 h-8 text-amber-500" />
+        icon: <Clock className="w-8 h-8 text-secondary" />
     },
     {
         title: "Experienced Drivers",
         description: "Professional drivers with deep knowledge of Makkah & Madinah routes.",
-        icon: <Award className="w-8 h-8 text-amber-500" />
+        icon: <Award className="w-8 h-8 text-secondary" />
     },
     {
         title: "Punctuality Guaranteed",
         description: "On-time pickups and drop-offs to ensure your peace of mind.",
-        icon: <HeartHandshake className="w-8 h-8 text-amber-500" />
+        icon: <HeartHandshake className="w-8 h-8 text-secondary" />
     }
 ];
+
+
 
 export default function TrustAmenities() {
     return (
@@ -35,7 +37,7 @@ export default function TrustAmenities() {
                 <div className="text-center mb-12">
                     <FadeIn>
                         <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
-                            Why Choose Al Aqsa Transport?
+                            Why Choose Ahsas Alrihlat?
                         </h2>
                         <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
                             We are committed to providing a safe, reliable, and spiritually uplifting journey for all guests of Allah.

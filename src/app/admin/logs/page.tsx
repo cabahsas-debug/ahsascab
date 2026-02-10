@@ -4,7 +4,6 @@ import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { format } from 'date-fns';
 import { Search, ChevronLeft, ChevronRight, Activity, Filter, RefreshCcw } from 'lucide-react';
-import adminStyles from '../admin.module.css';
 
 interface LogEntry {
     id: string;
@@ -98,7 +97,7 @@ function LogsContent() {
         <div className="p-6 max-w-7xl mx-auto space-y-8">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className={adminStyles.title}>Activity Logs</h1>
+                    <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-amber-600 to-amber-400 bg-clip-text text-transparent">Activity Logs</h1>
                     <p className="text-muted-foreground mt-1">Audit trail of all system actions</p>
                 </div>
                 <button
@@ -110,7 +109,7 @@ function LogsContent() {
                 </button>
             </div>
 
-            <div className={adminStyles.glassCard}>
+            <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden">
                 {/* Metrics */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 border-b border-border">
                     <div className="flex items-center gap-4">
@@ -140,7 +139,7 @@ function LogsContent() {
 
                 {/* Table */}
                 <div className="overflow-x-auto min-h-[400px]">
-                    <table className={adminStyles.table}>
+                    <table className="w-full text-left border-collapse">
                         <thead>
                             <tr>
                                 <th className="w-[200px]">Timestamp</th>

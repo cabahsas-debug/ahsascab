@@ -21,11 +21,11 @@ export const metadata: Metadata = {
     manifest: '/manifest.json',
     title: {
         default: "Umrah Transport Services Saudi Arabia | Jeddah to Makkah Taxi",
-        template: `%s | Al Aqsa Umrah Transport`
+        template: `%s | Ahsas Cab`
     },
     appleWebApp: {
         capable: true,
-        title: 'Al Aqsa Umrah',
+        title: 'Ahsas Cab',
         statusBarStyle: 'default',
     },
     other: {
@@ -46,7 +46,7 @@ export default async function UmrahLayout({
             <ClientLayoutWrapper>
                 <UmrahPWA />
                 <AnnouncementBanner discount={settings.discount || { enabled: false, type: 'percentage', value: 0 }} />
-                <TopBar />
+                {/* <TopBar /> */}
                 <Navbar />
             </ClientLayoutWrapper>
 

@@ -10,8 +10,8 @@ import { getSettings } from '@/lib/settings-storage';
 import ContactGrid from '@/components/contact/ContactGrid';
 
 export async function generateMetadata() {
-    const title = "Contact Al Aqsa Umrah Transport | Book Your Ride Today";
-    const description = "Contact Al Aqsa Umrah Transport for bookings. 24/7 support via WhatsApp & phone. Let us serve the transport needs of your spiritual journey.";
+    const title = "Contact Ahsas Alrihlat | Book Your Ride Today";
+    const description = "Contact Ahsas Alrihlat for bookings. 24/7 support via WhatsApp & phone. Let us serve the transport needs of your spiritual journey.";
 
     return {
         title: title,
@@ -20,7 +20,7 @@ export async function generateMetadata() {
             // English Keywords
             "Umrah transport contact", "book Umrah transport", "Jeddah airport pickup contact",
             "Makkah to Madinah transport booking", "Umrah taxi service contact", "Saudi Arabia pilgrim transport support",
-            "Al Aqsa Transport Booking", "VIP Umrah Taxi",
+            "Ahsas Alrihlat Booking", "VIP Umrah Taxi",
             // Arabic Keywords
             "اتصال نقل العمرة", "حجز نقل العمرة", "تواصل استقبال مطار جدة", "حجز نقل مكة المدينة",
             "رقم تاكسي العمرة", "دعم نقل المعتمرين في السعودية", "شركة نقل في مكة", "توصيل الحرمين",
@@ -53,8 +53,8 @@ export default async function ContactPage() {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "TransportationService",
-        "name": "Al Aqsa Umrah Transport",
-        "alternateName": "الأقصى لنقل المعتمرين",
+        "name": "Ahsas Alrihlat",
+        "alternateName": "احساس الرحلات",
         "image": "https://alaqsaumrahtransport.com/images/logo.png",
         "@id": "https://alaqsaumrahtransport.com",
         "url": "https://alaqsaumrahtransport.com",
@@ -96,7 +96,7 @@ export default async function ContactPage() {
     };
 
     return (
-        <div className="bg-slate-50 dark:bg-slate-950 pb-20">
+        <div className="bg-slate-950 pb-20 min-h-screen">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -118,10 +118,10 @@ export default async function ContactPage() {
                             { icon: Globe, text: "Multilingual", sub: "دعم متعدد اللغات" },
                             { icon: Star, text: "Top Rated", sub: "أعلى تقييم" }
                         ].map((item, idx) => (
-                            <div key={idx} className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/20 text-center transform hover:-translate-y-1 transition-transform duration-300">
-                                <item.icon className="w-8 h-8 mx-auto mb-2 text-amber-500" />
-                                <h3 className="font-bold text-slate-800 dark:text-slate-100 text-sm md:text-base">{item.text}</h3>
-                                <p className="text-xs text-slate-500 dark:text-slate-400 font-arabic">{item.sub}</p>
+                            <div key={idx} className="bg-slate-900/60 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/10 text-center transform hover:-translate-y-1 transition-transform duration-300">
+                                <item.icon className="w-8 h-8 mx-auto mb-2 text-secondary" />
+                                <h3 className="font-bold text-white text-sm md:text-base">{item.text}</h3>
+                                <p className="text-xs text-slate-300 font-arabic">{item.sub}</p>
                             </div>
                         ))}
                     </div>
@@ -138,14 +138,14 @@ export default async function ContactPage() {
 
                         {/* Map Placeholder */}
                         <FadeIn direction="up" delay={0.4}>
-                            <GlassCard className="p-0 overflow-hidden min-h-[400px] relative flex items-center justify-center bg-slate-200 dark:bg-slate-800" id="map">
+                            <GlassCard className="p-0 overflow-hidden min-h-[400px] relative flex items-center justify-center bg-white/5 border border-white/10" id="map">
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3713.526883410923!2d39.8126588!3d21.447833599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c21d9da1e4d599%3A0xb8a485c3949902cc!2sAl%20Aqsa%20Umrah%20Transport!5e0!3m2!1sen!2s"
                                     width="100%"
                                     height="100%"
                                     loading="lazy"
-                                    className="w-full h-full min-h-[400px] border-0"
-                                    title="Al Aqsa Umrah Transport Map"
+                                    className="w-full h-full min-h-[400px] border-0 grayscale hover:grayscale-0 transition-all duration-700"
+                                    title="Ahsas Alrihlat Map"
                                     allowFullScreen
                                 />
                             </GlassCard>
@@ -155,13 +155,13 @@ export default async function ContactPage() {
                     {/* Contact Form Column */}
                     <div className="lg:col-span-7">
                         <FadeIn direction="left" delay={0.3}>
-                            <GlassCard className="p-8 md:p-10 border-t-4 border-t-amber-500">
+                            <GlassCard className="p-8 md:p-10 border-t-4 border-t-secondary bg-slate-900/80 backdrop-blur-md shadow-2xl">
                                 <div className="mb-8">
-                                    <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2 font-display">
+                                    <h2 className="text-3xl font-bold text-white mb-2 font-playfair">
                                         Send Us a Message
-                                        <span className="block text-xl font-arabic font-normal text-slate-500 mt-1">أرسل لنا رسالة</span>
+                                        <span className="block text-xl font-arabic font-normal text-secondary mt-2">أرسل لنا رسالة</span>
                                     </h2>
-                                    <p className="text-slate-600 dark:text-slate-300">
+                                    <p className="text-slate-300 leading-relaxed">
                                         Need a custom quote for your Umrah group? Have questions about our GMC Yukon fleet?
                                         Fill out the form below and our team will get back to you within minutes.
                                     </p>

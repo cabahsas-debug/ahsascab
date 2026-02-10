@@ -7,21 +7,29 @@ interface ReviewTemplateProps {
     reviewLink: string;
 }
 
+
+const textColorPrimary = '#1e293b';
+const textColorDark = '#0f172a'; // Navy
+const textColorSecondary = '#64748b';
+const backgroundColorLight = '#f8fafc';
+const white = '#ffffff';
+const gold = '#D4AF37';
+
 export const ReviewTemplate: React.FC<ReviewTemplateProps> = ({
     customerName,
     bookingId,
     reviewLink,
 }) => (
-    <div style={{ fontFamily: 'Arial, sans-serif', color: '#1e293b', padding: '20px', maxWidth: '600px', margin: '0 auto', backgroundColor: '#f8fafc', borderRadius: '16px' }}>
+    <div style={{ fontFamily: 'Arial, sans-serif', color: textColorPrimary, padding: '20px', maxWidth: '600px', margin: '0 auto', backgroundColor: backgroundColorLight, borderRadius: '16px' }}>
         <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-            <h1 style={{ color: '#0f172a', fontSize: '24px', margin: '0 0 10px 0' }}>How was your trip?</h1>
-            <p style={{ color: '#64748b', fontSize: '16px', margin: '0' }}>Booking ID: #{bookingId.slice(0, 8)}</p>
+            <h1 style={{ color: textColorDark, fontSize: '24px', margin: '0 0 10px 0' }}>How was your trip?</h1>
+            <p style={{ color: textColorSecondary, fontSize: '16px', margin: '0' }}>Booking ID: #{bookingId.slice(0, 8)}</p>
         </div>
 
-        <div style={{ backgroundColor: '#ffffff', padding: '30px', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', textAlign: 'center' }}>
+        <div style={{ backgroundColor: white, padding: '30px', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', textAlign: 'center' }}>
             <p style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '24px' }}>
                 Dear <strong>{customerName}</strong>,<br /><br />
-                Thank you for choosing Al Aqsa Transport for your recent journey.
+                Thank you for choosing Ahsas Cab for your recent journey.
                 We hope you had a comfortable and spiritual experience.
             </p>
 
@@ -52,7 +60,7 @@ export const ReviewTemplate: React.FC<ReviewTemplateProps> = ({
         </div>
 
         <div style={{ textAlign: 'center', marginTop: '20px', fontSize: '12px', color: '#94a3b8' }}>
-            <p>&copy; {new Date().getFullYear()} Al Aqsa Transport. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Ahsas Cab. All rights reserved.</p>
         </div>
     </div>
 );

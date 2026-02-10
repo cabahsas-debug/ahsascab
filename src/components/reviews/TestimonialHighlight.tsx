@@ -34,7 +34,7 @@ export default function TestimonialHighlight() {
 
                             <div className="flex gap-1 mb-6">
                                 {[...Array(5)].map((_, i) => (
-                                    <Star key={i} size={16} className="fill-amber-400 text-amber-400" />
+                                    <Star key={i} size={16} className="fill-gold text-gold" />
                                 ))}
                             </div>
 
@@ -76,7 +76,7 @@ export default function TestimonialHighlight() {
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "TransportationService",
-                        "name": "Al Aqsa Umrah Transport",
+                        "name": "Ahsas Cab",
                         "review": curatedTestimonials.map(t => ({
                             "@type": "Review",
                             "author": { "@type": "Person", "name": t.name },

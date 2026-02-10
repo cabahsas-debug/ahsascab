@@ -11,15 +11,19 @@ const config: Config = {
     theme: {
         container: {
             center: true,
-        },
-        fontFamily: {
-            sans: ["var(--font-geist-sans)", "sans-serif"],
-            mono: ["var(--font-geist-mono)", "monospace"],
-            playfair: ["var(--font-playfair)", "serif"],
-            opensans: ["var(--font-open-sans)", "sans-serif"],
-            reem: ["var(--font-reem-kufi)", "sans-serif"],
+            padding: "2rem",
+            screens: {
+                "2xl": "1400px",
+            },
         },
         extend: {
+            fontFamily: {
+                sans: ["var(--font-geist-sans)", "sans-serif"],
+                mono: ["var(--font-geist-mono)", "monospace"],
+                playfair: ["var(--font-playfair)", "serif"],
+                opensans: ["var(--font-open-sans)", "sans-serif"],
+                reem: ["var(--font-reem-kufi)", "sans-serif"],
+            },
             colors: {
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
@@ -54,6 +58,15 @@ const config: Config = {
                     DEFAULT: "hsl(var(--card))",
                     foreground: "hsl(var(--card-foreground))",
                 },
+                // Custom Theme Colors
+                gold: {
+                    DEFAULT: "hsl(var(--gold))",
+                    foreground: "hsl(var(--secondary))",
+                },
+                navy: {
+                    DEFAULT: "hsl(var(--navy))",
+                    foreground: "hsl(var(--gold))",
+                }
             },
             borderRadius: {
                 lg: "var(--radius)",
@@ -69,11 +82,20 @@ const config: Config = {
                     from: { height: "var(--radix-accordion-content-height)" },
                     to: { height: "0" },
                 },
+                "fade-in-up": {
+                    "0%": { opacity: "0", transform: "translateY(20px)" },
+                    "100%": { opacity: "1", transform: "translateY(0)" },
+                },
+                "pulse-slow": {
+                    "0%, 100%": { opacity: "1" },
+                    "50%": { opacity: "0.5" },
+                }
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
-                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                "fade-in-up": "fade-in-up 0.8s ease-out forwards",
+                "pulse-slow": "pulse-slow 4s ease-in-out infinite",
             },
         },
     },

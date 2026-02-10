@@ -4,10 +4,9 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import styles from './admin.module.css';
-import { LayoutDashboard, Calendar, Car, DollarSign, Settings, LogOut, MapPin, MessageSquare, FileText, Users, Image as ImageIcon, PenTool, UserCheck, Navigation, BarChart3 } from 'lucide-react';
+import { LayoutDashboard, Calendar, Car, DollarSign, Settings, LogOut, MapPin, MessageSquare, FileText, Users, Image as ImageIcon, PenTool, UserCheck, Navigation, BarChart3, Menu, X } from 'lucide-react';
 import { logout } from '@/lib/auth';
-import AdminThemeToggle from './AdminThemeToggle';
+
 import AdminAutoLock from '@/components/admin/AdminAutoLock';
 
 interface User {
@@ -67,9 +66,9 @@ export default function AdminLayout({
 
     if (loading) {
         return (
-            <div className="flex flex-col items-center justify-center h-screen bg-slate-50 dark:bg-slate-900 gap-4">
-                <div className="w-12 h-12 border-4 border-amber-500/30 border-t-amber-500 rounded-full animate-spin"></div>
-                <div className="text-slate-500 font-medium animate-pulse">Verifying Session...</div>
+            <div className="flex flex-col items-center justify-center h-screen bg-slate-50 dark:bg-navy-950 gap-4">
+                <div className="w-16 h-16 border-4 border-gold/30 border-t-gold rounded-full animate-spin"></div>
+                <div className="text-navy-600 font-medium animate-pulse font-outfit">Verifying Session...</div>
             </div>
         );
     }
@@ -105,101 +104,108 @@ export default function AdminLayout({
 
     const getRoleDisplay = (role: string) => {
         switch (role) {
-            case 'admin': return 'Boss Admin';
+            case 'admin': return 'Administrator';
             case 'manager': return 'Manager';
-            case 'operational_manager': return 'Operational Manager';
+            case 'operational_manager': return 'Ops Manager';
             default: return role;
         }
     };
 
     return (
-        <div className={styles.container}>
-            {/* Mobile Header / Hamburger */}
-            <div className={styles.mobileHeader}>
+        <div className="flex min-h-screen bg-slate-50 dark:bg-navy-950">
+            {/* Mobile Header */}
+            <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white dark:bg-navy-900 border-b border-gray-200 dark:border-navy-800 px-4 py-3 flex items-center justify-between shadow-sm">
                 <div className="flex items-center gap-3">
                     <button
-                        className={styles.hamburgerBtn}
                         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                        className="p-2 -ml-2 text-navy-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-navy-800 rounded-lg transition-colors"
                         aria-label="Toggle Menu"
                     >
-                        <div className="flex flex-col gap-1.5 w-6">
-                            <span className={`block w-full h-0.5 bg-current transition-transform ${isSidebarOpen ? 'rotate-45 translate-y-2' : ''}`} />
-                            <span className={`block w-full h-0.5 bg-current transition-opacity ${isSidebarOpen ? 'opacity-0' : ''}`} />
-                            <span className={`block w-full h-0.5 bg-current transition-transform ${isSidebarOpen ? '-rotate-45 -translate-y-2' : ''}`} />
-                        </div>
+                        {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
-                    <span className={styles.mobileBrand}>Admin Panel</span>
+                    <span className="font-bold text-lg text-navy-900 dark:text-white font-playfair">Admin Panel</span>
                 </div>
-
-                {/* Mobile User Profile Trigger */}
                 {user && (
-                    <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-white font-bold text-sm">
-                            {user.name.charAt(0)}
-                        </div>
+                    <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-navy-900 font-bold text-sm shadow-md">
+                        {user.name.charAt(0)}
                     </div>
                 )}
             </div>
 
             {/* Mobile Overlay */}
-            <div
-                className={`${styles.mobileOverlay} ${isSidebarOpen ? styles.overlayVisible : ''}`}
-                onClick={() => setIsSidebarOpen(false)}
-            />
+            {isSidebarOpen && (
+                <div
+                    className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
+                    onClick={() => setIsSidebarOpen(false)}
+                />
+            )}
 
-            <aside className={`${styles.sidebar} ${isSidebarOpen ? styles.sidebarOpen : ''}`}>
-                <div className={styles.logo}>
-                    <div className="flex flex-col items-start gap-1 py-4 px-2">
+            {/* Sidebar */}
+            <aside className={`
+                fixed lg:sticky top-0 left-0 z-50 h-[100dvh] w-72 bg-[#0A192F] text-white flex flex-col shadow-2xl transition-transform duration-300 ease-in-out border-r border-navy-800
+                ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+            `}>
+                {/* Logo Area */}
+                <div className="p-6 border-b border-navy-800 bg-navy-950/50">
+                    <div className="flex flex-col items-start gap-1">
                         <div className="flex flex-col items-start text-left">
-                            <span className="text-2xl font-bold text-secondary">Al Aqsa</span>
-                            <span className="text-sm font-bold text-[var(--admin-fg)] tracking-[0.15em] uppercase">Transport</span>
-                            <span className="text-lg font-bold text-secondary mt-1 font-[family-name:var(--font-reem-kufi)]">الأقصى لنقل المعتمرين</span>
+                            <span className="text-2xl font-bold text-gold font-playfair">Ahsas</span>
+                            <span className="text-xs font-bold text-gray-400 tracking-[0.2em] uppercase font-outfit">Alrihlat</span>
+                            <span className="text-lg font-bold text-gold mt-1 font-[family-name:var(--font-reem-kufi)] opacity-90">احساس الرحلات</span>
                         </div>
                     </div>
                 </div>
 
-                <nav className={styles.nav}>
-                    <div className={styles.navSection}>
-                        <div className={styles.navLabel}>Main Menu</div>
-                        {visibleLinks.map((link) => {
-                            const Icon = link.icon;
-                            const isActive = pathname === link.href;
-                            return (
-                                <Link
-                                    key={link.href}
-                                    href={link.href}
-                                    className={`${styles.navLink} ${isActive ? styles.activeLink : ''}`}
-                                >
-                                    <Icon size={20} className={isActive ? 'text-[#d4af37]' : ''} />
-                                    <span>{link.label}</span>
-                                </Link>
-                            );
-                        })}
-                    </div>
+                {/* Navigation */}
+                <nav className="flex-1 overflow-y-auto py-6 px-3 space-y-1 custom-scrollbar">
+                    <div className="px-3 mb-2 text-xs font-bold text-gray-500 uppercase tracking-wider">Main Menu</div>
+                    {visibleLinks.map((link) => {
+                        const Icon = link.icon;
+                        const isActive = pathname === link.href;
+                        return (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                className={`
+                                    flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200 group
+                                    ${isActive
+                                        ? 'bg-gold text-navy-900 shadow-lg shadow-gold/20 font-bold'
+                                        : 'text-gray-400 hover:bg-navy-800 hover:text-white'}
+                                `}
+                            >
+                                <Icon size={20} className={`transition-colors ${isActive ? 'text-navy-900' : 'group-hover:text-gold'}`} />
+                                <span>{link.label}</span>
+                            </Link>
+                        );
+                    })}
                 </nav>
 
-                <div className={styles.userProfile}>
-                    <div className={styles.userAvatar}>
-                        <div className="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-white font-bold">
+                {/* User Profile Footer */}
+                <div className="p-4 border-t border-navy-800 bg-navy-950/30">
+                    <div className="flex items-center gap-3 p-2 rounded-xl bg-navy-800/50 border border-navy-700/50">
+                        <div className="w-10 h-10 rounded-full bg-gold flex items-center justify-center text-navy-900 font-bold shadow-inner">
                             {user.name.charAt(0)}
                         </div>
+                        <div className="flex-1 min-w-0">
+                            <div className="text-sm font-medium text-white truncate">{user.name}</div>
+                            <div className="text-xs text-gray-400 truncate">{getRoleDisplay(user.role)}</div>
+                        </div>
+                        <button
+                            onClick={handleLogout}
+                            className="p-2 text-gray-400 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-colors"
+                            title="Logout"
+                        >
+                            <LogOut size={18} />
+                        </button>
                     </div>
-                    <div className={styles.userInfo}>
-                        <div className={styles.userName}>{user.name}</div>
-                        <div className={styles.userRole}>{getRoleDisplay(user.role)}</div>
-                    </div>
-                    <AdminThemeToggle />
-                    <button
-                        onClick={handleLogout}
-                        className="p-2 hover:bg-white/10 rounded-lg transition-colors text-red-400"
-                        title="Logout"
-                    >
-                        <LogOut size={18} />
-                    </button>
                 </div>
             </aside>
-            <main className={styles.main}>
-                {children}
+
+            {/* Main Content Area */}
+            <main className="flex-1 min-w-0 lg:pl-0 pt-[60px] lg:pt-0 transition-all duration-300">
+                <div className="p-4 md:p-8 max-w-7xl mx-auto">
+                    {children}
+                </div>
             </main>
             <AdminAutoLock />
         </div>

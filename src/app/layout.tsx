@@ -50,7 +50,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
-  themeColor: '#D4AF37',
+  themeColor: '#C5A049',
 };
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -95,8 +95,9 @@ export default async function RootLayout({
           <SettingsProvider initialSettings={settings}>
             <ThemeProvider
               attribute="class"
-              defaultTheme="system"
-              enableSystem
+              defaultTheme="light"
+              forcedTheme="light"
+              enableSystem={false}
               disableTransitionOnChange
             >
               <PricingProvider>

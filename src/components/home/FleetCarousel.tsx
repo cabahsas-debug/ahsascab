@@ -158,7 +158,7 @@ export default function FleetCarousel({ vehicles, discount }: FleetCarouselProps
 
                                     <div className="mt-auto">
                                         <GlassButton
-                                            href={getWhatsAppLink(`Salam Al Aqsa, I am interested in booking the ${vehicle.name} (${vehicle.passengers} pax).`)}
+                                            href={getWhatsAppLink(`Salam Ahsas Alrihlat, I am interested in booking the ${vehicle.name} (${vehicle.passengers} pax).`)}
                                             target="_blank"
                                             variant="secondary"
                                             className="w-full justify-center gap-2 !bg-secondary !bg-none hover:!bg-primary hover:!text-primary-foreground transition-all duration-300"

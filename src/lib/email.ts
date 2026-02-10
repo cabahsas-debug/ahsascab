@@ -84,7 +84,7 @@ const formatPriceRow = (booking: BookingData) => {
             <div style="font-size: 12px; text-transform: uppercase;">Total Price</div>
             <div style="font-family: 'Amiri', serif; font-size: 12px;">السعر الإجمالي</div>
         </td>
-        <td style="padding: 15px 20px; border-bottom: 1px solid #eee; font-weight: bold; color: #d4af37; font-size: 18px;">
+        <td style="padding: 15px 20px; border-bottom: 1px solid #eee; font-weight: bold; color: #D4AF37; font-size: 18px;">
             ${booking.price}
         </td>
     </tr>`;

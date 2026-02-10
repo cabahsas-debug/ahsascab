@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { ArrowLeft, User, Mail, Calendar, Shield, DollarSign, Briefcase, MapPin, TrendingUp, CheckCircle, Clock, Building2 } from 'lucide-react';
-import adminStyles from '../../admin.module.css';
 
 interface BookingSummary {
     id: string;
@@ -95,13 +94,13 @@ export default function UserDetailsPage() {
                     <ArrowLeft size={24} />
                 </button>
                 <div>
-                    <h1 className={adminStyles.title}>User Details</h1>
+                    <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-amber-600 to-amber-400 bg-clip-text text-transparent">User Details</h1>
                     <p className="text-muted-foreground">View and manage user information</p>
                 </div>
             </div>
 
             {/* Profile Card */}
-            <div className={adminStyles.glassCard + " p-6"}>
+            <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden p-6">
                 <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
                     <div className="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-full">
                         <User size={48} className="text-amber-500" />

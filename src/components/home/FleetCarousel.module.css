@@ -2,7 +2,7 @@
     padding: 4rem 0;
     position: relative;
     overflow: hidden;
-    background: radial-gradient(circle at center, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+    background: transparent;
 }
 
 /* Decorative background elements */
@@ -30,7 +30,7 @@
 .title {
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     margin-bottom: 1.5rem;
-    color: hsl(var(--foreground));
+    color: #ffffff;
     font-weight: 800;
     letter-spacing: -0.02em;
     font-family: var(--font-playfair), serif;
@@ -40,7 +40,7 @@
     font-size: 1.25rem;
     max-width: 700px;
     margin: 0 auto;
-    color: hsl(var(--muted-foreground));
+    color: rgba(255, 255, 255, 0.8);
     line-height: 1.7;
 }
 
@@ -138,8 +138,8 @@
     transform: translateY(-10px);
     box-shadow:
         0 30px 60px -10px rgba(0, 0, 0, 0.1),
-        0 0 0 1px hsl(var(--secondary)) inset;
-    border-color: hsl(var(--secondary));
+        0 0 0 1px hsl(var(--gold)) inset;
+    border-color: hsl(var(--gold));
 }
 
 .imageWrapper {
@@ -147,8 +147,10 @@
     width: 100%;
     height: 200px;
     overflow: hidden;
-    background: radial-gradient(circle at center, hsl(var(--muted)) 0%, hsl(var(--card)) 100%);
-    border-bottom: 1px solid hsl(var(--border));
+    height: 200px;
+    overflow: hidden;
+    background: radial-gradient(circle at center, var(--navy) 0%, var(--dark-navy) 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -202,12 +204,12 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.8));
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.05);
 }
 
-:global(.dark) .content {
-    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.8));
-}
+/* Dark mode override removed */
 
 .cardHeader {
     display: flex;
@@ -220,7 +222,7 @@
 .vehicleName {
     font-size: 1.5rem;
     margin: 0;
-    color: hsl(var(--foreground));
+    color: #ffffff;
     font-weight: 800;
     letter-spacing: -0.02em;
     line-height: 1.2;
@@ -228,8 +230,8 @@
 }
 
 .priceTag {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--foreground)) 100%);
-    color: hsl(var(--primary-foreground));
+    background: var(--gold-gradient);
+    color: #0f172a;
     padding: 0.6rem 1.2rem;
     border-radius: 9999px;
     font-size: 0.9rem;
@@ -243,7 +245,7 @@
     gap: 2rem;
     margin-bottom: 1rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px dashed hsl(var(--border));
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
 }
 
 .specItem {
@@ -251,7 +253,7 @@
     align-items: center;
     gap: 0.6rem;
     font-weight: 600;
-    color: hsl(var(--muted-foreground));
+    color: rgba(255, 255, 255, 0.7);
     font-size: 1rem;
 }
 
@@ -272,11 +274,12 @@
     align-items: center;
     gap: 0.4rem;
     font-size: 0.9rem;
-    color: hsl(var(--muted-foreground));
-    background: hsl(var(--muted));
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.05);
     padding: 0.4rem 1rem;
     border-radius: 12px;
-    border: 1px solid hsl(var(--border));
+    border: 1px solid rgba(255, 255, 255, 0.1);
     font-weight: 500;
 }
 

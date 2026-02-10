@@ -41,7 +41,7 @@ const jsonLd = {
     "alternateName": "توصيل مطار المدينة المنورة",
     "provider": {
         "@type": "LocalBusiness",
-        "name": "Al Aqsa Transport"
+        "name": "Ahsas Alrihlat"
     },
     "serviceType": "Airport Transfer",
     "areaServed": {

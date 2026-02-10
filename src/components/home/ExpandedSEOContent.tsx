@@ -19,9 +19,9 @@ export default function ExpandedSEOContent() {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "TransportationService",
-        "name": "Al Aqsa Umrah Transport Services",
-        "url": "https://alaqsaumrahtransport.com",
-        "logo": "https://alaqsaumrahtransport.com/logo.png",
+        "name": "Ahsas Cab",
+        "url": "https://ahsasalrihlat.com",
+        "logo": "https://ahsasalrihlat.com/logo.png",
         "areaServed": [
             { "@type": "City", "name": "Makkah" },
             { "@type": "City", "name": "Madinah" },
@@ -138,10 +138,10 @@ export default function ExpandedSEOContent() {
                             <div className="grid lg:grid-cols-2 gap-8 items-center">
                                 <div>
                                     <h2 className="text-2xl md:text-3xl font-bold font-playfair text-secondary mb-4">
-                                        Al Aqsa Umrah Transport – Trusted Global Umrah Travel Partner
+                                        Ahsas Cab – Trusted Global Umrah Travel Partner
                                     </h2>
                                     <p className="text-lg text-muted-foreground leading-relaxed">
-                                        Welcome to Al Aqsa Umrah Transport, your trusted partner for safe, affordable, and spiritually fulfilling journeys to the holy cities. We specialize in providing reliable <strong>Umrah transport services</strong> for pilgrims worldwide, offering buses, taxis, and group packages tailored to your needs. With a commitment to comfort, professionalism, and faith, Al Aqsa Umrah Transport ensures every step of your pilgrimage is supported with care. Whether you are traveling individually or with a group, our <strong>pilgrimage transport solutions</strong> are designed to make your Umrah experience seamless and memorable.
+                                        Welcome to Ahsas Cab, your trusted partner for safe, affordable, and spiritually fulfilling journeys to the holy cities. We specialize in providing reliable <strong>Umrah transport services</strong> for pilgrims worldwide, offering buses, taxis, and group packages tailored to your needs. With a commitment to comfort, professionalism, and faith, Ahsas Cab ensures every step of your pilgrimage is supported with care. Whether you are traveling individually or with a group, our <strong>pilgrimage transport solutions</strong> are designed to make your Umrah experience seamless and memorable.
                                     </p>
                                 </div>
                                 <div className="relative h-64 md:h-80 w-full rounded-2xl overflow-hidden shadow-xl border border-border/50">
@@ -169,7 +169,7 @@ export default function ExpandedSEOContent() {
                                 <div>
                                     <h3 className="text-xl font-bold text-primary dark:text-white mb-3 flex items-center gap-2">
                                         <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
-                                        Why Choose Al Aqsa?
+                                        Why Choose Ahsas Cab?
                                     </h3>
                                     <p className="text-muted-foreground leading-relaxed">
                                         We combine spiritual understanding with logistical excellence. Our <strong>affordable Umrah transport</strong> packages are designed to fit every budget without compromising quality. We offer 24/7 customer support, English and Arabic-speaking drivers, and a seamless booking process that makes us the preferred choice for <strong>international Umrah pilgrims</strong> from the UK, USA, Pakistan, Hijaz, and beyond.
@@ -190,7 +190,7 @@ export default function ExpandedSEOContent() {
                                     <div>
                                         <h4 className="font-bold text-lg mb-1">Ready for a Blessed Journey?</h4>
                                         <p className="text-sm text-muted-foreground">
-                                            Book your <strong>Umrah bus service</strong> or private transfer today. Experience the peace of mind that comes with traveling with Al Aqsa.
+                                            Book your <strong>Umrah bus service</strong> or private transfer today. Experience the peace of mind that comes with traveling with Ahsas Cab.
                                         </p>
                                     </div>
                                     <Link
@@ -210,7 +210,7 @@ export default function ExpandedSEOContent() {
                         {/* Footer SEO Text */}
                         <div className="text-center text-sm text-muted-foreground pt-8 border-t border-border/50">
                             <p>
-                                Al Aqsa Umrah Transport is a licensed private transportation provider in Saudi Arabia. We serve all pilgrims visiting the Two Holy Mosques for Umrah and Hajj.
+                                Ahsas Cab is a licensed private transportation provider in Saudi Arabia. We serve all pilgrims visiting the Two Holy Mosques for Umrah and Hajj.
                                 Operating in Jeddah, Makkah, Madinah, and Taif.
                             </p>
                         </div>

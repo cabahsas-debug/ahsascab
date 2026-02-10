@@ -117,7 +117,7 @@ export default function ReviewsSection() {
                         transition={{ delay: 0.1 }}
                         className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight"
                     >
-                        Trusted by <span className="text-amber-500 dark:text-amber-400">Thousands</span>
+                        Trusted by <span className="text-gold dark:text-gold">Thousands</span>
                     </motion.h2>
 
                     <motion.p
@@ -127,7 +127,7 @@ export default function ReviewsSection() {
                         transition={{ delay: 0.2 }}
                         className="text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed font-light mb-8"
                     >
-                        Join the community of pilgrims who trust Al Aqsa Transport for their spiritual journey.
+                        Join the community of pilgrims who trust Ahsas Cab for their spiritual journey.
                     </motion.p>
 
                     {/* Simplified Rating Summary */}
@@ -143,7 +143,7 @@ export default function ReviewsSection() {
                                 <div className="text-6xl font-bold text-slate-900 dark:text-white tracking-tighter">{averageRating}</div>
                                 <div className="flex gap-1 justify-center mt-2">
                                     {[...Array(5)].map((_, i) => (
-                                        <Star key={i} size={16} className={`${i < Math.round(Number(averageRating)) ? 'fill-amber-400 text-amber-400' : 'text-slate-300 dark:text-slate-800'}`} />
+                                        <Star key={i} size={16} className={`${i < Math.round(Number(averageRating)) ? 'fill-gold text-gold' : 'text-slate-300 dark:text-slate-800'}`} />
                                     ))}
                                 </div>
                                 <div className="text-sm text-slate-600 dark:text-slate-400 mt-1">{totalReviews} Verified Reviews</div>
@@ -157,7 +157,7 @@ export default function ReviewsSection() {
                                         <span className="text-slate-600 dark:text-slate-400 w-3 font-medium">{star}</span>
                                         <div className="w-32 h-1.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
                                             <div
-                                                className="h-full bg-amber-500 rounded-full"
+                                                className="h-full bg-gold rounded-full"
                                                 style={{ width: `${totalReviews > 0 ? (ratingCounts[star as keyof typeof ratingCounts] / totalReviews) * 100 : 0}%` }}
                                             />
                                         </div>

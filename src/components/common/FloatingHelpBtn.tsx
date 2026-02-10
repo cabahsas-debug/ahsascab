@@ -14,7 +14,7 @@ export default function FloatingHelpBtn() {
             className="fixed bottom-6 right-6 z-50 md:bottom-8 md:right-8"
         >
             <a
-                href={getWhatsAppLink("Salam Al Aqsa, I need help with booking.")}
+                href={getWhatsAppLink("Salam Ahsas Cab, I need help with booking.")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white p-3 md:px-5 md:py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"

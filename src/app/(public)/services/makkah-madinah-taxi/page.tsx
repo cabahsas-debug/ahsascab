@@ -41,7 +41,7 @@ const jsonLd = {
     "alternateName": "تاكسي مكة المدينة",
     "provider": {
         "@type": "LocalBusiness",
-        "name": "Al Aqsa Transport",
+        "name": "Ahsas Alrihlat",
         "image": "https://alaqsaumrahtransport.com/logo.png"
     },
     "serviceType": "Intercity Transfer",

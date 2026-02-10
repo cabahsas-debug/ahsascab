@@ -12,9 +12,9 @@ export default function StatusDistributionChart({ data }: StatusDistributionChar
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="bg-white dark:bg-slate-900/50 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm shadow-slate-200/50 dark:shadow-xl"
+            className="bg-white dark:bg-navy-900/50 backdrop-blur-xl border border-gray-200 dark:border-navy-800 rounded-2xl p-6 shadow-sm shadow-gray-200/50 dark:shadow-xl"
         >
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+            <h3 className="text-lg font-bold text-navy-900 dark:text-white mb-6 flex items-center gap-2 font-playfair">
                 <Activity size={18} className="text-purple-500" />
                 Booking Status
             </h3>

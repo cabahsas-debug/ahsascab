@@ -8,7 +8,7 @@ import FadeIn from '@/components/common/FadeIn';
 const faqs = [
     {
         question: "How to book a taxi for Umrah in Saudi Arabia?",
-        answer: "Booking is simple with Al Aqsa Umrah Transport. You can book online through our website for instant confirmation. We offer reliable Umrah Taxi Services from Jeddah Airport, Makkah, and Madinah with 24/7 support."
+        answer: "Booking is simple with Ahsas Alrihlat. You can book online through our website for instant confirmation. We offer reliable Umrah Taxi Services from Jeddah Airport, Makkah, and Madinah with 24/7 support."
     },
     {
         question: "What is the best way to travel from Jeddah to Makkah?",
@@ -24,7 +24,7 @@ const faqs = [
     },
     {
         question: "How can I find a trustworthy taxi service in Makkah?",
-        answer: "Look for licensed providers like Al Aqsa Umrah Transport. We are a registered Umrah Transport Company with professional, English-speaking drivers and a track record of safety and reliability. Always avoid unregistered street taxis."
+        answer: "Look for licensed providers like Ahsas Alrihlat. We are a registered Umrah Transport Company with professional, English-speaking drivers and a track record of safety and reliability. Always avoid unregistered street taxis."
     },
     {
         question: "Do you offer Ziyarat tours in Makkah and Madinah?",

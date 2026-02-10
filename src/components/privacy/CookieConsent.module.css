@@ -26,7 +26,7 @@
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
 .content {

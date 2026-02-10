@@ -12,9 +12,9 @@ export default function PopularRoutesChart({ data }: PopularRoutesChartProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.45 }}
-            className="bg-white dark:bg-slate-900/50 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm shadow-slate-200/50 dark:shadow-xl"
+            className="bg-white dark:bg-navy-900/50 backdrop-blur-xl border border-gray-200 dark:border-navy-800 rounded-2xl p-6 shadow-sm shadow-gray-200/50 dark:shadow-xl"
         >
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+            <h3 className="text-lg font-bold text-navy-900 dark:text-white mb-6 flex items-center gap-2 font-playfair">
                 <TrendingUp size={18} className="text-emerald-500" />
                 Popular Routes
             </h3>
@@ -25,9 +25,9 @@ export default function PopularRoutesChart({ data }: PopularRoutesChartProps) {
                         layout="vertical"
                         margin={{ top: 5, right: 30, left: 10, bottom: 5 }}
                     >
-                        <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e2e8f0" />
+                        <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e5e7eb" />
                         <XAxis type="number" hide />
-                        <YAxis dataKey="name" type="category" width={80} tick={{ fontSize: 10 }} interval={0} />
+                        <YAxis dataKey="name" type="category" width={80} tick={{ fontSize: 10, fill: '#64748b' }} interval={0} />
                         <Tooltip
                             cursor={{ fill: 'transparent' }}
                             contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}

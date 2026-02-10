@@ -40,7 +40,7 @@ export default async function BlogPage() {
         readTime: post.readTime || '5 min read',
         image: post.image,
         alt: post.alt || post.title,
-        author: post.author || 'Al Aqsa Transport',
+        author: post.author || 'Ahsas Alrihlat',
         tags: post.tags || [],
     }));
 

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import FadeIn from '@/components/common/FadeIn';
 
 export const metadata = {
-    title: "Safety Standards & Protocols | Al Aqsa Transport | معايير السلامة",
+    title: "Safety Standards & Protocols | Ahsas Cab | معايير السلامة",
     description: "Your safety is our sacred duty. Comprehensive vehicle sanitation, driver checks, & 24/7 support. معايير سلامة عالية لخدمة المعتمرين. تعقيم شامل وسائقين محترفين.",
     keywords: [
         "Umrah safety", "safe taxi Makkah", "sanitized transport Saudi",
@@ -14,8 +14,8 @@ export const metadata = {
         "أمان المعتمرين", "توصيل آمن للنساء", "سائقين مرخصين"
     ],
     openGraph: {
-        title: "Safety Standards | Al Aqsa Umrah Transport | الأمان والراحة",
-        description: "Verified drivers, sanitized vehicles, and 24/7 support. Travel with peace of mind. رحلة آمنة ومريحة مع الأقصى للنقل.",
+        title: "Safety Standards | Ahsas Cab | الأمان والراحة",
+        description: "Verified drivers, sanitized vehicles, and 24/7 support. Travel with peace of mind. رحلة آمنة ومريحة مع احساس الرحلات.",
         images: ['/images/blog/comfort-safety-new.png'],
     }
 };
@@ -61,7 +61,7 @@ export default function SafetyPage() {
                         Traveling with Confidence
                     </h2>
                     <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                        At Al Aqsa Umrah Transport, we understand that strict safety measures are essential for you to focus on your Ibadah.
+                        At Ahsas Cab, we understand that strict safety measures are essential for you to focus on your Ibadah.
                         We go beyond the industry standards to ensure every aspect of your journey—from the driver's conduct to the vehicle's hygiene—is perfect.
                     </p>
                 </div>
@@ -388,7 +388,7 @@ export default function SafetyPage() {
                         "name": "Umrah Transport Safety Standards",
                         "provider": {
                             "@type": "Organization",
-                            "name": "Al Aqsa Umrah Transport"
+                            "name": "Ahsas Cab"
                         },
                         "serviceType": "Safe Transport",
                         "description": "Comprehensive safety protocols including vehicle sanitation, driver vetting, and 24/7 emergency support.",

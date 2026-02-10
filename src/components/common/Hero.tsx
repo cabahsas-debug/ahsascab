@@ -3,11 +3,10 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, ChevronDown } from 'lucide-react';
-import styles from './Hero.module.css';
+import { ArrowRight, ChevronDown, CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { cn } from '@/lib/utils';
 import GlassButton from '@/components/ui/GlassButton';
-import FadeIn from '@/components/common/FadeIn';
-import { trackConversion } from '@/lib/analytics';
 
 interface HeroProps {
     title: string;
@@ -41,99 +40,164 @@ const Hero: React.FC<HeroProps> = ({
     breadcrumbs,
     alt
 }) => {
-    // Simplified Hero component without heavy animation hooks
+    const isTwoColumn = layout === 'two-column';
 
     return (
-        <section className={styles.hero}>
-            {/* Background Layer */}
+        <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden">
+            {/* Background Image with Ken Burns Effect */}
             <div className="absolute inset-0 z-0">
-                <div className={styles.bgImage}>
+                <motion.div
+                    initial={{ scale: 1 }}
+                    animate={{ scale: 1.1 }}
+                    transition={{ duration: 20, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
+                    className="relative w-full h-full"
+                >
                     <Image
                         src={bgImage}
-                        alt={alt || "Umrah Transport Saudi Arabia Hero"}
+                        alt={alt || "Ahsas Cab Premium Transport"}
                         fill
                         priority
-                        quality={65} // Reduced quality for background optimization (was 85)
+                        quality={85}
                         className="object-cover"
                         sizes="100vw"
                     />
-                </div>
+                </motion.div>
+                {/* Premium Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/50 to-navy/20 z-[1]" />
+                <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay z-[1]" />
             </div>
 
-            <div className={styles.overlay} />
+            {/* Content Container */}
+            <div className="container mx-auto px-4 relative z-10 pt-20 pb-12">
+                <div className={cn(
+                    "grid gap-12 items-center",
+                    isTwoColumn ? "lg:grid-cols-2" : "grid-cols-1 text-center max-w-4xl mx-auto"
+                )}>
+                    {/* Text Content */}
+                    <div className={cn("space-y-8", isTwoColumn ? "text-left" : "text-center")}>
+                        {breadcrumbs && (
+                            <motion.div
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.1 }}
+                            >
+                                {breadcrumbs}
+                            </motion.div>
+                        )}
 
-            {/* Custom Background Elements */}
-            {backgroundChildren && (
-                <div className={`${styles.backgroundLayer} absolute inset-0 z-[1] pointer-events-none`}>
-                    {backgroundChildren}
-                </div>
-            )}
+                        {badge && (
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 }}
+                                className={cn("inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-gold/30 backdrop-blur-md text-gold text-xs font-bold tracking-widest uppercase shadow-lg", !isTwoColumn && "mx-auto")}
+                            >
+                                <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+                                {badge}
+                            </motion.div>
+                        )}
 
-            <div className={`${styles.content} ${layout === 'two-column' ? styles.twoColumn : ''} relative z-10`}>
-                <div className={styles.textContent}>
-                    {breadcrumbs && (
-                        <FadeIn delay={0.1} direction="down" className="mb-4">
-                            {breadcrumbs}
-                        </FadeIn>
-                    )}
-                    {badge && (
-                        <FadeIn delay={0.2} direction="down">
-                            <span className={styles.badge}>{badge}</span>
-                        </FadeIn>
-                    )}
-                    {/* Main Title */}
-                    <FadeIn delay={0.3} direction="up">
-                        <h1 className={styles.title}>
-                            {title}
-                        </h1>
-                    </FadeIn>
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3, duration: 0.8 }}
+                        >
+                            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold font-playfair leading-tight tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/80 drop-shadow-2xl">
+                                {title}
+                            </h1>
+                        </motion.div>
 
-                    <FadeIn delay={0.4} direction="up">
-                        <div className={styles.subtitle}>
-                            {subtitle}
-                        </div>
-                    </FadeIn>
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4, duration: 0.8 }}
+                        >
+                            <div className="text-base md:text-lg text-slate-100/90 font-light leading-relaxed max-w-xl tracking-wide">
+                                {subtitle}
+                            </div>
+                        </motion.div>
 
-                    <FadeIn delay={0.5} direction="up">
-                        <div className={styles.buttons}>
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5, duration: 0.8 }}
+                            className={cn("flex flex-wrap gap-4", !isTwoColumn && "justify-center")}
+                        >
                             {ctaText && ctaLink && (
                                 <GlassButton
                                     href={ctaLink}
-                                    variant="secondary"
+                                    variant="primary"
                                     size="lg"
-                                    className="gap-2 text-white"
-                                    onClick={() => trackConversion('whatsapp', `hero_${title.substring(0, 10)}`)}
+                                    className="h-14 px-10 text-lg font-bold btn-gold"
                                 >
                                     {ctaText}
-                                    <ArrowRight size={20} />
+                                    <ArrowRight className="ml-2 w-5 h-5" />
                                 </GlassButton>
                             )}
-
                             {secondaryCtaText && secondaryCtaLink && (
-                                <GlassButton href={secondaryCtaLink} variant="outline" size="lg" className="text-white">
+                                <GlassButton
+                                    href={secondaryCtaLink}
+                                    variant="outline"
+                                    size="lg"
+                                    className="h-14 px-8 text-lg text-white border-white/20 hover:bg-white/10 hover:border-gold/40 hover:text-gold transition-colors"
+                                >
                                     {secondaryCtaText}
                                 </GlassButton>
                             )}
-                        </div>
-                    </FadeIn>
-                </div>
+                        </motion.div>
 
-                {children && (
-                    <FadeIn
-                        delay={0.6}
-                        direction="up"
-                        className={styles.childrenContainer}
-                    >
-                        <div className={styles.childrenWrapper}>
+                        {/* Trust Indicators */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.8 }}
+                            className={cn("flex flex-wrap gap-6 text-sm text-white/60 pt-4", !isTwoColumn && "justify-center")}
+                        >
+                            <div className="flex items-center gap-2">
+                                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                                <span>Official License</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                                <span>24/7 Support</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                                <span>Best Price Guarantee</span>
+                            </div>
+                        </motion.div>
+                    </div>
+
+                    {/* Right Column / Children (Booking Form) */}
+                    {children && (
+                        <motion.div
+                            initial={{ opacity: 0, x: 50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.6, duration: 0.8 }}
+                            className={cn("w-full max-w-md mx-auto lg:ml-auto", isTwoColumn ? "block" : "hidden lg:block mt-12")}
+                        >
                             {children}
-                        </div>
-                    </FadeIn>
-                )}
+                        </motion.div>
+                    )}
+                </div>
             </div>
 
-            <div className={styles.scrollIndicator}>
-                <ChevronDown size={32} />
-            </div>
+            {/* Scroll Indicator */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.5, duration: 1 }}
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 animate-bounce"
+            >
+                <ChevronDown className="w-8 h-8" />
+            </motion.div>
+
+            {/* Custom Background Children */}
+            {backgroundChildren && (
+                <div className="absolute inset-0 z-[2] pointer-events-none">
+                    {backgroundChildren}
+                </div>
+            )}
         </section>
     );
 };

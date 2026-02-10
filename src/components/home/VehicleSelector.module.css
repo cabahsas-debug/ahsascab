@@ -53,7 +53,7 @@
 .selected {
     background: linear-gradient(145deg, #ffffff, #fffbeb);
     /* Warm tint */
-    border-color: #D4AF37;
+    border-color: var(--gold);
     box-shadow:
         0 20px 40px -10px rgba(212, 175, 55, 0.15),
         0 0 0 1px rgba(212, 175, 55, 0.2);
@@ -63,7 +63,7 @@
 .activeBorder {
     position: absolute;
     inset: 0;
-    border: 2px solid #D4AF37;
+    border: 2px solid var(--gold);
     border-radius: 1.25rem;
     pointer-events: none;
     z-index: 2;
@@ -87,8 +87,8 @@
 
 /* Selected Icon - Gold Plated with Navy Icon */
 .selected .iconWrapper {
-    background: linear-gradient(135deg, #D4AF37 0%, #B4941F 100%);
-    color: #0F172A;
+    background: var(--gold-gradient);
+    color: var(--navy);
     /* Contrast Navy Blue */
     box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
     border-color: rgba(255, 255, 255, 0.4);
@@ -108,7 +108,7 @@
     /* Premium Font */
     font-size: 1.1rem;
     font-weight: 700;
-    color: #1e293b;
+    color: var(--navy);
     margin-bottom: 0.25rem;
     white-space: nowrap;
     overflow: hidden;
@@ -136,7 +136,7 @@
     position: absolute;
     top: 0.75rem;
     right: 0.75rem;
-    color: #D4AF37;
+    color: var(--gold);
     background: white;
     border-radius: 50%;
     width: 1.25rem;
@@ -170,7 +170,7 @@
 }
 
 .trigger.open {
-    border-color: #D4AF37;
+    border-color: var(--gold);
     box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
 }
 
@@ -198,7 +198,7 @@
 
 .trigger.open .triggerIconWrapper {
     background: rgba(212, 175, 55, 0.1);
-    color: #D4AF37;
+    color: var(--gold);
 }
 
 .vehicleInfo {
@@ -215,7 +215,7 @@
 
 .value {
     font-weight: 600;
-    color: #0f172a;
+    color: var(--navy);
 }
 
 .dropdown {
@@ -262,7 +262,7 @@
 }
 
 .option.selectedOption .optionIcon {
-    color: #D4AF37;
+    color: var(--gold);
 }
 
 .optionContent {
@@ -272,7 +272,7 @@
 .optionName {
     display: block;
     font-weight: 500;
-    color: #0f172a;
+    color: var(--navy);
     font-size: 0.95rem;
     margin-bottom: 0.1rem;
 }
@@ -288,7 +288,7 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #D4AF37;
+    background: var(--gold);
 }
 
 
@@ -305,7 +305,7 @@
 
 :global(.dark) .selected {
     background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(212, 175, 55, 0.1));
-    border-color: #D4AF37;
+    border-color: var(--gold);
 }
 
 :global(.dark) .iconWrapper {
@@ -315,8 +315,8 @@
 }
 
 :global(.dark) .selected .iconWrapper {
-    background: linear-gradient(135deg, #D4AF37 0%, #B4941F 100%);
-    color: #0f172a;
+    background: var(--gold-gradient);
+    color: var(--navy);
 }
 
 :global(.dark) .name {
@@ -328,7 +328,7 @@
 }
 
 :global(.dark) .checkIcon {
-    background: #0f172a;
+    background: var(--navy);
 }
 
 /* Responsiveness */
@@ -351,7 +351,7 @@
 
 /* Dark Mode Overrides for Dropdown */
 :global(.dark) .trigger {
-    background: #1e293b;
+    background: var(--navy);
     border-color: #334155;
 }
 
@@ -369,7 +369,7 @@
 }
 
 :global(.dark) .dropdown {
-    background: #1e293b;
+    background: var(--navy);
     border-color: #334155;
 }
 
@@ -390,5 +390,5 @@
 }
 
 :global(.dark) .option.selectedOption .optionIcon {
-    color: #D4AF37;
+    color: var(--gold);
 }
