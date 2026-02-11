@@ -51,7 +51,7 @@ export async function GET() {
                 features: vData.features,
                 price: "0",
                 hourlyRate: "0",
-                category: vData.category || "Standard",
+                category: (vData as any).category || "Standard",
                 isActive: true
             });
             vehicleMap.set(vData.id, newVehicle._id.toString());
