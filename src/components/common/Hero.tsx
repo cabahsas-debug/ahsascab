@@ -7,6 +7,7 @@ import { ArrowRight, ChevronDown, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import GlassButton from '@/components/ui/GlassButton';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 interface HeroProps {
     title: string;
@@ -40,6 +41,7 @@ const Hero: React.FC<HeroProps> = ({
     breadcrumbs,
     alt
 }) => {
+    const isMobile = useMediaQuery('(max-width: 768px)');
     const isTwoColumn = layout === 'two-column';
 
     return (
@@ -48,8 +50,8 @@ const Hero: React.FC<HeroProps> = ({
             <div className="absolute inset-0 z-0">
                 <motion.div
                     initial={{ scale: 1 }}
-                    animate={{ scale: 1.1 }}
-                    transition={{ duration: 20, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
+                    animate={isMobile ? { scale: 1 } : { scale: 1.1 }}
+                    transition={isMobile ? {} : { duration: 20, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
                     className="relative w-full h-full"
                 >
                     <Image
@@ -68,7 +70,7 @@ const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Content Container */}
-            <div className="container mx-auto px-4 relative z-10 pt-20 pb-12">
+            <div className="container mx-auto px-4 relative z-30 pt-20 pb-20 md:pb-32">
                 <div className={cn(
                     "grid gap-12 items-center",
                     isTwoColumn ? "lg:grid-cols-2" : "grid-cols-1 text-center max-w-4xl mx-auto"

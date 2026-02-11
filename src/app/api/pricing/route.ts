@@ -1,7 +1,12 @@
 import { NextResponse } from 'next/server';
 import { routeService } from '@/services/routeService';
 import { vehicleService } from '@/services/vehicleService';
-import { ROUTES as DEFAULT_ROUTES, VEHICLES as DEFAULT_VEHICLES } from '@/lib/pricing';
+import pricingData from '@/data/pricing.json';
+
+const DEFAULT_ROUTES = pricingData.routes;
+const DEFAULT_VEHICLES = pricingData.vehicles;
+
+export const dynamic = 'force-dynamic'; // Force dynamic to avoid caching for debug
 
 export async function GET() {
     try {
@@ -15,89 +20,61 @@ export async function GET() {
             return NextResponse.json({
                 routes: DEFAULT_ROUTES,
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                vehicles: DEFAULT_VEHICLES.map(({ icon, ...rest }) => rest) // Remove icon component for JSON serialization
+                vehicles: DEFAULT_VEHICLES
             });
         }
 
-        const activeRoutes = routes;
-        // Sort routes alphabetically by Origin -> Destination
-        activeRoutes.sort((a: any, b: any) => {
-            const nameA = `${a.origin} ${a.destination}`.toLowerCase();
-            const nameB = `${b.origin} ${b.destination}`.toLowerCase();
-            return nameA.localeCompare(nameB);
-        });
-
-        const activeVehicles = vehicles;
-
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const formattedRoutes = activeRoutes.map((route: any) => {
-            // In Firestore, we store prices directly on the route object
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const customRates = (route.prices || []).reduce((acc: Record<string, number>, rp: any) => {
-                acc[rp.vehicleId] = rp.price;
-                return acc;
-            }, {} as Record<string, number>);
-
-            return {
-                id: route.id,
-                name: `${route.origin} → ${route.destination}`,
-                origin: route.origin,
-                destination: route.destination,
-                // Infer category if missing for better filtering
-                category: route.category || (
-                    route.destination.toLowerCase().includes('airport') ? 'Airport Departure' :
-                        route.origin.toLowerCase().includes('airport') ? 'Airport Arrival' :
-                            (route.name.toLowerCase().includes('ziarat') || route.name.toLowerCase().includes('ziyarat')) ? 'Ziarat' :
-                                'Intercity'
-                ),
-                distance: route.distance || '',
-                time: route.duration || '',
-                baseRate: customRates && Object.values(customRates).length > 0
-                    ? Math.min(...(Object.values(customRates) as number[]))
-                    : 0,
-                customRates
-            };
-        });
-
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const formattedVehicles = activeVehicles.map((vehicle: any) => ({
-            id: vehicle.id,
-            name: vehicle.name,
-            capacity: vehicle.capacity || `${vehicle.passengers} Seater`,
-            passengers: vehicle.passengers,
-            multiplier: 1, // Not used
-            features: vehicle.features,
-            luggage: `${vehicle.luggage} Bags`,
-            category: vehicle.category,
-            isActive: vehicle.isActive
-        }));
-
-        // Enforce specific sort order
-        // Enforce specific sort order with robust matching
-        const getSortIndex = (v: any) => {
-            const str = `${v.id} ${v.name}`.toLowerCase();
-            if (str.includes('camry')) return 0;
-            if (str.includes('gmc') || str.includes('yukon')) return 1;
-            if (str.includes('staria')) return 2;
-            if (str.includes('starex')) return 3;
-            if (str.includes('hiace')) return 4;
-            if (str.includes('coaster')) return 5;
-            return 999;
-        };
-
-        formattedVehicles.sort((a, b) => getSortIndex(a) - getSortIndex(b));
-
         return NextResponse.json({
-            routes: formattedRoutes,
-            vehicles: formattedVehicles
+            routes: routes.map(route => {
+                // Determine baseRate logic
+                let baseRate = 0;
+                // If route has 'price' or we calculate it?
+                // The interface IRoute doesn't have baseRate. 
+                // Context logic: base = route.price || 0;
+                // But Route model doesn't have price field. 
+                // RouteWithPrices has prices array.
+                // We need to match what frontend expects.
+                // Frontend expects: customRates map.
+
+                const customRates = (route.prices || []).reduce((acc: Record<string, number>, rp: any) => {
+                    acc[rp.vehicleId] = rp.price;
+                    return acc;
+                }, {} as Record<string, number>);
+
+                // Determine baseRate? Maybe min price?
+                const prices = Object.values(customRates) as number[];
+                baseRate = prices.length > 0 ? Math.min(...prices) : 0;
+
+                return {
+                    id: route._id.toString(), // Ensure string ID
+                    name: `${route.origin} to ${route.destination}`,
+                    slug: route._id.toString(), // or generate a slug if stored
+                    seo: {
+                        title: `${route.origin} to ${route.destination} Taxi`,
+                        description: `Book taxi from ${route.origin} to ${route.destination}`,
+                        keywords: []
+                    },
+                    distance: route.distance,
+                    time: route.duration,
+                    baseRate,
+                    customRates
+                };
+            }),
+            vehicles: vehicles.map(vehicle => ({
+                id: vehicle.id,
+                name: vehicle.name,
+                capacity: vehicle.capacity || `${vehicle.passengers} Seater`,
+                multiplier: 1, // Default
+                features: vehicle.features,
+                luggage: `${vehicle.luggage} Bags`,
+                image: vehicle.image,
+                category: vehicle.category,
+                // Include other fields if needed
+                seo: { title: vehicle.name, description: vehicle.name, keywords: [] }
+            }))
         });
     } catch (error) {
-        console.error('Failed to fetch pricing:', error);
-        // Fallback on error as well
-        return NextResponse.json({
-            routes: DEFAULT_ROUTES,
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            vehicles: DEFAULT_VEHICLES.map(({ icon, ...rest }) => rest) // Remove icon component for JSON serialization
-        });
+        console.error('Error fetching pricing:', error);
+        return NextResponse.json({ error: 'Failed to fetch pricing' }, { status: 500 });
     }
 }

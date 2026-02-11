@@ -106,11 +106,18 @@ export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps
     };
 
     const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+        // Only scroll if the chat box is open to prevent page jumping
+        if (isOpen) {
+            messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }
     };
 
+    // Scroll when messages change, but ONLY if open is true inside the effect dependency logic
+    // We remove isOpen from dependency array or handle it inside
     useEffect(() => {
-        scrollToBottom();
+        if (isOpen) {
+            scrollToBottom();
+        }
     }, [messages, isOpen]);
 
     const generateResponse = (input: string): { text: string, action?: { label: string, url: string } } => {

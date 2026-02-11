@@ -38,13 +38,13 @@ export const vehicleService = {
     }, ['vehicles-list-v2'], { revalidate: 3600, tags: ['vehicles'] }),
 
     // Optimized method for public facing pages
-    getActiveVehicles: unstable_cache(async () => {
+    getActiveVehicles: async () => {
         await dbConnect();
         const vehicles = await Vehicle.find({ isActive: true }).lean();
         const mapped = vehicles.map(v => sanitizeVehicle({ ...v, id: v._id.toString() }));
         // @ts-ignore
         return mapped.sort((a, b) => getSortIndex(a) - getSortIndex(b));
-    }, ['vehicles-active-v2'], { revalidate: 3600, tags: ['vehicles'] }),
+    },
 
     async getVehicleById(id: string) {
         await dbConnect();
