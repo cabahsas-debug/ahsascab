@@ -93,9 +93,14 @@ export default function Navbar() {
         { href: '/contact', label: 'Contact us' },
     ];
 
+    // Routes that have a light background physically at the top (no hero image)
+    const lightRoutes = ['/booking', '/track-booking', '/contact'];
+    const isLightPage = lightRoutes.includes(pathname);
+    const showDarkNav = scrolled || isLightPage || isMenuOpen;
+
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${mounted && scrolled
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${mounted && showDarkNav
                 ? 'bg-white/80 backdrop-blur-md border-b border-white/20 shadow-lg py-2 lg:py-3'
                 : 'bg-transparent py-4 lg:py-6'
                 } ${isMenuOpen ? 'bg-white' : ''}`}
@@ -104,7 +109,7 @@ export default function Navbar() {
             <div className="container mx-auto px-4 flex items-center justify-between relative z-10">
                 <Link href="/" className="flex items-center gap-4 group">
                     <div className="relative flex items-center">
-                        <div className={`transition-all duration-500 ease-out ${scrolled ? 'w-12 h-12 lg:w-16 lg:h-16' : 'w-16 h-16 lg:w-20 lg:h-20'} relative`}>
+                        <div className={`transition-all duration-500 ease-out ${showDarkNav ? 'w-12 h-12 lg:w-16 lg:h-16' : 'w-16 h-16 lg:w-20 lg:h-20'} relative`}>
                             <Image
                                 src="/ahsas-logo-v2.png"
                                 alt="Ahsas Cab"
@@ -114,11 +119,11 @@ export default function Navbar() {
                                 sizes="(max-width: 768px) 64px, 80px"
                             />
                         </div>
-                        <div className={`hidden sm:flex flex-col ml-3 transition-opacity duration-300 ${scrolled ? 'opacity-0 lg:opacity-100' : 'opacity-100'}`}>
-                            <span className={`text-xl lg:text-2xl font-bold font-playfair leading-none tracking-tight transition-colors duration-300 ${scrolled ? 'text-secondary' : 'text-white'}`}>
+                        <div className={`hidden sm:flex flex-col ml-3 transition-opacity duration-300 ${showDarkNav ? 'opacity-0 lg:opacity-100' : 'opacity-100'}`}>
+                            <span className={`text-xl lg:text-2xl font-bold font-playfair leading-none tracking-tight transition-colors duration-300 ${showDarkNav ? 'text-secondary' : 'text-white'}`}>
                                 Ahsas <span className="text-primary">Cab</span>
                             </span>
-                            <span className={`text-[0.65rem] lg:text-xs font-medium tracking-[0.2em] uppercase leading-none mt-1 transition-colors duration-300 ${scrolled ? 'text-muted-foreground' : 'text-white/80'}`}>
+                            <span className={`text-[0.65rem] lg:text-xs font-medium tracking-[0.2em] uppercase leading-none mt-1 transition-colors duration-300 ${showDarkNav ? 'text-muted-foreground' : 'text-white/80'}`}>
                                 Luxury Transport
                             </span>
                         </div>
@@ -131,7 +136,7 @@ export default function Navbar() {
                         <div key={link.href} className="relative group/nav">
                             {link.href === '#' ? (
                                 <span
-                                    className={`relative text-sm font-medium transition-all duration-300 py-2 flex items-center gap-1 cursor-default ${scrolled ? 'text-secondary hover:text-primary' : 'text-white/90 hover:text-white'}`}
+                                    className={`relative text-sm font-medium transition-all duration-300 py-2 flex items-center gap-1 cursor-default ${showDarkNav ? 'text-secondary hover:text-primary' : 'text-white/90 hover:text-white'}`}
                                 >
                                     {link.label}
                                     {link.children && <ChevronDown size={14} className="group-hover/nav:rotate-180 transition-transform duration-300" />}
@@ -141,7 +146,7 @@ export default function Navbar() {
                                     href={link.href}
                                     className={`relative text-sm font-medium transition-all duration-300 py-2 flex items-center gap-1 ${mounted && pathname === link.href
                                         ? 'text-primary font-bold'
-                                        : (scrolled ? 'text-secondary hover:text-primary' : 'text-white/90 hover:text-white')
+                                        : (showDarkNav ? 'text-secondary hover:text-primary' : 'text-white/90 hover:text-white')
                                         }`}
                                 >
                                     {link.label}

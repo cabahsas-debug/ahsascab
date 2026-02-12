@@ -8,31 +8,6 @@ import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import RouteVisual from '@/components/services/RouteVisual';
 
-export const metadata: Metadata = {
-    title: "Madinah Airport Taxi to Hotel | Meet & Greet | تاكسي مطار المدينة",
-    description: "Reliable taxi from Madinah Airport (MED) to Masjid Nabawi hotels. 24/7 airport pickup. حجز تاكسي مطار المدينة المنورة. توصيل الى فندق الحرم.",
-    keywords: [
-        "Madinah Airport Taxi",
-        "Madinah Airport to Masjid Nabawi",
-        "Prince Mohammad Bin Abdulaziz Airport",
-        "MED Airport Transfer",
-        "Madinah Airport to Makkah Taxi",
-        "Madinah Hotel Transfer",
-        "Umrah Taxi Madinah",
-        "تاكسي مطار المدينة",
-        "استقبال مطار الامير محمد بن عبدالعزيز",
-        "توصيل من مطار المدينة للحرم",
-        "سعر مشوار مطار المدينة"
-    ],
-    alternates: {
-        canonical: 'https://alaqsaumrahtransport.com/services/madinah-airport-transfer',
-    },
-    openGraph: {
-        title: "Madinah Airport Taxi to Hotel | Prince Mohammad Bin Abdulaziz Airport Transfer",
-        description: "Reliable taxi from Madinah Airport (MED) to Masjid Nabawi hotels. 24/7 airport pickup, meet & greet service.",
-        images: [{ url: '/images/routes/madinah-airport-hero.png', width: 1200, height: 630, alt: 'Madinah Airport Transfer Service' }]
-    }
-};
 
 const jsonLd = {
     "@context": "https://schema.org",

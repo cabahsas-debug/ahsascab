@@ -61,15 +61,15 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
         <FadeIn direction="right" delay={0.2}>
             <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-4">
                 {contactCards.map((card, index) => (
-                    <GlassCard key={index} className="p-6 hover:border-secondary transition-colors group bg-white dark:bg-slate-800 shadow-md border-transparent">
+                    <GlassCard key={index} className="p-6 hover:border-secondary transition-colors group bg-white shadow-lg border-white/50">
                         <div className="flex items-start gap-4">
-                            <div className="p-3 bg-secondary/10 dark:bg-secondary/5 rounded-xl text-secondary group-hover:scale-110 transition-transform duration-300">
+                            <div className="p-3 bg-secondary/10 rounded-xl text-secondary group-hover:scale-110 transition-transform duration-300">
                                 <card.icon size={24} strokeWidth={1.5} />
                             </div>
                             <div className="flex-1">
-                                <h3 className="font-bold text-lg text-slate-900 dark:text-white mb-1 font-playfair">{card.title}</h3>
-                                <p className="font-medium text-primary dark:text-slate-200 mb-1 font-outfit">{card.value}</p>
-                                <p className="text-sm text-slate-500 dark:text-slate-400 mb-3">{card.sub}</p>
+                                <h3 className="font-bold text-lg text-navy mb-1 font-playfair">{card.title}</h3>
+                                <p className="font-medium text-navy mb-1 font-outfit">{card.value}</p>
+                                <p className="text-sm text-slate-500 mb-3">{card.sub}</p>
                                 <a
                                     href={card.action}
                                     target={card.action.startsWith('http') ? "_blank" : "_self"}

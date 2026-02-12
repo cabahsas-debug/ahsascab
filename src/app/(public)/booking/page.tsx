@@ -712,7 +712,7 @@ export default function BookingPage() {
                                             {/* Background Image / Placeholder */}
                                             <div className="absolute inset-0 bg-slate-900">
                                                 {v.image ? (
-                                                    <img src={v.image} alt={v.name} className="w-full h-full object-cover opacity-90" />
+                                                    <Image src={v.image} alt={v.name} fill className="object-cover opacity-90" />
                                                 ) : (
                                                     <div className="w-full h-full flex items-center justify-center">
                                                         <Briefcase className="text-slate-700" size={48} />
@@ -793,7 +793,7 @@ export default function BookingPage() {
                                             <div className="flex items-center gap-4">
                                                 <div className="w-20 h-14 rounded-lg overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0 border border-slate-200 dark:border-white/10 shadow-sm relative">
                                                     {vehicle.image ? (
-                                                        <img src={vehicle.image} alt={vehicle.name} className="w-full h-full object-cover" />
+                                                        <Image src={vehicle.image} alt={vehicle.name} fill className="object-cover" />
                                                     ) : <div className="w-full h-full flex items-center justify-center"><User size={20} className="text-slate-300" /></div>}
                                                 </div>
 
@@ -1755,9 +1755,9 @@ export default function BookingPage() {
     };
 
     return (
-        <main className="min-h-screen bg-white dark:bg-slate-950 pb-24">
+        <main className="min-h-screen bg-white dark:bg-slate-950 pb-24 pt-28 md:pt-32">
             {/* Progress Bar (Sticky) */}
-            <div className="sticky top-[35px] z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 shadow-sm transition-all duration-300 print:hidden">
+            <div className="sticky top-[85px] md:top-[100px] z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 shadow-sm transition-all duration-300 print:hidden">
                 <div className="container mx-auto px-4">
                     <div className="flex items-start justify-between py-3 max-w-4xl mx-auto">
                         {[
@@ -1790,7 +1790,7 @@ export default function BookingPage() {
                 </div>
             </div>
 
-            <div className="container mx-auto px-4 mt-24" ref={wizardRef}>
+            <div className="container mx-auto px-4 mt-8" ref={wizardRef}>
                 <div className="mb-6">
                     <Breadcrumbs />
                 </div>

@@ -11,6 +11,9 @@ import { getWhatsAppLink } from '@/lib/whatsapp';
 
 import AnimatedBackground from '@/components/ui/AnimatedBackground';
 import ScrollReveal from '@/components/ui/ScrollReveal';
+import { constructMetadata } from '@/lib/metadata';
+
+
 
 // Lazy load heavy components
 const InstantPriceCalculator = dynamic(() => import('@/components/home/InstantPriceCalculator'));
@@ -30,23 +33,17 @@ const BookingGuide = dynamic(() => import('@/components/home/BookingGuide'));
 const QuickBookingForm = dynamic(() => import('@/components/home/QuickBookingForm'));
 
 export async function generateMetadata() {
-  return {
-    title: "Ahsas Cab – Trusted Global Umrah Travel Partner",
-    description: "Ahsas Cab offers trusted, affordable, and safe Umrah travel services worldwide. Serving pilgrims with comfort and care with our luxury fleet.",
-    alternates: {
-      canonical: 'https://alaqsaumrahtransport.com',
-    },
+  return constructMetadata({
+    title: 'Trusted Umrah Taxi Service | Jeddah to Makkah & Madinah',
+    description: 'Ahsas Cab offers trusted, affordable, and safe Umrah travel services worldwide. Serving pilgrims with comfort and care with our luxury fleet.',
     keywords: [
       "Umrah transport services", "Umrah travel agency", "Umrah packages worldwide",
       "Pilgrimage transport solutions", "Affordable Umrah transport", "Trusted Umrah travel partner",
       "Umrah bus service", "Umrah taxi service", "Umrah group transport", "International Umrah pilgrims",
       "Taxi Jeddah Airport to Makkah", "GMC Yukon Makkah"
     ],
-    openGraph: {
-      title: "Ahsas Cab – Trusted Global Umrah Travel Partner",
-      description: "Ahsas Cab offers trusted, affordable, and safe Umrah travel services worldwide. Serving pilgrims with comfort and care.",
-    }
-  };
+    canonicalUrl: 'https://ahsascab.com',
+  });
 }
 
 export default async function Home() {

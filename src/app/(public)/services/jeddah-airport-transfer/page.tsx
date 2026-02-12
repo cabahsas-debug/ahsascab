@@ -11,30 +11,6 @@ import FAQSection from '@/components/services/FAQSection';
 import VehicleCapacityGuide from '@/components/services/VehicleCapacityGuide';
 import RouteVisual from '@/components/services/RouteVisual';
 
-export const metadata: Metadata = {
-    title: "Taxi Jeddah Airport to Makkah | Private Hotel Transfer Price",
-    description: "Book your Jeddah Airport to Makkah taxi. Private GMC Yukon & Hyundai Staria transfer with Meet & Greet service (استقبال المطار). Fixed rates, no hidden fees.",
-    keywords: [
-        "Jeddah Airport to Makkah Taxi",
-        "Taxi Jeddah Airport Price",
-        "Private Driver Jeddah Airport",
-        "KAIA Terminal 1 Taxi",
-        "GMC Yukon Jeddah Airport",
-        "تاكسي مطار جدة",
-        "توصيل من مطار جدة الى مكة",
-        "سعر التوصيل من مطار جدة للكعبة",
-        "استقبال مطار جدة",
-        "حجز سيارة من مطار جدة"
-    ],
-    alternates: {
-        canonical: 'https://alaqsaumrahtransport.com/services/jeddah-airport-transfer',
-    },
-    openGraph: {
-        title: "Taxi Jeddah Airport to Makkah | Private Transfer Price",
-        description: "Reliable transfer from Jeddah Airport (JED) to Makkah hotels. Our driver waits for you at the arrival hall.",
-        images: [{ url: '/images/routes/jeddah-airport-hero-professional.png', width: 1200, height: 630, alt: 'Jeddah Airport VIP Transfer' }]
-    }
-};
 
 const jsonLd = {
     "@context": "https://schema.org",

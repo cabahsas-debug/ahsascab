@@ -55,9 +55,9 @@ export default function FleetCarousel({ vehicles, discount }: FleetCarouselProps
         <section className={styles.section}>
             <div className="container px-[10px] md:px-4">
                 <div className={styles.header}>
-                    <span className="text-amber-600 dark:text-amber-500 font-bold tracking-widest text-sm uppercase mb-3 block">Our Premium Fleet</span>
+                    <span className="text-gold font-bold tracking-widest text-sm uppercase mb-3 block">Our Premium Fleet</span>
                     <h2 className={styles.title}>
-                        Travel in <span className="text-amber-600 dark:text-amber-500">Absolute Comfort</span>
+                        Travel in <span className="text-gold">Absolute Comfort</span>
                     </h2>
                     <p className={styles.subtitle}>
                         Experience VIP comfort specific for Makkah & Madinah travel.

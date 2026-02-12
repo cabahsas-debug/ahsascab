@@ -2,36 +2,12 @@ import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, MapPin, Clock, Camera, Heart, BookOpen } from 'lucide-react';
 import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 
-export const metadata: Metadata = {
-    title: "Ziyarat Makkah Madinah Tours | Visit Historical Sites",
-    description: "Private Ziyarat tours in Makkah (Jabal Al-Nour, Arafat) & Madinah (Masjid Quba, Uhud). Experienced drivers sharing Islamic history.",
-    keywords: [
-        "Ziyarat Tours Makkah",
-        "Ziyarat Madinah Places",
-        "Masjid Quba Transport",
-        "Historical Places Tour Makkah",
-        "Private Ziyarat Taxi",
-        "Taif Day Trip from Makkah",
-        "رحلات زيارة مكة",
-        "مزارات المدينة المنورة",
-        "زيارة مسجد قباء",
-        "جبل النور",
-        "زيارة غار حراء"
-    ],
-    alternates: {
-        canonical: 'https://alaqsaumrahtransport.com/services/ziyarat-tours',
-    },
-    openGraph: {
-        title: "Ziyarat Makkah Madinah Tours | Historical Site Visits",
-        description: "Guided private tours to Jabal Al-Nour, Masjid Quba, Mount Uhud, and more. deeply spiritual experience with knowledgeable drivers.",
-        images: [{ url: '/images/routes/makkah-ziyarat-hero.png', width: 1200, height: 630, alt: 'Jabal Al-Nour Makkah Ziyarat' }]
-    }
-};
 
 const jsonLd = {
     "@context": "https://schema.org",
@@ -130,10 +106,12 @@ export default async function ZiyaratToursPage() {
                             </ul>
                         </div>
                         <div className="md:w-1/2 relative h-[500px] rounded-2xl overflow-hidden shadow-2xl group">
-                            <img
+                            <Image
                                 src="https://images.unsplash.com/photo-1537181534458-7dc2614c9546?q=80&w=1000&auto=format&fit=crop"
                                 alt="Jabal Al-Nour (Cave of Hira) Mountain View Makkah"
-                                className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
+                                fill
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
                                 <span className="text-white text-xl font-bold">Jabal Al-Nour</span>
@@ -174,10 +152,12 @@ export default async function ZiyaratToursPage() {
                             </ul>
                         </div>
                         <div className="md:w-1/2 relative h-[500px] rounded-2xl overflow-hidden shadow-2xl group">
-                            <img
+                            <Image
                                 src="https://images.unsplash.com/photo-1551041777-ed02bed74fc4?q=80&w=1000&auto=format&fit=crop"
                                 alt="Masjid Quba Madinah First Mosque in Islam Exterior"
-                                className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
+                                fill
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
                                 <span className="text-white text-xl font-bold">Masjid Quba</span>

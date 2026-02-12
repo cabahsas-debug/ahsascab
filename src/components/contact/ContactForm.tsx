@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import styles from '@/app/contact/page.module.css';
 import GlassButton from '@/components/ui/GlassButton';
 import { User, Mail, MessageSquare, Send } from 'lucide-react';
 
@@ -51,17 +50,17 @@ export default function ContactForm() {
     return (
         <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-                <label className="text-sm font-bold text-slate-300 flex items-center justify-between uppercase tracking-wider" htmlFor="name">
+                <label className="text-sm font-bold text-navy flex items-center justify-between uppercase tracking-wider" htmlFor="name">
                     <span>Full Name</span>
                     <span className="text-xs text-secondary font-arabic">الاسم الكامل</span>
                 </label>
                 <div className="relative group">
-                    <User className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-secondary transition-colors h-5 w-5" />
+                    <User className="absolute left-4 top-1/2 -translate-y-1/2 text-navy/40 group-focus-within:text-secondary transition-colors h-5 w-5" />
                     <input
                         type="text"
                         id="name"
                         name="name"
-                        className="w-full bg-slate-800/50 border border-slate-700 rounded-xl pl-12 pr-4 py-4 focus:ring-4 focus:ring-secondary/10 focus:border-secondary outline-none transition-all placeholder:text-slate-500 text-white font-medium"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-4 focus:ring-4 focus:ring-secondary/10 focus:border-secondary outline-none transition-all placeholder:text-slate-400 text-navy font-medium"
                         placeholder="e.g. Abdullah Ahmed"
                         required
                     />
@@ -69,17 +68,17 @@ export default function ContactForm() {
             </div>
 
             <div className="space-y-2">
-                <label className="text-sm font-bold text-slate-300 flex items-center justify-between uppercase tracking-wider" htmlFor="email">
+                <label className="text-sm font-bold text-navy flex items-center justify-between uppercase tracking-wider" htmlFor="email">
                     <span>Email Address</span>
                     <span className="text-xs text-secondary font-arabic">البريد الإلكتروني</span>
                 </label>
                 <div className="relative group">
-                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-secondary transition-colors h-5 w-5" />
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-navy/40 group-focus-within:text-secondary transition-colors h-5 w-5" />
                     <input
                         type="email"
                         id="email"
                         name="email"
-                        className={`w-full bg-slate-800/50 border rounded-xl pl-12 pr-4 py-4 outline-none transition-all placeholder:text-slate-500 text-white font-medium ${emailError ? 'border-red-500 focus:ring-red-500/50' : 'border-slate-700 focus:ring-4 focus:ring-secondary/10 focus:border-secondary'}`}
+                        className={`w-full bg-slate-50 border rounded-xl pl-12 pr-4 py-4 outline-none transition-all placeholder:text-slate-400 text-navy font-medium ${emailError ? 'border-red-500 focus:ring-red-500/50' : 'border-slate-200 focus:ring-4 focus:ring-secondary/10 focus:border-secondary'}`}
                         placeholder="your@email.com"
                         required
                         onChange={() => setEmailError('')}
@@ -89,16 +88,16 @@ export default function ContactForm() {
             </div>
 
             <div className="space-y-2">
-                <label className="text-sm font-bold text-slate-300 flex items-center justify-between uppercase tracking-wider" htmlFor="message">
+                <label className="text-sm font-bold text-navy flex items-center justify-between uppercase tracking-wider" htmlFor="message">
                     <span>Message</span>
                     <span className="text-xs text-secondary font-arabic">الرسالة</span>
                 </label>
                 <div className="relative group">
-                    <MessageSquare className="absolute left-4 top-5 text-slate-400 group-focus-within:text-secondary transition-colors h-5 w-5" />
+                    <MessageSquare className="absolute left-4 top-5 text-navy/40 group-focus-within:text-secondary transition-colors h-5 w-5" />
                     <textarea
                         id="message"
                         name="message"
-                        className="w-full bg-slate-800/50 border border-slate-700 rounded-xl pl-12 pr-4 py-4 h-32 resize-none focus:ring-4 focus:ring-secondary/10 focus:border-secondary outline-none transition-all placeholder:text-slate-500 text-white font-medium"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-4 h-32 resize-none focus:ring-4 focus:ring-secondary/10 focus:border-secondary outline-none transition-all placeholder:text-slate-400 text-navy font-medium"
                         placeholder="How can we help you? (كيف يمكننا مساعدتك؟)"
                         required
                     ></textarea>
@@ -128,7 +127,7 @@ export default function ContactForm() {
             </GlassButton>
 
             {status === 'success' && (
-                <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-600 dark:text-green-400 text-center text-sm animate-in fade-in slide-in-from-bottom-2">
+                <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-700 text-center text-sm animate-in fade-in slide-in-from-bottom-2">
                     Message sent successfully! We will contact you soon.
                     <br />
                     <span className="font-arabic text-xs opacity-75">تم الإرسال بنجاح! سنتواصل معك قريباً.</span>
@@ -136,7 +135,7 @@ export default function ContactForm() {
             )}
 
             {status === 'error' && (
-                <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-600 dark:text-red-400 text-center text-sm animate-in fade-in slide-in-from-bottom-2">
+                <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-600 text-center text-sm animate-in fade-in slide-in-from-bottom-2">
                     Failed to send message. Please try again.
                     <br />
                     <span className="font-arabic text-xs opacity-75">فشل الإرسال. يرجى المحاولة مرة أخرى.</span>

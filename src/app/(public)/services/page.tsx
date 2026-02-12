@@ -12,12 +12,14 @@ import TrustAmenities from '@/components/services/TrustAmenities';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
+import { constructMetadata } from '@/lib/metadata';
+
 const ReviewsSection = dynamic(() => import('@/components/reviews/ReviewsSection'), {
     loading: () => <div className="h-[400px] w-full bg-gray-100 dark:bg-navy-900 animate-pulse" />
 });
 
 export async function generateMetadata() {
-    return {
+    return constructMetadata({
         title: "Umrah Taxi Services & Ziyarat Tours | Jeddah, Makkah, Madinah",
         description: "Comprehensive Umrah transport services: Jeddah Airport pickup, Makkah to Madinah taxi, and historic Ziyarat tours. Reliable 24/7 service.",
         keywords: [
@@ -25,10 +27,8 @@ export async function generateMetadata() {
             "Jeddah Airport Pickup", "Madinah Ziyarat", "Makkah to Madinah Taxi",
             "خدمات نقل المعتمرين", "زيارات المدينة المنورة", "توصيل مطار جدة"
         ],
-        alternates: {
-            canonical: 'https://alaqsaumrahtransport.com/services',
-        },
-    };
+        canonicalUrl: 'https://ahsascab.com/services',
+    });
 }
 
 const processSteps = [

@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import { Users, Briefcase, Info, Check, ArrowRight, ChevronLeft, Star } from 'lucide-react';
 import { usePricing } from '@/context/PricingContext';
 
+import Image from 'next/image';
+
 interface VehicleStepProps {
     data: any;
     updateData: (data: any) => void;
@@ -59,7 +61,13 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                 <div className="flex gap-5">
                                     <div className="w-28 h-28 relative overflow-hidden rounded-2xl bg-slate-50 dark:bg-slate-800 shrink-0">
                                         {vehicle.image ? (
-                                            <img src={vehicle.image} alt={vehicle.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                            <Image
+                                                src={vehicle.image}
+                                                alt={vehicle.name}
+                                                fill
+                                                sizes="(max-width: 768px) 100px, 100px"
+                                                className="object-cover group-hover:scale-110 transition-transform duration-700"
+                                            />
                                         ) : (
                                             <div className="w-full h-full flex items-center justify-center text-slate-300">
                                                 <Users size={32} />

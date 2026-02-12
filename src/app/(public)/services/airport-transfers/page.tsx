@@ -1,37 +1,29 @@
+
 import React from 'react';
 import Hero from '@/components/common/Hero';
 import FadeIn from '@/components/common/FadeIn';
-import { Plane, Clock, ShieldCheck, MapPin, UserCheck, Smartphone, CheckCircle2, Star } from 'lucide-react';
+import { Plane, Clock, ShieldCheck, MapPin, UserCheck, Smartphone, CheckCircle2, Star, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { routeService } from '@/services/routeService';
 import AirportInteractiveMap from '@/components/services/airport/AirportInteractiveMap';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-    title: "Jeddah & Madinah Airport Transfers | Umrah Taxi | توصيل المطارات",
-    description: "Reliable airport pickups for Jeddah & Madinah. Punctual, hassle-free transfers. 24/7 service. توصيل من مطار جدة الى مكة. استقبال مطار المدينة المنورة.",
-    keywords: [
-        "Jeddah airport to Makkah taxi", "KAIA transfer", "Umrah airport pickup", "Madinah airport taxi",
-        "VIP Umrah Transport", "Jeddah Airport Shuttle", "Makkah Private Taxi",
-        "توصيل مطار جدة", "تاكسي مطار المدينة", "استقبال المعتمرين",
-        "نقل من مطار الملك عبدالعزيز", "حجز تاكسي الحرم", "خدمات المعتمرين"
-    ],
-    alternates: {
-        canonical: 'https://alaqsaumrahtransport.com/services/airport-transfers',
-    },
-    openGraph: {
-        title: "Jeddah & Madinah Airport Transfers | Ahsas Alrihlat",
-        description: "Reliable airport pickups for Jeddah & Madinah. توصيل آمن ومريح من المطارات.",
-        images: ["/images/fleet/gmc.png"],
-        type: "website",
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: "Jeddah & Madinah Airport Transfers | Umrah Taxi",
-        description: "Reliable airport pickups for Jeddah & Madinah. توصيل من مطار جدة ومطار المدينة.",
-        images: ["/images/fleet/gmc.png"],
-    }
-};
+import { constructMetadata } from '@/lib/metadata';
+
+export async function generateMetadata() {
+    return constructMetadata({
+        title: "Jeddah & Madinah Airport Transfers | Umrah Taxi | توصيل المطارات",
+        description: "Reliable airport pickups for Jeddah & Madinah. Punctual, hassle-free transfers. 24/7 service. توصيل من مطار جدة الى مكة. استقبال مطار المدينة المنورة.",
+        keywords: [
+            "Jeddah airport to Makkah taxi", "KAIA transfer", "Umrah airport pickup", "Madinah airport taxi",
+            "VIP Umrah Transport", "Jeddah Airport Shuttle", "Makkah Private Taxi",
+            "توصيل مطار جدة", "تاكسي مطار المدينة", "استقبال المعتمرين",
+            "نقل من مطار الملك عبدالعزيز", "حجز تاكسي الحرم", "خدمات المعتمرين"
+        ],
+        canonicalUrl: 'https://ahsascab.com/services/airport-transfers',
+    });
+}
 
 export default async function AirportTransfersPage() {
     const allRoutes = await routeService.getActiveRoutes();
@@ -210,11 +202,12 @@ export default async function AirportTransfersPage() {
                         <FadeIn delay={0.1}>
                             <div className="bg-slate-50 dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-slate-100 dark:border-slate-800 h-full flex flex-col">
                                 <div className="h-56 relative overflow-hidden group bg-white dark:bg-slate-800 flex items-center justify-center p-4">
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img
+                                    <Image
                                         src="/images/fleet/camry.png"
                                         alt="Toyota Camry Standard Sedan for Affordable Makkah Airport Transfer"
-                                        className="w-auto h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        className="object-contain transition-transform duration-500 group-hover:scale-105"
                                     />
                                 </div>
                                 <div className="p-6 flex-1 flex flex-col border-t border-slate-100 dark:border-slate-800">
@@ -231,11 +224,12 @@ export default async function AirportTransfersPage() {
                             <div className="bg-slate-50 dark:bg-slate-900 rounded-2xl overflow-hidden shadow-lg border-2 border-amber-500 relative h-full flex flex-col transform md:-translate-y-4">
                                 <div className="absolute top-4 right-4 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider z-10">Most Popular</div>
                                 <div className="h-56 relative overflow-hidden group bg-white dark:bg-slate-800 flex items-center justify-center p-4">
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img
+                                    <Image
                                         src="/images/fleet/gmc.png"
                                         alt="GMC Yukon XL VIP Luxury SUV for Jeddah Airport Pickup"
-                                        className="w-auto h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        className="object-contain transition-transform duration-500 group-hover:scale-105"
                                     />
                                 </div>
                                 <div className="p-6 flex-1 flex flex-col border-t border-slate-100 dark:border-slate-800">
@@ -270,10 +264,10 @@ export default async function AirportTransfersPage() {
                         </FadeIn>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* FAQ Section */}
-            <section className="py-16 bg-slate-50 dark:bg-slate-900/50">
+            < section className="py-16 bg-slate-50 dark:bg-slate-900/50" >
                 <div className="container max-w-4xl">
                     <FadeIn>
                         <h2 className="text-3xl font-bold text-center mb-12 font-playfair">Frequently Asked Questions</h2>
@@ -294,10 +288,10 @@ export default async function AirportTransfersPage() {
                         </div>
                     </FadeIn>
                 </div>
-            </section>
+            </section >
 
             {/* Final CTA */}
-            <section className="py-20 bg-amber-500 text-white text-center">
+            < section className="py-20 bg-amber-500 text-white text-center" >
                 <div className="container">
                     <h2 className="text-3xl md:text-4xl font-bold mb-6 font-playfair">Ready for a Comfortable Journey?</h2>
                     <p className="text-lg md:text-xl mb-8 opacity-90 max-w-2xl mx-auto">Book your trusted Makkah transport today and let us handle the logistics while you focus on your worship.</p>
@@ -309,7 +303,7 @@ export default async function AirportTransfersPage() {
                         <Plane className="w-5 h-5" />
                     </Link>
                 </div>
-            </section>
-        </main>
+            </section >
+        </main >
     );
 }

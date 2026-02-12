@@ -8,103 +8,105 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 1.25rem;
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 16px;
+    border-radius: 1.25rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     text-align: left;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .trigger:hover {
     border-color: #cbd5e1;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
 }
 
 .trigger.open {
     border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
 }
 
 .triggerContent {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.25rem;
 }
 
 .iconWrapper {
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
     background: #f8fafc;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #64748b;
+    border: 1px solid #e2e8f0;
     transition: all 0.3s ease;
 }
 
 .trigger:hover .iconWrapper {
     background: #f1f5f9;
-    color: #475569;
+    color: var(--navy);
 }
 
 .trigger.open .iconWrapper {
-    background: rgba(212, 175, 55, 0.1);
-    color: var(--gold);
+    background: var(--gold);
+    color: var(--navy);
+    border-color: transparent;
 }
 
 .routeInfo {
     display: flex;
     flex-direction: column;
-    gap: 0.1rem;
 }
 
 .label {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
     color: #94a3b8;
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.1rem;
 }
 
 .value {
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 700;
     color: var(--navy);
-    font-size: 1rem;
+    font-family: var(--font-playfair), serif;
 }
 
 .chevron {
     color: #94a3b8;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .rotate {
     transform: rotate(180deg);
+    color: var(--gold);
 }
 
 .dropdown {
     position: absolute;
-    top: calc(100% + 0.5rem);
+    top: calc(100% + 0.75rem);
     left: 0;
     width: 100%;
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.1);
+    border-radius: 1.25rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
     z-index: 50;
+    padding: 0.75rem;
     overflow: hidden;
-    padding: 0.5rem;
 }
 
 .searchContainer {
-    padding: 0.5rem;
     position: relative;
-    border-bottom: 1px solid #f1f5f9;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .searchIcon {
@@ -113,27 +115,33 @@
     top: 50%;
     transform: translateY(-50%);
     color: #94a3b8;
+    pointer-events: none;
 }
 
 .searchInput {
     width: 100%;
-    padding: 0.75rem 0.75rem 0.75rem 2.25rem;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
     border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    font-size: 0.9rem;
+    border-radius: 0.75rem;
+    font-size: 0.95rem;
     outline: none;
     transition: all 0.2s;
+    background: #f8fafc;
+    color: var(--navy);
 }
 
 .searchInput:focus {
+    background: #ffffff;
     border-color: var(--gold);
-    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
 }
 
 .list {
-    max-height: 250px;
+    max-height: 320px;
     overflow-y: auto;
-    padding: 0 0.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
 }
 
 .list::-webkit-scrollbar {
@@ -152,27 +160,31 @@
 .option {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-align: left;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
     background: transparent;
     border: none;
-    width: 100%;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
 }
 
 .option:hover {
-    background: #f8fafc;
+    background: #f1f5f9;
 }
 
 .option.selected {
-    background: rgba(212, 175, 55, 0.05);
+    background: rgba(212, 175, 55, 0.08);
 }
 
 .optionIcon {
-    color: #94a3b8;
+    color: #cbd5e1;
+    transition: color 0.2s;
+}
+
+.option:hover .optionIcon {
+    color: var(--navy);
 }
 
 .option.selected .optionIcon {
@@ -185,9 +197,9 @@
 
 .optionName {
     display: block;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--navy);
-    font-size: 0.95rem;
+    font-size: 1rem;
     margin-bottom: 0.1rem;
 }
 
@@ -196,18 +208,19 @@
     gap: 0.5rem;
     font-size: 0.75rem;
     color: #64748b;
+    font-weight: 500;
 }
 
 .selectedIndicator {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: var(--gold);
 }
 
 .noResults {
-    padding: 2rem;
     text-align: center;
+    padding: 2rem;
     color: #94a3b8;
     font-size: 0.9rem;
 }

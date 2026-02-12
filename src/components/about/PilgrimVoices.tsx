@@ -37,14 +37,14 @@ export default function PilgrimVoices() {
                             className={`p-8 relative h-full flex flex-col bg-white/5 border border-white/10 backdrop-blur-md`}
                             delay={index * 0.2}
                         >
-                            <Quote size={40} className="text-secondary/20 absolute top-6 right-6" />
+                            <Quote size={40} className="text-gold/20 absolute top-6 right-6" />
 
                             <p className="text-slate-200 italic mb-6 relative z-10 flex-grow leading-relaxed font-light">
                                 &quot;{item.text}&quot;
                             </p>
 
                             <div className="flex items-center gap-4 mt-auto">
-                                <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-xl font-bold text-secondary border border-secondary/20">
+                                <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-xl font-bold text-gold border border-gold/20">
                                     {item.author.charAt(0)}
                                 </div>
                                 <div>

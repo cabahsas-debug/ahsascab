@@ -506,12 +506,10 @@ const QuickBookingForm = ({
 
                         <div className={styles.grid}>
 
-
-
                             {/* Route Selection Pills */}
-                            <div className="col-span-full mb-3">
-                                <label className="text-xs font-bold text-navy/60 dark:text-gray-400 uppercase tracking-wide mb-2 block">Where are you going?</label>
-                                <div className="flex flex-wrap gap-2 mt-1.5">
+                            <div className="col-span-full mb-1">
+                                <label className={styles.label}>Where are you going?</label>
+                                <div className="flex flex-wrap gap-1.5 mt-1">
                                     {[
                                         { label: 'Jeddah ⇄ Makkah', icon: PlaneLanding, pickup: 'Jeddah Airport', dropoff: 'Makkah Hotel' },
                                         { label: 'Makkah ⇄ Madinah', icon: Bus, pickup: 'Makkah Hotel', dropoff: 'Madinah Hotel' },
@@ -555,14 +553,14 @@ const QuickBookingForm = ({
                                                     setErrors({});
                                                 }}
                                                 className={`
-                                                    flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border
+                                                    flex items-center gap-1.5 px-3 py-2 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all duration-300 border
                                                     ${isActive
-                                                        ? 'bg-navy border-navy text-white shadow-lg scale-105'
-                                                        : 'bg-white border-gray-200 text-gray-600 hover:border-gold hover:text-gold hover:bg-gold/5'
+                                                        ? 'bg-navy border-navy text-white shadow-md scale-[1.02]'
+                                                        : 'bg-white border-slate-200 text-slate-500 hover:border-gold hover:text-navy hover:bg-gold/5'
                                                     }
                                                 `}
                                             >
-                                                <route.icon size={16} className={isActive ? 'text-gold' : 'text-gray-400'} />
+                                                <route.icon size={12} className={isActive ? 'text-gold' : 'text-slate-400'} />
                                                 {route.label}
                                             </button>
                                         );
@@ -572,13 +570,13 @@ const QuickBookingForm = ({
                             </div>
 
                             {/* Horizontal Input Group */}
-                            <div className="col-span-full grid grid-cols-1 md:grid-cols-12 gap-3 p-3 bg-slate-50 border border-slate-200 rounded-2xl">
+                            <div className="col-span-full grid grid-cols-1 md:grid-cols-12 gap-2 p-3 bg-slate-50/50 border border-slate-200/60 rounded-xl">
 
                                 {/* Date Input */}
                                 <div className="md:col-span-3 relative">
-                                    <label className="text-[10px] uppercase font-bold text-navy/40 mb-1 ml-1 block">Travel Date</label>
+                                    <label className={styles.label}>Travel Date</label>
                                     <div className="relative">
-                                        <Calendar size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-navy/40" />
+                                        <Calendar size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none z-10" />
                                         <input
                                             type="date"
                                             value={formData.date ? formData.date.toISOString().split('T')[0] : ''}
@@ -587,17 +585,17 @@ const QuickBookingForm = ({
                                                 handleDateChange(new Date(e.target.value));
                                             }}
                                             min={minDate}
-                                            className="w-full pl-10 pr-3 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-medium outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all text-navy"
+                                            className="w-full pl-9 pr-2 py-2 bg-white border border-slate-200 rounded-lg text-xs font-medium outline-none focus:border-gold focus:ring-1 focus:ring-gold/20 transition-all text-navy shadow-sm h-[38px]"
                                         />
                                     </div>
-                                    {errors.date && <span className="absolute -bottom-4 left-0 text-[10px] text-red-500">{errors.date}</span>}
+                                    {errors.date && <span className="absolute -bottom-4 left-0 text-[9px] text-red-500 font-semibold">{errors.date}</span>}
                                 </div>
 
                                 {/* Time Input */}
                                 <div className="md:col-span-3 relative">
-                                    <label className="text-[10px] uppercase font-bold text-navy/40 mb-1 ml-1 block">Pickup Time</label>
+                                    <label className={styles.label}>Pickup Time</label>
                                     <div className="relative">
-                                        <Clock size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-navy/40" />
+                                        <Clock size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none z-10" />
                                         <input
                                             type="time"
                                             value={formData.time ? formData.time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }) : ''}
@@ -607,34 +605,34 @@ const QuickBookingForm = ({
                                                 const t = new Date(); t.setHours(h); t.setMinutes(m);
                                                 handleTimeChange(t);
                                             }}
-                                            className="w-full pl-10 pr-3 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-medium outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all text-navy"
+                                            className="w-full pl-9 pr-2 py-2 bg-white border border-slate-200 rounded-lg text-xs font-medium outline-none focus:border-gold focus:ring-1 focus:ring-gold/20 transition-all text-navy shadow-sm h-[38px]"
                                         />
                                     </div>
-                                    {errors.time && <span className="absolute -bottom-4 left-0 text-[10px] text-red-500">{errors.time}</span>}
+                                    {errors.time && <span className="absolute -bottom-4 left-0 text-[9px] text-red-500 font-semibold">{errors.time}</span>}
                                 </div>
 
                                 {/* Vehicle Select (Simplified) */}
                                 <div className="md:col-span-6 relative">
-                                    <label className="text-[10px] uppercase font-bold text-navy/40 mb-1 ml-1 block">Preferred Vehicle</label>
+                                    <label className={styles.label}>Preferred Vehicle</label>
                                     <SearchableSelect
                                         name="vehicleId"
                                         value={formData.vehicleId}
                                         onChange={handleChange as any}
                                         // @ts-ignore
                                         options={vehicleOptions}
-                                        placeholder="Select Vehicle & See Price"
-                                        className="w-full bg-white border border-slate-200 rounded-xl text-sm !py-2.5"
-                                        icon={<Car size={18} />}
+                                        placeholder="Select Vehicle"
+                                        className="w-full bg-white border border-slate-200 rounded-lg text-xs !py-2 shadow-sm text-navy h-[38px]"
+                                        icon={<Car size={14} className="text-slate-400" />}
                                     />
-                                    {errors.vehicleId && <span className="absolute -bottom-4 left-0 text-[10px] text-red-500">{errors.vehicleId}</span>}
+                                    {errors.vehicleId && <span className="absolute -bottom-4 left-0 text-[9px] text-red-500 font-semibold">{errors.vehicleId}</span>}
                                 </div>
                             </div>
 
                             {/* Custom Route Fields (Expandable) */}
                             {formData.routeId === 'custom' && (
-                                <div className="col-span-full grid grid-cols-2 gap-3 mt-2 animate-in fade-in slide-in-from-top-4 duration-300">
+                                <div className="col-span-full grid grid-cols-2 gap-2 mt-1 animate-in fade-in slide-in-from-top-2 duration-300">
                                     <div className="md:col-span-6 relative">
-                                        <label className="text-[10px] uppercase font-bold text-slate-400 mb-1 ml-1 block">From (Pickup)</label>
+                                        <label className={styles.label}>From (Pickup)</label>
                                         <div className="relative">
                                             <SearchableSelect
                                                 name="pickup"
@@ -642,14 +640,14 @@ const QuickBookingForm = ({
                                                 onChange={handleChange as any}
                                                 options={pickupLocations}
                                                 placeholder="Pickup Location"
-                                                className="w-full bg-white border border-slate-200 rounded-xl text-sm !py-2.5"
-                                                icon={<MapPin size={18} />}
+                                                className="w-full bg-white border border-slate-200 rounded-lg text-xs !py-2 shadow-sm text-navy h-[38px]"
+                                                icon={<MapPin size={14} className="text-slate-400" />}
                                             />
                                         </div>
-                                        {errors.pickup && <span className="text-[10px] text-red-500 mt-1 ml-1 block">{errors.pickup}</span>}
+                                        {errors.pickup && <span className="text-[9px] text-red-500 mt-0.5 ml-1 block font-semibold">{errors.pickup}</span>}
                                     </div>
                                     <div className="md:col-span-6 relative">
-                                        <label className="text-[10px] uppercase font-bold text-slate-400 mb-1 ml-1 block">Destination (Drop-off)</label>
+                                        <label className={styles.label}>Destination (Drop-off)</label>
                                         <div className="relative">
                                             <SearchableSelect
                                                 name="dropoff"
@@ -657,21 +655,21 @@ const QuickBookingForm = ({
                                                 onChange={handleChange as any}
                                                 options={dropoffLocations}
                                                 placeholder="Drop-off Location"
-                                                className="w-full bg-white border border-slate-200 rounded-xl text-sm !py-2.5"
-                                                icon={<MapPin size={18} />}
+                                                className="w-full bg-white border border-slate-200 rounded-lg text-xs !py-2 shadow-sm text-navy h-[38px]"
+                                                icon={<MapPin size={14} className="text-slate-400" />}
                                             />
                                         </div>
-                                        {errors.dropoff && <span className="text-[10px] text-red-500 mt-1 ml-1 block">{errors.dropoff}</span>}
+                                        {errors.dropoff && <span className="text-[9px] text-red-500 mt-0.5 ml-1 block font-semibold">{errors.dropoff}</span>}
                                     </div>
                                 </div>
                             )}
 
                             {/* Passenger & Luggage (Compact Row) */}
-                            <div className="col-span-full grid grid-cols-2 md:grid-cols-4 gap-3 mt-2">
+                            <div className="col-span-full grid grid-cols-2 md:grid-cols-4 gap-2 mt-1">
                                 <div className="relative">
-                                    <label className="text-[10px] uppercase font-bold text-navy/40 mb-1 ml-1 block">Vehicles</label>
+                                    <label className={styles.label}>Vehicles</label>
                                     <div className="relative">
-                                        <Car size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-navy/40" />
+                                        <Car size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none z-10" />
                                         <input
                                             type="number"
                                             name="vehicleCount"
@@ -679,21 +677,21 @@ const QuickBookingForm = ({
                                             max="5"
                                             value={formData.vehicleCount}
                                             onChange={handleChange}
-                                            className="w-full bg-white border border-gray-200 rounded-xl px-4 py-2.5 pl-9 text-sm outline-none focus:border-gold transition-colors text-navy"
+                                            className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 pl-9 text-xs outline-none focus:border-gold transition-colors text-navy shadow-sm h-[38px]"
                                         />
                                     </div>
                                 </div>
                                 <div className="relative">
-                                    <label className="text-[10px] uppercase font-bold text-navy/40 mb-1 ml-1 block">Passengers</label>
+                                    <label className={styles.label}>Passengers</label>
                                     <div className="relative">
-                                        <User size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-navy/40" />
+                                        <User size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none z-10" />
                                         <input
                                             type="number"
                                             name="passengers"
                                             min="1"
                                             value={formData.passengers}
                                             onChange={handleChange}
-                                            className="w-full bg-white border border-gray-200 rounded-xl px-4 py-2.5 pl-9 text-sm outline-none focus:border-gold transition-colors text-navy"
+                                            className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 pl-9 text-xs outline-none focus:border-gold transition-colors text-navy shadow-sm h-[38px]"
                                         />
                                     </div>
                                 </div>
@@ -704,77 +702,78 @@ const QuickBookingForm = ({
                                 <motion.div
                                     initial={{ opacity: 0, height: 0 }}
                                     animate={{ opacity: 1, height: 'auto' }}
-                                    className="col-span-full grid grid-cols-1 md:grid-cols-3 gap-3 mt-2 overflow-hidden"
+                                    className="col-span-full grid grid-cols-1 md:grid-cols-3 gap-2 mt-1 overflow-hidden"
                                 >
                                     <div className="relative">
-                                        <label className="text-[10px] uppercase font-bold text-slate-400 mb-1 ml-1 block">Full Name</label>
+                                        <label className={styles.label}>Full Name</label>
                                         <div className="relative">
-                                            <User size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                                            <User size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none z-10" />
                                             <input
                                                 type="text"
                                                 name="name"
                                                 placeholder="Your Name"
                                                 value={formData.name}
                                                 onChange={handleChange}
-                                                className={`w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 pl-9 text-sm outline-none focus:border-amber-500 transition-colors ${errors.name ? 'border-red-500 bg-red-50' : ''}`}
+                                                className={`w-full bg-white border border-slate-200 rounded-lg px-3 py-2 pl-9 text-xs outline-none focus:border-gold transition-colors text-navy shadow-sm h-[38px] ${errors.name ? 'border-red-500 bg-red-50' : ''}`}
                                             />
                                         </div>
-                                        {errors.name && <span className="text-[10px] text-red-500 mt-1 ml-1 block">{errors.name}</span>}
+                                        {errors.name && <span className="text-[9px] text-red-500 mt-0.5 ml-1 block font-semibold">{errors.name}</span>}
                                     </div>
                                     <div className="relative">
-                                        <label className="text-[10px] uppercase font-bold text-slate-400 mb-1 ml-1 block">Email</label>
+                                        <label className={styles.label}>Email</label>
                                         <div className="relative">
-                                            <Mail size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                                            <Mail size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none z-10" />
                                             <input
                                                 type="email"
                                                 name="email"
                                                 placeholder="email@example.com"
                                                 value={formData.email}
                                                 onChange={handleChange}
-                                                className={`w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 pl-9 text-sm outline-none focus:border-amber-500 transition-colors ${errors.email ? 'border-red-500 bg-red-50' : ''}`}
+                                                className={`w-full bg-white border border-slate-200 rounded-lg px-3 py-2 pl-9 text-xs outline-none focus:border-gold transition-colors text-navy shadow-sm h-[38px] ${errors.email ? 'border-red-500 bg-red-50' : ''}`}
                                             />
                                         </div>
-                                        {errors.email && <span className="text-[10px] text-red-500 mt-1 ml-1 block">{errors.email}</span>}
+                                        {errors.email && <span className="text-[9px] text-red-500 mt-0.5 ml-1 block font-semibold">{errors.email}</span>}
                                     </div>
                                     <div className="relative">
-                                        <label className="text-[10px] uppercase font-bold text-slate-400 mb-1 ml-1 block">Phone</label>
+                                        <label className={styles.label}>Phone</label>
                                         <div className="relative">
-                                            <Phone size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                                            <Phone size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none z-10" />
                                             <input
                                                 type="tel"
                                                 name="phone"
                                                 placeholder="+966 50..."
                                                 value={formData.phone}
                                                 onChange={handleChange}
-                                                className={`w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 pl-9 text-sm outline-none focus:border-amber-500 transition-colors ${errors.phone ? 'border-red-500 bg-red-50' : ''}`}
+                                                className={`w-full bg-white border border-slate-200 rounded-lg px-3 py-2 pl-9 text-xs outline-none focus:border-gold transition-colors text-navy shadow-sm h-[38px] ${errors.phone ? 'border-red-500 bg-red-50' : ''}`}
                                             />
                                         </div>
-                                        {errors.phone && <span className="text-[10px] text-red-500 mt-1 ml-1 block">{errors.phone}</span>}
+                                        {errors.phone && <span className="text-[9px] text-red-500 mt-0.5 ml-1 block font-semibold">{errors.phone}</span>}
                                     </div>
                                 </motion.div>
                             )}
 
                             {/* Price & Action Row */}
-                            <div className="col-span-full mt-4 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-slate-100 pt-4">
+                            <div className="col-span-full mt-2 flex flex-col md:flex-row items-center justify-between gap-3 border-t border-slate-100 pt-3">
 
                                 {/* Dynamic Price Display */}
                                 <div className="flex-1">
                                     {formData.routeId && formData.vehicleId ? (
                                         (() => {
                                             const { price, originalPrice, discountApplied } = calculatePrice(formData.routeId, formData.vehicleId);
-                                            if (price === 0) return <span className="text-sm text-navy/40">Select route & vehicle to see price</span>;
+                                            if (price === 0) return <span className="text-xs text-slate-400 font-medium">Select details for price</span>;
                                             return (
                                                 <div className="flex flex-col">
-                                                    <span className="text-xs font-semibold text-navy/40 uppercase tracking-wider">Total Estimate</span>
+                                                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Total Booking Estimate</span>
                                                     <div className="flex items-baseline gap-2">
-                                                        <span className="text-2xl font-bold text-navy">{price * formData.vehicleCount} <span className="text-base font-medium text-navy/60">SAR</span></span>
-                                                        {discountApplied > 0 && <span className="text-sm text-navy/40 line-through">{originalPrice} SAR</span>}
+                                                        <span className="text-2xl font-bold text-navy">{price * formData.vehicleCount} <span className="text-base font-semibold text-navy/60">SAR</span></span>
+                                                        {discountApplied > 0 && <span className="text-xs text-slate-400 line-through font-medium">{originalPrice} SAR</span>}
                                                     </div>
+                                                    <span className="text-[10px] text-green-600 font-medium">Includes all taxes & fees</span>
                                                 </div>
                                             );
                                         })()
                                     ) : (
-                                        <span className="text-sm text-navy/40 italic">Instant quote available</span>
+                                        <span className="text-xs text-slate-400 italic">Instant quote available</span>
                                     )}
                                 </div>
 
@@ -783,13 +782,13 @@ const QuickBookingForm = ({
                                     <button
                                         type="submit"
                                         disabled={isSubmitting}
-                                        className="w-full md:w-64 bg-gold hover:bg-gold/90 text-white font-bold py-3 px-6 rounded-xl shadow-lg shadow-gold/20 active:scale-95 transition-all flex items-center justify-center gap-2"
+                                        className={styles.submitBtn}
                                     >
                                         {isSubmitting ? (
-                                            <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                            <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                                         ) : (
                                             <>
-                                                Book via WhatsApp <ArrowRight size={18} />
+                                                Book Now <ArrowRight size={16} />
                                             </>
                                         )}
                                     </button>

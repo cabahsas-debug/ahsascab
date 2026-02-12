@@ -8,20 +8,19 @@ import AnimatedMapBackground from '@/components/ui/AnimatedMapBackground';
 import { routeService } from '@/services/routeService';
 import { ShieldCheck, Star, UserCheck, Timer } from 'lucide-react';
 import { RouteWithPrices } from '@/services/routeService';
+import { constructMetadata } from '@/lib/metadata';
 
-export const metadata = {
-    title: "Makkah to Madinah Taxi & Intercity Transport | Ahsas Alrihlat",
-    description: "Comfortable Makkah to Madinah transport. Reliable intercity taxi transfers between Jeddah, Makkah & Madinah. Enjoy a seamless, spiritual travel experience.",
-    keywords: ["Makkah to Madinah taxi", "Madinah to Makkah transport", "Haramain transport", "VIP intercity taxi", "Jeddah to Madinah taxi", "KSA intercity transfer"],
-    alternates: {
-        canonical: 'https://alaqsaumrahtransport.com/services/intercity-transfer',
-    },
-    openGraph: {
-        title: "Makkah to Madinah Taxi & Intercity Transport | VIP Fleet",
-        description: "Travel comfortably between Jeddah, Makkah, and Madinah. Premium private taxi service with experienced drivers.",
-        images: [{ url: '/images/routes/routes-network-hero.png', width: 1200, height: 630, alt: 'Saudi Arabia Intercity Transport Network' }]
-    }
-};
+export async function generateMetadata() {
+    return constructMetadata({
+        title: "Intercity Transfers Saudi Arabia | Makkah, Madinah, Jeddah, Taif",
+        description: "Reliable intercity taxi between Makkah, Madinah, Jeddah, and Taif. Private cars and GMCs. توصيل بين المدن.",
+        keywords: [
+            "Intercity taxi Saudi", "Jeddah to Makkah", "Makkah to Madinah", "Makkah to Taif taxi",
+            "نقل بين المدن", "توصيل الطائف مكة", "تاكسي جدة المدينة"
+        ],
+        canonicalUrl: 'https://ahsascab.com/services/intercity-transfer',
+    });
+}
 
 const jsonLd = {
     "@context": "https://schema.org",

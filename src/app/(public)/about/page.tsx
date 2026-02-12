@@ -14,38 +14,14 @@ import { getSectionContent, getSectionImage } from '@/lib/content-service';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 
 
+import { constructMetadata } from '@/lib/metadata';
 
 export async function generateMetadata() {
-    return {
+    return constructMetadata({
         title: "About Ahsas Cab | Premier Makkah Taxi | من نحن",
-        description: "Ahsas Cab: #1 choice for pilgrims. VIP Jeddah Airport transfers, Makkah to Madinah taxi, and GMC fleet. أفضل شركة نقل معتمرين في السعودية.",
-        keywords: [
-            "About Ahsas Cab", "Best Umrah transport company Saudi Arabia",
-            "Makkah to Madinah taxi price", "Jeddah airport to Makkah taxi service",
-            "VIP Umrah transfers", "Luxury GMC for Umrah", "Haramain transfer",
-            "Ziyarat Makkah Madinah", "Pilgrim transport services",
-            "من نحن", "مؤسسة الاقصى لنقل المعتمرين", "شركة نقل في مكة",
-            "ارقام تكاسي مكة", "خدمات المعتمرين", "توصيل مطار الملك عبدالعزيز"
-        ],
-        openGraph: {
-            title: "About Ahsas Cab | Leading Pilgrim Service",
-            description: "Trusted by thousands for safe and comfortable Umrah transport. From Jeddah Airport to Makkah hotels and Ziyarat tours, we travel with you.",
-            url: "https://alaqsaumrahtransport.com/about",
-            siteName: "Ahsas Cab",
-            images: [
-                {
-                    url: "/images/about-og.jpg", // Ensure this image exists or is generic
-                    width: 1200,
-                    height: 630,
-                    alt: "Ahsas Cab Fleet",
-                },
-            ],
-            type: "website",
-        },
-        alternates: {
-            canonical: 'https://alaqsaumrahtransport.com/about',
-        },
-    };
+        description: "Learn about Ahsas Cab, the leading Umrah transport provider in Saudi Arabia. We offer safe, reliable, and comfortable journeys for pilgrims.",
+        canonicalUrl: 'https://ahsascab.com/about',
+    });
 }
 
 export default async function AboutPage() {

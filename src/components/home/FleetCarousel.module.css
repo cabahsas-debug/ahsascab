@@ -2,7 +2,8 @@
     padding: 4rem 0;
     position: relative;
     overflow: hidden;
-    background: transparent;
+    background: #f8fafc;
+    /* Light Slate Background */
 }
 
 /* Decorative background elements */
@@ -13,8 +14,9 @@
     right: -10%;
     width: 800px;
     height: 800px;
-    background: radial-gradient(circle, hsl(var(--secondary)) 0%, transparent 70%);
-    opacity: 0.05;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+    /* Gold tint */
+    opacity: 0.6;
     border-radius: 50%;
     filter: blur(100px);
     pointer-events: none;
@@ -22,31 +24,33 @@
 
 .header {
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
     position: relative;
     z-index: 10;
 }
 
 .title {
     font-size: clamp(2.5rem, 5vw, 3.5rem);
-    margin-bottom: 1.5rem;
-    color: #ffffff;
+    margin-bottom: 1rem;
+    color: hsl(var(--navy));
+    /* Navy Text */
     font-weight: 800;
     letter-spacing: -0.02em;
     font-family: var(--font-playfair), serif;
 }
 
 .subtitle {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     max-width: 700px;
     margin: 0 auto;
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.7;
+    color: hsl(var(--muted-foreground));
+    /* Darker gray text */
+    line-height: 1.6;
 }
 
 .carouselContainer {
     display: flex;
-    gap: 2.5rem;
+    gap: 2rem;
     overflow-x: auto;
     padding: 2rem 1rem 4rem;
     /* Extra bottom padding for shadows */
@@ -72,20 +76,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: white;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: hsl(var(--navy));
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .navBtn:hover {
-    background: hsl(var(--primary));
+    background: hsl(var(--navy));
+    color: var(--gold);
     transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-    border-color: hsl(var(--primary));
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-color: hsl(var(--navy));
 }
 
 .navBtn:active {
@@ -118,39 +122,42 @@
 }
 
 .card {
-    min-width: 320px;
+    min-width: 340px;
     border-radius: 24px;
     overflow: hidden;
     scroll-snap-align: center;
     flex-shrink: 0;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow: var(--glass-shadow);
+    background: rgba(255, 255, 255, 0.8);
+    /* White Glass */
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+    /* Soft shadow */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
     position: relative;
+    height: 100%;
 }
 
 .card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
+    background: #ffffff;
     box-shadow:
-        0 30px 60px -10px rgba(0, 0, 0, 0.1),
-        0 0 0 1px hsl(var(--gold)) inset;
-    border-color: hsl(var(--gold));
+        0 25px 50px -12px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(212, 175, 55, 0.3) inset;
+    /* Gold border on hover */
 }
 
 .imageWrapper {
     position: relative;
     width: 100%;
-    height: 200px;
+    height: 220px;
     overflow: hidden;
-    height: 200px;
-    overflow: hidden;
-    background: radial-gradient(circle at center, var(--navy) 0%, var(--dark-navy) 100%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: radial-gradient(circle at center, #f1f5f9 0%, #e2e8f0 100%);
+    /* Light gray bg for images */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -162,41 +169,27 @@
     right: 1rem;
     background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 9999px;
     font-weight: 700;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     display: flex;
     align-items: center;
-    gap: 0.4rem;
-    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+    gap: 0.3rem;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
     z-index: 10;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.05);
-    }
-
-    100% {
-        transform: scale(1);
-    }
+    letter-spacing: 0.02em;
 }
 
 .vehicleImage {
     object-fit: contain !important;
-    padding: 1rem;
+    padding: 1.5rem;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
 }
 
 .card:hover .vehicleImage {
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
 
 .content {
@@ -204,129 +197,86 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    display: flex;
-    flex-direction: column;
-    background: rgba(255, 255, 255, 0.05);
 }
-
-/* Dark mode override removed */
 
 .cardHeader {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 1.5rem;
-    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 0.5rem;
 }
 
 .vehicleName {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     margin: 0;
-    color: #ffffff;
-    font-weight: 800;
-    letter-spacing: -0.02em;
+    color: hsl(var(--navy));
+    font-weight: 700;
+    letter-spacing: -0.01em;
     line-height: 1.2;
     font-family: var(--font-playfair), serif;
 }
 
 .priceTag {
-    background: var(--gold-gradient);
-    color: #0f172a;
-    padding: 0.6rem 1.2rem;
-    border-radius: 9999px;
-    font-size: 0.9rem;
+    background: rgba(212, 175, 55, 0.1);
+    color: hsl(var(--navy));
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
     font-weight: 700;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     white-space: nowrap;
 }
 
 .specs {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     margin-bottom: 1rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
 }
 
 .specItem {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.5rem;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1rem;
+    color: hsl(var(--muted-foreground));
+    font-size: 0.9rem;
 }
 
 .specItem svg {
-    color: hsl(var(--secondary));
-    /* Gold accent */
+    color: hsl(var(--gold));
 }
 
 .features {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-bottom: 2.5rem;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .featureItem {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
-    font-size: 0.9rem;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
-    background: rgba(255, 255, 255, 0.05);
-    padding: 0.4rem 1rem;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    color: hsl(var(--navy));
+    background: #f1f5f9;
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
     font-weight: 500;
 }
 
 .featureItem svg {
-    color: hsl(var(--accent));
+    color: #10b981;
     /* Green check */
+    width: 14px;
+    height: 14px;
 }
 
 .bookBtn {
-    width: 100%;
-    padding: 1.2rem;
-    border-radius: 16px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    margin-top: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    background: linear-gradient(135deg, hsl(var(--secondary)) 0%, #B4941F 100%);
-    color: hsl(var(--secondary-foreground));
-    box-shadow: 0 8px 20px -5px rgba(212, 175, 55, 0.4);
-    position: relative;
-    overflow: hidden;
-}
-
-.bookBtn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: 0.5s;
-}
-
-.bookBtn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 25px -5px rgba(212, 175, 55, 0.5);
-}
-
-.bookBtn:hover::before {
-    left: 100%;
+    /* Styles are handled by GlassButton component now, mostly */
 }
 
 @media (max-width: 768px) {
@@ -356,34 +306,24 @@
     .card {
         min-width: 100%;
         width: 100%;
-        border-radius: 0;
-        border: none;
-        box-shadow: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        background: transparent;
-        margin-bottom: 1rem;
-    }
-
-    /* Restore card styling for dark mode or just general cleanup if needed */
-    :global(.dark) .card {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        /* Restore border on mobile */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        background: white;
+        margin-bottom: 0;
     }
 
     .imageWrapper {
-        height: 250px;
-        border-radius: 0;
-        background: transparent;
-        border-bottom: none;
+        height: 200px;
     }
 
     .vehicleImage {
-        padding: 0;
-        /* Max size asked */
+        padding: 1rem;
     }
 
     .content {
-        padding: 1rem 1.5rem;
-        background: transparent;
+        padding: 1.25rem;
     }
 
     .cardHeader {
@@ -394,14 +334,14 @@
     }
 
     .vehicleName {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     .specs {
-        gap: 1.5rem;
-        font-size: 0.95rem;
-        padding-bottom: 1rem;
-        margin-bottom: 1rem;
+        gap: 1rem;
+        font-size: 0.85rem;
+        padding-bottom: 0.75rem;
+        margin-bottom: 0.75rem;
     }
 
     .navBtn {

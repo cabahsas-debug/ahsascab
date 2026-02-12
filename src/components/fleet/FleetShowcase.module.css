@@ -50,10 +50,15 @@
 .imageWrapper {
     position: relative;
     width: 100%;
-    padding-top: 56.25%;
-    /* 16:9 Aspect Ratio */
-    background: radial-gradient(circle at center, var(--navy), #0A192F 100%);
+    padding-top: 65%;
+    /* 4:3 Aspect Ratio approx for better car fit */
+    background: radial-gradient(circle at center, rgb(240, 240, 240) 0%, rgb(220, 220, 230) 100%);
     overflow: hidden;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+:global(.dark) .imageWrapper {
+    background: radial-gradient(circle at center, var(--navy-800) 0%, #0A192F 100%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -220,7 +225,7 @@
     text-transform: uppercase;
     font-size: 0.95rem;
     transition: all 0.3s ease;
-    margin-top: auto;
+    margin-top: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;

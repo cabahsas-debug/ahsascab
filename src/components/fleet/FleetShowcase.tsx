@@ -93,7 +93,7 @@ export default function FleetShowcase({ vehicles }: FleetShowcaseProps) {
                                             src={vehicle.image}
                                             alt={vehicle.name}
                                             fill
-                                            className="object-cover group-hover:scale-110 transition-transform duration-700"
+                                            className="object-contain p-4 group-hover:scale-105 transition-transform duration-700 z-10"
                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         />
                                         {discountInfo && settings?.discount && (
@@ -151,7 +151,7 @@ export default function FleetShowcase({ vehicles }: FleetShowcaseProps) {
                                             rel="noopener noreferrer"
                                             className={styles.bookBtn}
                                         >
-                                            <span>Book via WhatsApp</span>
+                                            <span>Book Now via WhatsApp</span>
                                         </a>
                                     </div>
                                 </div>

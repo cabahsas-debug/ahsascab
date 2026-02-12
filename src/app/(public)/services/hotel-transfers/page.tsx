@@ -6,13 +6,20 @@ import { Building2, Clock, MapPin, ShieldCheck, Star, Users } from 'lucide-react
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { constructMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-    title: 'Hotel Transfers Makkah & Madinah | Ahsas Alrihlat',
-    description: 'Reliable door-to-door hotel transfers in Makkah and Madinah. 24/7 comfortable transport between your hotel and the Holy Harams. Book your ride now.',
-    keywords: ['hotel transfer Makkah', 'hotel transfer Madinah', 'Umrah hotel shuttle', 'family transport Makkah', 'VIP hotel transfer Saudi Arabia']
-};
-
+export async function generateMetadata() {
+    return constructMetadata({
+        title: "Makkah & Madinah Hotel Transfers | Umrah Taxi Service",
+        description: "Comfortable hotel-to-hotel transfers in Makkah and Madinah. Door-to-door service available 24/7. توصيل فنادق مكة والمدينة.",
+        keywords: [
+            "Makkah hotel transfer", "Madinah hotel taxi", "Umrah hotel pickup",
+            "Aziziyah to Haram taxi", "Makkah tower taxi",
+            "توصيل فنادق مكة", "نقل فنادق المدينة"
+        ],
+        canonicalUrl: 'https://ahsascab.com/services/hotel-transfers',
+    });
+}
 export default function HotelTransferPage() {
     return (
         <main className="bg-slate-50 dark:bg-slate-950 min-h-screen">
