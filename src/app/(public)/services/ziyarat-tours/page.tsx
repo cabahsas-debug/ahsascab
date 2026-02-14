@@ -107,7 +107,7 @@ export default async function ZiyaratToursPage() {
                         </div>
                         <div className="md:w-1/2 relative h-[500px] rounded-2xl overflow-hidden shadow-2xl group">
                             <Image
-                                src="https://images.unsplash.com/photo-1537181534458-7dc2614c9546?q=80&w=1000&auto=format&fit=crop"
+                                src="https://images.unsplash.com/photo-1537181534458-7dc2614c9546?q=60&w=600&auto=format&fit=crop"
                                 alt="Jabal Al-Nour (Cave of Hira) Mountain View Makkah"
                                 fill
                                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -153,7 +153,7 @@ export default async function ZiyaratToursPage() {
                         </div>
                         <div className="md:w-1/2 relative h-[500px] rounded-2xl overflow-hidden shadow-2xl group">
                             <Image
-                                src="https://images.unsplash.com/photo-1551041777-ed02bed74fc4?q=80&w=1000&auto=format&fit=crop"
+                                src="https://images.unsplash.com/photo-1551041777-ed02bed74fc4?q=60&w=600&auto=format&fit=crop"
                                 alt="Masjid Quba Madinah First Mosque in Islam Exterior"
                                 fill
                                 sizes="(max-width: 768px) 100vw, 50vw"
