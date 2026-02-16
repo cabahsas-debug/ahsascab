@@ -6,6 +6,8 @@ import styles from './FAQSection.module.css';
 import FadeIn from '@/components/common/FadeIn';
 import GlassCard from '@/components/ui/GlassCard';
 
+import { generateFAQSchema } from '@/lib/schema';
+
 interface FAQItem {
     question: string;
     answer: string | React.ReactNode;
@@ -35,6 +37,18 @@ const defaultFAQs: FAQItem[] = [
     }
 ];
 
+const extractText = (node: React.ReactNode): string => {
+    if (typeof node === 'string') return node;
+    if (typeof node === 'number') return String(node);
+    if (!node) return '';
+    if (Array.isArray(node)) return node.map(extractText).join('');
+    if (typeof node === 'object' && 'props' in node && (node as any).props.children) {
+        return extractText((node as any).props.children);
+    }
+    return '';
+};
+
+
 export default function FAQSection({ items = defaultFAQs, title = "Frequently Asked Questions" }: FAQSectionProps) {
     const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
 
@@ -42,8 +56,19 @@ export default function FAQSection({ items = defaultFAQs, title = "Frequently As
         setActiveAccordion(activeAccordion === index ? null : index);
     };
 
+    const schemaItems = items.map(item => ({
+        question: item.question,
+        answer: typeof item.answer === 'string' ? item.answer : extractText(item.answer)
+    }));
+
+    const faqSchema = generateFAQSchema(schemaItems);
+
     return (
         <section className="py-24 bg-slate-50 dark:bg-slate-950">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
             <div className="container mx-auto px-4">
                 <FadeIn>
                     <h2 className="text-3xl md:text-5xl font-bold text-center text-slate-900 dark:text-white mb-16 font-playfair">{title}</h2>
@@ -52,8 +77,8 @@ export default function FAQSection({ items = defaultFAQs, title = "Frequently As
                     {items.map((faq, index) => (
                         <FadeIn key={index} delay={index * 0.1}>
                             <div className={`overflow-hidden rounded-2xl transition-all duration-300 ${activeAccordion === index
-                                    ? 'bg-white dark:bg-slate-800 shadow-lg ring-1 ring-secondary/20'
-                                    : 'bg-white/50 dark:bg-slate-900/50 hover:bg-white dark:hover:bg-slate-800 border border-slate-100 dark:border-slate-800'
+                                ? 'bg-white dark:bg-slate-800 shadow-lg ring-1 ring-secondary/20'
+                                : 'bg-white/50 dark:bg-slate-900/50 hover:bg-white dark:hover:bg-slate-800 border border-slate-100 dark:border-slate-800'
                                 }`}>
                                 <button
                                     className="w-full flex items-center justify-between p-6 text-left"

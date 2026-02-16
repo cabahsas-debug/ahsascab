@@ -7,6 +7,8 @@ import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import { ArrowRight, Clock, MapPin, CheckCircle, Car } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
+import { constructMetadata } from '@/lib/metadata';
+import { generateProductSchema } from '@/lib/schema';
 
 // Generate static params for all routes in pricing.json
 export async function generateStaticParams() {
@@ -21,28 +23,28 @@ type Props = {
     params: { slug: string };
 };
 
+
+// Generate SEO Metadata dynamically
+
 // Generate SEO Metadata dynamically
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const route = pricingData.routes.find((r) => r.slug === params.slug);
 
     if (!route || !route.seo) {
-        return {
-            title: 'Route Not Found | Ahsas Alrihlat',
-        };
+        return constructMetadata({
+            title: 'Route Not Found',
+            noIndex: true
+        });
     }
 
-    return {
+    return constructMetadata({
         title: route.seo.title,
         description: route.seo.description,
         keywords: route.seo.keywords,
-        alternates: {
-            canonical: `https://alaqsaumrahtransport.com/routes/${params.slug}`,
-        },
-        openGraph: {
-            title: route.seo.title,
-            description: route.seo.description,
-        }
-    };
+        canonicalUrl: `https://ahsascab.com/routes/${params.slug}`,
+        image: `/images/routes/${params.slug}.jpg`, // Heuristic validation or fallback happens in utility
+        type: 'website'
+    });
 }
 
 export default function RouteDetail({ params }: Props) {
@@ -56,23 +58,20 @@ export default function RouteDetail({ params }: Props) {
     const prices = Object.values(route.customRates);
     const startingPrice = Math.min(...prices);
 
+    const productSchema = generateProductSchema({
+        name: route.name,
+        description: route.seo?.description || route.name,
+        baseRate: startingPrice,
+        slug: params.slug,
+        image: `/images/routes/${params.slug}.jpg`
+    });
+
     return (
         <main className="overflow-x-hidden pb-16">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Product",
-                        "name": route.name,
-                        "description": route.seo?.description,
-                        "offers": {
-                            "@type": "AggregateOffer",
-                            "lowPrice": startingPrice,
-                            "priceCurrency": "SAR",
-                            "offerCount": prices.length
-                        }
-                    })
+                    __html: JSON.stringify(productSchema)
                 }}
             />
 

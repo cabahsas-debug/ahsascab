@@ -1,6 +1,7 @@
 import dbConnect from '@/lib/mongodb';
 import { Settings as SettingsModel } from '@/models';
 import { Settings } from './validations';
+import 'server-only';
 import { unstable_cache, revalidateTag } from 'next/cache';
 
 import { DEFAULT_BOOKING_CONFIRMATION_TEMPLATE, DEFAULT_ADMIN_NOTIFICATION_TEMPLATE } from './email-templates';

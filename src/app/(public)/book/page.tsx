@@ -1,7 +1,7 @@
 'use client';
 
 import React, { Suspense } from 'react';
-import BookingWizard from '@/components/booking/BookingWizard';
+// import BookingWizard from '@/components/booking/BookingWizard';
 import { motion } from 'framer-motion';
 
 export default function BookPage() {
@@ -33,9 +33,10 @@ export default function BookPage() {
             </div>
 
             <div className="container relative z-20 -mt-10 md:-mt-16 pb-20">
-                <Suspense fallback={<div className="h-96 w-full animate-pulse bg-white rounded-3xl" />}>
+                {/* <Suspense fallback={<div className="h-96 w-full animate-pulse bg-white rounded-3xl" />}>
                     <BookingWizard />
-                </Suspense>
+                </Suspense> */}
+                <div>Booking Wizard Placeholder</div>
             </div>
         </main>
     );

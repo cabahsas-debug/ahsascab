@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ChevronRight, Home } from 'lucide-react';
+import { generateBreadcrumbSchema } from '@/lib/schema';
 
 interface BreadcrumbsProps {
     overrideLastItem?: string;
@@ -38,24 +39,15 @@ export default function Breadcrumbs({ overrideLastItem, className = '', hideJson
         return segment.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
     };
 
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": `https://alaqsaumrahtransport.com${homeLink}`
-            },
-            ...displaySegments.map((segment, index) => ({
-                "@type": "ListItem",
-                "position": index + 2,
-                "name": formatSegment(segment),
-                "item": `https://alaqsaumrahtransport.com${homeLink === '/' ? '' : homeLink}/${displaySegments.slice(0, index + 1).join('/')}`
-            }))
-        ]
-    };
+    const breadcrumbItems = [
+        { name: 'Home', item: `https://ahsascab.com${homeLink}` },
+        ...displaySegments.map((segment, index) => ({
+            name: (index === displaySegments.length - 1 && overrideLastItem) ? overrideLastItem : formatSegment(segment),
+            item: `https://ahsascab.com${homeLink === '/' ? '' : homeLink}/${displaySegments.slice(0, index + 1).join('/')}`
+        }))
+    ];
+
+    const jsonLd = generateBreadcrumbSchema(breadcrumbItems);
 
     return (
         <nav aria-label="Breadcrumb" className={`flex items-center text-sm ${className}`}>
