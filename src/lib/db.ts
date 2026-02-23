@@ -16,7 +16,7 @@ export async function getBookings(limit?: number, skip?: number): Promise<IBooki
     if (limit) query = query.limit(limit);
 
     const bookings = await query.lean();
-    return bookings.map(b => ({
+    return bookings.map((b: any) => ({
         ...b,
         _id: b._id.toString(),
         id: b._id.toString(),
@@ -128,8 +128,8 @@ export async function getBooking(id: string): Promise<IBooking | null> {
     if (!booking) return null;
     return {
         ...booking,
-        _id: booking._id.toString(),
-        id: booking._id.toString(),
+        _id: (booking as any)._id.toString(),
+        id: (booking as any)._id.toString(),
     } as unknown as IBooking;
 }
 
@@ -158,8 +158,8 @@ export async function updateBooking(id: string, updates: Partial<IBooking>): Pro
     if (!updatedBooking) return null;
     return {
         ...updatedBooking,
-        _id: updatedBooking._id.toString(),
-        id: updatedBooking._id.toString()
+        _id: (updatedBooking as any)._id.toString(),
+        id: (updatedBooking as any)._id.toString()
     } as unknown as IBooking;
 }
 
@@ -175,7 +175,7 @@ export async function deleteBooking(id: string): Promise<boolean> {
 export const getFleet = async (): Promise<IVehicle[]> => {
     await dbConnect();
     const vehicles = await Vehicle.find({ isActive: true }).lean();
-    return vehicles.map(v => ({
+    return vehicles.map((v: any) => ({
         ...v,
         _id: v._id.toString(),
         id: v._id.toString()
@@ -189,8 +189,8 @@ export async function addVehicle(vehicleData: Partial<IVehicle>): Promise<IVehic
     // revalidateTag('fleet');
     return {
         ...obj,
-        _id: obj._id.toString(),
-        id: obj._id.toString()
+        _id: (obj as any)._id.toString(),
+        id: (obj as any)._id.toString()
     } as unknown as IVehicle;
 }
 

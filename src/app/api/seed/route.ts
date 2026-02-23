@@ -54,7 +54,7 @@ export async function GET() {
                 category: (vData as any).category || "Standard",
                 isActive: true
             });
-            vehicleMap.set(vData.id, newVehicle._id.toString());
+            vehicleMap.set(vData.id, (newVehicle as any)._id.toString());
         }
 
         console.log(`Seeded ${vehicleMap.size} vehicles.`);
@@ -93,7 +93,7 @@ export async function GET() {
                     const vehicleId = vehicleMap.get(vKey);
                     if (vehicleId) {
                         await RoutePrice.create({
-                            route: newRoute._id.toString(),
+                            route: (newRoute as any)._id.toString(),
                             vehicle: vehicleId,
                             price: price
                         });

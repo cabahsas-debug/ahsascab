@@ -40,14 +40,14 @@ export async function POST(request: Request) {
 
         let isValid = false;
 
-        if (user && user.password) {
+        if (user && (user as any).password) {
             // Check if it's a bcrypt hash (starts with $2a$ or $2b$)
-            if (user.password.startsWith('$2a$') || user.password.startsWith('$2b$')) {
+            if ((user as any).password.startsWith('$2a$') || (user as any).password.startsWith('$2b$')) {
                 const { verifyPassword } = await import('@/lib/password-utils');
-                isValid = await verifyPassword(password, user.password);
+                isValid = await verifyPassword(password, (user as any).password);
             } else {
                 // Fallback to plain text check
-                isValid = user.password === password;
+                isValid = (user as any).password === password;
             }
         }
 
@@ -59,17 +59,17 @@ export async function POST(request: Request) {
 
         // Role Verification
         const allowedRoles = ['admin', 'manager', 'operational_manager', 'user'];
-        if (!allowedRoles.includes(user.role)) {
-            console.warn(`Unauthorized role login attempt for ${username} (${user.role}) from ${ip}`);
+        if (!allowedRoles.includes((user as any).role)) {
+            console.warn(`Unauthorized role login attempt for ${username} (${(user as any).role}) from ${ip}`);
             return NextResponse.json({ success: false, error: 'Unauthorized access' }, { status: 403 });
         }
 
         // Generate JWT
         const { signToken } = await import('@/lib/auth-utils');
         const token = await signToken({
-            userId: user._id.toString(),
-            email: user.email,
-            role: user.role
+            userId: (user as any)._id.toString(),
+            email: (user as any).email,
+            role: (user as any).role
         });
 
         // Set cookie
@@ -88,9 +88,9 @@ export async function POST(request: Request) {
 
         // Return user info (excluding password)
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { password: _, ...userWithoutPassword } = user;
+        const { password: _, ...userWithoutPassword } = user as any;
 
-        return NextResponse.json({ success: true, user: { ...userWithoutPassword, id: user._id.toString() } });
+        return NextResponse.json({ success: true, user: { ...userWithoutPassword, id: (user as any)._id.toString() } });
     } catch (error) {
         console.error('Login error:', error);
         return NextResponse.json({ success: false, error: 'Internal server error' }, { status: 500 });

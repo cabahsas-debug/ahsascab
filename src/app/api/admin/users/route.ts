@@ -18,7 +18,7 @@ export async function GET(request: Request) {
         const query = role ? { role: role.toLowerCase() } : {};
         const users = await User.find(query).sort({ createdAt: -1 }).lean();
 
-        const formattedUsers = users.map(u => ({ ...u, id: u._id.toString() }));
+        const formattedUsers = users.map((u: any) => ({ ...u, id: u._id.toString() }));
         return NextResponse.json(formattedUsers);
     } catch {
         return NextResponse.json({ error: 'Failed to fetch users' }, { status: 500 });
@@ -54,7 +54,7 @@ export async function POST(request: Request) {
 
         console.log(`Created user: ${name} (${role})`);
 
-        return NextResponse.json({ ...newUser.toObject(), id: newUser._id.toString() });
+        return NextResponse.json({ ...newUser.toObject(), id: (newUser as any)._id.toString() });
     } catch (error) {
         console.error('Create user error:', error);
         return NextResponse.json({ error: 'Failed to create user' }, { status: 500 });
@@ -93,7 +93,7 @@ export async function PUT(request: Request) {
 
         console.log(`Updated user: ${name} (${role})`);
 
-        return NextResponse.json({ ...updatedUser, id: updatedUser._id.toString() });
+        return NextResponse.json({ ...updatedUser, id: (updatedUser as any)._id.toString() });
     } catch (error) {
         console.error('Update user error:', error);
         return NextResponse.json({ error: 'Failed to update user' }, { status: 500 });
@@ -114,7 +114,6 @@ export async function DELETE(request: Request) {
             return NextResponse.json({ error: 'ID required' }, { status: 400 });
         }
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (id === (user as any).id) {
             return NextResponse.json({ error: 'Cannot delete yourself' }, { status: 400 });
         }

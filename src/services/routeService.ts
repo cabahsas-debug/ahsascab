@@ -147,14 +147,14 @@ export const routeService = {
     async createRoute(data: Partial<IRoute>) {
         await dbConnect();
         const newRoute = await Route.create(data);
-        return { ...newRoute.toObject(), id: newRoute._id.toString() };
+        return { ...newRoute.toObject(), id: (newRoute as any)._id.toString() };
     },
 
     async updateRoute(id: string, data: Partial<IRoute>) {
         await dbConnect();
         const updatedRoute = await Route.findByIdAndUpdate(id, data, { new: true }).lean();
         if (!updatedRoute) return null;
-        return { ...updatedRoute, id: updatedRoute._id.toString() };
+        return { ...updatedRoute, id: (updatedRoute as any)._id.toString() };
     },
 
     async updateRoutePrice(routeId: string, vehicleId: string, price: number) {

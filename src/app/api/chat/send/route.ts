@@ -20,7 +20,7 @@ export async function POST(request: Request) {
         await dbConnect();
 
         const message = await Message.create({
-            senderId: user._id.toString(),
+            senderId: (user as any)._id?.toString() || user.id,
             receiverId,
             senderRole: user.role,
             content,

@@ -153,7 +153,7 @@ export async function POST(request: Request) {
                     name: booking.name,
                     email: booking.email,
                     status: booking.status,
-                    id: booking._id.toString().slice(-8).toUpperCase(),
+                    id: ((booking as any)._id || booking.id).toString().slice(-8).toUpperCase(),
                     vehicle: booking.vehicle,
                     pickup: booking.pickup,
                     dropoff: booking.dropoff,
@@ -177,8 +177,8 @@ export async function POST(request: Request) {
 
                 const { pusherServer } = await import('@/lib/pusher');
                 await pusherServer.trigger('admin-channel', 'new-booking', {
-                    message: `New booking: ${booking._id}`,
-                    bookingId: booking._id,
+                    message: `New booking: ${(booking as any)._id || booking.id}`,
+                    bookingId: (booking as any)._id || booking.id,
                     data: emailData
                 });
             }

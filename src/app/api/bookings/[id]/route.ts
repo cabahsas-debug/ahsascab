@@ -38,7 +38,7 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
         const { sendBookingConfirmationEmail } = await import('@/lib/email');
         const bookingData = {
             ...updated,
-            id: updated._id.toString(),
+            id: (updated as any)._id?.toString() || (updated as any).id,
             email: updated.email,
             name: updated.name,
         } as any;
@@ -55,7 +55,7 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
         const { pusherServer } = await import('@/lib/pusher');
         // Notify Admins
         await pusherServer.trigger('admin-channel', 'booking-updated', {
-            id: updated._id,
+            id: (updated as any)._id || (updated as any).id,
             status: updated.status,
             updatedBy: 'admin' // or generic
         });
@@ -63,14 +63,14 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
         // Notify User
         if (updated.userId) {
             await pusherServer.trigger(`user-channel-${updated.userId}`, 'booking-updated', {
-                id: updated._id,
+                id: (updated as any)._id || (updated as any).id,
                 paymentStatus: updated.paymentStatus,
             });
         }
 
         // Notify Guest Tracker
-        await pusherServer.trigger(`booking-channel-${updated._id}`, 'status-updated', {
-            id: updated._id,
+        await pusherServer.trigger(`booking-channel-${(updated as any)._id || (updated as any).id}`, 'status-updated', {
+            id: (updated as any)._id || (updated as any).id,
             status: updated.status,
             // Trigger client refresh
         });

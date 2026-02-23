@@ -32,11 +32,11 @@ export async function POST(request: Request) {
         }
 
         let isValid = false;
-        if (user.password) {
-            if (user.password.startsWith('$2a$') || user.password.startsWith('$2b$')) {
-                isValid = await verifyPassword(password, user.password);
+        if ((user as any).password) {
+            if ((user as any).password.startsWith('$2a$') || (user as any).password.startsWith('$2b$')) {
+                isValid = await verifyPassword(password, (user as any).password);
             } else {
-                isValid = user.password === password;
+                isValid = (user as any).password === password;
             }
         }
 

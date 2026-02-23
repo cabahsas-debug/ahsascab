@@ -46,9 +46,9 @@ export async function GET() {
                 baseRate = prices.length > 0 ? Math.min(...prices) : 0;
 
                 return {
-                    id: route._id.toString(), // Ensure string ID
+                    id: (route as any)._id?.toString() || (route as any).id, // Ensure string ID
                     name: `${route.origin} to ${route.destination}`,
-                    slug: route._id.toString(), // or generate a slug if stored
+                    slug: (route as any)._id?.toString() || (route as any).id, // or generate a slug if stored
                     seo: {
                         title: `${route.origin} to ${route.destination} Taxi`,
                         description: `Book taxi from ${route.origin} to ${route.destination}`,

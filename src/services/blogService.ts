@@ -112,7 +112,7 @@ export const blogService = {
                     };
 
                     const newPost = await BlogPost.create(newPostData);
-                    updatedPost = newPost.toObject();
+                    updatedPost = newPost.toObject() as any;
                 } catch (error) {
                     console.error('[BlogService] Failed to promote static post to database:', error);
                     // Check for duplicate key error (if slug collision happened somehow)

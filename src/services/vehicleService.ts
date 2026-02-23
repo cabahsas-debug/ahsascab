@@ -33,8 +33,7 @@ export const vehicleService = {
         await dbConnect();
         const vehicles = await Vehicle.find({}).lean();
         const mapped = vehicles.map(v => sanitizeVehicle({ ...v, id: v._id.toString() }));
-        // @ts-ignore
-        return mapped.sort((a, b) => getSortIndex(a) - getSortIndex(b));
+        return mapped.sort((a: any, b: any) => getSortIndex(a) - getSortIndex(b));
     }, ['vehicles-list-v2'], { revalidate: 3600, tags: ['vehicles'] }),
 
     // Optimized method for public facing pages
@@ -42,8 +41,7 @@ export const vehicleService = {
         await dbConnect();
         const vehicles = await Vehicle.find({ isActive: true }).lean();
         const mapped = vehicles.map(v => sanitizeVehicle({ ...v, id: v._id.toString() }));
-        // @ts-ignore
-        return mapped.sort((a, b) => getSortIndex(a) - getSortIndex(b));
+        return mapped.sort((a: any, b: any) => getSortIndex(a) - getSortIndex(b));
     },
 
     async getVehicleById(id: string) {
@@ -56,7 +54,7 @@ export const vehicleService = {
     async createVehicle(data: Partial<IVehicle>) {
         await dbConnect();
         const newVehicle = await Vehicle.create(data);
-        return { ...newVehicle.toObject(), id: newVehicle._id.toString() };
+        return { ...newVehicle.toObject(), id: (newVehicle as any)._id.toString() };
     },
 
     async updateVehicle(id: string, data: Partial<IVehicle>) {

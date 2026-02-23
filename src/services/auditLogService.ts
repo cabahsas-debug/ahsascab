@@ -29,7 +29,7 @@ export const auditLogService = {
                 .limit(limitCount)
                 .lean();
 
-            return logs.map(log => ({
+            return logs.map((log: any) => ({
                 id: log._id.toString(),
                 action: log.action,
                 entity: log.entity,

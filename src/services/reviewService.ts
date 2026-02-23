@@ -5,20 +5,20 @@ export const reviewService = {
     async getReviews() {
         await dbConnect();
         const reviews = await Review.find({}).sort({ date: -1 }).lean();
-        return reviews.map(r => ({ ...r, id: r._id.toString() }));
+        return reviews.map((r: any) => ({ ...r, id: r._id.toString() }));
     },
 
     async createReview(data: Partial<IReview>) {
         await dbConnect();
         const newReview = await Review.create(data);
-        return { ...newReview.toObject(), id: newReview._id.toString() };
+        return { ...newReview.toObject(), id: (newReview as any)._id.toString() };
     },
 
     async updateReview(id: string, data: Partial<IReview>) {
         await dbConnect();
         const updatedReview = await Review.findByIdAndUpdate(id, data, { new: true }).lean();
         if (!updatedReview) return null;
-        return { ...updatedReview, id: updatedReview._id.toString() };
+        return { ...updatedReview, id: (updatedReview as any)._id.toString() };
     },
 
     async deleteReview(id: string) {
@@ -42,6 +42,6 @@ export const reviewService = {
             { upsert: true, new: true, setDefaultsOnInsert: true }
         ).lean();
 
-        return { ...review, id: review._id.toString() };
+        return { ...review, id: (review as any)._id.toString() };
     },
 };

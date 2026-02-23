@@ -26,7 +26,7 @@ export async function validateRequest(): Promise<IUser | null> {
         }
 
         // Cast to IUser and ensure string ID
-        return { ...user, id: user._id.toString() } as unknown as IUser;
+        return { ...user, id: (user as any)._id.toString() } as unknown as IUser;
     } catch (error) {
         console.error('[validateRequest] Auth error:', error);
         return null;
