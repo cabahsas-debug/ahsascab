@@ -11,6 +11,7 @@ import GlassCard from '@/components/ui/GlassCard';
 import TrustAmenities from '@/components/services/TrustAmenities';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import ExpandedServicesSEO from '@/components/services/ExpandedServicesSEO';
 
 import { constructMetadata } from '@/lib/metadata';
 
@@ -27,7 +28,7 @@ export async function generateMetadata() {
             "Jeddah Airport Pickup", "Madinah Ziyarat", "Makkah to Madinah Taxi",
             "خدمات نقل المعتمرين", "زيارات المدينة المنورة", "توصيل مطار جدة"
         ],
-        canonicalUrl: 'https://ahsascab.com/services',
+        canonicalUrl: '/services',
     });
 }
 
@@ -235,6 +236,9 @@ export default function ServicesPage() {
 
             {/* Reviews Section - NEW */}
             <ReviewsSection />
+
+            {/* SEO Content Section - NEW for 1200+ words */}
+            <ExpandedServicesSEO />
 
             {/* FAQSection */}
             <FAQSection items={serviceFAQs} title="Frequently Asked Questions about Umrah Transport" />

@@ -1,0 +1,13 @@
+﻿src/app/api/auth/verify-password/route.ts(35,18): error TS2339: Property 'password' does not exist on type '(FlattenMaps<any> & Required<{ _id: unknown; }> & { __v: number; })[] | (FlattenMaps<any> & Required<{ _id: unknown; }> & { __v: number; })'.
+  Property 'password' does not exist on type '(FlattenMaps<any> & Required<{ _id: unknown; }> & { __v: number; })[]'.
+src/app/api/auth/verify-password/route.ts(36,22): error TS2339: Property 'password' does not exist on type '(FlattenMaps<any> & Required<{ _id: unknown; }> & { __v: number; })[] | (FlattenMaps<any> & Required<{ _id: unknown; }> & { __v: number; })'.
+  Property 'password' does not exist on type '(FlattenMaps<any> & Required<{ _id: unknown; }> & { __v: number; })[]'.
+src/app/api/auth/verify-password/route.ts(36,58): error TS2339: Property 'password' does not exist on type '(FlattenMaps<any> & Required<{ _id: unknown; }> & { __v: number; })[] | (FlattenMaps<any> & Required<{ _id: unknown; }> & { __v: number; })'.
+  Property 'password' does not exist on type '(FlattenMaps<any> & Required<{ _id: unknown; }> & { __v: number; })[]'.
+src/app/api/auth/verify-password/route.ts(37,63): error TS2339: Property 'password' does not exist on type '(FlattenMaps<any> & Required<{ _id: unknown; }> & { __v: number; })[] | (FlattenMaps<any> & Required<{ _id: unknown; }> & { __v: number; })'.
+  Property 'password' does not exist on type '(FlattenMaps<any> & Required<{ _id: unknown; }> & { __v: number; })[]'.
+src/app/api/auth/verify-password/route.ts(39,32): error TS2339: Property 'password' does not exist on type '(FlattenMaps<any> & Required<{ _id: unknown; }> & { __v: number; })[] | (FlattenMaps<any> & Required<{ _id: unknown; }> & { __v: number; })'.
+  Property 'password' does not exist on type '(FlattenMaps<any> & Required<{ _id: unknown; }> & { __v: number; })[]'.
+src/app/api/bookings/[id]/route.ts(41,17): error TS18046: 'updated._id' is of type 'unknown'.
+src/app/api/bookings/route.ts(156,25): error TS18046: 'booking._id' is of type 'unknown'.
+src/app/api/chat/send/route.ts(23,23): error TS18046: 'user._id' is of type 'unknown'.

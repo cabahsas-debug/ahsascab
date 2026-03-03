@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { getSettings } from './settings-storage';
+import { getBaseUrl } from './url-utils';
 
 interface SeoProps {
     title?: string;
@@ -26,7 +27,7 @@ export async function constructMetadata({
 }: SeoProps = {}): Promise<Metadata> {
     const settings = await getSettings();
     const siteName = settings.general.siteName || "Ahsas Cab";
-    const baseUrl = 'https://ahsascab.com'; // Hardcoded production URL for stability
+    const baseUrl = getBaseUrl();
 
     // defaults from settings
     const defaultTitle = settings.seo.defaultTitle || "Ahsas Cab - Premium Transport Services";
@@ -45,7 +46,7 @@ export async function constructMetadata({
         ...paramKeywords,
         ...settingKeywords,
         "Umrah taxi", "Jeddah Airport transfer", "Makkah taxi", "Madinah taxi"
-    ])).slice(0, 20); // Limit to 20 to avoid keyword stuffing
+    ])); // Allow 100+ keywords per user feedback
 
     // Construct full title
     const fullTitle = title ? `${title} | ${siteName}` : defaultTitle;
@@ -59,7 +60,9 @@ export async function constructMetadata({
     }
 
     // Resolve Canonical: Strictly prefer passed URL, fallback to baseUrl
-    const finalCanonical = canonicalUrl || baseUrl;
+    const finalCanonical = canonicalUrl
+        ? (canonicalUrl.startsWith('http') ? canonicalUrl : `${baseUrl}${canonicalUrl.startsWith('/') ? canonicalUrl : '/' + canonicalUrl}`)
+        : baseUrl;
 
     return {
         title: fullTitle,

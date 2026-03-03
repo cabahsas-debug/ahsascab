@@ -1,11 +1,12 @@
 import { MetadataRoute } from 'next';
 import { blogService } from '@/services/blogService';
 import pricingData from '@/data/pricing.json';
+import { getBaseUrl } from '@/lib/url-utils';
 
 export const revalidate = 3600; // Revalidate every hour
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const baseUrl = 'https://ahsascab.com';
+    const baseUrl = getBaseUrl();
 
     // 1. Static Routes - High Priority
     const mainRoutes = [

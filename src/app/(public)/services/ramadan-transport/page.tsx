@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import { getBaseUrl } from '@/lib/url-utils';
+import { constructMetadata } from '@/lib/metadata';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
@@ -9,6 +10,20 @@ import { ArrowRight, Moon, Clock, ShieldCheck, MapPin } from 'lucide-react';
 import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 
+export async function generateMetadata() {
+    return constructMetadata({
+        title: "Ramadan 2026 Umrah Transport Booking | Ahsas Cab | نقل معتمرين",
+        description: "Reliable 24/7 transport during Ramadan. Advance booking, guaranteed availability, and punctual service for Iftar and Qiyam-ul-Layl. حجز مواصلات العمرة في رمضان.",
+        keywords: [
+            "Ramadan Umrah transport 2026", "Makkah taxi Ramadan", "Iftar time taxi Haram",
+            "Madinah Ramadan transfer", "Qiyam ul layl transport", "Ramadan VIP transport Saudi",
+            "توصيل معتمرين رمضان 2026", "تاكسي للحرم في رمضان", "مواصلات التراويح مكة"
+        ],
+        canonicalUrl: '/services/ramadan-transport',
+        image: '/images/hero/ramadan-transport-hero.png',
+    });
+}
+
 
 const jsonLd = {
     "@context": "https://schema.org",
@@ -18,7 +33,7 @@ const jsonLd = {
     "provider": {
         "@type": "LocalBusiness",
         "name": "Ahsas Alrihlat",
-        "image": "https://alaqsaumrahtransport.com/logo.png"
+        "image": `${getBaseUrl()}/logo.png`
     },
     "serviceType": "Religious Tourism Transport",
     "areaServed": ["Makkah", "Madinah", "Jeddah"],
@@ -27,7 +42,36 @@ const jsonLd = {
     "offers": {
         "@type": "Offer",
         "priceCurrency": "SAR",
-        "availability": "https://schema.org/InStock"
+        "availability": "https://schema.org/InStock",
+        "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": "SA",
+            "returnPolicyCategory": "https://schema.org/RefundNone"
+        }
+    },
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Ramadan Vehicles",
+        "itemListElement": [
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Jeddah to Makkah (Sedan)"
+                },
+                "price": "350",
+                "priceCurrency": "SAR"
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Jeddah to Makkah (GMC VIP)"
+                },
+                "price": "600",
+                "priceCurrency": "SAR"
+            }
+        ]
     },
     "breadcrumb": {
         "@type": "BreadcrumbList",
@@ -36,19 +80,19 @@ const jsonLd = {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://alaqsaumrahtransport.com"
+                "item": `${getBaseUrl()}`
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Services",
-                "item": "https://alaqsaumrahtransport.com/services"
+                "item": `${getBaseUrl()}/services`
             },
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": "Ramadan Transport",
-                "item": "https://alaqsaumrahtransport.com/services/ramadan-transport"
+                "item": `${getBaseUrl()}/services/ramadan-transport`
             }
         ]
     }

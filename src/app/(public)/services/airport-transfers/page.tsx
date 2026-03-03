@@ -21,7 +21,7 @@ export async function generateMetadata() {
             "توصيل مطار جدة", "تاكسي مطار المدينة", "استقبال المعتمرين",
             "نقل من مطار الملك عبدالعزيز", "حجز تاكسي الحرم", "خدمات المعتمرين"
         ],
-        canonicalUrl: 'https://ahsascab.com/services/airport-transfers',
+        canonicalUrl: '/services/airport-transfers',
     });
 }
 

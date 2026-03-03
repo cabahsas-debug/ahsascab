@@ -1,3 +1,4 @@
+import { getBaseUrl } from '@/lib/url-utils';
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Link from 'next/link';
@@ -7,6 +8,7 @@ import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
+import OtherFleetSEO from '@/components/fleet/OtherFleetSEO';
 import dynamic from 'next/dynamic';
 
 const Interior360Viewer = dynamic(() => import('@/components/fleet/Interior360Viewer'), {
@@ -21,7 +23,7 @@ const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": vehicleData?.seo?.title || "Toyota Hiace 12-Seater Bus Rental",
-    "image": "https://alaqsaumrahtransport.com/images/fleet/hiace-hero-professional.png",
+    "image": `${getBaseUrl()}/images/fleet/hiace-hero-professional.png`,
     "description": vehicleData?.seo?.description || "Rent Toyota Hiace bus in Makkah. Reliable 12-seater transport for Umrah groups and large families.",
     "brand": { "@type": "Brand", "name": "Toyota" },
     "offers": { "@type": "Offer", "price": "350", "priceCurrency": "SAR", "availability": "https://schema.org/InStock" }
@@ -40,7 +42,7 @@ export const metadata: Metadata = {
         "نقل جماعي مكة",
         "باص 10 راكب جدة"
     ],
-    alternates: { canonical: 'https://alaqsaumrahtransport.com/fleet/toyota-hiace' },
+    alternates: { canonical: '/fleet/toyota-hiace' },
     openGraph: {
         title: "Toyota Hiace Bus Rental Makkah | Cheap Group Transport",
         description: "Book Toyota Hiace 12-seater bus for Umrah groups. Affordable transport from Jeddah Airport to Makkah & Madinah. Reliable & spacious.",
@@ -182,6 +184,9 @@ export default async function ToyotaHiacePage() {
                     </div>
                 </div>
             </section>
+
+                        {/* 1000+ Word SEO Injection */}
+            <OtherFleetSEO vehicleId="hiace" />
 
             {/* 360 Interior Preview (Placeholder) */}
             <section className="py-16 bg-slate-900 text-white overflow-hidden relative">

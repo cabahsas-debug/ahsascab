@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { getBaseUrl } from '@/lib/url-utils';
 import Link from 'next/link';
 import Image from 'next/image';
 import pricingData from '@/data/pricing.json';
@@ -9,6 +10,7 @@ import { ArrowRight, Clock, MapPin, CheckCircle, Car } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
 import { constructMetadata } from '@/lib/metadata';
 import { generateProductSchema } from '@/lib/schema';
+import RouteSEOContent from '@/components/routes/RouteSEOContent';
 
 // Generate static params for all routes in pricing.json
 export async function generateStaticParams() {
@@ -41,8 +43,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: route.seo.title,
         description: route.seo.description,
         keywords: route.seo.keywords,
-        canonicalUrl: `https://ahsascab.com/routes/${params.slug}`,
-        image: `/images/routes/${params.slug}.jpg`, // Heuristic validation or fallback happens in utility
+        canonicalUrl: `/routes/${params.slug}`,
+        image: `/images/routes/${params.slug}.jpg`,
         type: 'website'
     });
 }
@@ -66,12 +68,43 @@ export default function RouteDetail({ params }: Props) {
         image: `/images/routes/${params.slug}.jpg`
     });
 
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": `${getBaseUrl()}`
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Routes",
+                "item": `${getBaseUrl()}/routes`
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": route.name,
+                "item": `${getBaseUrl()}/routes/${params.slug}`
+            }
+        ]
+    };
+
     return (
         <main className="overflow-x-hidden pb-16">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify(productSchema)
+                }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(breadcrumbSchema)
                 }}
             />
 
@@ -176,6 +209,9 @@ export default function RouteDetail({ params }: Props) {
                     </div>
                 </div>
             </section>
+
+            {/* Dynamic 1200+ Word SEO Content Injection */}
+            <RouteSEOContent slug={params.slug} />
 
             {/* Why Choose Us */}
             <section className="py-16 bg-slate-50 dark:bg-slate-950">

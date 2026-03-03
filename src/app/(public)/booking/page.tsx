@@ -13,11 +13,11 @@ import { Route } from '@/lib/pricing';
 import SearchableSelect from '@/components/ui/SearchableSelect';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 
-const splitRouteName = (name: string): [string, string] => {
-    if (!name) return ['', ''];
-    const parts = name.split(/\s*(?:->|to|\u2192)\s*/i);
+function splitRouteName(routeName: string | undefined): [string, string] {
+    if (!routeName) return ['', ''];
+    const parts = routeName.split(/\s*(?:\u2192|\u2194|\u21c4|\u21cc|to)\s*/i);
     return [parts[0]?.trim() || '', parts[1]?.trim() || ''];
-};
+}
 
 export default function BookingPage() {
     const { routes, vehicles, calculatePrice, isLoading } = usePricing();
@@ -1344,8 +1344,8 @@ export default function BookingPage() {
                                         const v = vehicles.find(veh => veh.id === sv.vehicleId);
                                         return v ? (
                                             <div key={sv.vehicleId} className="flex items-center gap-4 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl">
-                                                <div className="w-16 h-10 bg-white dark:bg-slate-700/50 rounded-lg overflow-hidden flex items-center justify-center border border-slate-100 dark:border-slate-600">
-                                                    {v.image ? <img src={v.image} alt={v.name} className="w-full h-full object-cover" /> : <User size={20} />}
+                                                <div className="w-16 h-10 bg-white dark:bg-slate-700/50 rounded-lg overflow-hidden flex items-center justify-center border border-slate-100 dark:border-slate-600 relative">
+                                                    {v.image ? <Image src={v.image} alt={v.name} className="object-cover" fill sizes="64px" /> : <User size={20} />}
                                                 </div>
                                                 <div>
                                                     <p className="font-bold text-slate-900 dark:text-white text-sm">{v.name}</p>
@@ -1716,9 +1716,9 @@ export default function BookingPage() {
                                 if (!v) return null;
                                 return (
                                     <div key={sv.vehicleId} className="flex items-center gap-4">
-                                        <div className="w-16 h-12 bg-slate-100 dark:bg-slate-700/50 rounded-lg flex items-center justify-center overflow-hidden">
+                                        <div className="w-16 h-12 bg-slate-100 dark:bg-slate-700/50 rounded-lg flex items-center justify-center overflow-hidden relative">
                                             {v.image ? (
-                                                <img src={v.image} alt={v.name} className="w-full h-full object-cover" />
+                                                <Image src={v.image} alt={v.name} className="object-cover" fill sizes="64px" />
                                             ) : (
                                                 <User size={20} className="text-slate-400" />
                                             )}
@@ -1860,6 +1860,7 @@ export default function BookingPage() {
         </main >
     );
 }
+
 
 
 

@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import { constructMetadata } from '@/lib/metadata';
+import { getBaseUrl } from '@/lib/url-utils';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import Link from 'next/link';
@@ -7,6 +8,21 @@ import { ArrowRight, MapPin, Clock, Camera, Heart, BookOpen } from 'lucide-react
 import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
+import ExpandedZiyaratSEO from '@/components/services/ExpandedZiyaratSEO';
+
+export async function generateMetadata() {
+    return constructMetadata({
+        title: "Makkah & Madinah Ziyarat Tours | Ahsas Cab | جولات المزارات",
+        description: "Private guided historical tours in Makkah (Cave Hira, Arafat) and Madinah (Masjid Quba, Uhud). Experienced drivers and comfortable VIP vehicles. Book your Ziyarat tour today.",
+        keywords: [
+            "Ziyarat tours Makkah", "Madinah historical places tour", "Cave Hira taxi",
+            "Jabal Thawr ziyarat", "Masjid Quba visit", "private ziyarat guide Saudi",
+            "جولات مزارات مكة", "زيارة المدينة المنورة", "الأماكن التاريخية الإسلامية"
+        ],
+        canonicalUrl: '/services/ziyarat-tours',
+        image: '/images/routes/makkah-ziyarat-hero.png',
+    });
+}
 
 
 const jsonLd = {
@@ -34,7 +50,36 @@ const jsonLd = {
         "@type": "Offer",
         "price": "300",
         "priceCurrency": "SAR",
-        "availability": "https://schema.org/InStock"
+        "availability": "https://schema.org/InStock",
+        "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": "SA",
+            "returnPolicyCategory": "https://schema.org/RefundNone"
+        }
+    },
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Ziyarat Vehicles",
+        "itemListElement": [
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Standard Ziyarat (Camry/Sonata)"
+                },
+                "price": "300",
+                "priceCurrency": "SAR"
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "VIP Ziyarat (GMC Yukon/Staria)"
+                },
+                "price": "500",
+                "priceCurrency": "SAR"
+            }
+        ]
     }
 };
 
@@ -166,6 +211,9 @@ export default async function ZiyaratToursPage() {
                     </div>
                 </div>
             </section>
+
+            {/* 1200+ Word Detailed Historical SEO Content */}
+            <ExpandedZiyaratSEO />
 
             {/* Why Book Ziyarat With Us */}
             <section className="py-16 bg-white dark:bg-slate-900">

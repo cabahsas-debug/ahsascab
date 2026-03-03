@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 
 import MapAutocomplete from '../MapAutocomplete';
 import { usePricing } from '@/context/PricingContext';
-import { splitRouteName } from '@/lib/utils/route-utils'; // Need to create or check if exists
 
 interface JourneyStepProps {
     data: any;

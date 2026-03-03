@@ -12,7 +12,7 @@ export async function generateMetadata() {
     return constructMetadata({
         title: 'Pilgrim Resources & Downloads | Free Umrah Guides',
         description: 'Download our exclusive Umrah guides, checklists, and travel tips for free. Essential resources for a spiritual and hassle-free journey.',
-        canonicalUrl: 'https://ahsascab.com/resources',
+        canonicalUrl: '/resources',
     });
 }
 

@@ -1,3 +1,4 @@
+import { getBaseUrl } from '@/lib/url-utils';
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -42,7 +43,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
         description: post.excerpt,
         image: post.image,
         type: 'article',
-        canonicalUrl: `https://ahsascab.com/blog/${post.slug}`,
+        canonicalUrl: '/blog/${post.slug}',
         keywords: post.tags,
     });
 }
@@ -71,7 +72,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             "name": "Ahsas Alrihlat",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://alaqsaumrahtransport.com/logo.png" // Update with actual logo URL
+                "url": `${getBaseUrl()}/logo.png` // Update with actual logo URL
             }
         },
         "description": post.excerpt,

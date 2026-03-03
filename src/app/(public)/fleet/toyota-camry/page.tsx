@@ -1,3 +1,4 @@
+import { getBaseUrl } from '@/lib/url-utils';
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -8,6 +9,7 @@ import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
+import OtherFleetSEO from '@/components/fleet/OtherFleetSEO';
 import dynamic from 'next/dynamic';
 
 const Interior360Viewer = dynamic(() => import('@/components/fleet/Interior360Viewer'), {
@@ -22,7 +24,7 @@ const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": vehicleData?.seo?.title || "Toyota Camry 2024 Taxi Makkah",
-    "image": "https://alaqsaumrahtransport.com/images/fleet/camry-hero-professional.png",
+    "image": `${getBaseUrl()}/images/fleet/camry-hero-professional.png`,
     "description": vehicleData?.seo?.description || "Affordable Toyota Camry taxi for Umrah. Reliable 4-seater sedan for Jeddah to Makkah transfers.",
     "brand": { "@type": "Brand", "name": "Toyota" },
     "offers": { "@type": "Offer", "price": "200", "priceCurrency": "SAR", "availability": "https://schema.org/InStock" }
@@ -32,7 +34,7 @@ export const metadata: Metadata = {
     title: vehicleData?.seo?.title,
     description: vehicleData?.seo?.description,
     keywords: vehicleData?.seo?.keywords,
-    alternates: { canonical: 'https://alaqsaumrahtransport.com/fleet/toyota-camry' },
+    alternates: { canonical: '/fleet/toyota-camry' },
     openGraph: {
         title: vehicleData?.seo?.title,
         description: vehicleData?.seo?.description,
@@ -175,6 +177,9 @@ export default async function ToyotaCamryPage() {
                     </div>
                 </div>
             </section>
+
+                        {/* 1000+ Word SEO Injection */}
+            <OtherFleetSEO vehicleId="camry" />
 
             {/* 360 Interior Preview (Placeholder) */}
             <section className="py-16 bg-slate-900 text-white overflow-hidden relative">

@@ -1,3 +1,4 @@
+import { getBaseUrl } from '@/lib/url-utils';
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Link from 'next/link';
@@ -7,6 +8,7 @@ import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
+import OtherFleetSEO from '@/components/fleet/OtherFleetSEO';
 import dynamic from 'next/dynamic';
 
 const Interior360Viewer = dynamic(() => import('@/components/fleet/Interior360Viewer'), {
@@ -21,7 +23,7 @@ const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": vehicleData?.seo?.title || "Toyota Coaster 21-Seater Minibus",
-    "image": "https://alaqsaumrahtransport.com/images/fleet/coaster-hero-professional.png",
+    "image": `${getBaseUrl()}/images/fleet/coaster-hero-professional.png`,
     "description": vehicleData?.seo?.description || "Rent Toyota Coaster minibus in Makkah. Comfortable 21-seater transport for large Umrah groups.",
     "brand": { "@type": "Brand", "name": "Toyota" },
     "offers": { "@type": "Offer", "price": "550", "priceCurrency": "SAR", "availability": "https://schema.org/InStock" }
@@ -40,7 +42,7 @@ export const metadata: Metadata = {
         "نقل معتمرين مجموعات",
         "باص 20 راكب"
     ],
-    alternates: { canonical: 'https://alaqsaumrahtransport.com/fleet/toyota-coaster' },
+    alternates: { canonical: '/fleet/toyota-coaster' },
     openGraph: {
         title: "Toyota Coaster Bus Rental Makkah | 25 Pax Transport",
         description: "Book Toyota Coaster minibus for large Umrah groups. Comfortable 21-seater transport from Jeddah Airport to Makkah & Madinah. Spacious & reliable.",

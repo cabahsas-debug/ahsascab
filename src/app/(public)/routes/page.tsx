@@ -1,3 +1,4 @@
+import { getBaseUrl } from '@/lib/url-utils';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Hero from '@/components/common/Hero';
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
         "شبكة مواصلات العمرة", "نقل من جدة الى مكة"
     ],
     alternates: {
-        canonical: 'https://alaqsaumrahtransport.com/routes',
+        canonical: '/routes',
     },
     openGraph: {
         title: "Umrah Transport Routes Network | Ahsas Alrihlat",
@@ -36,25 +37,25 @@ const jsonLd = {
             "@type": "ListItem",
             "position": 1,
             "name": "Jeddah Airport to Makkah",
-            "url": "https://alaqsaumrahtransport.com/services/jeddah-airport-transfer"
+            "url": `${getBaseUrl()}/services/jeddah-airport-transfer`
         },
         {
             "@type": "ListItem",
             "position": 2,
             "name": "Makkah to Madinah",
-            "url": "https://alaqsaumrahtransport.com/services/makkah-madinah-taxi"
+            "url": `${getBaseUrl()}/services/makkah-madinah-taxi`
         },
         {
             "@type": "ListItem",
             "position": 3,
             "name": "Madinah Airport Transfer",
-            "url": "https://alaqsaumrahtransport.com/services/madinah-airport-transfer"
+            "url": `${getBaseUrl()}/services/madinah-airport-transfer`
         },
         {
             "@type": "ListItem",
             "position": 4,
             "name": "Makkah to Jeddah Airport",
-            "url": "https://alaqsaumrahtransport.com/services/makkah-jeddah-taxi"
+            "url": `${getBaseUrl()}/services/makkah-jeddah-taxi`
         }
     ]
 };

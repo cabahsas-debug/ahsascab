@@ -1,3 +1,4 @@
+import { getBaseUrl } from '@/lib/url-utils';
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -8,6 +9,7 @@ import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
+import HyundaiStariaSEO from '@/components/fleet/HyundaiStariaSEO';
 import dynamic from 'next/dynamic';
 
 const Interior360Viewer = dynamic(() => import('@/components/fleet/Interior360Viewer'), {
@@ -22,7 +24,7 @@ const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": vehicleData?.seo?.title || "Hyundai Staria 2024 Luxury Van",
-    "image": "https://alaqsaumrahtransport.com/images/fleet/staria-hero-professional.png",
+    "image": `${getBaseUrl()}/images/fleet/staria-hero-professional.png`,
     "description": vehicleData?.seo?.description || "Rent premium Hyundai Staria 2024 in Makkah. Luxury 7-seater van with panoramic views for VIP families.",
     "brand": { "@type": "Brand", "name": "Hyundai" },
     "offers": { "@type": "Offer", "price": "450", "priceCurrency": "SAR", "availability": "https://schema.org/InStock" }
@@ -41,7 +43,7 @@ export const metadata: Metadata = {
         "تاكسي عائلي جدة",
         "سيارة عائلية للعمرة"
     ],
-    alternates: { canonical: 'https://alaqsaumrahtransport.com/fleet/hyundai-staria' },
+    alternates: { canonical: '/fleet/hyundai-staria' },
     openGraph: {
         title: "Hyundai Staria Rental Saudi Arabia | Family Umrah Taxi",
         description: "Rent Hyundai Staria 2025 in Makkah. Spacious 7-passenger luxury van for Umrah families. Modern comfort for Jeddah to Madinah trips.",
@@ -185,6 +187,8 @@ export default async function HyundaiStariaPage() {
                 </div>
             </section>
 
+            <HyundaiStariaSEO />
+
             {/* 360 Interior Preview (Placeholder) */}
             <section className="py-16 bg-slate-900 text-white overflow-hidden relative">
                 <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
@@ -240,4 +244,3 @@ export default async function HyundaiStariaPage() {
         </main>
     );
 }
-

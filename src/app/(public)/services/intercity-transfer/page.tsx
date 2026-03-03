@@ -18,7 +18,7 @@ export async function generateMetadata() {
             "Intercity taxi Saudi", "Jeddah to Makkah", "Makkah to Madinah", "Makkah to Taif taxi",
             "نقل بين المدن", "توصيل الطائف مكة", "تاكسي جدة المدينة"
         ],
-        canonicalUrl: 'https://ahsascab.com/services/intercity-transfer',
+        canonicalUrl: '/services/intercity-transfer',
     });
 }
 
@@ -38,9 +38,60 @@ const jsonLd = {
     "description": "Luxury intercity transfers between Makkah, Madinah, and Jeddah.",
     "offers": {
         "@type": "Offer",
-        "price": "450",
         "priceCurrency": "SAR",
-        "availability": "https://schema.org/InStock"
+        "availability": "https://schema.org/InStock",
+        "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": "SA",
+            "returnPolicyCategory": "https://schema.org/RefundNone"
+        }
+    },
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Intercity Transfer Routes",
+        "itemListElement": [
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Makkah to Madinah VIP Transfer"
+                },
+                "price": "450",
+                "priceCurrency": "SAR"
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Makkah to Jeddah City Transfer"
+                },
+                "price": "200",
+                "priceCurrency": "SAR"
+            }
+        ]
+    },
+    "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.ahsascab.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": "https://www.ahsascab.com/services"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Intercity Transport",
+                "item": "https://www.ahsascab.com/services/intercity-transfer"
+            }
+        ]
     }
 };
 

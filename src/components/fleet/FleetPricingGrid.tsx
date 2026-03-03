@@ -31,12 +31,12 @@ const PricingCard = ({ route, dbVehicleId }: { route: RouteProduct; dbVehicleId:
     const handleDecrement = () => setQuantity(prev => (prev > 1 ? prev - 1 : 1));
 
     return (
-        <div className="group bg-white/5 backdrop-blur-md rounded-lg shadow-lg border border-white/10 p-2 sm:p-4 transition-all duration-300 hover:shadow-xl hover:border-amber-400/30 hover:-translate-y-1 relative overflow-hidden h-full flex flex-col justify-between">
+        <div className="group bg-white dark:bg-slate-900 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-800 p-3 sm:p-5 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative overflow-hidden h-full flex flex-col justify-between">
             {/* Decorator */}
-            <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-bl from-secondary/10 to-transparent rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-150 duration-500 ease-out" />
+            <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-150 duration-500 ease-out" />
 
             <div>
-                <div className="relative w-full aspect-[16/9] mb-2 sm:mb-3">
+                <div className="relative w-full aspect-[16/9] mb-4">
                     <Image
                         src={route.image}
                         alt={route.title}
@@ -46,32 +46,32 @@ const PricingCard = ({ route, dbVehicleId }: { route: RouteProduct; dbVehicleId:
                     />
                 </div>
 
-                <div className="text-center space-y-1 sm:space-y-2 mb-2 sm:mb-4">
-                    <h3 className="font-bold text-[10px] sm:text-sm leading-tight h-[2rem] sm:h-[2.5rem] flex items-center justify-center text-white group-hover:text-amber-400 transition-colors line-clamp-2">
+                <div className="text-center space-y-1 sm:space-y-2 mb-4">
+                    <h3 className="font-bold text-xs sm:text-sm leading-tight h-[2.5rem] flex items-center justify-center text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-amber-400 transition-colors line-clamp-2">
                         {route.title}
                     </h3>
 
-                    <div className="text-sm sm:text-lg font-bold text-amber-400 font-playfair tracking-tight">
+                    <div className="text-lg sm:text-xl font-bold text-amber-500 dark:text-amber-400 font-playfair tracking-tight">
                         {route.price}
                     </div>
                 </div>
             </div>
 
-            <div className="space-y-2 pt-2 border-t border-white/10">
+            <div className="space-y-3 pt-3 border-t border-slate-100 dark:border-slate-800">
                 {/* Quantity Simulator */}
                 <div className="flex items-center justify-center gap-2">
                     <button
                         onClick={handleDecrement}
-                        className="w-6 h-6 rounded-full bg-white/10 hover:bg-amber-400/20 hover:text-amber-400 text-teal-100 flex items-center justify-center transition-colors"
+                        className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-blue-100 dark:hover:bg-blue-900/40 hover:text-blue-600 dark:hover:text-blue-400 text-slate-600 dark:text-slate-400 flex items-center justify-center transition-colors"
                     >
-                        <Minus size={10} />
+                        <Minus size={14} />
                     </button>
-                    <span className="font-bold text-xs sm:text-base w-4 text-center">{quantity}</span>
+                    <span className="font-bold text-sm sm:text-lg w-6 text-center text-slate-800 dark:text-white">{quantity}</span>
                     <button
                         onClick={handleIncrement}
-                        className="w-6 h-6 rounded-full bg-white/10 hover:bg-amber-400/20 hover:text-amber-400 text-teal-100 flex items-center justify-center transition-colors"
+                        className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-blue-100 dark:hover:bg-blue-900/40 hover:text-blue-600 dark:hover:text-blue-400 text-slate-600 dark:text-slate-400 flex items-center justify-center transition-colors"
                     >
-                        <Plus size={10} />
+                        <Plus size={14} />
                     </button>
                 </div>
 
@@ -113,10 +113,10 @@ export default function FleetPricingGrid({
         <section className="py-20 bg-transparent">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4 font-playfair text-white">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4 font-playfair text-slate-900 dark:text-white">
                         {title || `Affordable ${vehicleType.toUpperCase()} Services`}
                     </h2>
-                    <p className="text-teal-100/80 max-w-2xl mx-auto">
+                    <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto text-lg">
                         {subtitle || `Best value and comfort for your journey. Enjoy a premium ride with our ${vehicleType.toUpperCase()} fleet.`}
                     </p>
                 </div>

@@ -1,3 +1,4 @@
+import { getBaseUrl } from '@/lib/url-utils';
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -18,7 +19,7 @@ const jsonLd = {
     "provider": {
         "@type": "LocalBusiness",
         "name": "Ahsas Alrihlat",
-        "image": "https://alaqsaumrahtransport.com/logo.png"
+        "image": `${getBaseUrl()}/logo.png`
     },
     "serviceType": "Intercity Transfer",
     "areaServed": {
@@ -39,19 +40,19 @@ const jsonLd = {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://alaqsaumrahtransport.com"
+                "item": `${getBaseUrl()}`
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Services",
-                "item": "https://alaqsaumrahtransport.com/services"
+                "item": `${getBaseUrl()}/services`
             },
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": "Makkah to Madinah Taxi",
-                "item": "https://alaqsaumrahtransport.com/services/makkah-madinah-taxi"
+                "item": `${getBaseUrl()}/services/makkah-madinah-taxi`
             }
         ]
     }

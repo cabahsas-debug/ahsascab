@@ -1,3 +1,4 @@
+import { getBaseUrl } from '@/lib/url-utils';
 import React from 'react';
 import { Clock, ShieldCheck, Globe, Star } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
@@ -13,7 +14,15 @@ export async function generateMetadata() {
     return constructMetadata({
         title: "Contact Ahsas Alrihlat | Book Your Ride Today",
         description: "Constant support for your Umrah journey. Contact us via WhatsApp or phone for immediate booking assistance.",
-        canonicalUrl: 'https://ahsascab.com/contact',
+        keywords: [
+            // Contact & Inquiries (25)
+            "Contact Ahsas Umrah Cab", "Umrah taxi support", "Saudi Arabia transport inquiries", "book pilgrim taxi", "Umrah cab customer service", "Makkah taxi booking number", "Jeddah airport transfer contact", "Madinah transport reservation", "Umrah transport whatsapp number", "Ahsas Cab email address", "Umrah taxi phone number", "24/7 Umrah transport support", "pilgrim travel assistance", "Umrah fleet booking inquiry", "Umrah taxi fare estimate", "GMC Yukon booking contact", "Hyundai Staria rental phone", "Toyota Hiace Makkah booking", "Umrah group transport booking", "VIP Umrah car reservation", "cheap Umrah taxi contact", "Umrah cab online support", "Makkah Ziyarat booking", "Madinah Ziyarat contact", "Saudi transport agency number",
+            // Services (25)
+            "book Makkah to Madinah taxi", "Jeddah to Makkah cab reservation", "Madinah airport taxi booking", "Taif Ziyarat transport contact", "wheelchair Umrah cab booking", "family Umrah van reservation", "corporate Umrah travel contact", "luxury Umrah transport booking", "Umrah driver hire Saudi Arabia", "rent car with driver Makkah", "book VIP SUV Umrah", "Umrah bus rental contact", "Hajj transport booking", "Ramadan Umrah taxi reservation", "last minute Umrah cab", "pre book Umrah taxi", "Umrah transport cancellation", "Umrah taxi modifications", "Ahsas Cab booking status", "Umrah journey planner contact", "custom Umrah travel route", "multi city Umrah transport", "Haramain train station taxi", "Jeddah Islamic port transfer", "hotel to Haram taxi Makkah",
+            // Trust / Locations (50)
+            "safe Umrah taxi Saudi Arabia", "reliable Makkah transport company", "trusted Madinah cab service", "official Umrah transport provider", "licensed Saudi taxi for pilgrims", "English speaking Umrah driver contact", "Urdu speaker taxi Makkah", "Arabic speaking driver Madinah", "Jeddah airport meet and greet", "Makkah hotel pickup", "Madinah hotel drop off", "Umrah transport UK pilgrims", "USA pilgrim taxi Saudi Arabia", "Pakistan Umrah transport", "India Umrah cab booking", "Malaysia pilgrim transport", "Indonesia Umrah journey cab", "South Africa Umrah agency partner", "UAE to Makkah transport", "Dubai Umrah taxi booking", "global Umrah travel transport", "international pilgrim cab", "Umrah taxi reviews contact", "best Umrah car rental", "top rated Makkah cab", "affordable Jeddah to Makkah taxi", "premium Madinah transport", "VIP Jeddah airport transfer", "luxury Makkah Ziyarat", "comfortable Madinah Ziyarat", "cheap Umrah cab fare", "Umrah taxi discount", "Umrah transport promotional code", "Ahsas Cab head office", "Makkah taxi branch", "Jeddah transport office", "Madinah cab company address", "book taxi for Cave Hira", "Jabal Thawr transport booking", "Arafat taxi reservation", "Mina transport contact", "Muzdalifah cab booking", "Quba Mosque taxi contact", "Mount Uhud transport reservation", "Masjid Qiblatayn cab", "Taif city tour booking", "Jeddah city tour agency", "Al Ula transport contact", "Yanbu taxi agency", "Badar transport booking"
+        ],
+        canonicalUrl: '/contact',
     });
 }
 
@@ -22,7 +31,7 @@ export default async function ContactPage() {
 
     // Fallback values
     const phone1 = settings?.contact.phone || '+966 54 549 4921';
-    const email = settings?.contact.email || 'info@alaqsaumrahtransport.com';
+    const email = settings?.contact.email || 'info@ahsascab.com';
     const address = settings?.contact.address || 'Al Aziziyah, Makkah, Saudi Arabia';
 
     const jsonLd = {
@@ -30,9 +39,9 @@ export default async function ContactPage() {
         "@type": "TransportationService",
         "name": "Ahsas Alrihlat",
         "alternateName": "احساس الرحلات",
-        "image": "https://alaqsaumrahtransport.com/images/logo.png",
-        "@id": "https://alaqsaumrahtransport.com",
-        "url": "https://alaqsaumrahtransport.com",
+        "image": `${getBaseUrl()}/images/logo.png`,
+        "@id": `${getBaseUrl()}`,
+        "url": `${getBaseUrl()}`,
         "telephone": phone1,
         "address": {
             "@type": "PostalAddress",
@@ -153,3 +162,4 @@ export default async function ContactPage() {
         </div >
     );
 }
+

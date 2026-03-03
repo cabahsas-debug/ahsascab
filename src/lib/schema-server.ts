@@ -1,15 +1,17 @@
 import { getSettings } from "./settings-storage";
+import { getBaseUrl } from "./url-utils";
 
 export async function generateLocalBusinessSchema() {
     const settings = await getSettings();
+    const baseUrl = getBaseUrl();
 
     return {
         "@context": "https://schema.org",
         "@type": "TaxiService",
         "name": settings.general.siteName || "Ahsas Cab",
-        "image": "https://ahsascab.com/images/og-default.jpg",
-        "@id": "https://ahsascab.com",
-        "url": "https://ahsascab.com",
+        "image": `${baseUrl}/images/og-default.jpg`,
+        "@id": baseUrl,
+        "url": baseUrl,
         "telephone": settings.contact.phone || "+966545494921",
         "priceRange": "$$",
         "address": {

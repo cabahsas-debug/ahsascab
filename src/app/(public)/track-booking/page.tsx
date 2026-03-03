@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { Search, MapPin, Calendar, User, Phone, CheckCircle, Clock, XCircle, AlertCircle, ArrowRight, Car, Shield, Star } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import FadeIn from '@/components/common/FadeIn';
-
 export default function TrackBookingPage() {
     const [formData, setFormData] = useState({ reference: '', email: '' });
     const [loading, setLoading] = useState(false);

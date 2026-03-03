@@ -124,9 +124,9 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.2 }}
                         className="absolute top-full left-0 z-[100] w-full mt-2 max-h-60 overflow-y-auto 
-                                   bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl 
+                                   bg-white dark:bg-slate-900 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)]
                                    border border-slate-200 dark:border-slate-700 
-                                   rounded-xl shadow-2xl scrollbar-thin scrollbar-thumb-slate-200 dark:scrollbar-thumb-white/20"
+                                   rounded-xl scrollbar-thin scrollbar-thumb-slate-200 dark:scrollbar-thumb-white/20"
                     >
                         {displayedOptions.map((option) => (
                             <li

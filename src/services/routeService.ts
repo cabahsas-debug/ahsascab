@@ -10,7 +10,7 @@ export interface RouteWithPrices extends IRoute {
 
 export const routeService = {
     // Optimized method for public facing pages - Aggregation pipeline
-    getRoutes: async () => {
+    getRoutes: unstable_cache(async () => {
         console.log('[routeService] getRoutes starting...');
         const start = Date.now();
         try {
@@ -65,18 +65,16 @@ export const routeService = {
             console.error('Error in routeService.getRoutes:', error);
             throw error;
         }
-    },
+    }, ['all-routes'], { revalidate: 3600, tags: ['routes'] }),
 
     // Optimized method for public facing pages - Aggregation pipeline
     // Optimized method for public facing pages - Aggregation pipeline
-    getActiveRoutes: async () => {
+    getActiveRoutes: unstable_cache(async () => {
         try {
             await dbConnect();
             const routes = await Route.aggregate([
                 { $match: { isActive: true } },
                 { $sort: { createdAt: -1 } },
-                // Convert _id to string for matching in lookup if needed, but here we likely match ObjectId to String or ObjectId to ObjectId.
-                // Based on schema, RoutePrice.route is a String. So we need to convert Route._id (ObjectId) to string.
                 {
                     $addFields: {
                         routeIdString: { $toString: "$_id" }
@@ -84,7 +82,7 @@ export const routeService = {
                 },
                 {
                     $lookup: {
-                        from: 'routeprices', // Collection name (lowercase plural of model name usually)
+                        from: 'routeprices',
                         localField: 'routeIdString',
                         foreignField: 'route',
                         as: 'prices_data'
@@ -93,7 +91,7 @@ export const routeService = {
                 {
                     $project: {
                         id: { $toString: "$_id" },
-                        _id: { $toString: "$_id" }, // Keep for compatibility if needed or just use id
+                        _id: { $toString: "$_id" },
                         origin: 1,
                         destination: 1,
                         distance: 1,
@@ -126,7 +124,7 @@ export const routeService = {
             console.error('Error in routeService.getActiveRoutes:', error);
             throw error;
         }
-    },
+    }, ['active-routes'], { revalidate: 3600, tags: ['routes'] }),
 
     async getRouteById(id: string) {
         await dbConnect();

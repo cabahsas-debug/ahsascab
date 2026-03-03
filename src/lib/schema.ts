@@ -1,3 +1,4 @@
+import { getBaseUrl } from './url-utils';
 
 export type SchemaType = 'LocalBusiness' | 'Product' | 'BreadcrumbList' | 'FAQPage' | 'Service';
 
@@ -34,7 +35,7 @@ export function generateProductSchema(route: {
         "@type": "Product",
         "name": route.name,
         "description": route.description,
-        "image": route.image || `https://ahsascab.com/images/routes/${route.slug}.jpg`,
+        "image": route.image || `${getBaseUrl()}/images/routes/${route.slug}.jpg`,
         "sku": `ROUTE-${route.slug.toUpperCase()}`,
         "brand": {
             "@type": "Brand",
@@ -42,7 +43,7 @@ export function generateProductSchema(route: {
         },
         "offers": {
             "@type": "AggregateOffer",
-            "url": `https://ahsascab.com/routes/${route.slug}`,
+            "url": `${getBaseUrl()}/routes/${route.slug}`,
             "priceCurrency": "SAR",
             "lowPrice": route.baseRate,
             "offerCount": 5, // Camry, GMC, Hiace, Staria, Coaster
@@ -64,7 +65,7 @@ export function generateBreadcrumbSchema(items: { name: string; item: string }[]
             "@type": "ListItem",
             "position": index + 1,
             "name": item.name,
-            "item": item.item.startsWith('http') ? item.item : `https://ahsascab.com${item.item}`
+            "item": item.item.startsWith('http') ? item.item : `${getBaseUrl()}${item.item}`
         }))
     };
 }

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ChevronRight, Home } from 'lucide-react';
 import { generateBreadcrumbSchema } from '@/lib/schema';
+import { getBaseUrl } from '@/lib/url-utils';
 
 interface BreadcrumbsProps {
     overrideLastItem?: string;
@@ -39,11 +40,12 @@ export default function Breadcrumbs({ overrideLastItem, className = '', hideJson
         return segment.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
     };
 
+    const baseUrl = getBaseUrl();
     const breadcrumbItems = [
-        { name: 'Home', item: `https://ahsascab.com${homeLink}` },
+        { name: 'Home', item: `${baseUrl}${homeLink}` },
         ...displaySegments.map((segment, index) => ({
             name: (index === displaySegments.length - 1 && overrideLastItem) ? overrideLastItem : formatSegment(segment),
-            item: `https://ahsascab.com${homeLink === '/' ? '' : homeLink}/${displaySegments.slice(0, index + 1).join('/')}`
+            item: `${baseUrl}${homeLink === '/' ? '' : homeLink}/${displaySegments.slice(0, index + 1).join('/')}`
         }))
     ];
 

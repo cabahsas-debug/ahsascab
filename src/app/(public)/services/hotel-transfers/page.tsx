@@ -17,7 +17,7 @@ export async function generateMetadata() {
             "Aziziyah to Haram taxi", "Makkah tower taxi",
             "توصيل فنادق مكة", "نقل فنادق المدينة"
         ],
-        canonicalUrl: 'https://ahsascab.com/services/hotel-transfers',
+        canonicalUrl: '/services/hotel-transfers',
     });
 }
 export default function HotelTransferPage() {

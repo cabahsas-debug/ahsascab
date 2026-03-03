@@ -1,12 +1,23 @@
+import { getBaseUrl } from '@/lib/url-utils';
 import styles from './terms.module.css';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
 import { getSettings } from '@/lib/settings-storage';
+import { constructMetadata } from '@/lib/metadata';
+
+export async function generateMetadata() {
+    return constructMetadata({
+        title: "Terms and Conditions | Ahsas Cab",
+        description: "Terms of service and conditions for booking Umrah transport with Ahsas Cab.",
+        canonicalUrl: '/terms',
+        noIndex: true,
+    });
+}
 
 export default async function TermsPage() {
     const settings = await getSettings();
     const phone = settings.contact.phone || '+966 54 549 4921';
-    const email = settings.contact.email || 'info@alaqsaumrahtransport.com';
+    const email = settings.contact.email || 'info@ahsascab.com';
     const address = settings.contact.address || 'Al Aziziyah, Makkah, Saudi Arabia';
 
     return (

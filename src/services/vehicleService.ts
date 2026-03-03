@@ -37,12 +37,12 @@ export const vehicleService = {
     }, ['vehicles-list-v2'], { revalidate: 3600, tags: ['vehicles'] }),
 
     // Optimized method for public facing pages
-    getActiveVehicles: async () => {
+    getActiveVehicles: unstable_cache(async () => {
         await dbConnect();
         const vehicles = await Vehicle.find({ isActive: true }).lean();
-        const mapped = vehicles.map(v => sanitizeVehicle({ ...v, id: v._id.toString() }));
+        const mapped = vehicles.map(v => sanitizeVehicle({ ...v, id: (v as any)._id.toString() }));
         return mapped.sort((a: any, b: any) => getSortIndex(a) - getSortIndex(b));
-    },
+    }, ['active-vehicles'], { revalidate: 3600, tags: ['vehicles'] }),
 
     async getVehicleById(id: string) {
         await dbConnect();

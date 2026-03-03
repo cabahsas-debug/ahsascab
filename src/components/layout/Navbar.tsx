@@ -119,9 +119,10 @@ export default function Navbar() {
                                 sizes="(max-width: 768px) 64px, 80px"
                             />
                         </div>
-                        <div className={`hidden sm:flex flex-col ml-3 transition-opacity duration-300 ${showDarkNav ? 'opacity-0 lg:opacity-100' : 'opacity-100'}`}>
-                            <span className={`text-xl lg:text-2xl font-bold font-playfair leading-none tracking-tight transition-colors duration-300 ${showDarkNav ? 'text-secondary' : 'text-white'}`}>
-                                Ahsas <span className="text-primary">Cab</span>
+                        <div className={`flex flex-col ml-3 transition-opacity duration-300 ${showDarkNav ? 'opacity-0 lg:opacity-100' : 'opacity-100'}`}>
+                            <span className={`text-xl lg:text-2xl font-bold font-playfair leading-none tracking-tight transition-colors duration-300 flex items-center gap-2 ${showDarkNav ? 'text-secondary' : 'text-white'}`}>
+                                <span>Ahsas <span className="text-primary">Cab</span></span>
+                                <span className="font-sans text-xl lg:text-2xl text-primary/90">| إحساس الرحلات</span>
                             </span>
                             <span className={`text-[0.65rem] lg:text-xs font-medium tracking-[0.2em] uppercase leading-none mt-1 transition-colors duration-300 ${showDarkNav ? 'text-muted-foreground' : 'text-white/80'}`}>
                                 Luxury Transport
@@ -228,7 +229,7 @@ export default function Navbar() {
                             />
                         </div>
                         <div className="flex flex-col">
-                            <span className="text-lg font-bold text-secondary font-playfair">Ahsas Cab</span>
+                            <span className="text-lg font-bold text-secondary font-playfair flex items-center gap-1.5">Ahsas Cab <span className="font-sans text-primary">| إحساس الرحلات</span></span>
                             <span className="text-[0.6rem] font-bold text-primary tracking-widest uppercase">Luxury Transport</span>
                         </div>
                     </Link>

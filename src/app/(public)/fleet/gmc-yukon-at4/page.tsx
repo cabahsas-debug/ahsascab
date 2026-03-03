@@ -1,3 +1,4 @@
+import { getBaseUrl } from '@/lib/url-utils';
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -8,6 +9,7 @@ import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
+import GmcYukonSEO from '@/components/fleet/GmcYukonSEO';
 import dynamic from 'next/dynamic';
 
 const Interior360Viewer = dynamic(() => import('@/components/fleet/Interior360Viewer'), {
@@ -22,7 +24,7 @@ const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": vehicleData?.seo?.title || "GMC Yukon XL 2024 Rental Makkah",
-    "image": "https://alaqsaumrahtransport.com/images/fleet/gmc-yukon-hero-professional.png",
+    "image": `${getBaseUrl()}/images/fleet/gmc-yukon-hero-professional.png`,
     "description": vehicleData?.seo?.description || "Rent luxury GMC Yukon XL in Makkah & Madinah. 7 Seater SUV for VIP Umrah transport.",
     "brand": {
         "@type": "Brand",
@@ -51,7 +53,7 @@ export const metadata: Metadata = {
         "توصيل كبار الشخصيات"
     ],
     alternates: {
-        canonical: 'https://alaqsaumrahtransport.com/fleet/gmc-yukon-at4',
+        canonical: '/fleet/gmc-yukon-at4',
     },
     openGraph: {
         title: "GMC Yukon Rental Makkah | VIP Umrah Taxi Cost",
@@ -198,6 +200,8 @@ export default async function GmcYukonPage() {
                     </div>
                 </div>
             </section>
+
+            <GmcYukonSEO />
 
             {/* 360 Interior Preview (Placeholder) */}
             <section className="py-16 bg-slate-900 text-white overflow-hidden relative">

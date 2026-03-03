@@ -1,3 +1,4 @@
+import { getBaseUrl } from '@/lib/url-utils';
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Link from 'next/link';
@@ -7,6 +8,7 @@ import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
+import OtherFleetSEO from '@/components/fleet/OtherFleetSEO';
 import dynamic from 'next/dynamic';
 
 const Interior360Viewer = dynamic(() => import('@/components/fleet/Interior360Viewer'), {
@@ -21,7 +23,7 @@ const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": vehicleData?.seo?.title || "Hyundai H1 Starex Van Rental",
-    "image": "https://alaqsaumrahtransport.com/images/fleet/starex-hero-professional.png",
+    "image": `${getBaseUrl()}/images/fleet/starex-hero-professional.png`,
     "description": vehicleData?.seo?.description || "Rent Hyundai H1 Starex 7-seater van in Makkah. Spacious family transport for Umrah.",
     "brand": { "@type": "Brand", "name": "Hyundai" },
     "offers": { "@type": "Offer", "price": "250", "priceCurrency": "SAR", "availability": "https://schema.org/InStock" }
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
     title: vehicleData?.seo?.title,
     description: vehicleData?.seo?.description,
     keywords: vehicleData?.seo?.keywords,
-    alternates: { canonical: 'https://alaqsaumrahtransport.com/fleet/hyundai-starex' },
+    alternates: { canonical: '/fleet/hyundai-starex' },
     openGraph: {
         title: vehicleData?.seo?.title,
         description: vehicleData?.seo?.description,
@@ -173,6 +175,9 @@ export default async function HyundaiStarexPage() {
                     </div>
                 </div>
             </section>
+
+                        {/* 1000+ Word SEO Injection */}
+            <OtherFleetSEO vehicleId="starex" />
 
             {/* 360 Interior Preview (Placeholder) */}
             <section className="py-16 bg-slate-900 text-white overflow-hidden relative">

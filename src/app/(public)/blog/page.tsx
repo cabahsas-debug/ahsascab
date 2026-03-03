@@ -18,7 +18,7 @@ export async function generateMetadata() {
     return constructMetadata({
         title: 'Umrah Travel Blog | Tips & Guides | مدونة العمرة',
         description: 'Read our latest articles on Umrah travel tips, transport advice, and spiritual guides. نصائح وارشادات للمعتمرين. دليل المواصلات في مكة والمدينة.',
-        canonicalUrl: 'https://ahsascab.com/blog',
+        canonicalUrl: '/blog',
     });
 }
 

@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next';
+import { getBaseUrl } from '@/lib/url-utils';
 
 export default function robots(): MetadataRoute.Robots {
-    const baseUrl = 'https://ahsascab.com';
+    const baseUrl = getBaseUrl();
 
     return {
         rules: [

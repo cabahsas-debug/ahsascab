@@ -4,21 +4,21 @@ import Hero from '@/components/common/Hero';
 import Link from 'next/link';
 import FadeIn from '@/components/common/FadeIn';
 
-export const metadata = {
-    title: "Safety Standards & Protocols | Ahsas Cab | معايير السلامة",
-    description: "Your safety is our sacred duty. Comprehensive vehicle sanitation, driver checks, & 24/7 support. معايير سلامة عالية لخدمة المعتمرين. تعقيم شامل وسائقين محترفين.",
-    keywords: [
-        "Umrah safety", "safe taxi Makkah", "sanitized transport Saudi",
-        "female solo travel Umrah", "licensed drivers Jeddah", "family transport safety",
-        "معايير السلامة", "نقل معتمرين آمن", "تاكسي عائلي مكة",
-        "أمان المعتمرين", "توصيل آمن للنساء", "سائقين مرخصين"
-    ],
-    openGraph: {
-        title: "Safety Standards | Ahsas Cab | الأمان والراحة",
-        description: "Verified drivers, sanitized vehicles, and 24/7 support. Travel with peace of mind. رحلة آمنة ومريحة مع احساس الرحلات.",
-        images: ['/images/blog/comfort-safety-new.png'],
-    }
-};
+import { constructMetadata } from '@/lib/metadata';
+
+export async function generateMetadata() {
+    return constructMetadata({
+        title: "Safety Standards & Protocols | Ahsas Cab | معايير السلامة",
+        description: "Your safety is our sacred duty. Comprehensive vehicle sanitation, driver checks, & 24/7 support. معايير سلامة عالية لخدمة المعتمرين.",
+        keywords: [
+            "Umrah safety", "safe taxi Makkah", "sanitized transport Saudi",
+            "female solo travel Umrah", "licensed drivers Jeddah", "family transport safety",
+            "معايير السلامة", "نقل معتمرين آمن", "تاكسي عائلي مكة"
+        ],
+        image: '/images/blog/comfort-safety-new.png',
+        canonicalUrl: '/safety',
+    });
+}
 
 export default function SafetyPage() {
     return (

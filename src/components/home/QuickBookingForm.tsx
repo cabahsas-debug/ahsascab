@@ -553,10 +553,10 @@ const QuickBookingForm = ({
                                                     setErrors({});
                                                 }}
                                                 className={`
-                                                    flex items-center gap-1.5 px-3 py-2 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all duration-300 border
+                                                    flex items-center gap-1.5 px-3 py-2 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all duration-300 border backdrop-blur-sm
                                                     ${isActive
-                                                        ? 'bg-navy border-navy text-white shadow-md scale-[1.02]'
-                                                        : 'bg-white border-slate-200 text-slate-500 hover:border-gold hover:text-navy hover:bg-gold/5'
+                                                        ? 'bg-gold border-gold text-navy shadow-lg scale-[1.05]'
+                                                        : 'bg-white/5 border-white/10 text-white/70 hover:border-gold hover:text-white hover:bg-gold/10'
                                                     }
                                                 `}
                                             >
@@ -570,13 +570,13 @@ const QuickBookingForm = ({
                             </div>
 
                             {/* Horizontal Input Group */}
-                            <div className="col-span-full grid grid-cols-1 md:grid-cols-12 gap-2 p-3 bg-slate-50/50 border border-slate-200/60 rounded-xl">
+                            <div className="col-span-full grid grid-cols-1 md:grid-cols-12 gap-2 p-3 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md">
 
                                 {/* Date Input */}
                                 <div className="md:col-span-3 relative">
                                     <label className={styles.label}>Travel Date</label>
                                     <div className="relative">
-                                        <Calendar size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none z-10" />
+                                        <Calendar size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/50 pointer-events-none z-10" />
                                         <input
                                             type="date"
                                             value={formData.date ? formData.date.toISOString().split('T')[0] : ''}
@@ -585,7 +585,7 @@ const QuickBookingForm = ({
                                                 handleDateChange(new Date(e.target.value));
                                             }}
                                             min={minDate}
-                                            className="w-full pl-9 pr-2 py-2 bg-white border border-slate-200 rounded-lg text-xs font-medium outline-none focus:border-gold focus:ring-1 focus:ring-gold/20 transition-all text-navy shadow-sm h-[38px]"
+                                            className="w-full pl-9 pr-2 py-2 bg-white/5 border border-white/10 rounded-xl text-xs font-medium outline-none focus:border-gold focus:ring-1 focus:ring-gold/50 transition-all text-white backdrop-blur-md shadow-sm h-[40px] [color-scheme:dark]"
                                         />
                                     </div>
                                     {errors.date && <span className="absolute -bottom-4 left-0 text-[9px] text-red-500 font-semibold">{errors.date}</span>}
@@ -595,7 +595,7 @@ const QuickBookingForm = ({
                                 <div className="md:col-span-3 relative">
                                     <label className={styles.label}>Pickup Time</label>
                                     <div className="relative">
-                                        <Clock size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none z-10" />
+                                        <Clock size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/50 pointer-events-none z-10" />
                                         <input
                                             type="time"
                                             value={formData.time ? formData.time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }) : ''}
@@ -605,7 +605,7 @@ const QuickBookingForm = ({
                                                 const t = new Date(); t.setHours(h); t.setMinutes(m);
                                                 handleTimeChange(t);
                                             }}
-                                            className="w-full pl-9 pr-2 py-2 bg-white border border-slate-200 rounded-lg text-xs font-medium outline-none focus:border-gold focus:ring-1 focus:ring-gold/20 transition-all text-navy shadow-sm h-[38px]"
+                                            className="w-full pl-9 pr-2 py-2 bg-white/5 border border-white/10 rounded-xl text-xs font-medium outline-none focus:border-gold focus:ring-1 focus:ring-gold/50 transition-all text-white backdrop-blur-md shadow-sm h-[40px] [color-scheme:dark]"
                                         />
                                     </div>
                                     {errors.time && <span className="absolute -bottom-4 left-0 text-[9px] text-red-500 font-semibold">{errors.time}</span>}
@@ -621,8 +621,8 @@ const QuickBookingForm = ({
                                         // @ts-ignore
                                         options={vehicleOptions}
                                         placeholder="Select Vehicle"
-                                        className="w-full bg-white border border-slate-200 rounded-lg text-xs !py-2 shadow-sm text-navy h-[38px]"
-                                        icon={<Car size={14} className="text-slate-400" />}
+                                        className="w-full bg-white/5 border border-white/10 rounded-xl text-xs !py-2 shadow-sm text-white placeholder-white/50 backdrop-blur-md h-[40px]"
+                                        icon={<Car size={14} className="text-white/50" />}
                                     />
                                     {errors.vehicleId && <span className="absolute -bottom-4 left-0 text-[9px] text-red-500 font-semibold">{errors.vehicleId}</span>}
                                 </div>
@@ -640,8 +640,8 @@ const QuickBookingForm = ({
                                                 onChange={handleChange as any}
                                                 options={pickupLocations}
                                                 placeholder="Pickup Location"
-                                                className="w-full bg-white border border-slate-200 rounded-lg text-xs !py-2 shadow-sm text-navy h-[38px]"
-                                                icon={<MapPin size={14} className="text-slate-400" />}
+                                                className="w-full bg-white/5 border border-white/10 rounded-xl text-xs !py-2 shadow-sm text-white placeholder-white/50 backdrop-blur-md h-[40px]"
+                                                icon={<MapPin size={14} className="text-white/50" />}
                                             />
                                         </div>
                                         {errors.pickup && <span className="text-[9px] text-red-500 mt-0.5 ml-1 block font-semibold">{errors.pickup}</span>}
@@ -655,8 +655,8 @@ const QuickBookingForm = ({
                                                 onChange={handleChange as any}
                                                 options={dropoffLocations}
                                                 placeholder="Drop-off Location"
-                                                className="w-full bg-white border border-slate-200 rounded-lg text-xs !py-2 shadow-sm text-navy h-[38px]"
-                                                icon={<MapPin size={14} className="text-slate-400" />}
+                                                className="w-full bg-white/5 border border-white/10 rounded-xl text-xs !py-2 shadow-sm text-white placeholder-white/50 backdrop-blur-md h-[40px]"
+                                                icon={<MapPin size={14} className="text-white/50" />}
                                             />
                                         </div>
                                         {errors.dropoff && <span className="text-[9px] text-red-500 mt-0.5 ml-1 block font-semibold">{errors.dropoff}</span>}
@@ -669,7 +669,7 @@ const QuickBookingForm = ({
                                 <div className="relative">
                                     <label className={styles.label}>Vehicles</label>
                                     <div className="relative">
-                                        <Car size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none z-10" />
+                                        <Car size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/50 pointer-events-none z-10" />
                                         <input
                                             type="number"
                                             name="vehicleCount"
@@ -677,21 +677,21 @@ const QuickBookingForm = ({
                                             max="5"
                                             value={formData.vehicleCount}
                                             onChange={handleChange}
-                                            className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 pl-9 text-xs outline-none focus:border-gold transition-colors text-navy shadow-sm h-[38px]"
+                                            className="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-2 pl-9 text-xs outline-none focus:border-gold focus:ring-1 focus:ring-gold/50 transition-all text-white backdrop-blur-md shadow-sm h-[40px]"
                                         />
                                     </div>
                                 </div>
                                 <div className="relative">
                                     <label className={styles.label}>Passengers</label>
                                     <div className="relative">
-                                        <User size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none z-10" />
+                                        <User size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/50 pointer-events-none z-10" />
                                         <input
                                             type="number"
                                             name="passengers"
                                             min="1"
                                             value={formData.passengers}
                                             onChange={handleChange}
-                                            className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 pl-9 text-xs outline-none focus:border-gold transition-colors text-navy shadow-sm h-[38px]"
+                                            className="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-2 pl-9 text-xs outline-none focus:border-gold focus:ring-1 focus:ring-gold/50 transition-all text-white backdrop-blur-md shadow-sm h-[40px]"
                                         />
                                     </div>
                                 </div>
@@ -707,14 +707,14 @@ const QuickBookingForm = ({
                                     <div className="relative">
                                         <label className={styles.label}>Full Name</label>
                                         <div className="relative">
-                                            <User size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none z-10" />
+                                            <User size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/50 pointer-events-none z-10" />
                                             <input
                                                 type="text"
                                                 name="name"
                                                 placeholder="Your Name"
                                                 value={formData.name}
                                                 onChange={handleChange}
-                                                className={`w-full bg-white border border-slate-200 rounded-lg px-3 py-2 pl-9 text-xs outline-none focus:border-gold transition-colors text-navy shadow-sm h-[38px] ${errors.name ? 'border-red-500 bg-red-50' : ''}`}
+                                                className={`w-full bg-white/5 border border-white/10 rounded-xl px-3 py-2 pl-9 text-xs outline-none focus:border-gold focus:ring-1 focus:ring-gold/50 transition-all text-white placeholder-white/50 backdrop-blur-md shadow-sm h-[40px] ${errors.name ? 'border-red-500 bg-red-500/10' : ''}`}
                                             />
                                         </div>
                                         {errors.name && <span className="text-[9px] text-red-500 mt-0.5 ml-1 block font-semibold">{errors.name}</span>}
@@ -722,14 +722,14 @@ const QuickBookingForm = ({
                                     <div className="relative">
                                         <label className={styles.label}>Email</label>
                                         <div className="relative">
-                                            <Mail size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none z-10" />
+                                            <Mail size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/50 pointer-events-none z-10" />
                                             <input
                                                 type="email"
                                                 name="email"
                                                 placeholder="email@example.com"
                                                 value={formData.email}
                                                 onChange={handleChange}
-                                                className={`w-full bg-white border border-slate-200 rounded-lg px-3 py-2 pl-9 text-xs outline-none focus:border-gold transition-colors text-navy shadow-sm h-[38px] ${errors.email ? 'border-red-500 bg-red-50' : ''}`}
+                                                className={`w-full bg-white/5 border border-white/10 rounded-xl px-3 py-2 pl-9 text-xs outline-none focus:border-gold focus:ring-1 focus:ring-gold/50 transition-all text-white placeholder-white/50 backdrop-blur-md shadow-sm h-[40px] ${errors.email ? 'border-red-500 bg-red-500/10' : ''}`}
                                             />
                                         </div>
                                         {errors.email && <span className="text-[9px] text-red-500 mt-0.5 ml-1 block font-semibold">{errors.email}</span>}
@@ -737,14 +737,14 @@ const QuickBookingForm = ({
                                     <div className="relative">
                                         <label className={styles.label}>Phone</label>
                                         <div className="relative">
-                                            <Phone size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none z-10" />
+                                            <Phone size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/50 pointer-events-none z-10" />
                                             <input
                                                 type="tel"
                                                 name="phone"
                                                 placeholder="+966 50..."
                                                 value={formData.phone}
                                                 onChange={handleChange}
-                                                className={`w-full bg-white border border-slate-200 rounded-lg px-3 py-2 pl-9 text-xs outline-none focus:border-gold transition-colors text-navy shadow-sm h-[38px] ${errors.phone ? 'border-red-500 bg-red-50' : ''}`}
+                                                className={`w-full bg-white/5 border border-white/10 rounded-xl px-3 py-2 pl-9 text-xs outline-none focus:border-gold focus:ring-1 focus:ring-gold/50 transition-all text-white placeholder-white/50 backdrop-blur-md shadow-sm h-[40px] ${errors.phone ? 'border-red-500 bg-red-500/10' : ''}`}
                                             />
                                         </div>
                                         {errors.phone && <span className="text-[9px] text-red-500 mt-0.5 ml-1 block font-semibold">{errors.phone}</span>}
@@ -753,27 +753,27 @@ const QuickBookingForm = ({
                             )}
 
                             {/* Price & Action Row */}
-                            <div className="col-span-full mt-2 flex flex-col md:flex-row items-center justify-between gap-3 border-t border-slate-100 pt-3">
+                            <div className="col-span-full mt-2 flex flex-col md:flex-row items-center justify-between gap-3 border-t border-white/10 pt-3">
 
                                 {/* Dynamic Price Display */}
                                 <div className="flex-1">
                                     {formData.routeId && formData.vehicleId ? (
                                         (() => {
                                             const { price, originalPrice, discountApplied } = calculatePrice(formData.routeId, formData.vehicleId);
-                                            if (price === 0) return <span className="text-xs text-slate-400 font-medium">Select details for price</span>;
+                                            if (price === 0) return <span className="text-xs text-white/60 font-medium">Select details for price</span>;
                                             return (
                                                 <div className="flex flex-col">
-                                                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Total Booking Estimate</span>
+                                                    <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Total Booking Estimate</span>
                                                     <div className="flex items-baseline gap-2">
-                                                        <span className="text-2xl font-bold text-navy">{price * formData.vehicleCount} <span className="text-base font-semibold text-navy/60">SAR</span></span>
-                                                        {discountApplied > 0 && <span className="text-xs text-slate-400 line-through font-medium">{originalPrice} SAR</span>}
+                                                        <span className="text-2xl font-bold text-white">{price * formData.vehicleCount} <span className="text-base font-semibold text-white/70">SAR</span></span>
+                                                        {discountApplied > 0 && <span className="text-xs text-white/40 line-through font-medium">{originalPrice} SAR</span>}
                                                     </div>
-                                                    <span className="text-[10px] text-green-600 font-medium">Includes all taxes & fees</span>
+                                                    <span className="text-[10px] text-emerald-400 font-medium">Includes all taxes & fees</span>
                                                 </div>
                                             );
                                         })()
                                     ) : (
-                                        <span className="text-xs text-slate-400 italic">Instant quote available</span>
+                                        <span className="text-xs text-white/50 italic">Instant quote available</span>
                                     )}
                                 </div>
 

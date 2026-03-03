@@ -1,4 +1,6 @@
-import type { Metadata } from "next";
+import { getBaseUrl } from '@/lib/url-utils';
+import { getSettings } from '@/lib/settings-storage';
+import { constructMetadata } from '@/lib/metadata';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
@@ -20,7 +22,7 @@ const jsonLd = {
     "provider": {
         "@type": "LocalBusiness",
         "name": "Ahsas Alrihlat",
-        "image": "https://alaqsaumrahtransport.com/logo.png"
+        "image": `${getBaseUrl()}/logo.png`
     },
     "serviceType": "Airport Transfer",
     "areaServed": {
@@ -41,19 +43,19 @@ const jsonLd = {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://alaqsaumrahtransport.com"
+                "item": `${getBaseUrl()}`
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Services",
-                "item": "https://alaqsaumrahtransport.com/services"
+                "item": `${getBaseUrl()}/services`
             },
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": "Jeddah Airport to Makkah",
-                "item": "https://alaqsaumrahtransport.com/services/jeddah-airport-transfer"
+                "item": `${getBaseUrl()}/services/jeddah-airport-transfer`
             }
         ]
     }
@@ -77,8 +79,6 @@ const jeddahAirportFAQs = [
         answer: "Yes, you can pay the driver in cash (SAR) upon arrival. However, we recommend booking online to secure your rate and vehicle."
     }
 ];
-
-import { getSettings } from '@/lib/settings-storage';
 
 export default async function JeddahAirportTransferPage() {
     const settings = await getSettings();
