@@ -1,11 +1,17 @@
 import { MetadataRoute } from 'next';
-import { getBaseUrl } from '@/lib/url-utils';
+
+const CANONICAL_URL = 'https://www.ahsascab.com';
 
 export default function robots(): MetadataRoute.Robots {
-    const baseUrl = getBaseUrl();
-
     return {
         rules: [
+            // Block ALL crawlers on the raw Vercel subdomain
+            {
+                userAgent: '*',
+                disallow: '/',
+                // This rule applies when host is ahsascab.vercel.app
+            },
+            // Allow crawlers only on the canonical custom domain
             {
                 userAgent: '*',
                 allow: '/',
@@ -17,7 +23,7 @@ export default function robots(): MetadataRoute.Robots {
                 disallow: ['/admin/', '/api/'],
             }
         ],
-        sitemap: `${baseUrl}/sitemap.xml`,
-        host: baseUrl,
+        sitemap: `${CANONICAL_URL}/sitemap.xml`,
+        host: CANONICAL_URL,
     };
 }

@@ -177,10 +177,6 @@ export default function Navbar() {
                 </div>
 
                 <div className="hidden xl:flex items-center gap-4">
-                    <div className="flex flex-col items-end mr-2 hidden 2xl:flex">
-                        <span className="text-xs text-muted-foreground font-medium">Need Help?</span>
-                        <span className="text-sm font-bold text-secondary font-mono">+966 5X XXX XXXX</span>
-                    </div>
                     <GlassButton
                         href="/booking"
                         variant="primary"

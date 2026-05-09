@@ -36,7 +36,21 @@ const nextConfig: NextConfig = {
     ],
   },
   async headers() {
+    // Detect if the request is coming from the Vercel subdomain (not custom domain)
+    const isVercelDomain = process.env.VERCEL_URL &&
+      !process.env.VERCEL_URL.includes('ahsascab.com');
+
     return [
+      // Block Vercel subdomain (ahsascab.vercel.app) from being indexed by Google
+      ...(isVercelDomain ? [{
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow',
+          },
+        ],
+      }] : []),
       {
         source: '/:path*',
         headers: [
