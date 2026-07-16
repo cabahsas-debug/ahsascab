@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Facebook, Instagram, Twitter, Linkedin, Mail } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Linkedin, Mail } from 'lucide-react';
 
 import { getSettings } from '@/lib/settings-storage';
 
@@ -34,36 +34,6 @@ const TopBar = async () => {
                             </div>
                             <span className="group-hover:text-primary transition-colors duration-300">{contact.email}</span>
                         </a>
-                    )}
-                    <div className="h-4 w-px bg-primary/10" />
-                    {contact.phone && (
-                        <a
-                            href={`https://wa.me/${contact.phone.replace(/\D/g, '')}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2 group transition-colors duration-300"
-                        >
-                            <div className="w-6 h-6 rounded-full bg-primary/5 flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
-                                <Phone size={12} className="text-primary group-hover:text-background transition-colors duration-300" />
-                            </div>
-                            <span className="group-hover:text-primary transition-colors duration-300">{contact.phone}</span>
-                        </a>
-                    )}
-                    {contact.phone2 && (
-                        <>
-                            <div className="h-4 w-px bg-primary/10" />
-                            <a
-                                href={`https://wa.me/${contact.phone2.replace(/\D/g, '')}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-2 group transition-colors duration-300"
-                            >
-                                <div className="w-6 h-6 rounded-full bg-primary/5 flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
-                                    <Phone size={12} className="text-primary group-hover:text-background transition-colors duration-300" />
-                                </div>
-                                <span className="group-hover:text-primary transition-colors duration-300">{contact.phone2}</span>
-                            </a>
-                        </>
                     )}
                 </div>
 
