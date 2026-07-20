@@ -10,22 +10,22 @@ export default function Preloader() {
     const [progress, setProgress] = useState(0);
 
     useEffect(() => {
-        console.log('[Preloader] Mounting...');
+
         // Check if preloader has already been shown in this session
         const hasShown = sessionStorage.getItem('preloader_shown');
         if (hasShown) {
-            console.log('[Preloader] Already shown, skipping...');
+
             setIsLoading(false);
             return;
         }
 
         const handleLoad = () => {
-            console.log('[Preloader] handleLoad triggered, setting progress to 100');
+
             setProgress(100);
             // Short timeout to allow the browser to paint the 100% state briefly if needed, 
             // but effectively we want to go away fast.
             setTimeout(() => {
-                console.log('[Preloader] Setting isLoading to false');
+
                 setIsLoading(false);
                 sessionStorage.setItem('preloader_shown', 'true');
                 window.dispatchEvent(new Event('preloader-complete'));

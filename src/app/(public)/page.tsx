@@ -162,10 +162,7 @@ export default async function Home() {
       {/* Passenger Care Section */}
       <PassengerCare />
 
-      {/* Fleet Gallery - NEW */}
-      <ScrollReveal width="100%">
-        <FleetGallery />
-      </ScrollReveal>
+      {/* Fleet Gallery removed as requested */}
 
       {/* Fleet Section */}
       <FadeIn>

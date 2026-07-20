@@ -29,7 +29,6 @@ export default function LeadGenModal({ resource, isOpen, onClose }: LeadGenModal
         await new Promise(resolve => setTimeout(resolve, 1500));
 
         // Todo: Integrate with actual backend/CRM
-        console.log('Lead Captured:', { resource: resource.title, ...formData });
 
         setIsSubmitting(false);
         setStep('success');
@@ -41,7 +40,6 @@ export default function LeadGenModal({ resource, isOpen, onClose }: LeadGenModal
             link.href = resource.downloadUrl;
             link.download = resource.title;
             // link.click(); // Commented out until actual files exist
-            console.log('Downloading file...', resource.downloadUrl);
         }, 1000);
     };
 

@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import { Calendar, Phone, User, ArrowRight, Car, Navigation, Clock, CheckCircle, Bus, Mail, MapPin, PlaneLanding, PlaneTakeoff, Building2, ShieldCheck, HeartHandshake, CreditCard, Headphones } from 'lucide-react';
@@ -61,12 +61,10 @@ const QuickBookingForm = ({
     const { routes: contextRoutes, vehicles: contextVehicles, isLoading: contextLoading, calculatePrice } = usePricing();
 
     // Helper to attach icons if missing (for server-side data)
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const attachIcons = (vehiclesData: any[]) => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        return vehiclesData.map((v: any) => ({
+    const attachIcons = (vehiclesData: (Vehicle | Omit<Vehicle, 'icon'>)[]) => {
+        return vehiclesData.map((v) => ({
             ...v,
-            icon: v.icon || ((v.name?.toLowerCase().includes('hiace') || v.name?.toLowerCase().includes('coaster') || v.id?.includes('hiace') || v.id?.includes('coaster')) ? Bus : Car)
+            icon: ('icon' in v && v.icon) ? v.icon : ((v.name?.toLowerCase().includes('hiace') || v.name?.toLowerCase().includes('coaster') || v.id?.includes('hiace') || v.id?.includes('coaster')) ? Bus : Car)
         }));
     };
 
@@ -183,7 +181,7 @@ const QuickBookingForm = ({
     });
 
     // Update Pickup/Dropoff when Route changes
-    const handleRouteChange = (e: any) => {
+    const handleRouteChange = (e: { target: { name?: string; value: string } } | React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const routeId = e.target.value;
 
         let newPickup = formData.pickup;
@@ -218,7 +216,7 @@ const QuickBookingForm = ({
         if (errors.routeId) setErrors(prev => ({ ...prev, routeId: '' }));
     };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const handleChange = (e: { target: { name: string; value: string } } | React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
 
         // Auto-update passengers when vehicle count changes if not manually set? 
@@ -617,7 +615,7 @@ const QuickBookingForm = ({
                                     <SearchableSelect
                                         name="vehicleId"
                                         value={formData.vehicleId}
-                                        onChange={handleChange as any}
+                                        onChange={handleChange}
                                         // @ts-ignore
                                         options={vehicleOptions}
                                         placeholder="Select Vehicle"
@@ -637,7 +635,7 @@ const QuickBookingForm = ({
                                             <SearchableSelect
                                                 name="pickup"
                                                 value={formData.pickup}
-                                                onChange={handleChange as any}
+                                                onChange={handleChange}
                                                 options={pickupLocations}
                                                 placeholder="Pickup Location"
                                                 className="w-full bg-white/5 border border-white/10 rounded-xl text-xs !py-2 shadow-sm text-white placeholder-white/50 backdrop-blur-md h-[40px]"
@@ -652,7 +650,7 @@ const QuickBookingForm = ({
                                             <SearchableSelect
                                                 name="dropoff"
                                                 value={formData.dropoff}
-                                                onChange={handleChange as any}
+                                                onChange={handleChange}
                                                 options={dropoffLocations}
                                                 placeholder="Drop-off Location"
                                                 className="w-full bg-white/5 border border-white/10 rounded-xl text-xs !py-2 shadow-sm text-white placeholder-white/50 backdrop-blur-md h-[40px]"

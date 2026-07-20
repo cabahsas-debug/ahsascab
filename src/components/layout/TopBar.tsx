@@ -3,25 +3,38 @@ import { Facebook, Instagram, Twitter, Linkedin, Mail } from 'lucide-react';
 
 import { getSettings } from '@/lib/settings-storage';
 
+const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="13"
+        height="13"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        {...props}
+    >
+        <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+    </svg>
+);
 
 const TopBar = async () => {
     const settings = await getSettings();
-    const { contact, discount } = settings;
+    const { contact } = settings;
 
-    // Check if discount is active
-    const now = new Date();
-    const isDiscountActive = discount?.enabled &&
-        (!discount.startDate || new Date(discount.startDate) <= now) &&
-        (!discount.endDate || new Date(discount.endDate) > now);
-
-    // if (isDiscountActive) {
-    //     return null;
-    // }
+    const socialLinks = [
+        { icon: Facebook, href: contact.social.facebook, label: 'Facebook' },
+        { icon: Instagram, href: contact.social.instagram, label: 'Instagram' },
+        { icon: Twitter, href: contact.social.twitter, label: 'Twitter' },
+        { icon: Linkedin, href: contact.social.linkedin, label: 'LinkedIn' },
+        { icon: TikTokIcon, href: contact.social.tiktok, label: 'TikTok' },
+    ];
 
     return (
         <div className="hidden lg:block bg-background text-foreground/80 border-b border-primary/10 relative z-50">
             <div className="container mx-auto px-4 h-12 flex justify-between items-center text-xs font-medium tracking-wide">
-
                 {/* Left Side: Contact Info */}
                 <div className="flex items-center gap-6">
                     {contact.email && (
@@ -41,32 +54,7 @@ const TopBar = async () => {
                 <div className="flex items-center gap-4">
                     <span className="text-muted-foreground">Follow us:</span>
                     <div className="flex items-center gap-2">
-                        {[
-                            { icon: Facebook, href: contact.social.facebook, label: 'Facebook' },
-                            { icon: Instagram, href: contact.social.instagram, label: 'Instagram' },
-                            { icon: Twitter, href: contact.social.twitter, label: 'Twitter' },
-                            { icon: Linkedin, href: contact.social.linkedin, label: 'LinkedIn' },
-                            {
-                                icon: (props: any) => (
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="13"
-                                        height="13"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        {...props}
-                                    >
-                                        <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
-                                    </svg>
-                                ),
-                                href: contact.social.tiktok,
-                                label: 'TikTok'
-                            }
-                        ].map((social, index) => (
+                        {socialLinks.map((social, index) => (
                             social.href && (
                                 <a
                                     key={index}

@@ -34,7 +34,7 @@ export default function PWAInit(props: PWAInitProps) {
 
             navigator.serviceWorker.register(swUrl, { scope })
                 .then((registration) => {
-                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+
                     subscribeUser(registration);
                 })
                 .catch((err) => {
@@ -47,16 +47,16 @@ export default function PWAInit(props: PWAInitProps) {
         try {
             const sub = await registration.pushManager.getSubscription();
             if (sub) {
-                console.log('User is already subscribed to push:', sub);
+
                 // Optimally, we should sync this with backend just in case
                 return;
             }
 
-            console.log('Requesting notification permission...');
+
             const permission = await Notification.requestPermission();
 
             if (permission !== 'granted') {
-                console.log('Notification permission denied');
+
                 return;
             }
 
@@ -66,7 +66,7 @@ export default function PWAInit(props: PWAInitProps) {
                 applicationServerKey: convertedVapidKey
             });
 
-            console.log('User is subscribed:', subscription);
+
 
             // Send subscription to backend
             await fetch('/api/notifications/subscribe', {
@@ -78,7 +78,7 @@ export default function PWAInit(props: PWAInitProps) {
             });
 
         } catch (err) {
-            console.log('Failed to subscribe the user: ', err);
+
         }
     };
 

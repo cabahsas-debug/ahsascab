@@ -1,17 +1,19 @@
 'use client';
 
 import KPIGrid from '@/components/admin/dashboard/KPIGrid';
-import PopularRoutesChart from '@/components/admin/dashboard/PopularRoutesChart';
 import RecentActivityFeed from '@/components/admin/dashboard/RecentActivityFeed';
 import RecentBookingsTable from '@/components/admin/dashboard/RecentBookingsTable';
-import RevenueChart from '@/components/admin/dashboard/RevenueChart';
-import StatusDistributionChart from '@/components/admin/dashboard/StatusDistributionChart';
 import { Toast } from '@/components/ui/Toast';
 import { usePusher } from '@/hooks/usePusher';
 import { Plus } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
+
+const PopularRoutesChart = dynamic(() => import('@/components/admin/dashboard/PopularRoutesChart'), { ssr: false });
+const RevenueChart = dynamic(() => import('@/components/admin/dashboard/RevenueChart'), { ssr: false });
+const StatusDistributionChart = dynamic(() => import('@/components/admin/dashboard/StatusDistributionChart'), { ssr: false });
 
 interface Booking {
     id: string;
