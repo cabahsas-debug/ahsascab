@@ -1,31 +1,22 @@
 .container {
-    padding: 1.5rem 1.75rem;
-    border-radius: 24px;
-    margin-top: 0.5rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 16px;
     max-width: 750px;
     width: 100%;
     position: relative;
     z-index: 10;
-    /* Deep Luxury - Premium Glassy Spiritual */
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow:
-        0 20px 40px -10px rgba(0, 0, 0, 0.4),
-        0 0 0 1px rgba(212, 175, 55, 0.05) inset;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: center;
     overflow: visible;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .container:hover {
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow:
-        0 30px 60px -15px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(212, 175, 55, 0.15) inset;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
 }
 
@@ -107,9 +98,9 @@
 .label {
     font-size: 0.7rem;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(0, 0, 0, 0.6);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.05em;
     margin-left: 0.5rem;
     margin-bottom: 0.25rem;
     opacity: 0.9;

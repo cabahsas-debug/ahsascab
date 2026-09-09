@@ -49,7 +49,7 @@ export default function FadeIn({ children, delay = 0, className = '', direction 
         <div ref={ref} className={className}>
             <div
                 className={cn(
-                    "transition-all duration-1000 ease-out",
+                    "transition-all duration-500 ease-out",
                     isVisible ? "opacity-100 translate-x-0 translate-y-0 scale-100" : `opacity-0 ${getDirectionStyles()} ${initialScale}`
                 )}
                 style={{ transitionDelay: `${delay}s` }}

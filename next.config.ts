@@ -98,7 +98,8 @@ const nextConfig: NextConfig = {
   },
   compress: true,
   experimental: {
-    optimizeCss: false,
+    optimizeCss: true,
+    optimizePackageImports: ['lucide-react', 'date-fns', 'recharts'],
   },
 };
 

@@ -42,13 +42,5 @@ export const navigationLinks: NavLink[] = [
             { href: '/fleet/toyota-camry', label: 'Toyota Camry' },
         ]
     },
-    {
-        href: '/about',
-        label: 'About Us',
-        children: [
-            { href: '/about', label: 'Company Profile' },
-        ]
-    },
-    { href: '/blog', label: 'Blog' },
     { href: '/contact', label: 'Contact us' },
 ];

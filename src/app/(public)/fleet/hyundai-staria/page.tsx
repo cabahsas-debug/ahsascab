@@ -198,7 +198,8 @@ export default async function HyundaiStariaPage() {
 
                     <div className="max-w-6xl mx-auto">
                         <Interior360Viewer
-                            imageUrl="/images/fleet/staria-interior-360.jpg"
+                            // Fallback to GMC interior since staria-interior-360.jpg is missing
+                            imageUrl="/images/fleet/gmc-yukon-interior-360.jpg"
                             title="Hyundai Staria Premium Interior"
                         />
                     </div>

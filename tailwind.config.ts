@@ -22,7 +22,9 @@ const config: Config = {
                 mono: ["var(--font-geist-mono)", "monospace"],
                 playfair: ["var(--font-playfair)", "serif"],
                 opensans: ["var(--font-open-sans)", "sans-serif"],
-                reem: ["var(--font-reem-kufi)", "sans-serif"],
+                cairo: ["var(--font-cairo)", "sans-serif"],
+                arabic: ["var(--font-cairo)", "sans-serif"],
+                reem: ["var(--font-cairo)", "sans-serif"], // Kept for backwards compatibility if needed
             },
             colors: {
                 border: "hsl(var(--border))",
@@ -94,7 +96,7 @@ const config: Config = {
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
-                "fade-in-up": "fade-in-up 0.8s ease-out forwards",
+                "fade-in-up": "fade-in-up 0.4s ease-out forwards",
                 "pulse-slow": "pulse-slow 4s ease-in-out infinite",
             },
         },

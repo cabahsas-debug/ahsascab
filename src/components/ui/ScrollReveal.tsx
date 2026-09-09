@@ -10,7 +10,7 @@ interface ScrollRevealProps {
     className?: string;
 }
 
-export default function ScrollReveal({ children, width = "fit-content", delay = 0.25, className = "" }: ScrollRevealProps) {
+export default function ScrollReveal({ children, width = "fit-content", delay = 0.1, className = "" }: ScrollRevealProps) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-50px" });
 
@@ -23,7 +23,7 @@ export default function ScrollReveal({ children, width = "fit-content", delay = 
             }}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            transition={{ duration: 0.5, delay: delay }}
+            transition={{ duration: 0.3, delay: delay }}
             className={className}
         >
             {children}

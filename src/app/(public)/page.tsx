@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 // import styles from './page.module.css'; // Removed
 import FadeIn from '@/components/common/FadeIn';
@@ -9,29 +8,25 @@ import { ArrowRight } from 'lucide-react';
 import { getSectionContent, getSectionImage, getCustomField } from '@/lib/content-service';
 import { getWhatsAppLink } from '@/lib/whatsapp';
 
-import AnimatedBackground from '@/components/ui/AnimatedBackground';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import { constructMetadata } from '@/lib/metadata';
 import { getBaseUrl } from '@/lib/url-utils';
-
-
 
 import InstantPriceCalculator from '@/components/home/InstantPriceCalculator';
 import Features from '@/components/home/Features';
 import TransportServices from '@/components/home/TransportServices';
 
-// Lazy load non-critical components below the fold
-const SafetyPromise = dynamic(() => import('@/components/home/SafetyPromise'));
-const PassengerCare = dynamic(() => import('@/components/home/PassengerCare'));
-const FleetCarouselWrapper = dynamic(() => import('@/components/home/FleetCarouselWrapper'));
-const ReviewsSection = dynamic(() => import('@/components/reviews/ReviewsSection'));
-const CustomerGallery = dynamic(() => import('@/components/home/CustomerGallery'));
-const LatestArticles = dynamic(() => import('@/components/home/LatestArticles'));
-const ExpandedSEOContent = dynamic(() => import('@/components/home/ExpandedSEOContent'));
+import SafetyPromise from '@/components/home/SafetyPromise';
+import PassengerCare from '@/components/home/PassengerCare';
+import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
+import ReviewsSection from '@/components/reviews/ReviewsSection';
+import CustomerGallery from '@/components/home/CustomerGallery';
+import LatestArticles from '@/components/home/LatestArticles';
+import ExpandedSEOContent from '@/components/home/ExpandedSEOContent';
 
-const Testimonials = dynamic(() => import('@/components/home/Testimonials'));
-const FleetGallery = dynamic(() => import('@/components/home/FleetGallery'));
-const BookingGuide = dynamic(() => import('@/components/home/BookingGuide'));
+import Testimonials from '@/components/home/Testimonials';
+import FleetGallery from '@/components/home/FleetGallery';
+import BookingGuide from '@/components/home/BookingGuide';
 import QuickBookingForm from '@/components/home/QuickBookingForm';
 
 export async function generateMetadata() {
@@ -126,16 +121,11 @@ export default async function Home() {
         layout="two-column"
         ctaText={ctaText}
         ctaLink={ctaLink}
-        backgroundChildren={<AnimatedBackground />}
       >
         <div className="hidden md:block w-full max-w-md ml-auto">
-          <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 p-3 rounded-[2rem] shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] relative overflow-hidden group">
-            {/* Subtle inner glow */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+          <div className="bg-white p-6 rounded-2xl shadow-xl border border-slate-200 relative overflow-hidden group">
             <div className="relative z-10">
               <QuickBookingForm
-                title="Book Your Ride"
-                subtitle="Instant Confirmation"
                 className="shadow-none border-0 bg-transparent"
               />
             </div>
@@ -198,7 +188,7 @@ export default async function Home() {
 
         <div className="container relative z-10 mx-auto px-4 text-center">
           <FadeIn>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-playfair mb-6 tracking-tight drop-shadow-lg">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-playfair text-white mb-6 tracking-tight drop-shadow-lg">
               Ready to Begin Your <span className="text-gold italic">Blessed Journey?</span>
             </h2>
             <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed font-light">

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Playfair_Display, Open_Sans, Reem_Kufi } from "next/font/google";
+import { Inter, Playfair_Display, Open_Sans, Cairo } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { MobileMenuProvider } from "@/context/MobileMenuContext";
 import { PricingProvider } from '@/context/PricingContext';
@@ -42,10 +42,10 @@ const openSans = Open_Sans({
   display: 'swap',
 });
 
-const reemKufi = Reem_Kufi({
-  variable: "--font-reem-kufi",
+const cairo = Cairo({
+  variable: "--font-cairo",
   subsets: ["arabic"],
-  weight: ["400", "700"],
+  weight: ["400", "700", "900"],
   display: 'swap',
 });
 
@@ -74,7 +74,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${interMono.variable} ${playfair.variable} ${openSans.variable} ${reemKufi.variable}`}>
+      <body className={`${inter.variable} ${interMono.variable} ${playfair.variable} ${openSans.variable} ${cairo.variable}`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
