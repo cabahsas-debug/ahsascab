@@ -195,7 +195,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         <GlassCard delay={0.5} className="overflow-hidden relative border-0 !bg-gradient-to-br !from-navy !to-slate-900 !text-white p-8 group">
                             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-yellow-300" />
                             <div className="relative z-10">
-                                <h3 className="text-2xl font-bold font-playfair mb-4">Plan Your Umrah Journey</h3>
+                                <h3 className="text-2xl font-bold font-playfair text-white mb-4">Plan Your Umrah Journey</h3>
                                 <p className="text-slate-300 mb-8 leading-relaxed text-sm">
                                     Book reliable and comfortable transport for your spiritual journey today starting from just 200 SAR.
                                 </p>
