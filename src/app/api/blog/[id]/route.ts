@@ -35,6 +35,11 @@ export async function PUT(
     try {
         const body = await request.json();
 
+        // Enforce valid slug format if slug is being updated
+        if (body.id && body.id !== id && !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(body.id)) {
+            return NextResponse.json({ error: 'Invalid slug format. Use only lowercase letters, numbers, and hyphens.' }, { status: 400 });
+        }
+
         // Pass body.id (new slug) if it exists, otherwise use existing id
         // The service needs to know if we are changing the slug or just updating content
         const updateData = {

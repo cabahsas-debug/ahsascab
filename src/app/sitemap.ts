@@ -75,7 +75,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const transportRoutes = pricingData.routes
         .filter(r => r.slug)
         .map((route) => ({
-            url: `${baseUrl}/routes/${route.slug}`,
+            url: encodeURI(`${baseUrl}/routes/${route.slug}`),
             lastModified: new Date(),
             changeFrequency: 'weekly' as const, // Price changes
             priority: 0.9, // High priority as these are landing pages
@@ -86,7 +86,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     try {
         const posts = await blogService.getPosts();
         blogRoutes = posts.map((post) => ({
-            url: `${baseUrl}/blog/${post.slug}`,
+            url: encodeURI(`${baseUrl}/blog/${post.slug}`),
             lastModified: new Date(post.updatedAt || post.date),
             changeFrequency: 'monthly' as const,
             priority: 0.7,

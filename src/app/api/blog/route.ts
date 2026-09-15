@@ -29,6 +29,11 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
         }
 
+        // Enforce valid slug format
+        if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(body.id)) {
+            return NextResponse.json({ error: 'Invalid slug format. Use only lowercase letters, numbers, and hyphens.' }, { status: 400 });
+        }
+
         const post = await blogService.createPost({
             slug: body.id, // Slug
             title: body.title,

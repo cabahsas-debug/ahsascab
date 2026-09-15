@@ -61,7 +61,9 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
     const generateSlug = (title: string) => {
         return title
             .toLowerCase()
-            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/&/g, '-and-')
+            .replace(/[^a-z0-9 -]+/g, '')
+            .replace(/\s+/g, '-')
             .replace(/(^-|-$)+/g, '');
     };
 
@@ -71,6 +73,20 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
             ...prev,
             title,
             id: !isEditing ? generateSlug(title) : prev.id
+        }));
+    };
+
+    const handleSlugChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormData(prev => ({
+            ...prev,
+            id: e.target.value.toLowerCase().replace(/\s+/g, '-')
+        }));
+    };
+
+    const handleSlugBlur = () => {
+        setFormData(prev => ({
+            ...prev,
+            id: generateSlug(prev.id)
         }));
     };
 
@@ -121,13 +137,16 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
                 body: JSON.stringify(payload),
             });
 
-            if (!res.ok) throw new Error('Failed to save post');
+            if (!res.ok) {
+                const errorData = await res.json().catch(() => ({}));
+                throw new Error(errorData.error || 'Failed to save post');
+            }
 
             router.push('/admin/blog');
             router.refresh();
-        } catch (error) {
+        } catch (error: any) {
             console.error('Error saving post:', error);
-            alert('Failed to save post');
+            alert(error.message || 'Failed to save post');
         } finally {
             setLoading(false);
         }
@@ -243,7 +262,8 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
                                             type="text"
                                             required
                                             value={formData.id}
-                                            onChange={(e) => setFormData({ ...formData, id: e.target.value })}
+                                            onChange={handleSlugChange}
+                                            onBlur={handleSlugBlur}
                                             className="bg-transparent border-none focus:ring-0 w-full p-0 text-slate-600 dark:text-slate-300"
                                         />
                                     </div>
