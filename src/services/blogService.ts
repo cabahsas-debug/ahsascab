@@ -2,10 +2,31 @@ import dbConnect from '@/lib/mongodb';
 import { BlogPost, type IBlogPost } from '@/models';
 import { staticBlogPosts } from '@/data/blog-posts';
 
+// Public reads fall back to the bundled static posts when the DB is unreachable,
+// so blog pages, the sitemap and the build don't fail with it.
+async function findDbPosts() {
+    try {
+        await dbConnect();
+        return await BlogPost.find({}).sort({ date: -1 }).lean();
+    } catch (error) {
+        console.error('blogService: DB unavailable, serving static posts only:', error);
+        return [];
+    }
+}
+
+async function findDbPostBySlug(slug: string) {
+    try {
+        await dbConnect();
+        return await BlogPost.findOne({ slug }).lean();
+    } catch (error) {
+        console.error('blogService: DB unavailable, checking static posts only:', error);
+        return null;
+    }
+}
+
 export const blogService = {
     async getPosts() {
-        await dbConnect();
-        const dbPosts = await BlogPost.find({}).sort({ date: -1 }).lean();
+        const dbPosts = await findDbPosts();
 
         // Map DB posts to standard format
         const mappedDbPosts = dbPosts.map(post => ({
@@ -35,8 +56,7 @@ export const blogService = {
     },
 
     async getPostBySlug(slug: string) {
-        await dbConnect();
-        const post = await BlogPost.findOne({ slug }).lean();
+        const post = await findDbPostBySlug(slug);
 
         if (post) {
             return {
