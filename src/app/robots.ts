@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next';
-
-const CANONICAL_URL = 'https://www.ahsascab.com';
+import { getBaseUrl } from '@/lib/url-utils';
 
 export default function robots(): MetadataRoute.Robots {
+    const CANONICAL_URL = getBaseUrl();
     return {
         rules: [
             // Allow crawlers only on the canonical custom domain

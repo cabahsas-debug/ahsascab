@@ -8,6 +8,7 @@ import AnimatedMapBackground from '@/components/ui/AnimatedMapBackground';
 import { routeService } from '@/services/routeService';
 import { ShieldCheck, Star, UserCheck, Timer } from 'lucide-react';
 import { RouteWithPrices } from '@/services/routeService';
+import { getBaseUrl } from '@/lib/url-utils';
 import { constructMetadata } from '@/lib/metadata';
 
 export async function generateMetadata() {
@@ -77,19 +78,19 @@ const jsonLd = {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://www.ahsascab.com"
+                "item": getBaseUrl()
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Services",
-                "item": "https://www.ahsascab.com/services"
+                "item": `${getBaseUrl()}/services`
             },
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": "Intercity Transport",
-                "item": "https://www.ahsascab.com/services/intercity-transfer"
+                "item": `${getBaseUrl()}/services/intercity-transfer`
             }
         ]
     }
