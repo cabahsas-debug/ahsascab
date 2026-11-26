@@ -19,6 +19,8 @@ interface HeroProps {
     backgroundChildren?: React.ReactNode;
     breadcrumbs?: React.ReactNode;
     alt?: string;
+    /** Overrides the H1 font sizes, e.g. for long titles. */
+    titleClassName?: string;
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -34,7 +36,8 @@ const Hero: React.FC<HeroProps> = ({
     badge,
     backgroundChildren,
     breadcrumbs,
-    alt
+    alt,
+    titleClassName
 }) => {
     const isTwoColumn = layout === 'two-column';
 
@@ -85,7 +88,7 @@ const Hero: React.FC<HeroProps> = ({
                         )}
 
                         <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100 fill-mode-both">
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-playfair leading-tight tracking-tight text-white drop-shadow-md">
+                            <h1 className={cn(titleClassName ?? "text-4xl md:text-5xl lg:text-6xl xl:text-7xl", "font-bold font-playfair leading-tight tracking-tight text-white drop-shadow-md")}>
                                 {title}
                             </h1>
                         </div>
