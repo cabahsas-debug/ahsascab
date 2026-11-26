@@ -1,38 +1,29 @@
-import Link from 'next/link';
-// import styles from './page.module.css'; // Removed
-import FadeIn from '@/components/common/FadeIn';
 import Hero from '@/components/common/Hero';
-
-import { ArrowRight } from 'lucide-react';
-
-import { getSectionContent, getSectionImage, getCustomField } from '@/lib/content-service';
-import { getWhatsAppLink } from '@/lib/whatsapp';
-
-import ScrollReveal from '@/components/ui/ScrollReveal';
+import QuickBookingForm from '@/components/home/QuickBookingForm';
+import { getSectionContent, getSectionImage } from '@/lib/content-service';
 import { constructMetadata } from '@/lib/metadata';
 import { getBaseUrl } from '@/lib/url-utils';
+import { getWhatsAppLink } from '@/lib/whatsapp';
+import { CONTACT } from '@/data/home-content';
 
-import InstantPriceCalculator from '@/components/home/InstantPriceCalculator';
-import Features from '@/components/home/Features';
-import TransportServices from '@/components/home/TransportServices';
+import FaresSection from '@/components/home/sections/FaresSection';
+import ServicesSection from '@/components/home/sections/ServicesSection';
+import JourneySection from '@/components/home/sections/JourneySection';
+import FleetSection from '@/components/home/sections/FleetSection';
+import RoutesSection from '@/components/home/sections/RoutesSection';
+import WhyUsSection from '@/components/home/sections/WhyUsSection';
+import SafetySection from '@/components/home/sections/SafetySection';
+import GuideSection from '@/components/home/sections/GuideSection';
+import AboutSection from '@/components/home/sections/AboutSection';
+import FaqSection, { faqSchema } from '@/components/home/sections/FaqSection';
 
-import SafetyPromise from '@/components/home/SafetyPromise';
-import PassengerCare from '@/components/home/PassengerCare';
-import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
-import ReviewsSection from '@/components/reviews/ReviewsSection';
-import CustomerGallery from '@/components/home/CustomerGallery';
-import LatestArticles from '@/components/home/LatestArticles';
-import ExpandedSEOContent from '@/components/home/ExpandedSEOContent';
-
-import Testimonials from '@/components/home/Testimonials';
-import FleetGallery from '@/components/home/FleetGallery';
-import BookingGuide from '@/components/home/BookingGuide';
-import QuickBookingForm from '@/components/home/QuickBookingForm';
+const HOME_TITLE = 'Taxi Services in Makkah from SAR 200 | Ahsas Cab';
+const HOME_DESCRIPTION = 'Makkah Taxi services since 2015. Jeddah Airport to Makkah from SAR 200, Madinah and Ziyarat trips. Pay on arrival. WhatsApp +966 54 549 4921';
 
 export async function generateMetadata() {
-  return constructMetadata({
-    title: 'Trusted Umrah Taxi Service | Jeddah to Makkah & Madinah',
-    description: 'Ahsas Cab offers trusted, affordable, and safe Umrah travel services worldwide. Serving pilgrims with comfort and care with our luxury fleet.',
+  const metadata = await constructMetadata({
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
     keywords: [
       // Core Service Keywords (15)
       "Umrah cab service", "Umrah transport Saudi Arabia", "pilgrim taxi", "Ahsas Umrah Cab", "trusted Umrah transport", "premium Umrah taxi", "affordable Umrah cab", "luxury Umrah transport", "Umrah taxi booking online", "Umrah travel agency Saudi Arabia", "Umrah group transport", "family Umrah taxi", "cheap Umrah cab", "best Umrah transport company", "VIP Umrah transport",
@@ -47,31 +38,19 @@ export async function generateMetadata() {
     ],
     canonicalUrl: '/',
   });
+
+  // Use the exact title, without the site name suffix that constructMetadata adds.
+  return {
+    ...metadata,
+    title: { absolute: HOME_TITLE },
+    openGraph: { ...metadata.openGraph, title: HOME_TITLE },
+    twitter: { ...metadata.twitter, title: HOME_TITLE },
+  };
 }
 
 export default async function Home() {
   const heroSection = await getSectionContent('home-hero');
-  // SEO Optimized Fallbacks
-  const heroTitle = heroSection?.title || "Premium Umrah Transport";
-  // Styled Subtitle with Arabic
-  const heroSubtitleText = heroSection?.subtitle || "Jeddah, Makkah & Madinah • Airport Transfers • Intercity Travel";
-  const heroSubtitleContent = (
-    <>
-      <span className="block mb-4 opacity-90 font-light tracking-wider uppercase text-sm md:text-base">{heroSubtitleText}</span>
-      <h2
-        className="block text-xl md:text-2xl mt-2 text-gold font-bold tracking-wide drop-shadow-sm opacity-100"
-        style={{ fontFamily: 'var(--font-reem-kufi)' }}
-        lang="ar"
-        dir="rtl"
-      >
-        خدمة نقل المعتمرين VIP
-      </h2>
-    </>
-  );
-
-  const heroImage = getSectionImage(heroSection, 'desktop') || "/images/blog/makkah-haram-view-new.png";
-  const ctaText = getCustomField(heroSection, 'cta_text') || "Book Now / احجز الآن";
-  const ctaLink = "/booking";
+  const heroImage = getSectionImage(heroSection, 'desktop') || '/images/blog/makkah-haram-view-new.png';
 
   const baseUrl = getBaseUrl();
   const jsonLd = {
@@ -109,18 +88,24 @@ export default async function Home() {
 
   return (
     <main className="overflow-x-hidden bg-background">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      {/* Hero Section */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema()) }} />
+
       <Hero
-        title={heroTitle}
-        subtitle={heroSubtitleContent}
+        title="Taxi services in Makkah with fixed fares for Umrah, airport and Ziyarat trips"
+        titleClassName="text-3xl md:text-4xl lg:text-5xl"
+        subtitle={
+          <p className="normal-case">
+            Landed at Jeddah tired, in Ihram, with bags and family? Ahsas Cab takes you from the airport to your Makkah hotel door from SAR 200 per car, with no prepayment and free cancellation. Since 2015 our Urdu, English and Arabic speaking drivers have carried pilgrims to the Haram, Madinah, Taif and the Ziyarat sites, day and night: WhatsApp {CONTACT.whatsappDisplay} for your fixed fare.
+          </p>
+        }
         bgImage={heroImage}
+        alt="Masjid al Haram in Makkah"
         layout="two-column"
-        ctaText={ctaText}
-        ctaLink={ctaLink}
+        ctaText="Get your fixed fare on WhatsApp"
+        ctaLink={getWhatsAppLink('Salam Ahsas Cab, I would like a fixed fare.')}
+        secondaryCtaText="See 2026 fares"
+        secondaryCtaLink="#fares"
       >
         <div className="hidden md:block w-full max-w-md ml-auto">
           <div className="bg-white p-6 rounded-2xl shadow-xl border border-slate-200 relative overflow-hidden group">
@@ -133,80 +118,16 @@ export default async function Home() {
         </div>
       </Hero>
 
-      {/* Transport Services Section - NEW */}
-      <ScrollReveal width="100%">
-        <TransportServices />
-      </ScrollReveal>
-
-      {/* Instant Price Calculator Section */}
-      <InstantPriceCalculator />
-
-      {/* Booking Guide Section - NEW */}
-      <BookingGuide />
-
-      {/* Features Section */}
-      <ScrollReveal width="100%">
-        <Features />
-      </ScrollReveal>
-
-      {/* Passenger Care Section */}
-      <PassengerCare />
-
-      {/* Fleet Gallery removed as requested */}
-
-      {/* Fleet Section */}
-      <FadeIn>
-        <FleetCarouselWrapper />
-      </FadeIn>
-
-      {/* Gallery Section */}
-      <CustomerGallery />
-
-      {/* Testimonials Section */}
-      <ScrollReveal width="100%">
-        <Testimonials />
-      </ScrollReveal>
-      {/* Reviews Section */}
-      <ReviewsSection />
-
-      {/* SEO Content Section - Enhanced */}
-      <ExpandedSEOContent />
-
-      {/* Latest Articles Section */}
-      <LatestArticles />
-
-      {/* Safety Promise Section - Moved to Bottom */}
-      <FadeIn>
-        <SafetyPromise />
-      </FadeIn>
-
-      {/* CTA Section */}
-      <section className="relative py-20 bg-secondary text-white overflow-hidden">
-        {/* Pattern Overlay */}
-        <div className="absolute inset-0 pattern-grid-fade opacity-10 pointer-events-none"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-secondary via-secondary to-[#0a0f1d] z-0"></div>
-
-        <div className="container relative z-10 mx-auto px-4 text-center">
-          <FadeIn>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-playfair text-white mb-6 tracking-tight drop-shadow-lg">
-              Ready to Begin Your <span className="text-gold italic">Blessed Journey?</span>
-            </h2>
-            <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
-              Book your VIP transport now and let us take care of the logistics while you focus on your worship.
-            </p>
-            <a
-              href={getWhatsAppLink("Salam Ahsas Cab, I am ready to book my journey.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-gold to-amber-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 group"
-            >
-              Book Your Ride via WhatsApp
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-            </a>
-          </FadeIn>
-        </div>
-      </section>
-      {/* Force Rebuild */}
+      <FaresSection />
+      <ServicesSection />
+      <JourneySection />
+      <FleetSection />
+      <RoutesSection />
+      <WhyUsSection />
+      <SafetySection />
+      <GuideSection />
+      <AboutSection />
+      <FaqSection />
     </main>
   );
 }
