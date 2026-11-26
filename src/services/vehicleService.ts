@@ -44,6 +44,17 @@ export const vehicleService = {
         return mapped.sort((a: any, b: any) => getSortIndex(a) - getSortIndex(b));
     }, ['active-vehicles'], { revalidate: 3600, tags: ['vehicles'] }),
 
+    // For public vehicle sections: a DB outage hides the section instead of failing the
+    // whole page. Caught outside the cache so the failure isn't cached.
+    async getActiveVehiclesForDisplay() {
+        try {
+            return await vehicleService.getActiveVehicles();
+        } catch (error) {
+            console.error('vehicleService: DB unavailable, hiding vehicle section:', error);
+            return [];
+        }
+    },
+
     async getVehicleById(id: string) {
         await dbConnect();
         const vehicle = await Vehicle.findById(id).lean();

@@ -3,7 +3,8 @@ import { vehicleService } from '@/services/vehicleService';
 import FleetShowcase, { Vehicle as ShowcaseVehicle } from '@/components/fleet/FleetShowcase';
 
 export default async function FleetShowcaseLoader() {
-    const vehicles = await vehicleService.getActiveVehicles();
+    const vehicles = await vehicleService.getActiveVehiclesForDisplay();
+    if (vehicles.length === 0) return null;
 
     const showcaseVehicles: ShowcaseVehicle[] = vehicles.map(v => ({
         id: v.id || '',
