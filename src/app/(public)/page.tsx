@@ -92,7 +92,7 @@ export default async function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema()) }} />
 
       <Hero
-        title="Makkah taxi services with fixed fares for Umrah, airport and Ziyarat trips"
+        title="Taxi services in Makkah with fixed fares for Umrah, airport and Ziyarat trips"
         titleClassName="text-3xl md:text-4xl lg:text-5xl"
         subtitle={
           <p className="normal-case">

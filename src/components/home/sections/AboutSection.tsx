@@ -17,7 +17,7 @@ export default function AboutSection() {
                 <div className="grid gap-8 lg:grid-cols-5">
                     <div className="lg:col-span-3 space-y-4 leading-relaxed">
                         <p>
-                            Ahsas Cab, known in Arabic as <span lang="ar">إحساس الرحلات</span> (Ahsas Alrihlat), is a taxi service provider in Makkah. Of all the taxi services in Saudi Arabia, we focus on one kind of passenger: the Umrah pilgrim. We have driven Umrah pilgrims since 2015 from our base on Ibn Abi Al Mukhtar in Al Jamiah, Makkah 24352 (plus code {CONTACT.plusCode}). Our fleet runs from Toyota Camry sedans to 21 seat Toyota Coasters, with GMC Yukons for VIP rides. Our office is open daily from 9 AM to 10 PM, and WhatsApp support runs around the clock.
+                            Ahsas Cab, known in Arabic as <span lang="ar">إحساس الرحلات</span> (Ahsas Alrihlat), is a taxi service provider in Makkah. We have driven Umrah pilgrims since 2015 from our base on Ibn Abi Al Mukhtar in Al Jamiah, Makkah 24352 (plus code {CONTACT.plusCode}). Our fleet runs from Toyota Camry sedans to 21 seat Toyota Coasters, with GMC Yukons for VIP rides. Our office is open daily from 9 AM to 10 PM, and WhatsApp support runs around the clock.
                         </p>
                         <p>The name says what we care about. Ehsaas means feeling and care in Urdu and Arabic, and that is how we want every pilgrim to feel in our cars: looked after.</p>
                         <SubHeading>Our mission: serving the guests of Allah</SubHeading>
