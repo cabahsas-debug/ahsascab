@@ -22,15 +22,14 @@ export async function generateStaticParams() {
 }
 
 type Props = {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 };
 
 
 // Generate SEO Metadata dynamically
-
-// Generate SEO Metadata dynamically
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const route = pricingData.routes.find((r) => r.slug === params.slug);
+    const { slug } = await params;
+    const route = pricingData.routes.find((r) => r.slug === slug);
 
     if (!route || !route.seo) {
         return constructMetadata({
@@ -43,14 +42,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: route.seo.title,
         description: route.seo.description,
         keywords: route.seo.keywords,
-        canonicalUrl: `/routes/${params.slug}`,
-        image: `/images/routes/${params.slug}.jpg`,
+        canonicalUrl: `/routes/${slug}`,
+        image: `/images/routes/${slug}.jpg`,
         type: 'website'
     });
 }
 
-export default function RouteDetail({ params }: Props) {
-    const route = pricingData.routes.find((r) => r.slug === params.slug);
+export default async function RouteDetail({ params }: Props) {
+    const { slug } = await params;
+    const route = pricingData.routes.find((r) => r.slug === slug);
 
     if (!route) {
         notFound();
@@ -64,8 +64,8 @@ export default function RouteDetail({ params }: Props) {
         name: route.name,
         description: route.seo?.description || route.name,
         baseRate: startingPrice,
-        slug: params.slug,
-        image: `/images/routes/${params.slug}.jpg`
+        slug: slug,
+        image: `/images/routes/${slug}.jpg`
     });
 
     const breadcrumbSchema = {
@@ -88,7 +88,7 @@ export default function RouteDetail({ params }: Props) {
                 "@type": "ListItem",
                 "position": 3,
                 "name": route.name,
-                "item": `${getBaseUrl()}/routes/${params.slug}`
+                "item": `${getBaseUrl()}/routes/${slug}`
             }
         ]
     };
@@ -211,7 +211,7 @@ export default function RouteDetail({ params }: Props) {
             </section>
 
             {/* Dynamic 1200+ Word SEO Content Injection */}
-            <RouteSEOContent slug={params.slug} />
+            <RouteSEOContent slug={slug} />
 
             {/* Why Choose Us */}
             <section className="py-16 bg-slate-50 dark:bg-slate-950">

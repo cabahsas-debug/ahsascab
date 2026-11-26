@@ -2,7 +2,7 @@ import { Section, ISection } from '@/models';
 import dbConnect from '@/lib/mongodb';
 import { unstable_cache } from 'next/cache';
 
-export const getSectionContent = unstable_cache(
+const getSectionContentCached = unstable_cache(
     async (name: string): Promise<ISection | null> => {
         await dbConnect();
         const section = await Section.findOne({ name, isActive: true }).lean();
@@ -18,6 +18,17 @@ export const getSectionContent = unstable_cache(
     ['section-content'],
     { revalidate: 3600, tags: ['content'] }
 );
+
+// Public pages fall back to their built-in default content when a section can't be
+// loaded. Caught outside the cache so a brief DB outage isn't cached for an hour.
+export async function getSectionContent(name: string): Promise<ISection | null> {
+    try {
+        return await getSectionContentCached(name);
+    } catch (error) {
+        console.error(`getSectionContent("${name}"): DB unavailable, using page defaults:`, error);
+        return null;
+    }
+}
 
 export async function getAllSections(): Promise<ISection[]> {
     await dbConnect();

@@ -6,12 +6,12 @@ import { Vehicle as FleetVehicle } from './FleetCarousel';
 import { getSettings } from '@/lib/settings-storage';
 
 async function FleetCarouselFetcher() {
-    const vehicles = await vehicleService.getVehicles();
+    const vehicles = await vehicleService.getActiveVehiclesForDisplay();
+    if (vehicles.length === 0) return null;
     const settings = await getSettings();
 
     // Map to FleetCarousel format
     const carouselVehicles: FleetVehicle[] = vehicles
-        .filter(v => v.isActive)
         .slice(0, 6)
         .map(v => ({
             id: v.id,

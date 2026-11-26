@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
         description: post.excerpt,
         image: post.image,
         type: 'article',
-        canonicalUrl: '/blog/${post.slug}',
+        canonicalUrl: `/blog/${post.slug}`,
         keywords: post.tags,
     });
 }
