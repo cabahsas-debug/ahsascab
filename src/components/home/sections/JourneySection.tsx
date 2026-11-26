@@ -19,7 +19,7 @@ export default function JourneySection() {
                 title="Umrah taxi services in Saudi Arabia from landing to departure"
                 intro={
                     <p>
-                        For the 2026 to 2027 season, Saudi Arabia issues an Umrah visa only after your hotel and ground transport are confirmed on the Nusuk platform. Travel guides call it &quot;no booking, no visa&quot;. So your airport and intercity rides should be booked before you apply, not after you land.
+                        For the 2026 to 2027 season, Saudi Arabia issues an Umrah visa only after your hotel and ground transport are confirmed on the Nusuk platform. Travel guides call it &quot;no booking, no visa&quot;. So your airport and intercity taxi services in Saudi Arabia should be booked before you apply, not after you land.
                     </p>
                 }
             />

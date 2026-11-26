@@ -13,7 +13,7 @@ export default function GuideSection() {
             <SectionHeading
                 eyebrow="Plan your trip"
                 title="The complete guide to Umrah transportation 2026/2027"
-                intro="There is more than one good way to move around Makkah. Here is a plain comparison so you can choose for your own family."
+                intro="There is more than one good way to move around Makkah. Here is a plain comparison of trains, buses, apps and taxi services in Saudi Arabia, so you can choose for your own family."
             />
 
             <SubHeading>Jeddah Airport to Makkah by taxi, train, bus or app</SubHeading>

@@ -23,7 +23,7 @@ export default function FaqSection() {
                     dark
                     center
                     title="Book your Makkah taxi with Ahsas Cab"
-                    intro={`Send your flight number, hotel, number of people and bags on WhatsApp ${CONTACT.whatsappDisplay}, call ${CONTACT.phoneDisplay} or email ${CONTACT.email}. We reply with one fixed price for the car, usually within 5 minutes. You pay on arrival in cash or by card, and cancellation is free.`}
+                    intro={`Booking the best taxi service in Makkah should take one message, not a bargain at the airport. To book our taxi services in Makkah, send your flight number, hotel, number of people and bags on WhatsApp ${CONTACT.whatsappDisplay}, call ${CONTACT.phoneDisplay} or email ${CONTACT.email}. We reply with one fixed price for the car, usually within 5 minutes. You pay on arrival in cash or by card, and cancellation is free.`}
                 />
                 <div className="flex flex-col justify-center gap-3 sm:flex-row">
                     <a
@@ -41,7 +41,7 @@ export default function FaqSection() {
             </Section>
 
             <Section id="faq">
-                <SectionHeading center eyebrow="FAQ" title="Frequently asked questions about taxi services in Makkah" />
+                <SectionHeading center eyebrow="FAQ" title="Frequently asked questions about Makkah taxi services" />
                 <div className="mx-auto max-w-3xl divide-y divide-slate-200 rounded-[15px] border border-slate-200 bg-white">
                     {FAQS.map((f) => (
                         <details key={f.question} className="group px-5 md:px-6">

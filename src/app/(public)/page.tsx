@@ -92,11 +92,11 @@ export default async function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema()) }} />
 
       <Hero
-        title="Taxi services in Makkah with fixed fares for Umrah, airport and Ziyarat trips"
+        title="Makkah taxi services with fixed fares for Umrah, airport and Ziyarat trips"
         titleClassName="text-3xl md:text-4xl lg:text-5xl"
         subtitle={
           <p className="normal-case">
-            Landed at Jeddah tired, in Ihram, with bags and family? Ahsas Cab takes you from the airport to your Makkah hotel door from SAR 200 per car, with no prepayment and free cancellation. Since 2015 our Urdu, English and Arabic speaking drivers have carried pilgrims to the Haram, Madinah, Taif and the Ziyarat sites, day and night: WhatsApp {CONTACT.whatsappDisplay} for your fixed fare.
+            Landed at Jeddah tired, in Ihram, with bags and family? Ahsas Cab&apos;s taxi services in Makkah take you from the airport to your Makkah hotel door from SAR 200 per car, with no prepayment and free cancellation. Since 2015 our Urdu, English and Arabic speaking drivers have carried pilgrims to the Haram, Madinah, Taif and the Ziyarat sites, day and night: WhatsApp {CONTACT.whatsappDisplay} for your fixed fare.
           </p>
         }
         bgImage={heroImage}

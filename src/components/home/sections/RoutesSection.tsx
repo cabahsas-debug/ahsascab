@@ -36,7 +36,11 @@ const BOOKING_STEPS = [
     },
     {
         title: 'Reservation: confirm your fixed fare on WhatsApp or online',
-        text: `We reply with one fixed price and the car type in writing. Book on WhatsApp at ${CONTACT.whatsappDisplay}, by email at ${CONTACT.email} or through the form on this page. We aim to reply within 5 minutes. There is no prepayment: you pay on arrival, in cash or by card. We never ask for your card or bank details on WhatsApp.`,
+        text: `We reply with one fixed price and the car type in writing. Book on WhatsApp at ${CONTACT.whatsappDisplay}, by email at ${CONTACT.email} or through the form on this page. We aim to reply within 5 minutes.`,
+        online: {
+            title: 'Online taxi service in Makkah with no prepayment',
+            text: 'Our online taxi service in Makkah takes no prepayment: you pay on arrival, in cash or by card. We never ask for your card or bank details on WhatsApp, so booking the online taxi service in Makkah from home is safe.',
+        },
     },
     {
         title: 'Meet your driver',
@@ -67,7 +71,7 @@ export default function RoutesSection() {
             <Section id="how-to-book" tone="muted">
                 <SectionHeading
                     eyebrow="Book in 10 minutes"
-                    title="Online taxi service in Makkah in 3 steps"
+                    title="Book your Makkah taxi online in 3 steps"
                     intro="You can book from home in Lahore, London or Jakarta before you fly. Most bookings take less than ten minutes on WhatsApp."
                 />
                 <ol className="grid gap-6 md:grid-cols-3">
@@ -76,6 +80,12 @@ export default function RoutesSection() {
                             <span className="font-playfair text-5xl font-bold text-primary/30" aria-hidden>0{i + 1}</span>
                             <SubHeading>{step.title}</SubHeading>
                             <p className="leading-relaxed">{step.text}</p>
+                            {step.online && (
+                                <div className="mt-4 rounded-[12px] bg-slate-50 p-4">
+                                    <h4 className="font-bold text-secondary">{step.online.title}</h4>
+                                    <p className="mt-1 text-sm leading-relaxed">{step.online.text}</p>
+                                </div>
+                            )}
                         </li>
                     ))}
                 </ol>

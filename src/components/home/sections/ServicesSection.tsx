@@ -20,7 +20,7 @@ export default function ServicesSection() {
         <Section id="services">
             <SectionHeading
                 eyebrow="Every trip, one fixed fare"
-                title="Our taxi services in Makkah for every trip"
+                title="Our Makkah taxi services for every trip"
                 intro="We cover the rides pilgrims actually need: the airport, the train station, hotel moves, the holy sites, the Miqat, Madinah and Taif. Every booking is a private car with a fixed fare."
             />
 
@@ -76,7 +76,7 @@ export default function ServicesSection() {
                     <p>In Ramadan we put extra cars on the road after Taraweeh and around Tahajjud, when the streets near the Haram are full. During Hajj, the Transport General Authority bans carrying anyone to Makkah or the holy sites without a Hajj permit or a Makkah entry permit, until the end of 14 Dhu al Hijjah. Earlier TGA notices set fines of up to SAR 100,000 for drivers who break it. We follow this rule and ask for your permit details before any Hajj season booking.</p>
                 </ServiceCard>
 
-                <ServiceCard icon={Siren} title="Emergency taxi services in Makkah, day and night">
+                <ServiceCard icon={Siren} title="Emergency Makkah taxi services, day and night">
                     <p>
                         Finished your Umrah at 2:30 in the morning and cannot find a ride back to Aziziyah? Need to reach a pharmacy or clinic with an elderly parent? Message us on WhatsApp at{' '}
                         <a className="font-semibold text-amber-700 underline underline-offset-2" href={getWhatsAppLink('Salam Ahsas Cab, I need a taxi now. My location:')} target="_blank" rel="noopener noreferrer">

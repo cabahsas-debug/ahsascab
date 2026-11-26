@@ -159,10 +159,10 @@ export interface Faq {
 export const FAQS: Faq[] = [
     {
         question: 'Which is the best taxi service in Makkah?',
-        answer: 'It depends on your trip. For a short solo ride near the Haram, the Makkah Bus or the official metered Makkah Taxi costs the least. For families, elderly parents, airport pickups and Madinah trips, a private car booked in advance with one fixed price per vehicle, like Ahsas Cab, saves time and removes the bargaining.',
+        answer: 'The best taxi service in Makkah depends on your trip. For a short solo ride near the Haram, the Makkah Bus or the official metered Makkah Taxi costs the least. For families, elderly parents, airport pickups and Madinah trips, a private car booked in advance with one fixed price per vehicle, like Ahsas Cab, saves time and removes the bargaining.',
     },
     {
-        question: 'Which are the top taxi services in Makkah for families?',
+        question: 'Which are the top Makkah taxi services for families?',
         answer: 'Look for a fixed price per car, a vehicle chosen by your number of bags and a driver who meets you in arrivals. Read recent Google reviews, get the car type in writing and avoid unmarked drivers who approach you inside the terminal.',
     },
     {
@@ -174,11 +174,11 @@ export const FAQS: Faq[] = [
         answer: 'The Makkah Bus. One ride costs SAR 4, and the network has 12 routes and 431 stations, with stops near the Haram at Ajyad Al Masafi, Jarwal and Shaib Amir. It works well if you travel light. With big suitcases or elderly parents, a taxi is far easier.',
     },
     {
-        question: 'Can I book an online taxi service in Makkah before I arrive?',
+        question: 'Can I book a Makkah taxi online before I arrive?',
         answer: 'Yes. Send your flight number, hotel, number of people and bags on WhatsApp at +966 54 549 4921 or through our booking form. We reply with a fixed price and the car type. Booking early also helps with Nusuk, which now asks for confirmed transport before your Umrah visa is issued.',
     },
     {
-        question: 'Do you offer emergency taxi services in Makkah at night?',
+        question: 'Do you offer emergency Makkah taxi services at night?',
         answer: 'Yes. We answer 24 hours a day, including late rides after Umrah, Tahajjud or Fajr. Send your location pin on WhatsApp and we send the nearest free driver. For a medical emergency, call 997 for the Saudi Red Crescent first.',
     },
     {

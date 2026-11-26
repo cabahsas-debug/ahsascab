@@ -51,7 +51,7 @@ export default function WhyUsSection() {
                     Most pilgrims reach Makkah tired. You land after a long flight, often already in Ihram, with suitcases, children or older parents, and then the bargaining starts. Pilgrims who filmed their first days here report drivers outside the Haramain station asking 50 to 70 riyals for a hotel 8 or 9 km away, then dropping to 30 once you walk off. Local vloggers say the same about the pickup points near Misfalah and Kudai: the first price is rarely the real price.
                 </p>
                 <p>
-                    We work the other way round. You tell us your flight, your hotel and how many bags you have. We send you one price for the car before you fly, and the driver calls you as soon as you land.
+                    We run our taxi services in Makkah the other way round. You tell us your flight, your hotel and how many bags you have. We send you one price for the car before you fly, and the driver calls you as soon as you land.
                 </p>
             </div>
 

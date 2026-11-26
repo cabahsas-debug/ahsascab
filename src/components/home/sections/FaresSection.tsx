@@ -21,7 +21,7 @@ export default function FaresSection() {
         <Section id="fares" tone="muted">
             <SectionHeading
                 eyebrow="Fixed fares per car"
-                title="Taxi services in Makkah fares for 2026"
+                title="Makkah taxi services fares for 2026"
                 intro="A private taxi from Jeddah Airport to a hotel in Makkah costs SAR 200 in a Camry and SAR 250 in a 7 seat Staria or Starex with Ahsas Cab. The price is for the whole car, not for each person. It includes waiting time for late flights, help with your luggage and drop off at your hotel door."
             />
 
