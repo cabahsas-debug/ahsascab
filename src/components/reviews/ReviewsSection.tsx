@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import ReviewsCarousel from './ReviewsCarousel';
 import { Star, MessageSquarePlus, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { BUSINESS_MAP_URL } from '@/lib/contact';
 
 interface Review {
     id: string;
@@ -198,7 +199,7 @@ export default function ReviewsSection() {
                     className="text-center mt-12"
                 >
                     <a
-                        href="https://www.google.com/maps?cid=13304906274217460428"
+                        href={BUSINESS_MAP_URL}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors text-sm flex items-center justify-center gap-2"

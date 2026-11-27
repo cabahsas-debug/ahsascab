@@ -1,5 +1,5 @@
 import { getBaseUrl } from '@/lib/url-utils';
-import { getSettings } from '@/lib/settings-storage';
+import { BUSINESS_PHONE } from '@/lib/contact';
 import { constructMetadata } from '@/lib/metadata';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -81,8 +81,7 @@ const jeddahAirportFAQs = [
 ];
 
 export default async function JeddahAirportTransferPage() {
-    const settings = await getSettings();
-    const phoneNumber = settings.contact.phone;
+    const phoneNumber = BUSINESS_PHONE.display;
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}`;
 
     const content = {

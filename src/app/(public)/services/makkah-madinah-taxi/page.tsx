@@ -81,11 +81,10 @@ const makkahMadinahFAQs = [
     }
 ];
 
-import { getSettings } from '@/lib/settings-storage';
+import { BUSINESS_PHONE } from '@/lib/contact';
 
 export default async function MakkahMadinahTaxiPage() {
-    const settings = await getSettings();
-    const phoneNumber = settings.contact.phone;
+    const phoneNumber = BUSINESS_PHONE.display;
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}`;
 
     const content = {

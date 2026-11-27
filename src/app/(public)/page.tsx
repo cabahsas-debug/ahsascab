@@ -3,6 +3,7 @@ import QuickBookingForm from '@/components/home/QuickBookingForm';
 import { getSectionContent, getSectionImage } from '@/lib/content-service';
 import { constructMetadata } from '@/lib/metadata';
 import { getBaseUrl } from '@/lib/url-utils';
+import { businessSchemaId } from '@/lib/schema-server';
 import { getWhatsAppLink } from '@/lib/whatsapp';
 import { CONTACT } from '@/data/home-content';
 
@@ -18,7 +19,7 @@ import AboutSection from '@/components/home/sections/AboutSection';
 import FaqSection, { faqSchema } from '@/components/home/sections/FaqSection';
 
 const HOME_TITLE = 'Taxi Services in Makkah from SAR 200 | Ahsas Cab';
-const HOME_DESCRIPTION = 'Makkah Taxi services since 2015. Jeddah Airport to Makkah from SAR 200, Madinah and Ziyarat trips. Pay on arrival. WhatsApp +966 54 549 4921';
+const HOME_DESCRIPTION = 'Makkah Taxi services since 2015. Jeddah Airport to Makkah from SAR 200, Madinah and Ziyarat trips. Pay on arrival. WhatsApp +966 53 286 6430';
 
 export async function generateMetadata() {
   const metadata = await constructMetadata({
@@ -57,31 +58,22 @@ export default async function Home() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        "@type": "WebSite",
+        "@id": `${baseUrl}/#website`,
         "name": "Ahsas Cab",
         "url": baseUrl,
-        "logo": `${baseUrl}/ahsas-logo-v2.png`,
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+966-54-549-4921",
-          "contactType": "customer service",
-          "areaServed": "SA",
-          "availableLanguage": ["en", "ar"]
-        },
-        "sameAs": [
-          "https://www.facebook.com/ahsascab",
-          "https://www.instagram.com/ahsascab"
-        ]
+        "inLanguage": "en",
+        "publisher": { "@id": businessSchemaId(baseUrl) }
       },
       {
-        "@type": "WebSite",
-        "name": "Ahsas Cab Services",
+        "@type": "WebPage",
+        "@id": `${baseUrl}/#webpage`,
         "url": baseUrl,
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": `${baseUrl}/search?q={search_term_string}`,
-          "query-input": "required name=search_term_string"
-        }
+        "name": HOME_TITLE,
+        "description": HOME_DESCRIPTION,
+        "isPartOf": { "@id": `${baseUrl}/#website` },
+        "about": { "@id": businessSchemaId(baseUrl) },
+        "inLanguage": "en"
       }
     ]
   };

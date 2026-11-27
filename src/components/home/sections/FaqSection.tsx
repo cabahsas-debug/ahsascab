@@ -23,7 +23,7 @@ export default function FaqSection() {
                     dark
                     center
                     title="Book your Makkah taxi with Ahsas Cab"
-                    intro={`To book our taxi services in Makkah, send your flight number, hotel, number of people and bags on WhatsApp ${CONTACT.whatsappDisplay}, call ${CONTACT.phoneDisplay} or email ${CONTACT.email}. We reply with one fixed price for the car, usually within 5 minutes. You pay on arrival in cash or by card, and cancellation is free.`}
+                    intro={`To book our taxi services in Makkah, send your flight number, hotel, number of people and bags on WhatsApp or call ${CONTACT.phoneDisplay}, or email ${CONTACT.email}. We reply with one fixed price for the car, usually within 5 minutes. You pay on arrival in cash or by card, and cancellation is free.`}
                 />
                 <div className="flex flex-col justify-center gap-3 sm:flex-row">
                     <a

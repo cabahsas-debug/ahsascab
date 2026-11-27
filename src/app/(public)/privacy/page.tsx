@@ -3,6 +3,7 @@ import styles from './privacy.module.css';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
 import { getSettings } from '@/lib/settings-storage';
+import { BUSINESS_ADDRESS_LINE, BUSINESS_PHONE } from '@/lib/contact';
 import { constructMetadata } from '@/lib/metadata';
 
 export async function generateMetadata() {
@@ -16,9 +17,9 @@ export async function generateMetadata() {
 
 export default async function PrivacyPage() {
     const settings = await getSettings();
-    const phone = settings.contact.phone || '+966 54 549 4921';
+    const phone = BUSINESS_PHONE.display;
     const email = settings.contact.email || 'info@ahsascab.com';
-    const address = settings.contact.address || 'Al Aziziyah, Makkah, Saudi Arabia';
+    const address = BUSINESS_ADDRESS_LINE;
 
     return (
         <div className={styles.container}>

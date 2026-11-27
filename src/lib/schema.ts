@@ -1,4 +1,5 @@
 import { getBaseUrl } from './url-utils';
+import { BUSINESS_PHONE } from './contact';
 
 export type SchemaType = 'LocalBusiness' | 'Product' | 'BreadcrumbList' | 'FAQPage' | 'Service';
 
@@ -10,7 +11,7 @@ export const ORGANIZATION_SCHEMA = {
     "logo": "https://ahsascab.com/ahsas-logo-v2.png",
     "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+966-54-549-4921",
+        "telephone": BUSINESS_PHONE.e164,
         "contactType": "customer service",
         "areaServed": "SA",
         "availableLanguage": ["en", "ar", "ur"]

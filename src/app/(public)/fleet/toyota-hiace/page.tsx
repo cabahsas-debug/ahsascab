@@ -4,7 +4,7 @@ import Hero from '@/components/common/Hero';
 import Link from 'next/link';
 import { ArrowRight, Shield, Star, Briefcase, Users, Fuel, MapPin, Wifi } from 'lucide-react';
 import FAQSection from '@/components/services/FAQSection';
-import { getSettings } from '@/lib/settings-storage';
+import { BUSINESS_PHONE } from '@/lib/contact';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
@@ -66,8 +66,7 @@ const hiaceFAQs = [
 ];
 
 export default async function ToyotaHiacePage() {
-    const settings = await getSettings();
-    const phoneNumber = settings.contact.phone;
+    const phoneNumber = BUSINESS_PHONE.display;
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20Toyota%20Hiace%20for%20Group%20Umrah`;
 
     // Toyota Hiace ID: 692db09834f15bc89b45a5fb

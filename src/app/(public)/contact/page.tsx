@@ -1,6 +1,6 @@
 import { getBaseUrl } from '@/lib/url-utils';
 import React from 'react';
-import { Clock, ShieldCheck, Globe, Star } from 'lucide-react';
+import { Clock, ShieldCheck, Globe, Star, MapPin } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
 import ContactForm from '@/components/contact/ContactForm';
 import Hero from '@/components/common/Hero';
@@ -9,6 +9,8 @@ import GlassCard from '@/components/ui/GlassCard';
 import ContactGrid from '@/components/contact/ContactGrid';
 import { constructMetadata } from '@/lib/metadata';
 import { getSettings } from '@/lib/settings-storage';
+import { businessSchemaId } from '@/lib/schema-server';
+import { BUSINESS_ADDRESS_LINE, BUSINESS_MAP_URL, BUSINESS_PHONE } from '@/lib/contact';
 
 export async function generateMetadata() {
     return constructMetadata({
@@ -29,54 +31,19 @@ export async function generateMetadata() {
 export default async function ContactPage() {
     const settings = await getSettings();
 
-    // Fallback values
-    const phone1 = settings?.contact.phone || '+966 54 549 4921';
+    const phone1 = BUSINESS_PHONE.display;
     const email = settings?.contact.email || 'info@ahsascab.com';
-    const address = settings?.contact.address || 'Al Aziziyah, Makkah, Saudi Arabia';
+    const address = BUSINESS_ADDRESS_LINE;
 
+    const baseUrl = getBaseUrl();
     const jsonLd = {
         "@context": "https://schema.org",
-        "@type": "TransportationService",
-        "name": "Ahsas Alrihlat",
-        "alternateName": "احساس الرحلات",
-        "image": `${getBaseUrl()}/images/logo.png`,
-        "@id": `${getBaseUrl()}`,
-        "url": `${getBaseUrl()}`,
-        "telephone": phone1,
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Al Aziziyah",
-            "addressLocality": "Makkah",
-            "addressRegion": "Makkah Region",
-            "postalCode": "24243",
-            "addressCountry": "SA"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 21.4478336,
-            "longitude": 39.8126588
-        },
-        "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-                "Sunday"
-            ],
-            "opens": "00:00",
-            "closes": "23:59"
-        },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": phone1,
-            "contactType": "customer service",
-            "areaServed": "SA",
-            "availableLanguage": ["en", "ar", "ur"]
-        }
+        "@type": "ContactPage",
+        "@id": `${baseUrl}/contact#webpage`,
+        "url": `${baseUrl}/contact`,
+        "name": "Contact Ahsas Cab",
+        "about": { "@id": businessSchemaId(baseUrl) },
+        "mainEntity": { "@id": businessSchemaId(baseUrl) }
     };
 
     return (
@@ -122,18 +89,26 @@ export default async function ContactPage() {
                             address
                         }} />
 
-                        {/* Map Placeholder */}
+                        {/* Location */}
                         <FadeIn direction="up" delay={0.4}>
-                            <GlassCard className="p-0 overflow-hidden min-h-[400px] relative flex items-center justify-center bg-white border border-gold/20 shadow-lg" id="map">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3713.526883410923!2d39.8126588!3d21.447833599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c21d9da1e4d599%3A0xb8a485c3949902cc!2sAl%20Aqsa%20Umrah%20Transport!5e0!3m2!1sen!2s"
-                                    width="100%"
-                                    height="100%"
-                                    loading="lazy"
-                                    className="w-full h-full min-h-[400px] border-0 grayscale hover:grayscale-0 transition-all duration-700"
-                                    title="Ahsas Alrihlat Map"
-                                    allowFullScreen
-                                />
+                            <GlassCard className="p-6 bg-white border border-gold/20 shadow-lg" id="map">
+                                <div className="flex items-start gap-4">
+                                    <div className="p-3 bg-secondary/10 rounded-xl text-secondary">
+                                        <MapPin size={24} strokeWidth={1.5} aria-hidden />
+                                    </div>
+                                    <div className="flex-1">
+                                        <h3 className="font-bold text-lg text-navy mb-1 font-playfair">Our location in Makkah</h3>
+                                        <p className="text-slate-600 text-sm mb-4">{address}</p>
+                                        <a
+                                            href={BUSINESS_MAP_URL}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 rounded-xl bg-secondary px-5 py-3 text-sm font-bold text-white hover:bg-secondary/90 transition-colors"
+                                        >
+                                            Open in Google Maps
+                                        </a>
+                                    </div>
+                                </div>
                             </GlassCard>
                         </FadeIn>
                     </div>

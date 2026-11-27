@@ -1,4 +1,6 @@
-export const WHATSAPP_NUMBER = '966545494921';
+import { BUSINESS_PHONE } from './contact';
+
+export const WHATSAPP_NUMBER = BUSINESS_PHONE.digits;
 
 export const getWhatsAppLink = (message: string = ''): string => {
     const encodedMessage = encodeURIComponent(message);
