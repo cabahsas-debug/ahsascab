@@ -4,6 +4,7 @@ import React from 'react';
 import { Mail, MapPin, Phone, MessageCircle } from 'lucide-react';
 import GlassCard from '@/components/ui/GlassCard';
 import { trackConversion } from '@/lib/analytics';
+import { BUSINESS_MAP_URL } from '@/lib/contact';
 import FadeIn from '@/components/common/FadeIn';
 
 interface ContactGridProps {
@@ -51,7 +52,7 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
             title: "Visit Our Office (موقعنا)",
             value: address,
             sub: "Open Daily: 9 AM - 10 PM",
-            action: "#map",
+            action: BUSINESS_MAP_URL,
             btnText: "View Location",
             type: 'other'
         }

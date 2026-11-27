@@ -18,6 +18,7 @@ interface Message {
 }
 
 import { useMobileMenu } from '@/context/MobileMenuContext';
+import { BUSINESS_PHONE } from '@/lib/contact';
 
 interface AIChatBoxProps {
     contactPhone?: string;
@@ -133,10 +134,10 @@ export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps
                 action: { label: "Book Now", url: "/booking" }
             },
             contact: {
-                text: `You can reach us 24/7 via WhatsApp at ${contactPhone || '+966 54 549 4921'} or email us at ${contactEmail || 'cabahsas@gmail.com'}.`,
+                text: `You can reach us 24/7 via WhatsApp at ${contactPhone || BUSINESS_PHONE.display} or email us at ${contactEmail || 'cabahsas@gmail.com'}.`,
                 action: {
                     label: "WhatsApp Us",
-                    url: `https://wa.me/${(contactPhone || '+966 54 549 4921').replace(/\D/g, '')}`
+                    url: `https://wa.me/${(contactPhone || BUSINESS_PHONE.display).replace(/\D/g, '')}`
                 }
             },
             vehicle: {

@@ -1,13 +1,16 @@
+import { BUSINESS_ADDRESS, BUSINESS_ADDRESS_LINE, BUSINESS_EMAIL, BUSINESS_MAP_URL, BUSINESS_PHONE } from '@/lib/contact';
+
 // Homepage content for the Makkah taxi landing page.
 // Fares are per vehicle in SAR. Update PRICES_UPDATED whenever the fare table changes.
 
 export const CONTACT = {
-    whatsappDisplay: '+966 54 549 4921',
-    phoneDisplay: '+966 53 286 6430',
-    phoneHref: 'tel:+966532866430',
-    email: 'cabahsas@gmail.com',
-    address: 'Ibn Abi Al Mukhtar, Al Jamiah, Makkah 24352',
-    plusCode: '9VVF+6G',
+    whatsappDisplay: BUSINESS_PHONE.display,
+    phoneDisplay: BUSINESS_PHONE.display,
+    phoneHref: BUSINESS_PHONE.href,
+    email: BUSINESS_EMAIL,
+    address: BUSINESS_ADDRESS_LINE,
+    plusCode: BUSINESS_ADDRESS.plusCode,
+    mapUrl: BUSINESS_MAP_URL,
     officeHours: 'Daily 9 AM to 10 PM',
 } as const;
 
@@ -175,7 +178,7 @@ export const FAQS: Faq[] = [
     },
     {
         question: 'Can I book a Makkah taxi online before I arrive?',
-        answer: 'Yes. Send your flight number, hotel, number of people and bags on WhatsApp at +966 54 549 4921 or through our booking form. We reply with a fixed price and the car type. Booking early also helps with Nusuk, which now asks for confirmed transport before your Umrah visa is issued.',
+        answer: 'Yes. Send your flight number, hotel, number of people and bags on WhatsApp at ' + BUSINESS_PHONE.display + ' or through our booking form. We reply with a fixed price and the car type. Booking early also helps with Nusuk, which now asks for confirmed transport before your Umrah visa is issued.',
     },
     {
         question: 'Do you offer emergency Makkah taxi services at night?',

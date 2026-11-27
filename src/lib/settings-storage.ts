@@ -16,7 +16,7 @@ const DEFAULT_SETTINGS: Settings = {
     },
     contact: {
         email: 'cabahsas@gmail.com',
-        phone: '+966 54 549 4921',
+        phone: '+966 53 286 6430',
         phone2: '',
         address: 'Makkah, Saudi Arabia',
         social: {

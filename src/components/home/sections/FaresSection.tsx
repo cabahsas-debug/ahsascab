@@ -51,9 +51,9 @@ export default function FaresSection() {
                     Prices updated: {PRICES_UPDATED}. All fares are per vehicle, in Saudi riyals. Hourly hire inside Makkah starts at SAR 70 per hour.
                 </p>
                 <p className="font-semibold text-secondary">
-                    Book your fixed fare:{' '}
+                    Book your fixed fare on{' '}
                     <a className="text-amber-700 underline underline-offset-2" href={getWhatsAppLink('Salam Ahsas Cab, I would like a fixed fare.')} target="_blank" rel="noopener noreferrer">
-                        WhatsApp {CONTACT.whatsappDisplay}
+                        WhatsApp
                     </a>{' '}
                     or call{' '}
                     <a className="text-amber-700 underline underline-offset-2" href={CONTACT.phoneHref}>{CONTACT.phoneDisplay}</a>. No prepayment, and cancellation is free.

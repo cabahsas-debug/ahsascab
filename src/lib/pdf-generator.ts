@@ -1,11 +1,12 @@
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import { BUSINESS_PHONE } from './contact';
 
 // Define font and styling constants
 const COMPANY_NAME = "Ahsas Alrihlat";
 const COMPANY_ISLAMIC_NAME = "احساس الرحلات";
 const COMPANY_ADDRESS = "Makkah Al Mukarramah, Saudi Arabia";
-const COMPANY_PHONE = "+966 50 123 4567";
+const COMPANY_PHONE = BUSINESS_PHONE.display;
 const COMPANY_EMAIL = "cabahsas@gmail.com";
 const PRIMARY_COLOR = "#0F172A"; // Navy (slate-900)
 

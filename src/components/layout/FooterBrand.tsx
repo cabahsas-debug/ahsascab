@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Linkedin, MapPin, Phone } from 'lucide-react';
+import { BUSINESS_ADDRESS_LINE, BUSINESS_MAP_URL, BUSINESS_PHONE } from '@/lib/contact';
 import { Settings } from '@/lib/validations';
 
 interface FooterBrandProps {
@@ -39,7 +40,7 @@ export default function FooterBrand({ general, contact }: FooterBrandProps) {
 
             <div className="space-y-4">
                 <a
-                    href={`https://wa.me/${(contact.phone || '').replace(/\D/g, '')}`}
+                    href={`https://wa.me/${BUSINESS_PHONE.digits}`}
                     target="_blank"
                     rel="noreferrer"
                     className="flex items-center gap-3 w-full p-4 rounded-xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-300 group"
@@ -49,8 +50,26 @@ export default function FooterBrand({ general, contact }: FooterBrandProps) {
                     </div>
                     <div>
                         <p className="text-xs text-white/60 uppercase tracking-wide font-bold">Book via WhatsApp</p>
-                        <p className="text-white font-bold group-hover:text-primary transition-colors">{contact.phone || '+966 54 549 4921'}</p>
+                        <p className="text-white font-bold group-hover:text-primary transition-colors">{BUSINESS_PHONE.display}</p>
                     </div>
+                </a>
+
+                <a
+                    href={BUSINESS_PHONE.href}
+                    className="flex items-center gap-2 text-sm text-white/70 hover:text-primary transition-colors"
+                >
+                    <Phone size={16} className="shrink-0 text-primary" aria-hidden />
+                    <span>Call {BUSINESS_PHONE.display}</span>
+                </a>
+
+                <a
+                    href={BUSINESS_MAP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-2 text-sm text-white/70 hover:text-primary transition-colors"
+                >
+                    <MapPin size={16} className="mt-0.5 shrink-0 text-primary" aria-hidden />
+                    <span>{BUSINESS_ADDRESS_LINE} <span className="underline underline-offset-2">View on Google Maps</span></span>
                 </a>
 
                 <div className="flex gap-4">

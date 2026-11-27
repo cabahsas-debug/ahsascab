@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, MapPin, Clock, Camera, Heart, BookOpen } from 'lucide-react';
 import FAQSection from '@/components/services/FAQSection';
-import { getSettings } from '@/lib/settings-storage';
+import { BUSINESS_PHONE } from '@/lib/contact';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import ExpandedZiyaratSEO from '@/components/services/ExpandedZiyaratSEO';
 
@@ -99,8 +99,7 @@ const ziyaratFAQs = [
 ];
 
 export default async function ZiyaratToursPage() {
-    const settings = await getSettings();
-    const phoneNumber = settings.contact.phone;
+    const phoneNumber = BUSINESS_PHONE.display;
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20a%20Ziyarat%20Tour`;
 
     return (

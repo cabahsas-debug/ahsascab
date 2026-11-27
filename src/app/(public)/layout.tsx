@@ -6,6 +6,7 @@ import TopBar from "@/components/layout/TopBar";
 import AnnouncementBanner from "@/components/ui/AnnouncementBanner";
 import GlobalClientComponents from "@/components/common/GlobalClientComponents";
 import { getSettings } from "@/lib/settings-storage";
+import { BUSINESS_PHONE } from "@/lib/contact";
 import ClientLayoutWrapper from "@/components/layout/ClientLayoutWrapper";
 import UmrahPWA from "@/components/common/UmrahPWA";
 
@@ -56,7 +57,7 @@ export default async function UmrahLayout({
 
             <ClientLayoutWrapper>
                 <Footer />
-                <GlobalClientComponents contactSettings={settings.contact} />
+                <GlobalClientComponents contactSettings={{ ...settings.contact, phone: BUSINESS_PHONE.display }} />
             </ClientLayoutWrapper>
         </>
     );

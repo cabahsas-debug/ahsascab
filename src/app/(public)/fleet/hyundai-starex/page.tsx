@@ -4,7 +4,7 @@ import Hero from '@/components/common/Hero';
 import Link from 'next/link';
 import { ArrowRight, Shield, Star, Briefcase, Users, Wifi, LayoutGrid } from 'lucide-react';
 import FAQSection from '@/components/services/FAQSection';
-import { getSettings } from '@/lib/settings-storage';
+import { BUSINESS_PHONE } from '@/lib/contact';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
@@ -57,8 +57,7 @@ const starexFAQs = [
 ];
 
 export default async function HyundaiStarexPage() {
-    const settings = await getSettings();
-    const phoneNumber = settings.contact.phone;
+    const phoneNumber = BUSINESS_PHONE.display;
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20Hyundai%20H1%20Starex%20for%20Umrah`;
 
     // Hyundai Starex ID: 692db09834f15bc89b45a5fa
