@@ -1,6 +1,19 @@
 import dbConnect from '@/lib/mongodb';
 import { BlogPost, type IBlogPost } from '@/models';
 import { staticBlogPosts } from '@/data/blog-posts';
+import { replaceLegacyPhones } from '@/lib/contact';
+
+const TEXT_FIELDS = ['title', 'excerpt', 'content', 'metaTitle', 'metaDescription'] as const;
+
+// Posts written in the CMS may still quote old business numbers; always show the current one.
+function withCurrentPhone<T extends object>(post: T): T {
+    const out = { ...post } as Record<string, unknown>;
+    for (const field of TEXT_FIELDS) {
+        const value = out[field];
+        if (typeof value === 'string') out[field] = replaceLegacyPhones(value);
+    }
+    return out as T;
+}
 
 // Public reads fall back to the bundled static posts when the DB is unreachable,
 // so blog pages, the sitemap and the build don't fail with it.
@@ -29,7 +42,7 @@ export const blogService = {
         const dbPosts = await findDbPosts();
 
         // Map DB posts to standard format
-        const mappedDbPosts = dbPosts.map(post => ({
+        const mappedDbPosts = dbPosts.map(post => withCurrentPhone({
             ...post,
             id: post.slug,
             date: post.date,
@@ -59,13 +72,13 @@ export const blogService = {
         const post = await findDbPostBySlug(slug);
 
         if (post) {
-            return {
+            return withCurrentPhone({
                 ...post,
                 id: post.slug,
                 date: post.date,
                 createdAt: post.createdAt,
                 updatedAt: post.updatedAt,
-            };
+            });
         }
 
         // Check static posts if not found in DB
