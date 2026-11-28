@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Umrah Transport Routes Network | Ahsas Alrihlat",
         description: "Connect seamlessly between Holy Cities. VIP Jeddah to Makkah, Makkah to Madinah. تنقل بسهولة بين المدن المقدسة.",
-        images: [{ url: '/images/routes/routes-network-hero.png', width: 1200, height: 630, alt: 'Saudi Arabia Transport Network Map' }]
+        images: [{ url: '/images/routes/makkah-madinah-route-hero.png', width: 1200, height: 630, alt: 'Saudi Arabia Transport Network Map' }]
     }
 };
 
@@ -55,7 +55,7 @@ const jsonLd = {
             "@type": "ListItem",
             "position": 4,
             "name": "Makkah to Jeddah Airport",
-            "url": `${getBaseUrl()}/services/makkah-jeddah-taxi`
+            "url": `${getBaseUrl()}/routes/makkah-to-jeddah-airport`
         }
     ]
 };
@@ -143,7 +143,7 @@ export default function RoutesPage() {
             <Hero
                 title="Our Transport Network"
                 subtitle="Connecting the Holy Cities with comfort. Your journey of faith deserves the best path. شبكة مواصلات شاملة لخدمة ضيوف الرحمن."
-                bgImage="/images/routes/routes-network-hero.png"
+                bgImage="/images/routes/makkah-madinah-route-hero.png"
                 breadcrumbs={<Breadcrumbs />}
             />
 

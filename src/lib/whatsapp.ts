@@ -4,7 +4,7 @@ export const WHATSAPP_NUMBER = BUSINESS_PHONE.digits;
 
 export const getWhatsAppLink = (message: string = ''): string => {
     const encodedMessage = encodeURIComponent(message);
-    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+    return `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodedMessage}`;
 };
 
 export const createBookingMessage = (details: {

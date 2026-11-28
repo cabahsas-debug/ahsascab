@@ -100,7 +100,7 @@ export default function ExpandedZiyaratSEO() {
                     <p className="text-slate-300 mb-8 max-w-2xl mx-auto relative z-10">
                         Historical Ziyarat should not be rushed. By booking a private vehicle like the <Link href="/fleet/gmc-yukon-at4" className="text-amber-400 hover:underline text-sm ml-1">GMC Yukon</Link>, you control the pace. Stop for photos, make Dua at length, and return to your hotel comfortably.
                     </p>
-                    <Link href="/booking?service=ziyarat" className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 px-8 py-4 rounded-full font-bold transition-all shadow-lg hover:shadow-amber-500/40 relative z-10">
+                    <Link href="/booking" className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 px-8 py-4 rounded-full font-bold transition-all shadow-lg hover:shadow-amber-500/40 relative z-10">
                         Schedule Your Private Ziyarat <MapPin className="w-5 h-5" />
                     </Link>
                 </div>

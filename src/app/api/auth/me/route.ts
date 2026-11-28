@@ -14,7 +14,7 @@ export async function GET() {
             email: user.email,
             role: user.role,
             isOnline: user.isOnline || false,
-            photo: (user as any).photo || '/logo.png' // Helpful for dashboard avatar
+            photo: (user as any).photo || '/ahsas-logo-v2.png' // Helpful for dashboard avatar
         }
     });
 }

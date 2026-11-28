@@ -39,7 +39,7 @@ export default async function AboutPage() {
     const section = await getSectionContent('about-hero');
     const title = section?.title || "About Ahsas Cab";
     const subtitle = section?.subtitle || "Serving Guests of Allah with VIP Transport & Reliable Airport Transfers";
-    const bgImage = getSectionImage(section, 'desktop') || "https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?q=80&w=2000&auto=format&fit=crop";
+    const bgImage = getSectionImage(section, 'desktop') || "/images/blog/makkah-haram-view-new.png";
 
     const jsonLd = {
         "@context": "https://schema.org",

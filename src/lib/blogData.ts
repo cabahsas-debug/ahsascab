@@ -128,7 +128,7 @@ export const blogPosts: BlogPost[] = [
         category: "Travel Guide",
         date: "Dec 30, 2024",
         readTime: "6 min read",
-        image: "/images/fleet/gmc-yukon-hero-professional.png",
+        image: "/images/fleet/gmc-yukon-hero.png",
         alt: "Private GMC Yukon Taxi vs Haramain Train for Umrah Transport",
         author: "Ahsas Team",
         tags: ["Haramain Train", "Private Taxi", "Makkah Transport", "Family Travel"]

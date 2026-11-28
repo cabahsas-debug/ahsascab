@@ -162,7 +162,7 @@ export default async function IntercityTransferPage() {
             <Hero
                 title="Premium Intercity Travel"
                 subtitle="Journey between the Holy Cities via our interactive premium network. Explore routes and book your VIP transfer instantly."
-                bgImage="/images/routes/routes-network-hero.png"
+                bgImage="/images/routes/makkah-madinah-route-hero.png"
                 ctaText="Start Exploring"
                 ctaLink="#interactive-map"
                 backgroundChildren={<AnimatedMapBackground />}

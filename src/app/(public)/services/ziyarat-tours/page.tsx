@@ -99,8 +99,7 @@ const ziyaratFAQs = [
 ];
 
 export default async function ZiyaratToursPage() {
-    const phoneNumber = BUSINESS_PHONE.display;
-    const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20a%20Ziyarat%20Tour`;
+    const whatsappLink = `https://api.whatsapp.com/send?phone=${BUSINESS_PHONE.digits}&text=I%20am%20interested%20in%20booking%20a%20Ziyarat%20Tour`;
 
     return (
         <main className="overflow-x-hidden">
@@ -151,7 +150,7 @@ export default async function ZiyaratToursPage() {
                         </div>
                         <div className="md:w-1/2 relative h-[500px] rounded-2xl overflow-hidden shadow-2xl group">
                             <Image
-                                src="https://images.unsplash.com/photo-1537181534458-7dc2614c9546?q=60&w=600&auto=format&fit=crop"
+                                src="/images/routes/makkah-ziyarat-hero.png"
                                 alt="Jabal Al-Nour (Cave of Hira) Mountain View Makkah"
                                 fill
                                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -197,7 +196,7 @@ export default async function ZiyaratToursPage() {
                         </div>
                         <div className="md:w-1/2 relative h-[500px] rounded-2xl overflow-hidden shadow-2xl group">
                             <Image
-                                src="https://images.unsplash.com/photo-1551041777-ed02bed74fc4?q=60&w=600&auto=format&fit=crop"
+                                src="/images/blog/madinah-ziyarat-places.png"
                                 alt="Masjid Quba Madinah First Mosque in Islam Exterior"
                                 fill
                                 sizes="(max-width: 768px) 100vw, 50vw"

@@ -60,7 +60,7 @@ const TopBar = async () => {
                                     key={index}
                                     href={social.href}
                                     target="_blank"
-                                    rel="noreferrer"
+                                    rel="noopener noreferrer"
                                     aria-label={social.label}
                                     className="w-7 h-7 flex items-center justify-center rounded-full bg-primary/5 text-muted-foreground hover:bg-primary hover:text-background hover:-translate-y-0.5 transition-all duration-300"
                                 >

@@ -27,7 +27,7 @@ export default function HotelTransferPage() {
             <Hero
                 title="Premium Hotel Transfers"
                 subtitle="Seamless door-to-door transport between your hotel and the Holy Mosques in Makkah & Madinah."
-                bgImage="/images/services/hotel-transfer-real.jpg"
+                bgImage="/images/services/hotel-transfers-v2.png"
                 ctaText="Book Your Ride"
                 ctaLink="/booking"
                 layout="center"

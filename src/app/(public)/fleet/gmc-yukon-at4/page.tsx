@@ -24,7 +24,7 @@ const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": vehicleData?.seo?.title || "GMC Yukon XL 2024 Rental Makkah",
-    "image": `${getBaseUrl()}/images/fleet/gmc-yukon-hero-professional.png`,
+    "image": `${getBaseUrl()}/images/fleet/gmc-yukon-hero.png`,
     "description": vehicleData?.seo?.description || "Rent luxury GMC Yukon XL in Makkah & Madinah. 7 Seater SUV for VIP Umrah transport.",
     "brand": {
         "@type": "Brand",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "GMC Yukon Rental Makkah | VIP Umrah Taxi Cost",
         description: "Book new GMC Yukon XL in Makkah. Luxury 7-seater SUV for Jeddah Airport pickup and Makkah to Madinah travel. VIP private chauffeur.",
-        images: [{ url: '/images/fleet/gmc-yukon-hero-professional.png', width: 1200, height: 630, alt: 'GMC Yukon XL VIP Transport' }]
+        images: [{ url: '/images/fleet/gmc-yukon-hero.png', width: 1200, height: 630, alt: 'GMC Yukon XL VIP Transport' }]
     }
 };
 
@@ -78,12 +78,11 @@ const gmcFAQs = [
 ];
 
 export default async function GmcYukonPage() {
-    const phoneNumber = BUSINESS_PHONE.display;
-    const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20GMC%20Yukon%20for%20Umrah`;
+    const whatsappLink = `https://api.whatsapp.com/send?phone=${BUSINESS_PHONE.digits}&text=I%20am%20interested%20in%20booking%20GMC%20Yukon%20for%20Umrah`;
 
     // GMC Yukon ID: 692db09834f15bc89b45a5f8
     const gmcId = '692db09834f15bc89b45a5f8';
-    const gmcImage = '/images/fleet/gmc-yukon-hero-professional.png';
+    const gmcImage = '/images/fleet/gmc-yukon-hero.png';
 
     return (
         <main className="overflow-x-hidden">
@@ -116,7 +115,7 @@ export default async function GmcYukonPage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
                             <FleetFeatureImage
-                                src="/images/fleet/gmc-yukon-feature.png"
+                                src="/images/fleet/gmc-yukon-hero.png"
                                 alt="GMC Yukon Denali XL"
                                 fallbackSrc={gmcImage}
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
@@ -204,7 +203,6 @@ export default async function GmcYukonPage() {
 
             {/* 360 Interior Preview (Placeholder) */}
             <section className="py-16 bg-slate-900 text-white overflow-hidden relative">
-                <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
                 <div className="container mx-auto px-4 text-center relative z-10">
                     <span className="text-amber-500 font-bold tracking-widest uppercase text-sm mb-4 block">Experience the Luxury</span>
                     <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8">Step Inside</h2>

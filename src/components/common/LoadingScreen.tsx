@@ -37,7 +37,7 @@ export default function LoadingScreen() {
                     {/* Logo */}
                     <div className={styles.logoImage}>
                         <Image
-                            src="/logo.png"
+                            src="/ahsas-logo-v2.png"
                             alt="Ahsas Cab"
                             fill
                             className="object-contain"

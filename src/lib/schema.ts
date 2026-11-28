@@ -1,5 +1,6 @@
 import { getBaseUrl } from './url-utils';
 import { BUSINESS_PHONE } from './contact';
+import { getRouteImage } from './route-images';
 
 export type SchemaType = 'LocalBusiness' | 'Product' | 'BreadcrumbList' | 'FAQPage' | 'Service';
 
@@ -36,7 +37,7 @@ export function generateProductSchema(route: {
         "@type": "Product",
         "name": route.name,
         "description": route.description,
-        "image": route.image || `${getBaseUrl()}/images/routes/${route.slug}.jpg`,
+        "image": route.image || `${getBaseUrl()}${getRouteImage(route.slug)}`,
         "sku": `ROUTE-${route.slug.toUpperCase()}`,
         "brand": {
             "@type": "Brand",

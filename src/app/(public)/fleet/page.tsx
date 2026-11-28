@@ -38,7 +38,7 @@ export default async function FleetPage() {
 
     const title = section?.title || "Our Premium Fleet";
     const subtitle = section?.subtitle || "Experience luxury and comfort with our diverse range of vehicles, tailored for your spiritual journey.";
-    const bgImage = getSectionImage(section, 'desktop') || "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2000&auto=format&fit=crop";
+    const bgImage = getSectionImage(section, 'desktop') || "/images/fleet/intercity-hero.png";
     const badge = getCustomField(section, 'badge_text') || "Premium Collection 2025";
 
     return (

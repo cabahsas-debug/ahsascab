@@ -13,7 +13,7 @@ export const resources: Resource[] = [
         id: 'umrah-guide-2026',
         title: 'Ultimate Umrah Guide 2026',
         description: 'A comprehensive step-by-step guide to performing Umrah, including rituals, duas, and practical travel tips for a spiritual journey.',
-        image: '/images/blog-hero-professional.png', // Placeholder
+        image: '/images/blog/makkah-haram-view-new.png', // Placeholder
         category: 'Guide',
         downloadUrl: '/downloads/umrah-guide-2026.pdf',
         fileSize: '2.4 MB'
@@ -40,7 +40,7 @@ export const resources: Resource[] = [
         id: 'makkah-transport-map',
         title: 'Makkah Transport Map',
         description: 'Detailed map of Makkah showing key transport hubs, Haram boundaries, and hotel zones to help you navigate the city.',
-        image: '/images/services/makkah-madinah-taxi-v2.png', // Placeholder
+        image: '/images/routes/makkah-madinah-route-hero.png', // Placeholder
         category: 'Map',
         downloadUrl: '/downloads/makkah-map.pdf',
         fileSize: '3.5 MB'
@@ -49,7 +49,7 @@ export const resources: Resource[] = [
         id: 'dua-book-pdf',
         title: 'Essential Duas for Umrah',
         description: 'A pocket-friendly collection of authentic Duas for every stage of your Umrah, transliterated and translated.',
-        image: '/images/services/ziyarat-tours-v2.png', // Placeholder
+        image: '/images/routes/makkah-ziyarat-hero.png', // Placeholder
         category: 'Guide',
         downloadUrl: '/downloads/dua-book.pdf',
         fileSize: '1.5 MB'

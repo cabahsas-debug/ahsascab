@@ -14,11 +14,11 @@ export default function Footer() {
     const { contact, general } = settings;
 
     const popularRoutes = [
-        { label: "Jeddah Airport to Makkah", href: "/services/jeddah-makkah-taxi" },
+        { label: "Jeddah Airport to Makkah", href: "/routes/jeddah-airport-to-makkah" },
         { label: "Makkah to Madinah Taxi", href: "/services/makkah-madinah-taxi" },
         { label: "Madinah Airport to Hotel", href: "/services/madinah-airport-transfer" },
-        { label: "Jeddah to Madinah", href: "/services/jeddah-madinah-taxi" },
-        { label: "Makkah to Jeddah Airport", href: "/services/makkah-jeddah-taxi" },
+        { label: "Jeddah to Madinah", href: "/routes/jeddah-airport-to-madinah" },
+        { label: "Makkah to Jeddah Airport", href: "/routes/makkah-to-jeddah-airport" },
     ];
 
     const religiousSites = [

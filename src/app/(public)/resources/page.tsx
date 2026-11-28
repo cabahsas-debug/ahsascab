@@ -22,7 +22,7 @@ export default function ResourcesPage() {
             <Hero
                 title="Pilgrim Resources"
                 subtitle="Curated guides and checklists to support your spiritual journey."
-                bgImage="/images/blog-hero-professional.png" // Placeholder
+                bgImage="/images/blog/makkah-haram-view-new.png" // Placeholder
                 breadcrumbs={<Breadcrumbs />}
             />
 
@@ -55,7 +55,6 @@ export default function ResourcesPage() {
 
             {/* Newsletter / CTA Section */}
             <section className="py-24 bg-navy relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/images/pattern-overlay.png')] opacity-10 mix-blend-overlay"></div>
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold/10 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2"></div>
 
                 <div className="container mx-auto px-4 relative z-10 text-center">

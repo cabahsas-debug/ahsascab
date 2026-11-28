@@ -54,7 +54,7 @@ export async function constructMetadata({
 
     // Resolve Image: Ensure absolute URL
     // If image starts with http, use it. If /, append base. If neither, assume relative to base.
-    let finalImage = image || getSettingsImage(settings) || '/images/og-default.jpg';
+    let finalImage = image || getSettingsImage(settings) || '/images/blog/makkah-haram-view-new.png';
     if (finalImage.startsWith('/')) {
         finalImage = `${baseUrl}${finalImage}`;
     }

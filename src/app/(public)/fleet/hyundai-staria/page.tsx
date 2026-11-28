@@ -24,7 +24,7 @@ const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": vehicleData?.seo?.title || "Hyundai Staria 2024 Luxury Van",
-    "image": `${getBaseUrl()}/images/fleet/staria-hero-professional.png`,
+    "image": `${getBaseUrl()}/images/fleet/staria.png`,
     "description": vehicleData?.seo?.description || "Rent premium Hyundai Staria 2024 in Makkah. Luxury 7-seater van with panoramic views for VIP families.",
     "brand": { "@type": "Brand", "name": "Hyundai" },
     "offers": { "@type": "Offer", "price": "450", "priceCurrency": "SAR", "availability": "https://schema.org/InStock" }
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Hyundai Staria Rental Saudi Arabia | Family Umrah Taxi",
         description: "Rent Hyundai Staria 2025 in Makkah. Spacious 7-passenger luxury van for Umrah families. Modern comfort for Jeddah to Madinah trips.",
-        images: [{ url: '/images/fleet/staria-hero-professional.png', width: 1200, height: 630, alt: 'Hyundai Staria VIP Van' }]
+        images: [{ url: '/images/fleet/staria.png', width: 1200, height: 630, alt: 'Hyundai Staria VIP Van' }]
     }
 };
 
@@ -67,12 +67,11 @@ const stariaFAQs = [
 ];
 
 export default async function HyundaiStariaPage() {
-    const phoneNumber = BUSINESS_PHONE.display;
-    const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20Hyundai%20Staria%20for%20Umrah`;
+    const whatsappLink = `https://api.whatsapp.com/send?phone=${BUSINESS_PHONE.digits}&text=I%20am%20interested%20in%20booking%20Hyundai%20Staria%20for%20Umrah`;
 
     // Hyundai Staria ID: 692db09834f15bc89b45a5f9
     const stariaId = '692db09834f15bc89b45a5f9';
-    const stariaImage = '/images/fleet/staria-hero-professional.png';
+    const stariaImage = '/images/fleet/staria.png';
 
     return (
         <main className="overflow-x-hidden">
@@ -102,7 +101,7 @@ export default async function HyundaiStariaPage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
                             <FleetFeatureImage
-                                src="/images/fleet/staria-feature.png"
+                                src="/images/fleet/staria.png"
                                 alt="Hyundai Staria Exterior"
                                 fallbackSrc={stariaImage}
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
@@ -190,7 +189,6 @@ export default async function HyundaiStariaPage() {
 
             {/* 360 Interior Preview (Placeholder) */}
             <section className="py-16 bg-slate-900 text-white overflow-hidden relative">
-                <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
                 <div className="container mx-auto px-4 text-center relative z-10">
                     <span className="text-blue-500 font-bold tracking-widest uppercase text-sm mb-4 block">Future of Travel</span>
                     <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8">Step Inside</h2>

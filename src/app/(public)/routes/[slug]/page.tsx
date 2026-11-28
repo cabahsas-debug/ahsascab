@@ -10,6 +10,7 @@ import { ArrowRight, Clock, MapPin, CheckCircle, Car } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
 import { constructMetadata } from '@/lib/metadata';
 import { generateProductSchema } from '@/lib/schema';
+import { getRouteImage } from '@/lib/route-images';
 import RouteSEOContent from '@/components/routes/RouteSEOContent';
 
 // Generate static params for all routes in pricing.json
@@ -43,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: route.seo.description,
         keywords: route.seo.keywords,
         canonicalUrl: `/routes/${slug}`,
-        image: `/images/routes/${slug}.jpg`,
+        image: getRouteImage(slug),
         type: 'website'
     });
 }
@@ -65,7 +66,7 @@ export default async function RouteDetail({ params }: Props) {
         description: route.seo?.description || route.name,
         baseRate: startingPrice,
         slug: slug,
-        image: `/images/routes/${slug}.jpg`
+        image: getRouteImage(slug)
     });
 
     const breadcrumbSchema = {
@@ -115,7 +116,7 @@ export default async function RouteDetail({ params }: Props) {
                 breadcrumbs={<Breadcrumbs />}
                 layout="center"
                 ctaText="Book This Route"
-                ctaLink={`/booking?route=${route.id}`}
+                ctaLink={`/booking?routeId=${route.id}`}
             />
 
             {/* Route Info Cards */}
@@ -195,7 +196,7 @@ export default async function RouteDetail({ params }: Props) {
                                                     <span className="text-xl font-bold text-amber-600">{price} SAR</span>
                                                 </div>
                                                 <Link
-                                                    href={`/booking?route=${route.id}&vehicle=${vehicle.id}`}
+                                                    href={`/booking?routeId=${route.id}&vehicle=${vehicle.id}`}
                                                     className="bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 px-4 py-2 rounded-lg text-sm font-bold transition-colors flex items-center gap-2"
                                                 >
                                                     Book Now <ArrowRight size={16} />

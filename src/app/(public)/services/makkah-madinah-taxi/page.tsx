@@ -19,7 +19,7 @@ const jsonLd = {
     "provider": {
         "@type": "LocalBusiness",
         "name": "Ahsas Alrihlat",
-        "image": `${getBaseUrl()}/logo.png`
+        "image": `${getBaseUrl()}/ahsas-logo-v2.png`
     },
     "serviceType": "Intercity Transfer",
     "areaServed": {
@@ -84,8 +84,7 @@ const makkahMadinahFAQs = [
 import { BUSINESS_PHONE } from '@/lib/contact';
 
 export default async function MakkahMadinahTaxiPage() {
-    const phoneNumber = BUSINESS_PHONE.display;
-    const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}`;
+    const whatsappLink = `https://api.whatsapp.com/send?phone=${BUSINESS_PHONE.digits}`;
 
     const content = {
         title: "VIP Makkah to Madinah Taxi Services",

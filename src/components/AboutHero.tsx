@@ -7,7 +7,7 @@ export default function AboutHero() {
             <div
                 className="absolute inset-0 bg-cover bg-center z-0"
                 style={{
-                    backgroundImage: "url('https://images.unsplash.com/photo-1565552629477-ff145957811e?q=80&w=1920&auto=format&fit=crop')",
+                    backgroundImage: "url('/images/blog/makkah-haram-view-new.png')",
                     backgroundPosition: 'center 30%'
                 }}
             >
