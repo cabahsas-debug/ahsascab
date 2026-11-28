@@ -97,7 +97,7 @@ export default async function ContactPage() {
                                         <MapPin size={24} strokeWidth={1.5} aria-hidden />
                                     </div>
                                     <div className="flex-1">
-                                        <h3 className="font-bold text-lg text-navy mb-1 font-playfair">Our location in Makkah</h3>
+                                        <h2 className="font-bold text-lg text-navy mb-1 font-playfair">Our location in Makkah</h2>
                                         <p className="text-slate-600 text-sm mb-4">{address}</p>
                                         <a
                                             href={BUSINESS_MAP_URL}
