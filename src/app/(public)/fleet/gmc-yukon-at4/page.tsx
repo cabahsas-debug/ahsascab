@@ -40,7 +40,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-    title: "GMC Yukon Rental Makkah | VIP Umrah Taxi Cost",
+    title: "GMC Yukon Rental Makkah: VIP Umrah Taxi",
     description: "Book new GMC Yukon XL in Makkah. Luxury 7-seater SUV for Jeddah Airport pickup and Makkah to Madinah travel. VIP private chauffeur.",
     keywords: [
         "GMC Yukon Rental Makkah",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
         canonical: '/fleet/gmc-yukon-at4',
     },
     openGraph: {
-        title: "GMC Yukon Rental Makkah | VIP Umrah Taxi Cost",
+        title: "GMC Yukon Rental Makkah: VIP Umrah Taxi",
         description: "Book new GMC Yukon XL in Makkah. Luxury 7-seater SUV for Jeddah Airport pickup and Makkah to Madinah travel. VIP private chauffeur.",
         images: [{ url: '/images/fleet/gmc-yukon-hero.png', width: 1200, height: 630, alt: 'GMC Yukon XL VIP Transport' }]
     }

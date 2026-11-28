@@ -19,7 +19,7 @@ import { constructMetadata } from '@/lib/metadata';
 
 export async function generateMetadata() {
     return constructMetadata({
-        title: "About Ahsas Cab | Premier Makkah Taxi | من نحن",
+        title: "About Ahsas Cab | Trusted Makkah Taxi Since 2015",
         description: "Learn about Ahsas Cab, the leading Umrah transport provider in Saudi Arabia. We offer safe, reliable, and comfortable journeys for pilgrims.",
         keywords: [
             // Brand & Identity (25)

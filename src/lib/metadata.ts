@@ -49,7 +49,8 @@ export async function constructMetadata({
     ])); // Allow 100+ keywords per user feedback
 
     // Construct full title
-    const fullTitle = title ? `${title} | ${siteName}` : defaultTitle;
+    // Append the brand once; titles that already contain it are used as-is.
+    const fullTitle = title ? (title.includes(siteName) ? title : `${title} | ${siteName}`) : defaultTitle;
     const finalDescription = description || defaultDescription;
 
     // Resolve Image: Ensure absolute URL
@@ -65,7 +66,8 @@ export async function constructMetadata({
         : baseUrl;
 
     return {
-        title: fullTitle,
+        // absolute: the (public) layout's title template must not add the brand a second time
+        title: { absolute: fullTitle },
         description: finalDescription,
         keywords: mergedKeywords,
         applicationName: siteName,

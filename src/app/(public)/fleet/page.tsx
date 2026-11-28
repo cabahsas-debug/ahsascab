@@ -12,7 +12,7 @@ import { getSectionContent, getSectionImage, getCustomField } from '@/lib/conten
 
 export async function generateMetadata() {
     return {
-        title: "Umrah Taxi Fleet 2025 | Book GMC Yukon & Hyundai Staria",
+        title: { absolute: "Umrah Taxi Fleet: GMC Yukon to Coaster | Ahsas Cab" },
         description: "Explore our premium Umrah taxi fleet. Book a luxury GMC Yukon XL, family Hyundai Staria, or Toyota Hiace for your journey in Saudi Arabia.",
         keywords: [
             // Fleet / Vehicle Core (25)

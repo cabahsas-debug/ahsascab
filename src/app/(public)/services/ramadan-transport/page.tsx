@@ -12,8 +12,8 @@ import { BUSINESS_PHONE } from '@/lib/contact';
 
 export async function generateMetadata() {
     return constructMetadata({
-        title: "Ramadan 2026 Umrah Transport Booking | Ahsas Cab | نقل معتمرين",
-        description: "Reliable 24/7 transport during Ramadan. Advance booking, guaranteed availability, and punctual service for Iftar and Qiyam-ul-Layl. حجز مواصلات العمرة في رمضان.",
+        title: "Ramadan 2026 Umrah Transport | Ahsas Cab",
+        description: "Reliable 24/7 Umrah transport in Ramadan 2026: advance booking, guaranteed cars and punctual pickups for Iftar and Qiyam-ul-Layl. حجز مواصلات العمرة.",
         keywords: [
             "Ramadan Umrah transport 2026", "Makkah taxi Ramadan", "Iftar time taxi Haram",
             "Madinah Ramadan transfer", "Qiyam ul layl transport", "Ramadan VIP transport Saudi",

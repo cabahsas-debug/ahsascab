@@ -26,7 +26,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-    title: "Toyota Hiace Bus Rental Makkah | Cheap Group Transport",
+    title: "Toyota Hiace Group Van Makkah",
     description: "Book Toyota Hiace 12-seater bus for Umrah groups. Affordable transport from Jeddah Airport to Makkah & Madinah. Reliable & spacious.",
     keywords: [
         "Toyota Hiace Rental Makkah",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     ],
     alternates: { canonical: '/fleet/toyota-hiace' },
     openGraph: {
-        title: "Toyota Hiace Bus Rental Makkah | Cheap Group Transport",
+        title: "Toyota Hiace Group Van Makkah",
         description: "Book Toyota Hiace 12-seater bus for Umrah groups. Affordable transport from Jeddah Airport to Makkah & Madinah. Reliable & spacious.",
         images: [{ url: '/images/fleet/hiace.png', width: 1200, height: 630, alt: 'Toyota Hiace Bus' }]
     }

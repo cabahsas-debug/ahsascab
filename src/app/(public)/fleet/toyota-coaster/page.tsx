@@ -30,7 +30,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-    title: "Toyota Coaster Bus Rental Makkah | 25 Pax Transport",
+    title: "Toyota Coaster Bus Rental Makkah",
     description: "Book Toyota Coaster minibus for large Umrah groups. Comfortable 21-seater transport from Jeddah Airport to Makkah & Madinah. Spacious & reliable.",
     keywords: [
         "Toyota Coaster Rental Makkah",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     ],
     alternates: { canonical: '/fleet/toyota-coaster' },
     openGraph: {
-        title: "Toyota Coaster Bus Rental Makkah | 25 Pax Transport",
+        title: "Toyota Coaster Bus Rental Makkah",
         description: "Book Toyota Coaster minibus for large Umrah groups. Comfortable 21-seater transport from Jeddah Airport to Makkah & Madinah. Spacious & reliable.",
         images: [{ url: '/images/fleet/coaster.png', width: 1200, height: 630, alt: 'Toyota Coaster Bus' }]
     }

@@ -31,7 +31,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-    title: "Hyundai Staria Rental Saudi Arabia | Family Umrah Taxi",
+    title: "Hyundai Staria Umrah Family Taxi",
     description: "Rent Hyundai Staria 2025 in Makkah. Spacious 7-passenger luxury van for Umrah families. Modern comfort for Jeddah to Madinah trips.",
     keywords: [
         "Hyundai Staria Rental Makkah",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     ],
     alternates: { canonical: '/fleet/hyundai-staria' },
     openGraph: {
-        title: "Hyundai Staria Rental Saudi Arabia | Family Umrah Taxi",
+        title: "Hyundai Staria Umrah Family Taxi",
         description: "Rent Hyundai Staria 2025 in Makkah. Spacious 7-passenger luxury van for Umrah families. Modern comfort for Jeddah to Madinah trips.",
         images: [{ url: '/images/fleet/staria.png', width: 1200, height: 630, alt: 'Hyundai Staria VIP Van' }]
     }

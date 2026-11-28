@@ -12,8 +12,8 @@ import ExpandedZiyaratSEO from '@/components/services/ExpandedZiyaratSEO';
 
 export async function generateMetadata() {
     return constructMetadata({
-        title: "Makkah & Madinah Ziyarat Tours | Ahsas Cab | جولات المزارات",
-        description: "Private guided historical tours in Makkah (Cave Hira, Arafat) and Madinah (Masjid Quba, Uhud). Experienced drivers and comfortable VIP vehicles. Book your Ziyarat tour today.",
+        title: "Makkah & Madinah Ziyarat Tours | Ahsas Cab",
+        description: "Private Ziyarat tours in Makkah (Cave Hira, Arafat) and Madinah (Masjid Quba, Uhud) with experienced drivers and comfortable cars. Book your tour today.",
         keywords: [
             "Ziyarat tours Makkah", "Madinah historical places tour", "Cave Hira taxi",
             "Jabal Thawr ziyarat", "Masjid Quba visit", "private ziyarat guide Saudi",
@@ -141,7 +141,7 @@ export default async function ZiyaratToursPage() {
                                             <MapPin size={24} />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-slate-800 dark:text-white">{site.name}</h4>
+                                            <h3 className="font-bold text-slate-800 dark:text-white">{site.name}</h3>
                                             <p className="text-sm text-slate-500 dark:text-slate-400">{site.desc}</p>
                                         </div>
                                     </li>
@@ -187,7 +187,7 @@ export default async function ZiyaratToursPage() {
                                             <Heart size={24} />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-slate-800 dark:text-white">{site.name}</h4>
+                                            <h3 className="font-bold text-slate-800 dark:text-white">{site.name}</h3>
                                             <p className="text-sm text-slate-500 dark:text-slate-400">{site.desc}</p>
                                         </div>
                                     </li>

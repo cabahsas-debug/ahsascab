@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { PlaneLanding, PlaneTakeoff, MapPin, Shield, CheckCircle2, Clock, Landmark } from 'lucide-react';
 import ExpandedZiyaratSEO from '../services/ExpandedZiyaratSEO';
 
-export default function RouteSEOContent({ slug }: { slug: string }) {
+export default function RouteSEOContent({ slug, routeName }: { slug: string; routeName: string }) {
 
     // Ziyarat Routes - Reuse the comprehensive Ziyarat SEO component
     if (['makkah-ziyarat-taxi', 'madinah-ziyarat-taxi', 'madinah-ziyarat-wadi-jinn'].includes(slug)) {
@@ -188,7 +188,7 @@ export default function RouteSEOContent({ slug }: { slug: string }) {
             <div className="container mx-auto px-4 max-w-4xl">
                 <div className="prose prose-lg dark:prose-invert max-w-none text-slate-700 dark:text-slate-300">
                     <h2 className="text-3xl font-bold font-playfair mb-6 text-slate-900 dark:text-white">
-                        Private Taxi Service for this Route
+                        Private Taxi: {routeName}
                     </h2>
                     <p className="mb-4">
                         Ahsas Cab provides premium, direct door-to-door transportation. Booking a private taxi ensures you don't have to share your vehicle, wait in long lines, or handle luggage struggles.

@@ -10,7 +10,7 @@ import { constructMetadata } from '@/lib/metadata';
 
 export async function generateMetadata() {
     return constructMetadata({
-        title: "Makkah & Madinah Hotel Transfers | Umrah Taxi Service",
+        title: "Makkah & Madinah Hotel Transfers | Ahsas Cab",
         description: "Comfortable hotel-to-hotel transfers in Makkah and Madinah. Door-to-door service available 24/7. توصيل فنادق مكة والمدينة.",
         keywords: [
             "Makkah hotel transfer", "Madinah hotel taxi", "Umrah hotel pickup",

@@ -21,7 +21,7 @@ const ReviewsSection = dynamic(() => import('@/components/reviews/ReviewsSection
 
 export async function generateMetadata() {
     return constructMetadata({
-        title: "Umrah Taxi Services & Ziyarat Tours | Jeddah, Makkah, Madinah",
+        title: "Umrah Taxi Services & Ziyarat Tours | Ahsas Cab",
         description: "Comprehensive Umrah transport services: Jeddah Airport pickup, Makkah to Madinah taxi, and historic Ziyarat tours. Reliable 24/7 service.",
         keywords: [
             "Umrah Taxi Services", "Ziyarat Tours Makkah", "Intercity Transfers Saudi",

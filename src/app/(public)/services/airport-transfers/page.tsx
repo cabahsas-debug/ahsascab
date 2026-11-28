@@ -13,8 +13,8 @@ import { constructMetadata } from '@/lib/metadata';
 
 export async function generateMetadata() {
     return constructMetadata({
-        title: "Jeddah & Madinah Airport Transfers | Umrah Taxi | توصيل المطارات",
-        description: "Reliable airport pickups for Jeddah & Madinah. Punctual, hassle-free transfers. 24/7 service. توصيل من مطار جدة الى مكة. استقبال مطار المدينة المنورة.",
+        title: "Jeddah & Madinah Airport Transfers | Ahsas Cab",
+        description: "Jeddah and Madinah airport pickups for Umrah pilgrims: flight tracking, meet and greet, fixed fares, 24/7. توصيل من مطار جدة الى مكة والمدينة.",
         keywords: [
             "Jeddah airport to Makkah taxi", "KAIA transfer", "Umrah airport pickup", "Madinah airport taxi",
             "VIP Umrah Transport", "Jeddah Airport Shuttle", "Makkah Private Taxi",
@@ -99,9 +99,9 @@ export default async function AirportTransfersPage() {
                         <div className="p-6 sm:p-8 border-b border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-end gap-4 bg-white dark:bg-slate-900">
                             <div>
                                 <span className="text-amber-500 font-bold tracking-wider uppercase text-xs mb-2 block">Real-time Connections</span>
-                                <h1 className="text-3xl font-bold font-playfair text-slate-900 dark:text-white">
+                                <h2 className="text-3xl font-bold font-playfair text-slate-900 dark:text-white">
                                     Airport Connectivity Network
-                                </h1>
+                                </h2>
                                 <p className="text-muted-foreground mt-2 max-w-xl">
                                     Visualize your journey from King Abdulaziz International Airport (KAIA).
                                     Select your destination to see route details, estimated time, and instant pricing.

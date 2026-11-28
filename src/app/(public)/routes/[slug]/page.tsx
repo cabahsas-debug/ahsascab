@@ -126,21 +126,21 @@ export default async function RouteDetail({ params }: Props) {
                         <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow border-t-4 border-amber-500 flex items-center gap-4">
                             <Clock className="text-amber-500 w-8 h-8" />
                             <div>
-                                <h3 className="font-bold text-sm text-muted-foreground uppercase">Est. Time</h3>
+                                <p className="font-bold text-sm text-muted-foreground uppercase">Est. Time</p>
                                 <p className="text-lg font-bold">{route.time}</p>
                             </div>
                         </div>
                         <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow border-t-4 border-amber-500 flex items-center gap-4">
                             <MapPin className="text-amber-500 w-8 h-8" />
                             <div>
-                                <h3 className="font-bold text-sm text-muted-foreground uppercase">Distance</h3>
+                                <p className="font-bold text-sm text-muted-foreground uppercase">Distance</p>
                                 <p className="text-lg font-bold">{route.distance}</p>
                             </div>
                         </div>
                         <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow border-t-4 border-amber-500 flex items-center gap-4">
                             <CheckCircle className="text-amber-500 w-8 h-8" />
                             <div>
-                                <h3 className="font-bold text-sm text-muted-foreground uppercase">Availability</h3>
+                                <p className="font-bold text-sm text-muted-foreground uppercase">Availability</p>
                                 <p className="text-lg font-bold">24/7 Service</p>
                             </div>
                         </div>
@@ -152,7 +152,7 @@ export default async function RouteDetail({ params }: Props) {
             <section className="py-16">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold font-playfair mb-4">Available Vehicles & Rates</h2>
+                        <h2 className="text-3xl font-bold font-playfair mb-4">{route.name}: Vehicles & Rates</h2>
                         <p className="text-muted-foreground">Choose the vehicle that fits your group size and budget.</p>
                     </div>
 
@@ -212,12 +212,12 @@ export default async function RouteDetail({ params }: Props) {
             </section>
 
             {/* Dynamic 1200+ Word SEO Content Injection */}
-            <RouteSEOContent slug={slug} />
+            <RouteSEOContent slug={slug} routeName={route.name} />
 
             {/* Why Choose Us */}
             <section className="py-16 bg-slate-50 dark:bg-slate-950">
                 <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-3xl font-bold font-playfair mb-8">Why Book This Route With Us?</h2>
+                    <h2 className="text-3xl font-bold font-playfair mb-8">Why Book {route.name} With Ahsas Cab?</h2>
                     <div className="grid md:grid-cols-3 gap-8">
                         <div className="p-6">
                             <h3 className="text-xl font-bold mb-2">Fixed Prices</h3>

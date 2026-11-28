@@ -9,8 +9,8 @@ import GlassCard from '@/components/ui/GlassCard';
 import FadeIn from '@/components/common/FadeIn';
 
 export const metadata: Metadata = {
-    title: 'Umrah Transport Routes Network | Makkah & Madinah | شبكة المسارات',
-    description: 'Explore our comprehensive transport network connecting Jeddah, Makkah, and Madinah. Premium VIP transfers. شبكة مواصلات شاملة بين جدة ومكة والمدينة.',
+    title: 'Umrah Taxi Routes Makkah & Madinah',
+    description: 'Private taxi routes between Jeddah, Makkah, Madinah and Taif with fixed fares for Umrah pilgrims. شبكة مواصلات بين جدة ومكة والمدينة.',
     keywords: [
         "Umrah transport routes", "Jeddah to Makkah route", "Makkah to Madinah road",
         "Saudi intercity transport", "Haramain transport network",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
         canonical: '/routes',
     },
     openGraph: {
-        title: "Umrah Transport Routes Network | Ahsas Alrihlat",
+        title: "Umrah Taxi Routes Makkah & Madinah | Ahsas Cab",
         description: "Connect seamlessly between Holy Cities. VIP Jeddah to Makkah, Makkah to Madinah. تنقل بسهولة بين المدن المقدسة.",
         images: [{ url: '/images/routes/makkah-madinah-route-hero.png', width: 1200, height: 630, alt: 'Saudi Arabia Transport Network Map' }]
     }
@@ -181,12 +181,12 @@ export default function RoutesPage() {
                                         <div className="p-6 md:w-3/5 flex flex-col">
                                             <div className="flex items-start justify-between mb-2">
                                                 <div>
-                                                    <h3 className="text-2xl font-bold font-playfair group-hover:text-secondary transition-colors">
+                                                    <h2 className="text-2xl font-bold font-playfair group-hover:text-secondary transition-colors">
                                                         {route.title}
-                                                    </h3>
-                                                    <h4 className="text-lg font-bold text-secondary font-reem-kufi mt-1">
+                                                    </h2>
+                                                    <p className="text-lg font-bold text-secondary font-reem-kufi mt-1">
                                                         {route.titleAr}
-                                                    </h4>
+                                                    </p>
                                                 </div>
                                             </div>
 
@@ -289,7 +289,7 @@ export default function RoutesPage() {
                                         <feature.icon size={32} />
                                     </div>
                                     <h3 className="text-xl font-bold mb-1">{feature.title}</h3>
-                                    <h4 className="text-lg font-bold text-secondary font-reem-kufi mb-3">{feature.titleAr}</h4>
+                                    <p className="text-lg font-bold text-secondary font-reem-kufi mb-3">{feature.titleAr}</p>
                                     <p className="text-muted-foreground text-sm mb-2">{feature.desc}</p>
                                     <p className="text-muted-foreground text-sm font-arabic border-t border-border/50 pt-2">{feature.descAr}</p>
                                 </div>
