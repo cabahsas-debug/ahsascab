@@ -68,7 +68,7 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
                                 <card.icon size={24} strokeWidth={1.5} />
                             </div>
                             <div className="flex-1">
-                                <h3 className="font-bold text-lg text-navy mb-1 font-playfair">{card.title}</h3>
+                                <h2 className="font-bold text-lg text-navy mb-1 font-playfair">{card.title}</h2>
                                 <p className="font-medium text-navy mb-1 font-outfit">{card.value}</p>
                                 <p className="text-sm text-slate-500 mb-3">{card.sub}</p>
                                 <a
