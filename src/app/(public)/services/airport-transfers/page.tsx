@@ -13,8 +13,8 @@ import { constructMetadata } from '@/lib/metadata';
 
 export async function generateMetadata() {
     return constructMetadata({
-        title: "Jeddah & Madinah Airport Transfers | Umrah Taxi | توصيل المطارات",
-        description: "Reliable airport pickups for Jeddah & Madinah. Punctual, hassle-free transfers. 24/7 service. توصيل من مطار جدة الى مكة. استقبال مطار المدينة المنورة.",
+        title: "Jeddah & Madinah Airport Transfers | Ahsas Cab",
+        description: "Jeddah and Madinah airport pickups for Umrah pilgrims: flight tracking, meet and greet, fixed fares, 24/7. توصيل من مطار جدة الى مكة والمدينة.",
         keywords: [
             "Jeddah airport to Makkah taxi", "KAIA transfer", "Umrah airport pickup", "Madinah airport taxi",
             "VIP Umrah Transport", "Jeddah Airport Shuttle", "Makkah Private Taxi",
@@ -86,9 +86,9 @@ export default async function AirportTransfersPage() {
             <Hero
                 title="VIP Jeddah Airport Transfers"
                 subtitle="Experience a seamless arrival with our premium chauffeur service. We track your flight and wait for you at KAIA, ensuring a stress-free journey to Makkah."
-                bgImage="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2000&auto=format&fit=crop"
+                bgImage="/images/routes/jeddah-airport-hero-professional.png"
                 ctaText="Book Transfer Now"
-                ctaLink="/booking?service=airport"
+                ctaLink="/booking"
                 alt="Jeddah Airport Arrival Lounge Private Chauffeur Transfer"
             />
 
@@ -99,9 +99,9 @@ export default async function AirportTransfersPage() {
                         <div className="p-6 sm:p-8 border-b border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-end gap-4 bg-white dark:bg-slate-900">
                             <div>
                                 <span className="text-amber-500 font-bold tracking-wider uppercase text-xs mb-2 block">Real-time Connections</span>
-                                <h1 className="text-3xl font-bold font-playfair text-slate-900 dark:text-white">
+                                <h2 className="text-3xl font-bold font-playfair text-slate-900 dark:text-white">
                                     Airport Connectivity Network
-                                </h1>
+                                </h2>
                                 <p className="text-muted-foreground mt-2 max-w-xl">
                                     Visualize your journey from King Abdulaziz International Airport (KAIA).
                                     Select your destination to see route details, estimated time, and instant pricing.
@@ -296,7 +296,7 @@ export default async function AirportTransfersPage() {
                     <h2 className="text-3xl md:text-4xl font-bold mb-6 font-playfair">Ready for a Comfortable Journey?</h2>
                     <p className="text-lg md:text-xl mb-8 opacity-90 max-w-2xl mx-auto">Book your trusted Makkah transport today and let us handle the logistics while you focus on your worship.</p>
                     <Link
-                        href="/booking?service=airport"
+                        href="/booking"
                         className="inline-flex items-center gap-2 bg-white text-amber-600 font-bold py-4 px-8 rounded-full hover:bg-slate-100 transition-colors shadow-lg"
                     >
                         Book Your Transfer Now

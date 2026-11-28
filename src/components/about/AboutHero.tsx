@@ -22,7 +22,7 @@ export default function AboutHero() {
                 style={{ transform: `translateY(${offset * 0.5}px)` }}
             >
                 <Image
-                    src="https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?q=80&w=2000&auto=format&fit=crop"
+                    src="/images/blog/makkah-haram-view-new.png"
                     alt="Makkah Background"
                     fill
                     priority

@@ -49,12 +49,13 @@ export async function constructMetadata({
     ])); // Allow 100+ keywords per user feedback
 
     // Construct full title
-    const fullTitle = title ? `${title} | ${siteName}` : defaultTitle;
+    // Append the brand once; titles that already contain it are used as-is.
+    const fullTitle = title ? (title.includes(siteName) ? title : `${title} | ${siteName}`) : defaultTitle;
     const finalDescription = description || defaultDescription;
 
     // Resolve Image: Ensure absolute URL
     // If image starts with http, use it. If /, append base. If neither, assume relative to base.
-    let finalImage = image || getSettingsImage(settings) || '/images/og-default.jpg';
+    let finalImage = image || getSettingsImage(settings) || '/images/blog/makkah-haram-view-new.png';
     if (finalImage.startsWith('/')) {
         finalImage = `${baseUrl}${finalImage}`;
     }
@@ -65,7 +66,8 @@ export async function constructMetadata({
         : baseUrl;
 
     return {
-        title: fullTitle,
+        // absolute: the (public) layout's title template must not add the brand a second time
+        title: { absolute: fullTitle },
         description: finalDescription,
         keywords: mergedKeywords,
         applicationName: siteName,

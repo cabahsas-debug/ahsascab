@@ -137,7 +137,7 @@ export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps
                 text: `You can reach us 24/7 via WhatsApp at ${contactPhone || BUSINESS_PHONE.display} or email us at ${contactEmail || 'cabahsas@gmail.com'}.`,
                 action: {
                     label: "WhatsApp Us",
-                    url: `https://wa.me/${(contactPhone || BUSINESS_PHONE.display).replace(/\D/g, '')}`
+                    url: `https://api.whatsapp.com/send?phone=${(contactPhone || BUSINESS_PHONE.display).replace(/\D/g, '')}`
                 }
             },
             vehicle: {
@@ -253,7 +253,7 @@ export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps
                                     <Link
                                         href={msg.action.url}
                                         className={styles.messageAction}
-                                        target={msg.action.url.startsWith('http') ? '_blank' : undefined}
+                                        target={msg.action.url.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer"
                                         onClick={() => setIsOpen(false)}
                                     >
                                         {msg.action.label}

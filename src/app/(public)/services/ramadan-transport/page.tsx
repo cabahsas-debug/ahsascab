@@ -12,8 +12,8 @@ import { BUSINESS_PHONE } from '@/lib/contact';
 
 export async function generateMetadata() {
     return constructMetadata({
-        title: "Ramadan 2026 Umrah Transport Booking | Ahsas Cab | نقل معتمرين",
-        description: "Reliable 24/7 transport during Ramadan. Advance booking, guaranteed availability, and punctual service for Iftar and Qiyam-ul-Layl. حجز مواصلات العمرة في رمضان.",
+        title: "Ramadan 2026 Umrah Transport | Ahsas Cab",
+        description: "Reliable 24/7 Umrah transport in Ramadan 2026: advance booking, guaranteed cars and punctual pickups for Iftar and Qiyam-ul-Layl. حجز مواصلات العمرة.",
         keywords: [
             "Ramadan Umrah transport 2026", "Makkah taxi Ramadan", "Iftar time taxi Haram",
             "Madinah Ramadan transfer", "Qiyam ul layl transport", "Ramadan VIP transport Saudi",
@@ -33,7 +33,7 @@ const jsonLd = {
     "provider": {
         "@type": "LocalBusiness",
         "name": "Ahsas Alrihlat",
-        "image": `${getBaseUrl()}/logo.png`
+        "image": `${getBaseUrl()}/ahsas-logo-v2.png`
     },
     "serviceType": "Religious Tourism Transport",
     "areaServed": ["Makkah", "Madinah", "Jeddah"],
@@ -118,8 +118,7 @@ const ramadanFAQs = [
 ];
 
 export default async function RamadanTransportPage() {
-    const phoneNumber = BUSINESS_PHONE.display;
-    const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}`;
+    const whatsappLink = `https://api.whatsapp.com/send?phone=${BUSINESS_PHONE.digits}`;
 
     return (
         <main className="overflow-x-hidden">
@@ -193,13 +192,12 @@ export default async function RamadanTransportPage() {
 
             {/* CTA */}
             <section className="py-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-5 mix-blend-overlay"></div>
                 <div className="container mx-auto px-4 text-center relative z-10">
                     <h2 className="text-3xl md:text-4xl font-bold mb-6 font-playfair">Plan Your Spiritual Journey Now</h2>
                     <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
                         Slots for the last 10 days of Ramadan fill up quickly. Secure your booking today.
                     </p>
-                    <Link href={whatsappLink} target="_blank" className="inline-flex items-center gap-3 bg-amber-500 hover:bg-amber-600 text-white px-10 py-5 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-amber-500/25 hover:-translate-y-1">
+                    <Link href={whatsappLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-amber-500 hover:bg-amber-600 text-white px-10 py-5 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-amber-500/25 hover:-translate-y-1">
                         Book via WhatsApp <ArrowRight size={20} />
                     </Link>
                 </div>

@@ -10,11 +10,7 @@ import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import OtherFleetSEO from '@/components/fleet/OtherFleetSEO';
-import dynamic from 'next/dynamic';
 
-const Interior360Viewer = dynamic(() => import('@/components/fleet/Interior360Viewer'), {
-    loading: () => <div className="h-[500px] w-full bg-slate-900 rounded-3xl animate-pulse flex items-center justify-center text-slate-500">Loading 3D View...</div>
-});
 
 import pricingData from '@/data/pricing.json';
 
@@ -24,7 +20,7 @@ const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": vehicleData?.seo?.title || "Toyota Camry 2024 Taxi Makkah",
-    "image": `${getBaseUrl()}/images/fleet/camry-hero-professional.png`,
+    "image": `${getBaseUrl()}/images/fleet/camry.png`,
     "description": vehicleData?.seo?.description || "Affordable Toyota Camry taxi for Umrah. Reliable 4-seater sedan for Jeddah to Makkah transfers.",
     "brand": { "@type": "Brand", "name": "Toyota" },
     "offers": { "@type": "Offer", "price": "200", "priceCurrency": "SAR", "availability": "https://schema.org/InStock" }
@@ -38,7 +34,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: vehicleData?.seo?.title,
         description: vehicleData?.seo?.description,
-        images: [{ url: '/images/fleet/camry-hero-professional.png', width: 1200, height: 630, alt: 'Toyota Camry Taxi' }]
+        images: [{ url: '/images/fleet/camry.png', width: 1200, height: 630, alt: 'Toyota Camry Taxi' }]
     }
 };
 
@@ -58,12 +54,11 @@ const camryFAQs = [
 ];
 
 export default async function ToyotaCamryPage() {
-    const phoneNumber = BUSINESS_PHONE.display;
-    const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20Toyota%20Camry%20for%20Umrah`;
+    const whatsappLink = `https://api.whatsapp.com/send?phone=${BUSINESS_PHONE.digits}&text=I%20am%20interested%20in%20booking%20Toyota%20Camry%20for%20Umrah`;
 
     // Toyota Camry ID: 692db09834f15bc89b45a5f6
     const camryId = '692db09834f15bc89b45a5f6';
-    const camryImage = '/images/fleet/camry-hero-professional.png';
+    const camryImage = '/images/fleet/camry.png';
 
     return (
         <main className="overflow-x-hidden">
@@ -93,7 +88,7 @@ export default async function ToyotaCamryPage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
                             <FleetFeatureImage
-                                src="/images/fleet/camry-feature.png"
+                                src="/images/fleet/camry.png"
                                 alt="Toyota Camry Interior"
                                 fallbackSrc={camryImage}
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
@@ -180,22 +175,6 @@ export default async function ToyotaCamryPage() {
                         {/* 1000+ Word SEO Injection */}
             <OtherFleetSEO vehicleId="camry" />
 
-            {/* 360 Interior Preview (Placeholder) */}
-            <section className="py-16 bg-slate-900 text-white overflow-hidden relative">
-                <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
-                <div className="container mx-auto px-4 text-center relative z-10">
-                    <span className="text-amber-500 font-bold tracking-widest uppercase text-sm mb-4 block">Premium Economy</span>
-                    <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8">Step Inside</h2>
-
-                    <div className="max-w-6xl mx-auto">
-                        <Interior360Viewer
-                            imageUrl="/images/fleet/camry-interior-360.jpg"
-                            title="Toyota Camry 2024 Interior"
-                        />
-                    </div>
-                    <p className="text-slate-400 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
-                </div>
-            </section>
 
             {/* Use Cases */}
             <section className="py-16 bg-slate-50 dark:bg-slate-950">

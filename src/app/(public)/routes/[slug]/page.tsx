@@ -10,6 +10,7 @@ import { ArrowRight, Clock, MapPin, CheckCircle, Car } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
 import { constructMetadata } from '@/lib/metadata';
 import { generateProductSchema } from '@/lib/schema';
+import { getRouteImage } from '@/lib/route-images';
 import RouteSEOContent from '@/components/routes/RouteSEOContent';
 
 // Generate static params for all routes in pricing.json
@@ -43,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: route.seo.description,
         keywords: route.seo.keywords,
         canonicalUrl: `/routes/${slug}`,
-        image: `/images/routes/${slug}.jpg`,
+        image: getRouteImage(slug),
         type: 'website'
     });
 }
@@ -65,7 +66,7 @@ export default async function RouteDetail({ params }: Props) {
         description: route.seo?.description || route.name,
         baseRate: startingPrice,
         slug: slug,
-        image: `/images/routes/${slug}.jpg`
+        image: getRouteImage(slug)
     });
 
     const breadcrumbSchema = {
@@ -115,7 +116,7 @@ export default async function RouteDetail({ params }: Props) {
                 breadcrumbs={<Breadcrumbs />}
                 layout="center"
                 ctaText="Book This Route"
-                ctaLink={`/booking?route=${route.id}`}
+                ctaLink={`/booking?routeId=${route.id}`}
             />
 
             {/* Route Info Cards */}
@@ -125,21 +126,21 @@ export default async function RouteDetail({ params }: Props) {
                         <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow border-t-4 border-amber-500 flex items-center gap-4">
                             <Clock className="text-amber-500 w-8 h-8" />
                             <div>
-                                <h3 className="font-bold text-sm text-muted-foreground uppercase">Est. Time</h3>
+                                <p className="font-bold text-sm text-muted-foreground uppercase">Est. Time</p>
                                 <p className="text-lg font-bold">{route.time}</p>
                             </div>
                         </div>
                         <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow border-t-4 border-amber-500 flex items-center gap-4">
                             <MapPin className="text-amber-500 w-8 h-8" />
                             <div>
-                                <h3 className="font-bold text-sm text-muted-foreground uppercase">Distance</h3>
+                                <p className="font-bold text-sm text-muted-foreground uppercase">Distance</p>
                                 <p className="text-lg font-bold">{route.distance}</p>
                             </div>
                         </div>
                         <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow border-t-4 border-amber-500 flex items-center gap-4">
                             <CheckCircle className="text-amber-500 w-8 h-8" />
                             <div>
-                                <h3 className="font-bold text-sm text-muted-foreground uppercase">Availability</h3>
+                                <p className="font-bold text-sm text-muted-foreground uppercase">Availability</p>
                                 <p className="text-lg font-bold">24/7 Service</p>
                             </div>
                         </div>
@@ -151,7 +152,7 @@ export default async function RouteDetail({ params }: Props) {
             <section className="py-16">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold font-playfair mb-4">Available Vehicles & Rates</h2>
+                        <h2 className="text-3xl font-bold font-playfair mb-4">{route.name}: Vehicles & Rates</h2>
                         <p className="text-muted-foreground">Choose the vehicle that fits your group size and budget.</p>
                     </div>
 
@@ -195,7 +196,7 @@ export default async function RouteDetail({ params }: Props) {
                                                     <span className="text-xl font-bold text-amber-600">{price} SAR</span>
                                                 </div>
                                                 <Link
-                                                    href={`/booking?route=${route.id}&vehicle=${vehicle.id}`}
+                                                    href={`/booking?routeId=${route.id}&vehicle=${vehicle.id}`}
                                                     className="bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 px-4 py-2 rounded-lg text-sm font-bold transition-colors flex items-center gap-2"
                                                 >
                                                     Book Now <ArrowRight size={16} />
@@ -211,12 +212,12 @@ export default async function RouteDetail({ params }: Props) {
             </section>
 
             {/* Dynamic 1200+ Word SEO Content Injection */}
-            <RouteSEOContent slug={slug} />
+            <RouteSEOContent slug={slug} routeName={route.name} />
 
             {/* Why Choose Us */}
             <section className="py-16 bg-slate-50 dark:bg-slate-950">
                 <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-3xl font-bold font-playfair mb-8">Why Book This Route With Us?</h2>
+                    <h2 className="text-3xl font-bold font-playfair mb-8">Why Book {route.name} With Ahsas Cab?</h2>
                     <div className="grid md:grid-cols-3 gap-8">
                         <div className="p-6">
                             <h3 className="text-xl font-bold mb-2">Fixed Prices</h3>

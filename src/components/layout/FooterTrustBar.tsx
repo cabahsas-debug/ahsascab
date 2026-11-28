@@ -9,7 +9,7 @@ export default function FooterTrustBar() {
                     <ShieldCheck size={24} />
                 </div>
                 <div>
-                    <h4 className="font-bold text-white text-lg font-playfair">Official License</h4>
+                    <p className="font-bold text-white text-lg font-playfair">Official License</p>
                     <p className="text-white/60 text-sm">Authorized by Ministry of Transport</p>
                 </div>
             </div>
@@ -18,7 +18,7 @@ export default function FooterTrustBar() {
                     <Clock size={24} />
                 </div>
                 <div>
-                    <h4 className="font-bold text-white text-lg font-playfair">24/7 Support</h4>
+                    <p className="font-bold text-white text-lg font-playfair">24/7 Support</p>
                     <p className="text-white/60 text-sm">Always available for your journey</p>
                 </div>
             </div>
@@ -27,7 +27,7 @@ export default function FooterTrustBar() {
                     <CreditCard size={24} />
                 </div>
                 <div>
-                    <h4 className="font-bold text-white text-lg font-playfair">Fixed Pricing</h4>
+                    <p className="font-bold text-white text-lg font-playfair">Fixed Pricing</p>
                     <p className="text-white/60 text-sm">Transparent rates, no hidden fees</p>
                 </div>
             </div>

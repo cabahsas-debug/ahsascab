@@ -23,14 +23,14 @@ const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": vehicleData?.seo?.title || "Toyota Coaster 21-Seater Minibus",
-    "image": `${getBaseUrl()}/images/fleet/coaster-hero-professional.png`,
+    "image": `${getBaseUrl()}/images/fleet/coaster.png`,
     "description": vehicleData?.seo?.description || "Rent Toyota Coaster minibus in Makkah. Comfortable 21-seater transport for large Umrah groups.",
     "brand": { "@type": "Brand", "name": "Toyota" },
     "offers": { "@type": "Offer", "price": "550", "priceCurrency": "SAR", "availability": "https://schema.org/InStock" }
 };
 
 export const metadata: Metadata = {
-    title: "Toyota Coaster Bus Rental Makkah | 25 Pax Transport",
+    title: "Toyota Coaster Bus Rental Makkah",
     description: "Book Toyota Coaster minibus for large Umrah groups. Comfortable 21-seater transport from Jeddah Airport to Makkah & Madinah. Spacious & reliable.",
     keywords: [
         "Toyota Coaster Rental Makkah",
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     ],
     alternates: { canonical: '/fleet/toyota-coaster' },
     openGraph: {
-        title: "Toyota Coaster Bus Rental Makkah | 25 Pax Transport",
+        title: "Toyota Coaster Bus Rental Makkah",
         description: "Book Toyota Coaster minibus for large Umrah groups. Comfortable 21-seater transport from Jeddah Airport to Makkah & Madinah. Spacious & reliable.",
-        images: [{ url: '/images/fleet/coaster-hero-professional.png', width: 1200, height: 630, alt: 'Toyota Coaster Bus' }]
+        images: [{ url: '/images/fleet/coaster.png', width: 1200, height: 630, alt: 'Toyota Coaster Bus' }]
     }
 };
 
@@ -66,13 +66,12 @@ const coasterFAQs = [
 ];
 
 export default async function ToyotaCoasterPage() {
-    const phoneNumber = BUSINESS_PHONE.display;
-    const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20Toyota%20Coaster%20for%20Large%20Group`;
+    const whatsappLink = `https://api.whatsapp.com/send?phone=${BUSINESS_PHONE.digits}&text=I%20am%20interested%20in%20booking%20Toyota%20Coaster%20for%20Large%20Group`;
 
     // Toyota Coaster ID from pricing.json (assuming inferred or verified) - double check pricing.json
     // In pricing.json view: Coaster id is "coaster"
     const coasterId = 'coaster';
-    const coasterImage = '/images/fleet/coaster-hero-professional.png';
+    const coasterImage = '/images/fleet/coaster.png';
 
     return (
         <main className="overflow-x-hidden">
@@ -101,7 +100,7 @@ export default async function ToyotaCoasterPage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
                             <FleetFeatureImage
-                                src="/images/fleet/coaster-feature.png"
+                                src="/images/fleet/coaster.png"
                                 alt="Toyota Coaster Minibus"
                                 fallbackSrc={coasterImage}
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"

@@ -72,7 +72,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             "name": "Ahsas Alrihlat",
             "logo": {
                 "@type": "ImageObject",
-                "url": `${getBaseUrl()}/logo.png` // Update with actual logo URL
+                "url": `${getBaseUrl()}/ahsas-logo-v2.png` // Update with actual logo URL
             }
         },
         "description": post.excerpt,

@@ -22,7 +22,7 @@ const jsonLd = {
     "provider": {
         "@type": "LocalBusiness",
         "name": "Ahsas Alrihlat",
-        "image": `${getBaseUrl()}/logo.png`
+        "image": `${getBaseUrl()}/ahsas-logo-v2.png`
     },
     "serviceType": "Airport Transfer",
     "areaServed": {
@@ -81,8 +81,7 @@ const jeddahAirportFAQs = [
 ];
 
 export default async function JeddahAirportTransferPage() {
-    const phoneNumber = BUSINESS_PHONE.display;
-    const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}`;
+    const whatsappLink = `https://api.whatsapp.com/send?phone=${BUSINESS_PHONE.digits}`;
 
     const content = {
         title: "Jeddah Airport to Makkah Transfers",

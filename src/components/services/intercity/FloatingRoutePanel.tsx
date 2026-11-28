@@ -52,7 +52,7 @@ export default function FloatingRoutePanel({ route }: FloatingRoutePanelProps) {
             </div>
 
             <div className="pt-4 border-t border-slate-200 dark:border-slate-800">
-                <Link href={`/booking?from=${encodeURIComponent(route.origin)}&to=${encodeURIComponent(route.destination)}&service=transfer`}>
+                <Link href={`/booking?routeId=${route.id}`}>
                     <GlassButton variant="primary" className="w-full justify-center text-sm bg-amber-500 hover:bg-amber-600 text-slate-900 border-none">
                         Book Now {price && <span className="ml-1 opacity-90">({price} SAR)</span>} <ArrowRight size={16} className="ml-2" />
                     </GlassButton>

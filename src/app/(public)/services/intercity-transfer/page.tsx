@@ -13,7 +13,7 @@ import { constructMetadata } from '@/lib/metadata';
 
 export async function generateMetadata() {
     return constructMetadata({
-        title: "Intercity Transfers Saudi Arabia | Makkah, Madinah, Jeddah, Taif",
+        title: "Intercity Taxi Makkah, Madinah & Jeddah | Ahsas Cab",
         description: "Reliable intercity taxi between Makkah, Madinah, Jeddah, and Taif. Private cars and GMCs. توصيل بين المدن.",
         keywords: [
             "Intercity taxi Saudi", "Jeddah to Makkah", "Makkah to Madinah", "Makkah to Taif taxi",
@@ -162,7 +162,7 @@ export default async function IntercityTransferPage() {
             <Hero
                 title="Premium Intercity Travel"
                 subtitle="Journey between the Holy Cities via our interactive premium network. Explore routes and book your VIP transfer instantly."
-                bgImage="/images/routes/routes-network-hero.png"
+                bgImage="/images/routes/makkah-madinah-route-hero.png"
                 ctaText="Start Exploring"
                 ctaLink="#interactive-map"
                 backgroundChildren={<AnimatedMapBackground />}
@@ -192,7 +192,7 @@ export default async function IntercityTransferPage() {
                                             <ShieldCheck size={24} />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-slate-900 dark:text-white mb-1">Safety First</h4>
+                                            <h3 className="font-bold text-slate-900 dark:text-white mb-1">Safety First</h3>
                                             <p className="text-sm text-slate-500 dark:text-slate-400">Professional drivers familiar with the Hijrah Highway.</p>
                                         </div>
                                     </div>
@@ -201,7 +201,7 @@ export default async function IntercityTransferPage() {
                                             <Star size={24} />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-slate-900 dark:text-white mb-1">VIP Fleet</h4>
+                                            <h3 className="font-bold text-slate-900 dark:text-white mb-1">VIP Fleet</h3>
                                             <p className="text-sm text-slate-500 dark:text-slate-400">Late-model GMC Yukons and H1 Vans.</p>
                                         </div>
                                     </div>
@@ -210,7 +210,7 @@ export default async function IntercityTransferPage() {
                                             <UserCheck size={24} />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-slate-900 dark:text-white mb-1">Door-to-Door</h4>
+                                            <h3 className="font-bold text-slate-900 dark:text-white mb-1">Door-to-Door</h3>
                                             <p className="text-sm text-slate-500 dark:text-slate-400">Hotel pickup and drop-off in Makkah/Madinah.</p>
                                         </div>
                                     </div>
@@ -219,7 +219,7 @@ export default async function IntercityTransferPage() {
                                             <Timer size={24} />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-slate-900 dark:text-white mb-1">On Your Time</h4>
+                                            <h3 className="font-bold text-slate-900 dark:text-white mb-1">On Your Time</h3>
                                             <p className="text-sm text-slate-500 dark:text-slate-400">Depart when you are ready. No waiting.</p>
                                         </div>
                                     </div>

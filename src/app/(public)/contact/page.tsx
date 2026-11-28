@@ -14,7 +14,7 @@ import { BUSINESS_ADDRESS_LINE, BUSINESS_MAP_URL, BUSINESS_PHONE } from '@/lib/c
 
 export async function generateMetadata() {
     return constructMetadata({
-        title: "Contact Ahsas Alrihlat | Book Your Ride Today",
+        title: "Contact Ahsas Cab | Book Your Umrah Taxi",
         description: "Constant support for your Umrah journey. Contact us via WhatsApp or phone for immediate booking assistance.",
         keywords: [
             // Contact & Inquiries (25)
@@ -55,7 +55,7 @@ export default async function ContactPage() {
             <Hero
                 title="Get in Touch | تواصل معنا"
                 subtitle="Reliable Booking & 24/7 Support for Your Umrah Journey. Premium Transport Services from Makkah to Madinah."
-                bgImage="/images/contact-hero.jpg"
+                bgImage="/images/blog/makkah-haram-view.jpg"
                 breadcrumbs={<Breadcrumbs />}
             />
 
@@ -73,7 +73,7 @@ export default async function ContactPage() {
                                 <div className="w-10 h-10 mx-auto mb-2 bg-secondary/10 rounded-full flex items-center justify-center text-secondary">
                                     <item.icon className="w-5 h-5" />
                                 </div>
-                                <h3 className="font-bold text-navy text-sm md:text-base">{item.text}</h3>
+                                <p className="font-bold text-navy text-sm md:text-base">{item.text}</p>
                                 <p className="text-xs text-slate-500 font-arabic">{item.sub}</p>
                             </div>
                         ))}

@@ -9,11 +9,7 @@ import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import OtherFleetSEO from '@/components/fleet/OtherFleetSEO';
-import dynamic from 'next/dynamic';
 
-const Interior360Viewer = dynamic(() => import('@/components/fleet/Interior360Viewer'), {
-    loading: () => <div className="h-[500px] w-full bg-slate-900 rounded-3xl animate-pulse flex items-center justify-center text-slate-500">Loading 3D View...</div>
-});
 
 import pricingData from '@/data/pricing.json';
 
@@ -23,14 +19,14 @@ const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": vehicleData?.seo?.title || "Toyota Hiace 12-Seater Bus Rental",
-    "image": `${getBaseUrl()}/images/fleet/hiace-hero-professional.png`,
+    "image": `${getBaseUrl()}/images/fleet/hiace.png`,
     "description": vehicleData?.seo?.description || "Rent Toyota Hiace bus in Makkah. Reliable 12-seater transport for Umrah groups and large families.",
     "brand": { "@type": "Brand", "name": "Toyota" },
     "offers": { "@type": "Offer", "price": "350", "priceCurrency": "SAR", "availability": "https://schema.org/InStock" }
 };
 
 export const metadata: Metadata = {
-    title: "Toyota Hiace Bus Rental Makkah | Cheap Group Transport",
+    title: "Toyota Hiace Group Van Makkah",
     description: "Book Toyota Hiace 12-seater bus for Umrah groups. Affordable transport from Jeddah Airport to Makkah & Madinah. Reliable & spacious.",
     keywords: [
         "Toyota Hiace Rental Makkah",
@@ -44,9 +40,9 @@ export const metadata: Metadata = {
     ],
     alternates: { canonical: '/fleet/toyota-hiace' },
     openGraph: {
-        title: "Toyota Hiace Bus Rental Makkah | Cheap Group Transport",
+        title: "Toyota Hiace Group Van Makkah",
         description: "Book Toyota Hiace 12-seater bus for Umrah groups. Affordable transport from Jeddah Airport to Makkah & Madinah. Reliable & spacious.",
-        images: [{ url: '/images/fleet/hiace-hero-professional.png', width: 1200, height: 630, alt: 'Toyota Hiace Bus' }]
+        images: [{ url: '/images/fleet/hiace.png', width: 1200, height: 630, alt: 'Toyota Hiace Bus' }]
     }
 };
 
@@ -66,12 +62,11 @@ const hiaceFAQs = [
 ];
 
 export default async function ToyotaHiacePage() {
-    const phoneNumber = BUSINESS_PHONE.display;
-    const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20Toyota%20Hiace%20for%20Group%20Umrah`;
+    const whatsappLink = `https://api.whatsapp.com/send?phone=${BUSINESS_PHONE.digits}&text=I%20am%20interested%20in%20booking%20Toyota%20Hiace%20for%20Group%20Umrah`;
 
     // Toyota Hiace ID: 692db09834f15bc89b45a5fb
     const hiaceId = '692db09834f15bc89b45a5fb';
-    const hiaceImage = '/images/fleet/hiace-hero-professional.png';
+    const hiaceImage = '/images/fleet/hiace.png';
 
     return (
         <main className="overflow-x-hidden">
@@ -100,7 +95,7 @@ export default async function ToyotaHiacePage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
                             <FleetFeatureImage
-                                src="/images/fleet/hiace-feature.png"
+                                src="/images/fleet/hiace.png"
                                 alt="Toyota Hiace Bus"
                                 fallbackSrc={hiaceImage}
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
@@ -187,22 +182,6 @@ export default async function ToyotaHiacePage() {
                         {/* 1000+ Word SEO Injection */}
             <OtherFleetSEO vehicleId="hiace" />
 
-            {/* 360 Interior Preview (Placeholder) */}
-            <section className="py-16 bg-slate-900 text-white overflow-hidden relative">
-                <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
-                <div className="container mx-auto px-4 text-center relative z-10">
-                    <span className="text-emerald-500 font-bold tracking-widest uppercase text-sm mb-4 block">Spacious Group Travel</span>
-                    <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8">Step Inside</h2>
-
-                    <div className="max-w-6xl mx-auto">
-                        <Interior360Viewer
-                            imageUrl="/images/fleet/hiace-interior-360.jpg"
-                            title="Toyota Hiace Interior"
-                        />
-                    </div>
-                    <p className="text-slate-400 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
-                </div>
-            </section>
 
             {/* Use Cases */}
             <section className="py-16 bg-slate-50 dark:bg-slate-950">

@@ -12,7 +12,7 @@ import { getSectionContent, getSectionImage, getCustomField } from '@/lib/conten
 
 export async function generateMetadata() {
     return {
-        title: "Umrah Taxi Fleet 2025 | Book GMC Yukon & Hyundai Staria",
+        title: { absolute: "Umrah Taxi Fleet: GMC Yukon to Coaster | Ahsas Cab" },
         description: "Explore our premium Umrah taxi fleet. Book a luxury GMC Yukon XL, family Hyundai Staria, or Toyota Hiace for your journey in Saudi Arabia.",
         keywords: [
             // Fleet / Vehicle Core (25)
@@ -38,7 +38,7 @@ export default async function FleetPage() {
 
     const title = section?.title || "Our Premium Fleet";
     const subtitle = section?.subtitle || "Experience luxury and comfort with our diverse range of vehicles, tailored for your spiritual journey.";
-    const bgImage = getSectionImage(section, 'desktop') || "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2000&auto=format&fit=crop";
+    const bgImage = getSectionImage(section, 'desktop') || "/images/fleet/intercity-hero.png";
     const badge = getCustomField(section, 'badge_text') || "Premium Collection 2025";
 
     return (

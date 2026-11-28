@@ -140,7 +140,7 @@ export default function ExpandedSEOContent() {
                         <div className="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col items-center text-center group hover:border-amber-500/50 transition-colors">
                             <h4 className="font-bold text-xl mb-3 text-slate-900 dark:text-white group-hover:text-amber-600 transition-colors">Toyota Camry Sedan</h4>
                             <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 flex-1">
-                                Affordable, comfortable, and reliable. The preferred choice for solo travelers and couples carrying standard luggage. The most common vehicle for <Link href="/services/makkah-jeddah-taxi" className="font-semibold underline underline-offset-2">Makkah to Jeddah city</Link> drop-offs.
+                                Affordable, comfortable, and reliable. The preferred choice for solo travelers and couples carrying standard luggage. The most common vehicle for <Link href="/routes/makkah-to-jeddah-airport" className="font-semibold underline underline-offset-2">Makkah to Jeddah city</Link> drop-offs.
                             </p>
                             <Link href="/fleet/toyota-camry" className="text-sm font-bold text-amber-600 flex items-center gap-1 group-hover:gap-2 transition-all">
                                 View Camry Details <ChevronRight size={16} />

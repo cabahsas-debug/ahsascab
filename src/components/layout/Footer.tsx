@@ -14,11 +14,11 @@ export default function Footer() {
     const { contact, general } = settings;
 
     const popularRoutes = [
-        { label: "Jeddah Airport to Makkah", href: "/services/jeddah-makkah-taxi" },
+        { label: "Jeddah Airport to Makkah", href: "/routes/jeddah-airport-to-makkah" },
         { label: "Makkah to Madinah Taxi", href: "/services/makkah-madinah-taxi" },
         { label: "Madinah Airport to Hotel", href: "/services/madinah-airport-transfer" },
-        { label: "Jeddah to Madinah", href: "/services/jeddah-madinah-taxi" },
-        { label: "Makkah to Jeddah Airport", href: "/services/makkah-jeddah-taxi" },
+        { label: "Jeddah to Madinah", href: "/routes/jeddah-airport-to-madinah" },
+        { label: "Makkah to Jeddah Airport", href: "/routes/makkah-to-jeddah-airport" },
     ];
 
     const religiousSites = [
@@ -56,10 +56,10 @@ export default function Footer() {
 
                     {/* Column 2: Popular Routes (3 cols) */}
                     <div className="lg:col-span-3 flex flex-col">
-                        <h3 className="text-lg font-bold font-playfair text-white mb-6 relative inline-block">
+                        <h2 className="text-lg font-bold font-playfair text-white mb-6 relative inline-block">
                             <span className="relative z-10">Popular Routes</span>
                             <span className="absolute bottom-1 left-0 w-1/2 h-2 bg-primary/20 -z-0"></span>
-                        </h3>
+                        </h2>
                         <ul className="space-y-3">
                             {popularRoutes.map((link) => (
                                 <li key={link.href}>
@@ -79,10 +79,10 @@ export default function Footer() {
 
                     {/* Column 3: Services & Ziyarat (2 cols) */}
                     <div className="lg:col-span-2 flex flex-col">
-                        <h3 className="text-lg font-bold font-playfair text-white mb-6 relative inline-block">
+                        <h2 className="text-lg font-bold font-playfair text-white mb-6 relative inline-block">
                             <span className="relative z-10">Services</span>
                             <span className="absolute bottom-1 left-0 w-1/2 h-2 bg-primary/20 -z-0"></span>
-                        </h3>
+                        </h2>
                         <ul className="space-y-3">
                             {servicesLinks.map((link) => (
                                 <li key={link.href}>
@@ -93,7 +93,7 @@ export default function Footer() {
                             ))}
                         </ul>
 
-                        <h4 className="text-sm font-bold font-playfair text-white mt-8 mb-4">Top Sites</h4>
+                        <h3 className="text-sm font-bold font-playfair text-white mt-8 mb-4">Top Sites</h3>
                         <ul className="space-y-2">
                             {religiousSites.map((site) => (
                                 <li key={site.label}>
@@ -107,10 +107,10 @@ export default function Footer() {
 
                     {/* Column 4: Fleet & Newsletter (3 cols) */}
                     <div className="lg:col-span-3 flex flex-col">
-                        <h3 className="text-lg font-bold font-playfair text-white mb-6 relative inline-block">
+                        <h2 className="text-lg font-bold font-playfair text-white mb-6 relative inline-block">
                             <span className="relative z-10">Our Fleet</span>
                             <span className="absolute bottom-1 left-0 w-1/2 h-2 bg-primary/20 -z-0"></span>
-                        </h3>
+                        </h2>
                         <div className="grid grid-cols-2 gap-3 mb-8">
                             {fleetLinks.map((link) => (
                                 <Link
@@ -124,7 +124,7 @@ export default function Footer() {
                         </div>
 
                         <div className="bg-primary/10 rounded-xl p-5 border border-primary/20">
-                            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-2">Subscribe</h4>
+                            <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-2">Subscribe</h3>
                             <p className="text-xs text-white/50 mb-4">Get the latest Umrah travel updates.</p>
                             <form className="relative" onSubmit={(e) => e.preventDefault()}>
                                 <input

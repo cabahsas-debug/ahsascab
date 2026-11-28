@@ -40,9 +40,9 @@ export default function FooterBrand({ general, contact }: FooterBrandProps) {
 
             <div className="space-y-4">
                 <a
-                    href={`https://wa.me/${BUSINESS_PHONE.digits}`}
+                    href={`https://api.whatsapp.com/send?phone=${BUSINESS_PHONE.digits}`}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-3 w-full p-4 rounded-xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-300 group"
                 >
                     <div className="w-10 h-10 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center group-hover:bg-green-500 group-hover:text-white transition-colors">
@@ -84,7 +84,7 @@ export default function FooterBrand({ general, contact }: FooterBrandProps) {
                                 key={idx}
                                 href={social.href}
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noopener noreferrer"
                                 className="w-10 h-10 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-white/60 transition-all duration-300 hover:bg-primary hover:border-primary hover:text-secondary hover:-translate-y-1"
                                 aria-label={social.label}
                             >

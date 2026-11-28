@@ -58,7 +58,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin'
+            value: 'strict-origin-when-cross-origin'
           },
           {
             key: 'Content-Security-Policy',
@@ -78,6 +78,22 @@ const nextConfig: NextConfig = {
       {
         source: '/umrah/blog/:slug',
         destination: '/blog/:slug',
+        permanent: true,
+      },
+      // Old footer links that never had a page
+      {
+        source: '/services/jeddah-makkah-taxi',
+        destination: '/routes/jeddah-airport-to-makkah',
+        permanent: true,
+      },
+      {
+        source: '/services/jeddah-madinah-taxi',
+        destination: '/routes/jeddah-airport-to-madinah',
+        permanent: true,
+      },
+      {
+        source: '/services/makkah-jeddah-taxi',
+        destination: '/routes/makkah-to-jeddah-airport',
         permanent: true,
       },
     ];

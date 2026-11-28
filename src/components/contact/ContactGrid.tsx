@@ -34,7 +34,7 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
             title: "WhatsApp Support (واتساب)",
             value: "Instant replies for bookings",
             sub: "Average response: < 5 mins",
-            action: `https://wa.me/${whatsapp.replace(/\D/g, '')}`,
+            action: `https://api.whatsapp.com/send?phone=${whatsapp.replace(/\D/g, '')}`,
             btnText: "Chat on WhatsApp",
             type: 'whatsapp'
         },

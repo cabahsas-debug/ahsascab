@@ -9,11 +9,7 @@ import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import OtherFleetSEO from '@/components/fleet/OtherFleetSEO';
-import dynamic from 'next/dynamic';
 
-const Interior360Viewer = dynamic(() => import('@/components/fleet/Interior360Viewer'), {
-    loading: () => <div className="h-[500px] w-full bg-slate-900 rounded-3xl animate-pulse flex items-center justify-center text-slate-500">Loading 3D View...</div>
-});
 
 import pricingData from '@/data/pricing.json';
 
@@ -23,7 +19,7 @@ const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": vehicleData?.seo?.title || "Hyundai H1 Starex Van Rental",
-    "image": `${getBaseUrl()}/images/fleet/starex-hero-professional.png`,
+    "image": `${getBaseUrl()}/images/fleet/starex.png`,
     "description": vehicleData?.seo?.description || "Rent Hyundai H1 Starex 7-seater van in Makkah. Spacious family transport for Umrah.",
     "brand": { "@type": "Brand", "name": "Hyundai" },
     "offers": { "@type": "Offer", "price": "250", "priceCurrency": "SAR", "availability": "https://schema.org/InStock" }
@@ -37,7 +33,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: vehicleData?.seo?.title,
         description: vehicleData?.seo?.description,
-        images: [{ url: '/images/fleet/starex-hero-professional.png', width: 1200, height: 630, alt: 'Hyundai H1 Starex' }]
+        images: [{ url: '/images/fleet/starex.png', width: 1200, height: 630, alt: 'Hyundai H1 Starex' }]
     }
 };
 
@@ -57,12 +53,11 @@ const starexFAQs = [
 ];
 
 export default async function HyundaiStarexPage() {
-    const phoneNumber = BUSINESS_PHONE.display;
-    const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20Hyundai%20H1%20Starex%20for%20Umrah`;
+    const whatsappLink = `https://api.whatsapp.com/send?phone=${BUSINESS_PHONE.digits}&text=I%20am%20interested%20in%20booking%20Hyundai%20H1%20Starex%20for%20Umrah`;
 
     // Hyundai Starex ID: 692db09834f15bc89b45a5fa
     const starexId = '692db09834f15bc89b45a5fa';
-    const starexImage = '/images/fleet/starex-hero-professional.png';
+    const starexImage = '/images/fleet/starex.png';
 
     return (
         <main className="overflow-x-hidden">
@@ -91,7 +86,7 @@ export default async function HyundaiStarexPage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
                             <FleetFeatureImage
-                                src="/images/fleet/starex-feature.png"
+                                src="/images/fleet/starex.png"
                                 alt="Hyundai H1 Starex Interior"
                                 fallbackSrc={starexImage}
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
@@ -178,22 +173,6 @@ export default async function HyundaiStarexPage() {
                         {/* 1000+ Word SEO Injection */}
             <OtherFleetSEO vehicleId="starex" />
 
-            {/* 360 Interior Preview (Placeholder) */}
-            <section className="py-16 bg-slate-900 text-white overflow-hidden relative">
-                <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
-                <div className="container mx-auto px-4 text-center relative z-10">
-                    <span className="text-teal-500 font-bold tracking-widest uppercase text-sm mb-4 block">Budget Friendly Comfort</span>
-                    <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8">Step Inside</h2>
-
-                    <div className="max-w-6xl mx-auto">
-                        <Interior360Viewer
-                            imageUrl="/images/fleet/starex-interior-360.jpg"
-                            title="Hyundai H1 Starex Interior"
-                        />
-                    </div>
-                    <p className="text-slate-400 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
-                </div>
-            </section>
 
             {/* Use Cases */}
             <section className="py-16 bg-slate-50 dark:bg-slate-950">

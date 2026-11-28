@@ -39,8 +39,10 @@ export default function GlassButton({
     );
 
     if (href) {
+        // Links opening a new tab must not expose window.opener to the target site.
+        const rel = props.target === '_blank' ? 'noopener noreferrer' : undefined;
         return (
-            <Link href={href} className={baseStyles} {...(props as any)}>
+            <Link href={href} className={baseStyles} rel={rel} {...(props as any)}>
                 {children}
             </Link>
         );

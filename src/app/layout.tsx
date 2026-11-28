@@ -60,7 +60,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return constructMetadata({
     title: undefined, // Uses default from utility
     description: undefined, // Uses default from utility
-    image: '/images/og-default.jpg', // Fallback image
+    image: '/images/blog/makkah-haram-view-new.png', // Fallback image
   });
 }
 

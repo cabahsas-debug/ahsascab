@@ -21,7 +21,7 @@ const ReviewsSection = dynamic(() => import('@/components/reviews/ReviewsSection
 
 export async function generateMetadata() {
     return constructMetadata({
-        title: "Umrah Taxi Services & Ziyarat Tours | Jeddah, Makkah, Madinah",
+        title: "Umrah Taxi Services & Ziyarat Tours | Ahsas Cab",
         description: "Comprehensive Umrah transport services: Jeddah Airport pickup, Makkah to Madinah taxi, and historic Ziyarat tours. Reliable 24/7 service.",
         keywords: [
             "Umrah Taxi Services", "Ziyarat Tours Makkah", "Intercity Transfers Saudi",
@@ -71,8 +71,8 @@ export default function ServicesPage() {
         {
             title: 'VIP Luxury GMC Yukon Umrah Transport',
             description: 'Travel in style with our VIP service. Top-of-the-line vehicles (GMC Yukon XL) and private chauffeurs for maximum privacy and ease.',
-            image: '/images/fleet/gmc-yukon-hero-professional.png',
-            link: '/booking?service=luxury',
+            image: '/images/fleet/gmc-yukon-hero.png',
+            link: '/booking?vehicle=gmc',
             features: ['Private Chauffeur', 'Latest Model Vehicles', 'Privacy Partition'],
             alt: 'GMC Yukon XL 2025 VIP Black SUV for Umrah Transport'
         },
@@ -119,7 +119,7 @@ export default function ServicesPage() {
             <Hero
                 title="Trusted Umrah Transport Services in Saudi Arabia"
                 subtitle="From Jeddah Airport pickup to Ziyarat tours, we provide safe, affordable, and comfortable taxi services for pilgrims."
-                bgImage="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?q=80&w=2000&auto=format&fit=crop"
+                bgImage="/images/routes/makkah-madinah-route-hero.png"
                 ctaText="Book Your Ride"
                 ctaLink="/booking"
                 secondaryCtaText="Contact Us"

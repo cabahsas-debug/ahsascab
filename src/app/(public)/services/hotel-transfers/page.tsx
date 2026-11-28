@@ -10,7 +10,7 @@ import { constructMetadata } from '@/lib/metadata';
 
 export async function generateMetadata() {
     return constructMetadata({
-        title: "Makkah & Madinah Hotel Transfers | Umrah Taxi Service",
+        title: "Makkah & Madinah Hotel Transfers | Ahsas Cab",
         description: "Comfortable hotel-to-hotel transfers in Makkah and Madinah. Door-to-door service available 24/7. توصيل فنادق مكة والمدينة.",
         keywords: [
             "Makkah hotel transfer", "Madinah hotel taxi", "Umrah hotel pickup",
@@ -27,7 +27,7 @@ export default function HotelTransferPage() {
             <Hero
                 title="Premium Hotel Transfers"
                 subtitle="Seamless door-to-door transport between your hotel and the Holy Mosques in Makkah & Madinah."
-                bgImage="/images/services/hotel-transfer-real.jpg"
+                bgImage="/images/services/hotel-transfers-v2.png"
                 ctaText="Book Your Ride"
                 ctaLink="/booking"
                 layout="center"

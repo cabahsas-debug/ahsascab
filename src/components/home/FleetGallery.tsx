@@ -8,7 +8,7 @@ import { ChevronLeft, ChevronRight, Users, Briefcase, Star, ArrowRight } from 'l
 
 const FLEET_IMAGES = [
     {
-        src: '/images/fleet/gmc-yukon-hero-professional.png',
+        src: '/images/fleet/gmc-yukon-hero.png',
         alt: 'GMC Yukon AT4 Black VIP SUV Front View',
         name: 'GMC Yukon 2025',
         badge: 'VIP Choice',
@@ -18,7 +18,7 @@ const FLEET_IMAGES = [
         gradient: 'from-amber-500/20 to-amber-900/40'
     },
     {
-        src: '/images/fleet/staria-hero-professional.png',
+        src: '/images/fleet/staria.png',
         alt: 'Hyundai Staria Luxury Van for Families',
         name: 'Hyundai Staria',
         badge: 'Family Favorite',
@@ -28,7 +28,7 @@ const FLEET_IMAGES = [
         gradient: 'from-blue-500/20 to-slate-900/40'
     },
     {
-        src: '/images/fleet/camry-hero-professional.png',
+        src: '/images/fleet/camry.png',
         alt: 'Toyota Camry Recent Model White Sedan',
         name: 'Toyota Camry',
         badge: 'Best Value',
@@ -38,7 +38,7 @@ const FLEET_IMAGES = [
         gradient: 'from-emerald-500/20 to-slate-900/40'
     },
     {
-        src: '/images/fleet/hiace-hero-professional.png',
+        src: '/images/fleet/hiace.png',
         alt: 'Toyota Hiace Commuter Bus High Roof White',
         name: 'Toyota Hiace',
         badge: 'Large Groups',
@@ -48,7 +48,7 @@ const FLEET_IMAGES = [
         gradient: 'from-slate-500/20 to-slate-900/40'
     },
     {
-        src: '/images/fleet/starex-hero-professional.png',
+        src: '/images/fleet/starex.png',
         alt: 'Hyundai H1 Starex Practical Family Van',
         name: 'Hyundai H1',
         badge: 'Comfort',
@@ -58,7 +58,7 @@ const FLEET_IMAGES = [
         gradient: 'from-purple-500/20 to-slate-900/40'
     },
     {
-        src: '/images/fleet/coaster-hero-professional.png',
+        src: '/images/fleet/coaster.png',
         alt: 'Toyota Coaster 21 Seater Bus',
         name: 'Toyota Coaster',
         badge: 'Group Travel',
@@ -87,7 +87,6 @@ export default function FleetGallery() {
     return (
         <section className="py-24 bg-slate-50 dark:bg-slate-950 border-y border-slate-200 dark:border-white/5 relative overflow-hidden">
             {/* Background Pattern */}
-            <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.03] dark:opacity-[0.05] pointer-events-none mix-blend-multiply dark:mix-blend-overlay" />
 
             {/* Ambient Glows */}
             <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#D4AF37]/10 rounded-full blur-[100px] pointer-events-none" />

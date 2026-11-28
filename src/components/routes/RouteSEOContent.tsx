@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { PlaneLanding, PlaneTakeoff, MapPin, Shield, CheckCircle2, Clock, Landmark } from 'lucide-react';
 import ExpandedZiyaratSEO from '../services/ExpandedZiyaratSEO';
 
-export default function RouteSEOContent({ slug }: { slug: string }) {
+export default function RouteSEOContent({ slug, routeName }: { slug: string; routeName: string }) {
 
     // Ziyarat Routes - Reuse the comprehensive Ziyarat SEO component
     if (['makkah-ziyarat-taxi', 'madinah-ziyarat-taxi', 'madinah-ziyarat-wadi-jinn'].includes(slug)) {
@@ -21,7 +21,7 @@ export default function RouteSEOContent({ slug }: { slug: string }) {
 
                     <div className="prose prose-lg dark:prose-invert max-w-none text-slate-700 dark:text-slate-300">
                         <p className="lead text-xl mb-8">
-                            Arriving at <strong>King Abdulaziz International Airport (KAIA)</strong> in Jeddah is the beginning of your spiritual journey. Securing a reliable <Link href="/booking?route=jeddah-airport-to-makkah" className="text-amber-600 hover:underline font-semibold">Jeddah Airport to Makkah taxi</Link> ensures you transition from your flight to the Holy City seamlessly and safely.
+                            Arriving at <strong>King Abdulaziz International Airport (KAIA)</strong> in Jeddah is the beginning of your spiritual journey. Securing a reliable <Link href="/booking" className="text-amber-600 hover:underline font-semibold">Jeddah Airport to Makkah taxi</Link> ensures you transition from your flight to the Holy City seamlessly and safely.
                         </p>
 
                         <div className="bg-amber-50 dark:bg-slate-900/50 p-8 rounded-2xl mb-10 border border-amber-100 dark:border-slate-800">
@@ -59,7 +59,7 @@ export default function RouteSEOContent({ slug }: { slug: string }) {
                     </h2>
                     <div className="prose prose-lg dark:prose-invert max-w-none text-slate-700 dark:text-slate-300">
                         <p className="lead text-xl mb-8">
-                            Concluding your Umrah journey requires a punctual and stress-free transfer. Our <Link href="/booking?route=makkah-to-jeddah-airport" className="text-amber-600 hover:underline font-semibold">Makkah to Jeddah Airport taxi</Link> service guarantees you catch your flight on time.
+                            Concluding your Umrah journey requires a punctual and stress-free transfer. Our <Link href="/booking" className="text-amber-600 hover:underline font-semibold">Makkah to Jeddah Airport taxi</Link> service guarantees you catch your flight on time.
                         </p>
 
                         <div className="bg-amber-50 dark:bg-slate-900/50 p-8 rounded-2xl mb-10 border border-amber-100 dark:border-slate-800">
@@ -90,7 +90,7 @@ export default function RouteSEOContent({ slug }: { slug: string }) {
 
                     <div className="prose prose-lg dark:prose-invert max-w-none text-slate-700 dark:text-slate-300">
                         <p className="lead text-xl mb-8">
-                            The journey between the two Holy Mosques is a deeply significant part of your pilgrimage. Booking a reliable and comfortable <Link href={`/booking?route=${slug}`} className="text-amber-600 hover:underline font-semibold">private intercity taxi</Link> is essential for the 450-kilometer journey via the Hijrah Highway.
+                            The journey between the two Holy Mosques is a deeply significant part of your pilgrimage. Booking a reliable and comfortable <Link href="/booking" className="text-amber-600 hover:underline font-semibold">private intercity taxi</Link> is essential for the 450-kilometer journey via the Hijrah Highway.
                         </p>
 
                         <div className="bg-slate-50 dark:bg-slate-900/50 p-8 rounded-2xl mb-10 border border-slate-200 dark:border-slate-800">
@@ -142,7 +142,7 @@ export default function RouteSEOContent({ slug }: { slug: string }) {
                             Ensure a smooth start or end to your stay in the City of the Prophet. Prince Mohammad Bin Abdulaziz International Airport (MED) is located about 20km from the central Haram area (Markaziya).
                         </p>
                         <p>
-                            Pre-booking your <Link href={`/booking?route=${slug}`} className="text-amber-600 hover:underline font-semibold">Madinah airport taxi</Link> means no waiting in queues outside the terminal. The swift 25-minute journey in our clean, air-conditioned vehicles provides the perfect peace of mind.
+                            Pre-booking your <Link href="/booking" className="text-amber-600 hover:underline font-semibold">Madinah airport taxi</Link> means no waiting in queues outside the terminal. The swift 25-minute journey in our clean, air-conditioned vehicles provides the perfect peace of mind.
                         </p>
                         {isArrival && (
                             <ul className="mt-6 font-medium">
@@ -188,7 +188,7 @@ export default function RouteSEOContent({ slug }: { slug: string }) {
             <div className="container mx-auto px-4 max-w-4xl">
                 <div className="prose prose-lg dark:prose-invert max-w-none text-slate-700 dark:text-slate-300">
                     <h2 className="text-3xl font-bold font-playfair mb-6 text-slate-900 dark:text-white">
-                        Private Taxi Service for this Route
+                        Private Taxi: {routeName}
                     </h2>
                     <p className="mb-4">
                         Ahsas Cab provides premium, direct door-to-door transportation. Booking a private taxi ensures you don't have to share your vehicle, wait in long lines, or handle luggage struggles.

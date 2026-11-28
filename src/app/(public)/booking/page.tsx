@@ -1519,7 +1519,7 @@ export default function BookingPage() {
                         <div className="hidden print:flex flex-row justify-between items-center p-8 border-b border-slate-100">
                             <div className="flex items-center gap-4">
                                 <div className="relative w-16 h-16">
-                                    <Image src="/logo.png" alt="Ahsas Alrihlat" fill className="object-contain" />
+                                    <Image src="/ahsas-logo-v2.png" alt="Ahsas Alrihlat" fill className="object-contain" />
                                 </div>
                                 <div>
                                     <h1 className="text-xl font-bold text-slate-900">Ahsas Alrihlat</h1>

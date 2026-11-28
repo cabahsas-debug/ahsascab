@@ -47,8 +47,7 @@ const madinahAirportFAQs = [
 ];
 
 export default async function MadinahAirportPage() {
-    const phoneNumber = BUSINESS_PHONE.display;
-    const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20need%20pickup%20from%20Madinah%20Airport`;
+    const whatsappLink = `https://api.whatsapp.com/send?phone=${BUSINESS_PHONE.digits}&text=I%20need%20pickup%20from%20Madinah%20Airport`;
 
     return (
         <main className="overflow-x-hidden">
